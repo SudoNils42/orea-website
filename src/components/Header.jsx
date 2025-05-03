@@ -68,7 +68,7 @@ const Header = ({ scrollY, openModal }) => {
           <button 
             onClick={openModal} 
             className="btn btn-primary flex items-center"
-            aria-label="Ouvrir la visite 3D"
+            aria-label="Visite 3D"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />
@@ -156,7 +156,7 @@ const Header = ({ scrollY, openModal }) => {
                   <button 
                     onClick={() => { closeMenu(); openModal(); }} 
                     className="btn btn-primary w-full flex items-center justify-center"
-                    aria-label="Ouvrir la visite 3D"
+                    aria-label="Visite 3D"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />

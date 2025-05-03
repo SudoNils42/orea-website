@@ -14,6 +14,7 @@ import MatterportModal from './components/MatterportModal';
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [defaultFullscreen, setDefaultFullscreen] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +37,10 @@ function App() {
     document.body.style.overflow = 'auto';
   };
 
+  const handleFullscreenChange = (isFullscreen) => {
+    setDefaultFullscreen(isFullscreen);
+  };
+
   return (
     <div className="relative min-h-screen">
       <Header scrollY={scrollY} openModal={openModal} />
@@ -54,7 +59,12 @@ function App() {
       <Footer openModal={openModal} />
       
       {isModalOpen && (
-        <MatterportModal isOpen={isModalOpen} onClose={closeModal} />
+        <MatterportModal 
+          isOpen={isModalOpen} 
+          onClose={closeModal} 
+          defaultFullscreen={defaultFullscreen}
+          onFullscreenChange={handleFullscreenChange}
+        />
       )}
     </div>
   );
