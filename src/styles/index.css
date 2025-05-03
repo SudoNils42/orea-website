@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles globaux */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Styles pour le loader */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #E6C67A;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Effet de verre dépoli */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Style personnalisé pour la scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #04593F;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E6C67A;
+}
+
+/* Styles pour les transitions */
+.page-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Styles pour les boutons */
+.btn {
+  @apply px-6 py-3 font-inter font-semibold rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+  @apply bg-emerald text-pure-white hover:bg-opacity-90 focus:ring-emerald;
+}
+
+.btn-secondary {
+  @apply bg-pale-gold text-deep-black hover:bg-opacity-90 focus:ring-pale-gold;
+}
+
+.btn-outline {
+  @apply border-2 border-emerald text-emerald hover:bg-emerald hover:text-pure-white focus:ring-emerald;
+}
+
+.dark .btn-outline {
+  @apply border-pale-gold text-pale-gold hover:bg-pale-gold hover:text-deep-black focus:ring-pale-gold;
+}
+
+/* Styles pour les titres */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-inter;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-black;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl font-bold;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl font-semibold;
+}
+
+/* Styles pour les citations et sous-titres */
+.subtitle, blockquote {
+  @apply font-lora;
+}
+
+/* Animation du menu hamburger */
+.hamburger-line {
+  @apply w-6 h-0.5 bg-deep-black dark:bg-pure-white transition-all duration-300;
+}
+
+.hamburger-active .hamburger-line:nth-child(1) {
+  @apply rotate-45 translate-y-1.5;
+}
+
+.hamburger-active .hamburger-line:nth-child(2) {
+  @apply opacity-0;
+}
+
+.hamburger-active .hamburger-line:nth-child(3) {
+  @apply -rotate-45 -translate-y-1.5;
+}
+
+/* Style pour la section FAQ */
+.faq-item {
+  @apply border-b border-gray-200 dark:border-gray-700 py-4;
+}
+
+.faq-question {
+  @apply font-inter font-bold text-lg flex justify-between items-center w-full text-left py-2 px-4;
+}
+
+.faq-answer {
+  @apply font-lora py-2 px-4 text-gray-700 dark:text-gray-300;
+}
+
+/* Style pour le formulaire de contact */
+.form-input {
+  @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald dark:focus:ring-pale-gold bg-white dark:bg-gray-800 text-deep-black dark:text-pure-white;
+}
+
+.form-label {
+  @apply block mb-2 font-medium;
+}
+
+/* Toast notifications */
+.toast {
+  @apply fixed bottom-4 right-4 px-6 py-3 rounded-md shadow-lg z-50 transition-all duration-300 transform translate-y-0;
+}
+
+.toast-success {
+  @apply bg-green-500 text-white;
+}
+
+.toast-error {
+  @apply bg-red-500 text-white;
+} 
