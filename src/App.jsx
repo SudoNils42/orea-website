@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -15,6 +15,8 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [defaultFullscreen, setDefaultFullscreen] = useState(true);
+  const [is3DInteractive, setIs3DInteractive] = useState(false);
+  const heroRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +26,20 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Ajouter un gestionnaire d'événements global pour désactiver le mode interactif
+    const handleClickOutside = (e) => {
+      if (heroRef.current && !heroRef.current.contains(e.target)) {
+        setIs3DInteractive(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
@@ -41,12 +57,21 @@ function App() {
     setDefaultFullscreen(isFullscreen);
   };
 
+  const handle3DInteractiveChange = (isInteractive) => {
+    setIs3DInteractive(isInteractive);
+  };
+
   return (
     <div className="relative min-h-screen">
       <Header scrollY={scrollY} openModal={openModal} />
       
       <main>
-        <Hero openModal={openModal} />
+        <Hero 
+          ref={heroRef}
+          openModal={openModal} 
+          is3DInteractive={is3DInteractive}
+          onInteractiveChange={handle3DInteractiveChange}
+        />
         <About openModal={openModal} />
         <Amenities />
         <Pricing />

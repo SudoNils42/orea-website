@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const Hero = ({ openModal }) => {
+const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, ref) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
   const { scrollY } = useScroll();
   
   // Effet parallax
@@ -18,9 +19,26 @@ const Hero = ({ openModal }) => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleIframeClick = () => {
+    if (onInteractiveChange) {
+      onInteractiveChange(true);
+    }
+    setIsHovering(true);
+  };
+
+  const handleContainerMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleContainerMouseLeave = () => {
+    setIsHovering(false);
+    // On garde le mode interactif même quand on quitte la zone
+    // Pour le désactiver, l'utilisateur doit cliquer ailleurs
+  };
+
   return (
     <section className="relative w-full py-16 md:py-20 overflow-visible">
-      <div className="container mx-auto px-4 md:px-6">
+      <div ref={ref} className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Contenu du héro */}
           <motion.div
@@ -45,8 +63,14 @@ const Hero = ({ openModal }) => {
                 <path d="M10 8a2 2 0 100 4 2 2 0 000-4z" />
                 <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM5.172 12.828a6 6 0 118.656 0 6 6 0 01-8.656 0z" clipRule="evenodd" />
               </svg>
-              Visite 3D
+              Visite 3D plein écran
             </button>
+            
+            {!isLoading && (
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 italic">
+                Vous pouvez aussi interagir directement avec la visite 3D ci-contre →
+              </p>
+            )}
           </motion.div>
 
           {/* Iframe Matterport dans un conteneur */}
@@ -54,7 +78,9 @@ const Hero = ({ openModal }) => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative aspect-video w-full rounded-lg overflow-hidden shadow-xl border-2 border-emerald/20 dark:border-emerald/40"
+            className={`relative aspect-video w-full rounded-lg overflow-hidden shadow-xl border-2 ${(isHovering || is3DInteractive) ? 'border-emerald' : 'border-emerald/20 dark:border-emerald/40'} transition-all duration-300`}
+            onMouseEnter={handleContainerMouseEnter}
+            onMouseLeave={handleContainerMouseLeave}
           >
             {/* Fallback placeholder en attendant que l'iframe se charge */}
             <div className={`absolute inset-0 glass-effect transition-opacity duration-700 ${isLoading ? 'opacity-100' : 'opacity-0'}`}>
@@ -70,15 +96,32 @@ const Hero = ({ openModal }) => {
               </div>
             )}
             
-            <iframe
-              src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
-              className={`w-full h-full transition-opacity duration-700 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-              style={{ height: '400px' }}
-              frameBorder="0"
-              allow="xr-spatial-tracking"
-              title="Villa de Luxe à Bali Visite 3D"
-              onLoad={() => setIsLoading(false)}
-            ></iframe>
+            <div className={`matterport-iframe ${is3DInteractive ? 'interactive' : ''}`}>
+              <iframe
+                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
+                className="w-full h-full transition-opacity duration-700"
+                style={{ 
+                  height: '400px',
+                  opacity: isLoading ? 0 : 1,
+                  pointerEvents: is3DInteractive || isHovering ? 'auto' : 'none'
+                }}
+                frameBorder="0"
+                allow="xr-spatial-tracking"
+                title="Villa de Luxe à Bali Visite 3D"
+                onLoad={() => setIsLoading(false)}
+              ></iframe>
+            </div>
+            
+            <div 
+              className={`matterport-overlay ${(is3DInteractive || isHovering) ? 'hidden' : ''}`}
+              onClick={handleIframeClick}
+            >
+              <div className="matterport-play-button">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -107,6 +150,8 @@ const Hero = ({ openModal }) => {
       </motion.div>
     </section>
   );
-};
+});
+
+Hero.displayName = 'Hero';
 
 export default Hero; 
