@@ -64,26 +64,20 @@ const Pricing = () => {
             >
               <h3 className="text-2xl font-bold mb-6 text-center">{t.pricing.bookOnline}</h3>
               
-              <div className="space-y-6">
+              <div className="flex flex-wrap justify-center items-center gap-6">
                 {bookingPlatforms.map((platform) => (
                   <a 
                     key={platform.name}
                     href={platform.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-4 rounded-lg border border-emerald/20 hover:bg-white transition-all duration-300"
+                    className="flex items-center justify-center p-4 rounded-lg border border-emerald/20 hover:bg-white transition-all duration-300 w-[130px] h-[80px]"
                   >
-                    <div className="flex items-center">
-                      <img 
-                        src={platform.logo} 
-                        alt={platform.alt} 
-                        className="h-10 w-auto object-contain"
-                      />
-                      <span className="ml-4 font-semibold">{platform.name}</span>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-emerald" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
+                    <img 
+                      src={platform.logo} 
+                      alt={platform.alt} 
+                      className="h-12 w-auto object-contain"
+                    />
                   </a>
                 ))}
               </div>
