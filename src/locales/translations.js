@@ -11,7 +11,7 @@ const translations = {
       testimonials: "Avis",
       pricing: "Tarifs",
       contact: "Contact",
-      tour3d: "Visite 3D"
+      tour3d: "Immersion Totale"
     },
     // Hero
     hero: {
@@ -19,7 +19,7 @@ const translations = {
       subtitle: "Une retraite luxueuse à Seminyak",
       description: "Découvrez un havre de paix au cœur de Bali",
       cta: "Réserver maintenant",
-      tour3d: "Découvrir en 3D"
+      tour3d: "Immersion Totale"
     },
     // FAQ
     faq: {
@@ -63,7 +63,7 @@ const translations = {
       title: "À Propos de la Villa",
       intro: "Bienvenue à Villa Orea, une élégante retraite de 2 chambres, conçue comme un véritable cocon de tranquillité, parfaite pour couples, petite famille et amis proches dans le quartier animé de Seminyak. À l'entrée, une porte intelligente vous accueille : il suffit d'entrer le code fourni et d'appuyer sur l'icône de la cloche pour déverrouiller votre havre de paix.",
       details: "La villa dispose de 2 chambres luxueuses avec lits king-size, Smart TV avec Netflix et YouTube Premium, et salles de bains attenantes. L'espace de vie semi-ouvert comprend un salon avec Smart TV, un coin bar, et une cuisine entièrement équipée. À l'extérieur, profitez de la piscine privée et du jardin tropical, à seulement quelques minutes des cafés, plages et boutiques de Seminyak.",
-      button3d: "Découvrir en 3D"
+      button3d: "Immersion Totale"
     },
     // Commodités
     amenities: {
@@ -183,7 +183,7 @@ const translations = {
       testimonials: "Reviews",
       pricing: "Pricing",
       contact: "Contact",
-      tour3d: "3D Tour"
+      tour3d: "Full Immersion"
     },
     // Hero
     hero: {
@@ -191,7 +191,7 @@ const translations = {
       subtitle: "A Luxurious Retreat in Seminyak",
       description: "Discover a peaceful haven in the heart of Bali",
       cta: "Book Now",
-      tour3d: "3D Tour"
+      tour3d: "Full Immersion"
     },
     // FAQ
     faq: {
@@ -235,7 +235,7 @@ const translations = {
       title: "About the Villa",
       intro: "Welcome to Villa Orea, a stylish 2-bedroom retreat designed as a true cocoon of tranquility, perfect for couples, small families, or close friends in vibrant Seminyak. At the villa's entrance, a smart door awaits, guests simply enter the code provided and press the bell icon to unlock the gateway to their peaceful retreat.",
       details: "The villa features 2 luxurious bedrooms with king-size beds, Smart TVs with Netflix and YouTube Premium, and ensuite bathrooms. The semi-open living space includes a Smart TV lounge, a cozy bar corner, and a fully equipped kitchen. Outside, enjoy the private pool and tropical garden, just minutes from Seminyak's bustling cafés, beaches, and shops.",
-      button3d: "3D Tour"
+      button3d: "Full Immersion"
     },
     // Amenities
     amenities: {
@@ -355,7 +355,7 @@ const translations = {
       testimonials: "评价",
       pricing: "价格",
       contact: "联系",
-      tour3d: "3D参观"
+      tour3d: "完全沉浸"
     },
     // Hero
     hero: {
@@ -363,14 +363,14 @@ const translations = {
       subtitle: "苍古宁静的豪华度假屋",
       description: "在巴厘岛中心发现宁静的避风港",
       cta: "立即预订",
-      tour3d: "3D参观"
+      tour3d: "完全沉浸"
     },
     // About
     about: {
       title: "关于别墅",
       intro: "欢迎来到 Villa Orea，这是一栋时尚的两卧室别墅，专为打造宁静舒适的私密空间而设计，非常适合情侣、小家庭或亲密朋友，坐落于活力四射的苍古（Seminyak）。进入别墅，您将通过一扇智能门，只需输入提供的密码并点击铃铛图标即可开启通往静谧假期的旅程。",
       details: "别墅内的两间卧室以简约舒适为设计理念，配备特大床、智能电视（支持Netflix与YouTube Premium）、空调及宽敞的储物空间。半开放式起居空间设有一个智能电视区、一个温馨吧台，以及一个设备齐全的厨房。在外面，您可以享受私人泳池和热带花园，距离苍古热闹的咖啡馆、海滩和商店仅几分钟路程。",
-      button3d: "3D参观"
+      button3d: "完全沉浸"
     },
     // Amenities
     amenities: {

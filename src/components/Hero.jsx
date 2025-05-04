@@ -59,10 +59,10 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             </p>
             <button
               onClick={openModal}
-              className="btn btn-primary"
+              className="font-lora text-sm border-b border-pale-gold hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300 flex items-center py-1 px-2 focus:outline-none"
               aria-label={t.hero.tour3d}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 inline-block" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-pale-gold" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />
                 <path d="M10 8a2 2 0 100 4 2 2 0 000-4z" />
                 <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM5.172 12.828a6 6 0 118.656 0 6 6 0 01-8.656 0z" clipRule="evenodd" />
