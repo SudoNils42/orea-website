@@ -61,10 +61,11 @@ const Header = ({ scrollY, openModal }) => {
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#about" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">À propos</a>
           <a href="#amenities" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Commodités</a>
-          <a href="#pricing" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Tarifs</a>
-          <a href="#faq" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">FAQ</a>
           <a href="#gallery" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Galerie</a>
+          <a href="#faq" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">FAQ</a>
+          <a href="#testimonials" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Avis</a>
           <a href="#contact" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Contact</a>
+          <a href="#pricing" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Tarifs</a>
           <button 
             onClick={openModal} 
             className="btn btn-primary flex items-center"
@@ -120,12 +121,12 @@ const Header = ({ scrollY, openModal }) => {
                     Commodités
                   </motion.a>
                   <motion.a 
-                    href="#pricing" 
+                    href="#gallery" 
                     className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
-                    Tarifs
+                    Galerie
                   </motion.a>
                   <motion.a 
                     href="#faq" 
@@ -136,12 +137,12 @@ const Header = ({ scrollY, openModal }) => {
                     FAQ
                   </motion.a>
                   <motion.a 
-                    href="#gallery" 
+                    href="#testimonials" 
                     className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
-                    Galerie
+                    Avis
                   </motion.a>
                   <motion.a 
                     href="#contact" 
@@ -150,6 +151,14 @@ const Header = ({ scrollY, openModal }) => {
                     variants={menuItemVariants}
                   >
                     Contact
+                  </motion.a>
+                  <motion.a 
+                    href="#pricing" 
+                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    onClick={closeMenu}
+                    variants={menuItemVariants}
+                  >
+                    Tarifs
                   </motion.a>
                 </nav>
                 <motion.div className="mt-auto" variants={menuItemVariants}>

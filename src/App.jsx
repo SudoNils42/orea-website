@@ -74,11 +74,11 @@ function App() {
         />
         <About openModal={openModal} />
         <Amenities />
-        <Pricing />
-        <FAQ />
         <Gallery />
+        <FAQ />
         <Testimonials />
         <Contact />
+        <Pricing />
       </main>
       
       <Footer openModal={openModal} />
