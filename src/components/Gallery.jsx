@@ -369,31 +369,54 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Grille d'images pour mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:hidden gap-4">
-          {images.slice(0, visibleImages).map((image, index) => (
-            <div
-              key={`mobile-image-${image.id}`}
-              className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
-              onClick={() => openModal(index)}
-            >
-              <img 
-                src={image.src} 
-                alt={image.alt} 
-                className="w-full h-full object-cover"
-                loading={index > 1 ? "lazy" : "eager"}
-              />
-              <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
-                <p className="text-pure-white text-sm">{image.alt}</p>
-              </div>
+        {/* Slider pour mobile */}
+        <div className="md:hidden">
+          <div className="relative">
+            <div className="overflow-x-auto flex snap-x snap-mandatory hide-scrollbar">
+              {images.map((image, index) => (
+                <div
+                  key={`mobile-image-${image.id}`}
+                  className="snap-center shrink-0 w-[85vw] h-64 mx-2 first:ml-4 last:mr-4 rounded-lg overflow-hidden cursor-pointer"
+                  onClick={() => openModal(index)}
+                >
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="w-full h-full object-cover"
+                    loading={index > 1 ? "lazy" : "eager"}
+                  />
+                  <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
+                    <p className="text-pure-white text-sm">{image.alt}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+            <div className="flex justify-center mt-4 gap-1">
+              {Array.from({ length: Math.min(5, Math.ceil(images.length / 2)) }).map((_, i) => (
+                <div 
+                  key={`dot-${i}`}
+                  className="w-2 h-2 rounded-full bg-pale-gold/30"
+                ></div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Bouton "Voir plus" */}
+        {/* Ajout de style pour masquer la scrollbar tout en gardant la fonctionnalité */}
+        <style jsx="true">{`
+          .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;     /* Firefox */
+          }
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none;             /* Chrome, Safari and Opera */
+          }
+        `}</style>
+
+        {/* Bouton "Voir plus" - seulement pour desktop */}
         {visibleImages < images.length && (
-          <div className="text-center mt-8">
+          <div className="hidden md:block text-center mt-8">
             <button 
               className="btn btn-outline flex items-center mx-auto gap-2"
               onClick={loadMoreImages}
