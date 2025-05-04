@@ -369,37 +369,79 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Slider pour mobile */}
-        <div className="md:hidden">
+        {/* Slider amélioré pour mobile */}
+        <div className="md:hidden px-4">
           <div className="relative">
-            <div className="overflow-x-auto flex snap-x snap-mandatory hide-scrollbar">
-              {images.map((image, index) => (
+            {/* Contrôles de navigation */}
+            <button 
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-deep-black/50 text-pure-white rounded-full p-1 shadow-md"
+              onClick={() => {
+                const container = document.getElementById('mobile-gallery-container');
+                if (container) {
+                  container.scrollBy({ left: -280, behavior: 'smooth' });
+                }
+              }}
+              aria-label="Image précédente"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button 
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-deep-black/50 text-pure-white rounded-full p-1 shadow-md"
+              onClick={() => {
+                const container = document.getElementById('mobile-gallery-container');
+                if (container) {
+                  container.scrollBy({ left: 280, behavior: 'smooth' });
+                }
+              }}
+              aria-label="Image suivante"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            
+            {/* Container du slider */}
+            <div 
+              id="mobile-gallery-container"
+              className="overflow-x-auto flex space-x-3 pb-4 hide-scrollbar snap-x snap-mandatory"
+            >
+              {images.slice(0, 12).map((image, index) => (
                 <div
                   key={`mobile-image-${image.id}`}
-                  className="snap-center shrink-0 w-[85vw] h-64 mx-2 first:ml-4 last:mr-4 rounded-lg overflow-hidden cursor-pointer"
+                  className="snap-center shrink-0 w-[80vw] max-w-[280px] h-[260px] rounded-xl overflow-hidden shadow-lg"
                   onClick={() => openModal(index)}
                 >
-                  <img 
-                    src={image.src} 
-                    alt={image.alt} 
-                    className="w-full h-full object-cover"
-                    loading={index > 1 ? "lazy" : "eager"}
-                  />
-                  <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
-                    <p className="text-pure-white text-sm">{image.alt}</p>
+                  <div className="relative w-full h-full">
+                    <img 
+                      src={image.src} 
+                      alt={image.alt} 
+                      className="w-full h-full object-cover"
+                      loading={index > 1 ? "lazy" : "eager"}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-deep-black/70 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-3">
+                      <p className="text-pure-white text-sm font-medium">{image.alt}</p>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="flex justify-center mt-4 gap-1">
-              {Array.from({ length: Math.min(5, Math.ceil(images.length / 2)) }).map((_, i) => (
+            
+            {/* Indicateur de position */}
+            <div className="flex justify-center mt-4 gap-1.5">
+              {Array.from({ length: Math.min(6, Math.ceil(images.slice(0, 12).length / 2)) }).map((_, i) => (
                 <div 
                   key={`dot-${i}`}
-                  className="w-2 h-2 rounded-full bg-pale-gold/30"
+                  className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
                 ></div>
               ))}
             </div>
+            
+            {/* Texte incitatif */}
+            <p className="text-center text-sm text-pure-white/70 mt-3">Faites glisser pour voir plus d'images</p>
           </div>
         </div>
 
