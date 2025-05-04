@@ -6,7 +6,9 @@ export const FLAGS = {
   en: "🇬🇧",
   zh: "🇨🇳",
   es: "🇪🇸",
-  id: "🇮🇩"
+  id: "🇮🇩",
+  de: "🇩🇪",
+  ru: "🇷🇺"
 };
 
 // Noms des langues
@@ -15,7 +17,9 @@ export const LANGUAGE_NAMES = {
   en: "English",
   zh: "中文",
   es: "Español",
-  id: "Bahasa Indonesia"
+  id: "Bahasa Indonesia",
+  de: "Deutsch",
+  ru: "Русский"
 };
 
 // Création du contexte

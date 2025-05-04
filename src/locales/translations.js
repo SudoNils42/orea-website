@@ -453,6 +453,188 @@ const translations = {
       terms: "Ketentuan Penggunaan",
       cookiePolicy: "Kebijakan Cookie"
     }
+  },
+  
+  // Allemand
+  de: {
+    // Header
+    nav: {
+      about: "Über uns",
+      amenities: "Ausstattung",
+      gallery: "Galerie",
+      faq: "FAQ",
+      testimonials: "Bewertungen",
+      pricing: "Preise",
+      contact: "Kontakt",
+      tour3d: "3D-Tour"
+    },
+    // Hero
+    hero: {
+      title: "Villa Orea",
+      subtitle: "Ein luxuriöser Rückzugsort in Seminyak",
+      description: "Entdecken Sie eine friedliche Oase im Herzen von Bali",
+      cta: "Jetzt buchen",
+      tour3d: "3D-Tour"
+    },
+    // About
+    about: {
+      title: "Über die Villa",
+      intro: "Willkommen in der Villa Orea, einem stilvollen Rückzugsort mit 2 Schlafzimmern, der als wahre Ruheoase konzipiert wurde – perfekt für Paare, kleine Familien oder enge Freunde im lebhaften Seminyak. Am Eingang der Villa erwartet Sie eine intelligente Tür; Gäste geben einfach den bereitgestellten Code ein und drücken das Glockensymbol, um den Zugang zu ihrem friedlichen Refugium zu öffnen.",
+      details: "Die Villa verfügt über 2 luxuriöse Schlafzimmer mit Kingsize-Betten, Smart-TVs mit Netflix und YouTube Premium sowie eigene Badezimmer. Der halboffen gestaltete Wohnbereich umfasst eine Smart-TV-Lounge, eine gemütliche Barecke und eine voll ausgestattete Küche. Draußen genießen Sie den privaten Pool und den tropischen Garten, nur wenige Minuten von den belebten Cafés, Stränden und Geschäften von Seminyak entfernt.",
+      button3d: "3D-Tour"
+    },
+    // Amenities
+    amenities: {
+      title: "Ausstattung",
+      intro: "Alles wurde gestaltet, um Ihren Aufenthalt in der Villa Orea zu einem luxuriösen und unvergesslichen Erlebnis zu machen.",
+      wifi: {
+        name: "Hochgeschwindigkeits-WLAN",
+        description: "Schnelle Internetverbindung in allen Räumen der Villa, um während Ihres Aufenthalts verbunden zu bleiben."
+      },
+      ac: {
+        name: "Klimaanlage",
+        description: "Jedes Schlafzimmer ist mit einer Klimaanlage ausgestattet, für Ihren Komfort auch an den heißesten Tagen."
+      },
+      pool: {
+        name: "Privater Pool",
+        description: "Ein schimmernder Pool umgeben von einem komfortablen Sonnenbadebereich, perfekt zum Abkühlen nach einem Tag des Erkundens."
+      },
+      kitchen: {
+        name: "Ausgestattete Küche",
+        description: "Voll ausgestattete offene Küche mit Teemaschine, Toaster und Kaffeemaschine, um Ihre Mahlzeiten mit Leichtigkeit zuzubereiten."
+      },
+      tv: {
+        name: "Smart-TV",
+        description: "Jedes Schlafzimmer und das Wohnzimmer sind mit Smart-TVs mit Zugang zu Netflix und YouTube Premium für Ihre Entspannungsmomente ausgestattet."
+      },
+      cleaning: {
+        name: "Tägliche Reinigung",
+        description: "Täglicher Reinigungsservice von 9:00 bis 17:00 Uhr inbegriffen, um eine saubere und angenehme Umgebung zu gewährleisten."
+      },
+      garden: {
+        name: "Tropischer Garten",
+        description: "Ein üppiger tropischer Garten mit einer Palme und einer Hängeschaukel, der eine friedliche und entspannende Atmosphäre schafft."
+      },
+      beds: {
+        name: "Kingsize-Betten",
+        description: "Zwei geräumige Schlafzimmer mit komfortablen Kingsize-Betten für erholsame Nächte während Ihres Aufenthalts."
+      },
+      location: {
+        name: "Ideale Lage",
+        description: "Nur wenige Minuten von den belebten Cafés, Stränden und Geschäften von Seminyak entfernt, um Ihren Aufenthalt auf Bali in vollen Zügen zu genießen."
+      }
+    },
+    // Pricing
+    pricing: {
+      title: "Preise und Buchung",
+      intro: "Entdecken Sie unsere Luxusvilla in Seminyak, die die perfekte Mischung aus modernem Komfort und tropischem Ambiente bietet, mit ausgezeichnetem Preis-Leistungs-Verhältnis für Ihren Bali-Aufenthalt.",
+      priceFrom: "Ab €350/Nacht",
+      minStay: "Mindestaufenthalt von 3 Nächten",
+      capacity: "Kapazität für 4 Personen (max. 6 mit Aufpreis)",
+      cleaning: "Tägliche Reinigung inbegriffen",
+      breakfast: "Frühstück und Koch verfügbar (gegen Aufpreis)",
+      airport: "Flughafentransfer verfügbar (gegen Aufpreis)",
+      notice: "* Preise können je nach Saison variieren. Check-in: 14:00 Uhr, Check-out: 11:00 Uhr.",
+      contactButton: "Kontaktieren Sie uns"
+    },
+    // Footer
+    footer: {
+      rights: "Alle Rechte vorbehalten",
+      privacyPolicy: "Datenschutzrichtlinie",
+      terms: "Nutzungsbedingungen",
+      cookiePolicy: "Cookie-Richtlinie"
+    }
+  },
+  
+  // Russe
+  ru: {
+    // Header
+    nav: {
+      about: "О нас",
+      amenities: "Удобства",
+      gallery: "Галерея",
+      faq: "Вопросы",
+      testimonials: "Отзывы",
+      pricing: "Цены",
+      contact: "Контакты",
+      tour3d: "3D-тур"
+    },
+    // Hero
+    hero: {
+      title: "Вилла Orea",
+      subtitle: "Роскошный отдых в Семиньяке",
+      description: "Откройте для себя мирную гавань в сердце Бали",
+      cta: "Забронировать",
+      tour3d: "3D-тур"
+    },
+    // About
+    about: {
+      title: "О вилле",
+      intro: "Добро пожаловать на виллу Orea – стильное убежище с 2 спальнями, созданное как настоящий кокон спокойствия, идеально подходящее для пар, небольших семей или близких друзей в оживленном районе Семиньяк. У входа на виллу вас встречает умная дверь: гостям достаточно ввести предоставленный код и нажать на иконку звонка, чтобы открыть ворота в свое мирное убежище.",
+      details: "Вилла включает 2 роскошные спальни с кроватями размера кинг-сайз, смарт-телевизорами с доступом к Netflix и YouTube Premium, а также собственными ванными комнатами. Полуоткрытое жилое пространство включает зону отдыха со смарт-телевизором, уютный бар и полностью оборудованную кухню. Снаружи вы можете наслаждаться частным бассейном и тропическим садом, находясь всего в нескольких минутах от оживленных кафе, пляжей и магазинов Семиньяка.",
+      button3d: "3D-тур"
+    },
+    // Amenities
+    amenities: {
+      title: "Удобства",
+      intro: "Всё продумано, чтобы ваше пребывание на вилле Orea стало роскошным и незабываемым.",
+      wifi: {
+        name: "Высокоскоростной Wi-Fi",
+        description: "Быстрое интернет-соединение доступно во всех комнатах виллы, чтобы оставаться на связи во время пребывания."
+      },
+      ac: {
+        name: "Кондиционер",
+        description: "Каждая спальня оснащена системой кондиционирования для вашего комфорта даже в самые жаркие дни."
+      },
+      pool: {
+        name: "Частный бассейн",
+        description: "Сверкающий бассейн, окруженный комфортной зоной для загара, идеально подходит для освежения после дня исследований."
+      },
+      kitchen: {
+        name: "Оборудованная кухня",
+        description: "Полностью оборудованная открытая кухня с чайной машиной, тостером и кофеваркой для легкого приготовления ваших блюд."
+      },
+      tv: {
+        name: "Смарт-телевизор",
+        description: "Каждая спальня и гостиная оснащены смарт-телевизорами с доступом к Netflix и YouTube Premium для ваших моментов релаксации."
+      },
+      cleaning: {
+        name: "Ежедневная уборка",
+        description: "Ежедневный сервис уборки включен с 9:00 до 17:00, чтобы обеспечить чистую и приятную обстановку."
+      },
+      garden: {
+        name: "Тропический сад",
+        description: "Пышный тропический сад с пальмой и подвесными качелями, создающий мирную и расслабляющую атмосферу."
+      },
+      beds: {
+        name: "Кровати кинг-сайз",
+        description: "Две просторные спальни с удобными кроватями размера кинг-сайз для обеспечения спокойных ночей во время вашего пребывания."
+      },
+      location: {
+        name: "Идеальное расположение",
+        description: "Расположена всего в нескольких минутах от оживленных кафе, пляжей и магазинов Семиньяка, чтобы вы могли полностью насладиться своим пребыванием на Бали."
+      }
+    },
+    // Pricing
+    pricing: {
+      title: "Цены и бронирование",
+      intro: "Откройте для себя нашу роскошную виллу в Семиньяке, предлагающую идеальное сочетание современного комфорта и тропической атмосферы, с отличным соотношением цены и качества для вашего пребывания на Бали.",
+      priceFrom: "От €350/ночь",
+      minStay: "Минимальное пребывание 3 ночи",
+      capacity: "Вместимость 4 человека (макс. 6 с доплатой)",
+      cleaning: "Ежедневная уборка включена",
+      breakfast: "Завтрак и повар доступны (за дополнительную плату)",
+      airport: "Трансфер из аэропорта доступен (за дополнительную плату)",
+      notice: "* Цены могут меняться в зависимости от сезона. Заезд: 14:00, выезд: 11:00.",
+      contactButton: "Связаться с нами"
+    },
+    // Footer
+    footer: {
+      rights: "Все права защищены",
+      privacyPolicy: "Политика конфиденциальности",
+      terms: "Условия использования",
+      cookiePolicy: "Политика использования файлов cookie"
+    }
   }
 };
 
