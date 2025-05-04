@@ -15,7 +15,7 @@ const Pricing = () => {
           <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="mb-4">Tarifs et Réservation</h2>
             <p className="font-lora text-lg max-w-2xl mx-auto mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.
+              Découvrez notre villa de luxe à Seminyak, offrant un mélange parfait de confort moderne et d'ambiance tropicale, avec un excellent rapport qualité-prix pour votre séjour à Bali.
             </p>
           </div>
 
@@ -37,13 +37,19 @@ const Pricing = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-emerald dark:text-pale-gold mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Capacité maximale de 6 personnes</span>
+                  <span>Capacité de 4 personnes (max 6 avec supplément)</span>
                 </li>
                 <li className="flex items-start">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-emerald dark:text-pale-gold mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Service de ménage inclus tous les 2 jours</span>
+                  <span>Ménage quotidien inclus</span>
+                </li>
+                <li className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-emerald dark:text-pale-gold mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Petit-déjeuner et chef disponibles (supplément)</span>
                 </li>
                 <li className="flex items-start">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-emerald dark:text-pale-gold mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -53,7 +59,7 @@ const Pricing = () => {
                 </li>
               </ul>
               <p className="font-lora italic text-sm mb-4">
-                * Les tarifs peuvent varier selon la saison. Contactez-nous pour un devis personnalisé.
+                * Les tarifs peuvent varier selon la saison. Check-in: 14h00, Check-out: 11h00.
               </p>
               <a 
                 href="#contact" 

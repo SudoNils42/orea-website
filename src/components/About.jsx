@@ -42,7 +42,7 @@ const About = ({ openModal }) => {
         <div className="max-w-3xl mx-auto text-center mb-12" data-aos="fade-up">
           <h2 className="mb-6">À Propos de la Villa</h2>
           <p className="font-lora text-lg mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+            Bienvenue à Villa Orea, une élégante retraite de 2 chambres, conçue comme un véritable cocon de tranquillité, parfaite pour couples, petite famille et amis proches dans le quartier animé de Seminyak. À l'entrée, une porte intelligente vous accueille : il suffit d'entrer le code fourni et d'appuyer sur l'icône de la cloche pour déverrouiller votre havre de paix.
           </p>
         </div>
 
@@ -72,7 +72,7 @@ const About = ({ openModal }) => {
 
         <div className="text-center" data-aos="fade-up">
           <p className="font-lora text-lg mb-8 max-w-2xl mx-auto">
-            Notre somptueuse villa dispose de 3 chambres luxueuses, d'une piscine privée à débordement, d'une vue imprenable sur la jungle tropicale, et de tout le confort moderne pour rendre votre séjour inoubliable. Située à quelques minutes des plus belles plages de Bali.
+            La villa dispose de 2 chambres luxueuses avec lits king-size, Smart TV avec Netflix et YouTube Premium, et salles de bains attenantes. L'espace de vie semi-ouvert comprend un salon avec Smart TV, un coin bar, et une cuisine entièrement équipée. À l'extérieur, profitez de la piscine privée et du jardin tropical, à seulement quelques minutes des cafés, plages et boutiques de Seminyak.
           </p>
           
           <button 
