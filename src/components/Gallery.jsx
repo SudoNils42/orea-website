@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import placeholder1 from '../assets/placeholder1.jpg';
+import placeholder2 from '../assets/placeholder2.jpg';
+import placeholder3 from '../assets/placeholder3.jpg';
+import placeholder4 from '../assets/placeholder4.jpg';
 
 // Chemins des images redimensionnées
 const imagePaths = [
@@ -87,22 +91,22 @@ const imageDescriptions = [
 const placeholderImages = [
   {
     id: 'placeholder1',
-    src: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1039&q=80',
+    src: placeholder1,
     alt: 'Suite principale avec lit king-size'
   },
   {
     id: 'placeholder2',
-    src: 'https://images.unsplash.com/photo-1470058869958-2a77ade41c02?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    src: placeholder2,
     alt: 'Vue panoramique depuis la terrasse'
   },
   {
     id: 'placeholder3',
-    src: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    src: placeholder3,
     alt: 'Salon extérieur avec piscine'
   },
   {
     id: 'placeholder4',
-    src: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    src: placeholder4,
     alt: 'Salle de massage avec vue sur jardin'
   }
 ];
@@ -228,17 +232,18 @@ const Gallery = () => {
 
         {/* Grille d'images pour desktop */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {images.slice(0, visibleImages).map((image, index) => (
+          {/* Images régulières de la galerie */}
+          {imagePaths.slice(0, visibleImages).map((path, index) => (
             <div
-              key={image.id}
+              key={`image-${index}`}
               className="relative h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
               data-aos="fade-up"
               data-aos-delay={index * 100}
               onClick={() => openModal(index)}
             >
               <img 
-                src={image.src} 
-                alt={image.alt} 
+                src={path} 
+                alt={imageDescriptions[index] || `Villa de luxe à Bali - Image ${index + 1}`} 
                 className="w-full h-full object-cover"
                 loading={index > 2 ? "lazy" : "eager"}
                 onError={(e) => {
@@ -248,7 +253,7 @@ const Gallery = () => {
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 flex items-end justify-start p-4">
                 <p className="text-pure-white font-inter font-medium text-sm md:text-base">
-                  {image.alt}
+                  {imageDescriptions[index] || `Villa de luxe à Bali - Image ${index + 1}`}
                 </p>
               </div>
               <div className="absolute inset-0 bg-deep-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
@@ -270,13 +275,13 @@ const Gallery = () => {
             </div>
           ))}
           
-          {/* Images placeholder pour les emplacements vides */}
+          {/* Images placeholder toujours affichées, indépendamment de visibleImages */}
           {placeholderImages.map((image, index) => (
             <div
               key={image.id}
               className="relative h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
               data-aos="fade-up"
-              data-aos-delay={(visibleImages + index) * 100}
+              data-aos-delay={(index) * 100}
               onClick={() => openModal(imagePaths.length + index)}
             >
               <img 
