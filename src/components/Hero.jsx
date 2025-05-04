@@ -43,13 +43,13 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
   return (
     <section className="relative w-full py-16 md:py-20 overflow-visible">
       <div ref={ref} className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Contenu du héro */}
+        <div className="flex flex-col items-center">
+          {/* Contenu du héro - Centré pour tous les formats */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col justify-center items-center text-center md:items-start md:text-left"
+            className="flex flex-col justify-center items-center text-center max-w-2xl mb-8"
           >
             <p className="font-lora text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-2">
               {t.hero.subtitle}
@@ -71,12 +71,12 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             </button>
           </motion.div>
 
-          {/* Iframe Matterport dans un conteneur */}
+          {/* Iframe Matterport dans un conteneur - Plus grande sur les grands écrans */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className={`relative aspect-video w-full rounded-lg overflow-hidden shadow-xl border-2 ${(isHovering || is3DInteractive) ? 'border-emerald' : 'border-emerald/20 dark:border-emerald/40'} transition-all duration-300`}
+            className={`relative aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl border-2 ${(isHovering || is3DInteractive) ? 'border-emerald' : 'border-emerald/20 dark:border-emerald/40'} transition-all duration-300`}
             onMouseEnter={handleContainerMouseEnter}
             onMouseLeave={handleContainerMouseLeave}
           >
@@ -103,7 +103,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
                 src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
                 className="w-full h-full transition-opacity duration-700"
                 style={{ 
-                  height: '400px',
+                  height: '450px',
                   opacity: isLoading ? 0 : 1,
                   pointerEvents: is3DInteractive || isHovering ? 'auto' : 'none'
                 }}
