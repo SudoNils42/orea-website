@@ -236,6 +236,24 @@ const Gallery = () => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [visibleImages, setVisibleImages] = useState(4); // Commencer par afficher 4 images seulement
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // Vérifier si l'écran est petit (mobile)
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+    
+    // Vérifier au chargement
+    checkScreenSize();
+    
+    // Vérifier au redimensionnement
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
 
   // Utiliser toutes les images de la villa
   const images = VILLA_IMAGES;
@@ -518,7 +536,7 @@ const Gallery = () => {
               </div>
 
               <div 
-                className="relative w-full max-w-5xl max-h-[85vh] overflow-hidden"
+                className={`relative ${isSmallScreen ? 'w-[95%] h-[80%]' : 'w-full h-full max-w-5xl max-h-[85vh]'} flex items-center justify-center p-2 md:p-4`}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -535,15 +553,18 @@ const Gallery = () => {
                       x: { type: "spring", stiffness: 300, damping: 30 },
                       opacity: { duration: 0.2 }
                     }}
-                    className="absolute inset-0 flex items-center justify-center"
+                    className="w-full h-full flex flex-col items-center justify-center"
                   >
-                    <img 
-                      src={images[currentIndex].src} 
-                      alt={images[currentIndex].alt} 
-                      className="max-w-full max-h-[80vh] object-contain" 
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-deep-black bg-opacity-60">
-                      <p className="text-pure-white text-center">{images[currentIndex].alt}</p>
+                    <div className="relative w-full h-full flex items-center justify-center p-1 md:p-0">
+                      <img 
+                        src={images[currentIndex].src} 
+                        alt={images[currentIndex].alt} 
+                        className={`${isSmallScreen ? 'max-h-[60vh]' : 'max-h-[70vh]'} w-auto h-auto object-contain rounded-lg`}
+                        style={{ maxWidth: '100%' }}
+                      />
+                    </div>
+                    <div className="w-full p-2 md:p-3 mt-2 bg-deep-black bg-opacity-60 rounded-lg">
+                      <p className="text-pure-white text-center text-sm md:text-base">{images[currentIndex].alt}</p>
                     </div>
                   </motion.div>
                 </AnimatePresence>
