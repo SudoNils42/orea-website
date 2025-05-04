@@ -14,6 +14,14 @@ import image9 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC0621
 import image10 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06206.jpg';
 import image11 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06191.jpg';
 import image12 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06168.jpg';
+import image13 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06164.jpg';
+import image14 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06156.jpg';
+import image15 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06150.jpg';
+import image16 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06146.jpg';
+import image17 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06138.jpg';
+import image18 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06132.jpg';
+import image19 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06127.jpg';
+import image20 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06120.jpg';
 
 // Images importées statiquement pour être sûr qu'elles sont disponibles
 const GUARANTEED_IMAGES = [
@@ -76,6 +84,46 @@ const GUARANTEED_IMAGES = [
     id: 12,
     src: image12,
     alt: 'Espace de travail'
+  },
+  {
+    id: 13,
+    src: image13,
+    alt: 'Entrée de la villa'
+  },
+  {
+    id: 14,
+    src: image14,
+    alt: 'Jardin tropical'
+  },
+  {
+    id: 15,
+    src: image15,
+    alt: 'Coin repas extérieur'
+  },
+  {
+    id: 16,
+    src: image16,
+    alt: 'Vue sur la piscine'
+  },
+  {
+    id: 17,
+    src: image17,
+    alt: 'Salle de bain en pierre'
+  },
+  {
+    id: 18,
+    src: image18,
+    alt: 'Coin lecture'
+  },
+  {
+    id: 19,
+    src: image19,
+    alt: 'Vue aérienne'
+  },
+  {
+    id: 20,
+    src: image20,
+    alt: 'Accès à la plage'
   }
 ];
 
@@ -85,14 +133,14 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(4); // Commencer par afficher 4 images
+  const [visibleImages, setVisibleImages] = useState(6); // Commencer par afficher 6 images
 
   // Utiliser uniquement les images garanties pour éviter les espaces vides
   const images = GUARANTEED_IMAGES;
 
   const loadMoreImages = () => {
-    // Afficher 4 images de plus à chaque clic, ou toutes s'il en reste moins de 4
-    setVisibleImages(prev => Math.min(prev + 4, images.length));
+    // Afficher 6 images de plus à chaque clic, ou toutes s'il en reste moins de 6
+    setVisibleImages(prev => Math.min(prev + 6, images.length));
   };
 
   useEffect(() => {
