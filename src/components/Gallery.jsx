@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import des images de la villa
@@ -230,45 +230,51 @@ const VILLA_IMAGES = [
 ];
 
 const Gallery = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [images] = useState(VILLA_IMAGES);
+  const [visibleImages, setVisibleImages] = useState(8);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(4); // Commencer par afficher 4 images seulement
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const galleryRef = useRef(null);
 
-  // Vérifier si l'écran est petit (mobile)
+  // Écouter les événements de défilement pour les points de navigation
+  useEffect(() => {
+    const container = document.getElementById('mobile-gallery-container');
+    
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollPosition = container.scrollLeft;
+      const itemWidth = container.offsetWidth;
+      const currentIndex = Math.round(scrollPosition / itemWidth);
+      setActiveSlideIndex(currentIndex);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Vérifier la taille de l'écran
   useEffect(() => {
     const checkScreenSize = () => {
       setIsSmallScreen(window.innerWidth < 768);
     };
-    
-    // Vérifier au chargement
+
     checkScreenSize();
-    
-    // Vérifier au redimensionnement
     window.addEventListener('resize', checkScreenSize);
-    
+
     return () => {
       window.removeEventListener('resize', checkScreenSize);
     };
   }, []);
 
-  // Utiliser toutes les images de la villa
-  const images = VILLA_IMAGES;
-
   const loadMoreImages = () => {
-    // Afficher 4 images de plus à chaque clic
-    setVisibleImages(prev => Math.min(prev + 4, images.length));
+    setVisibleImages((prev) => Math.min(prev + 8, images.length));
   };
-
-  useEffect(() => {
-    // Initialiser AOS si nécessaire
-    if (typeof AOS !== 'undefined') {
-      AOS.refresh();
-    }
-  }, []);
 
   const openModal = (index) => {
     setCurrentIndex(index);
@@ -283,12 +289,12 @@ const Gallery = () => {
 
   const handlePrev = () => {
     setDirection(-1);
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
     setDirection(1);
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
   const handleTouchStart = (e) => {
@@ -308,6 +314,18 @@ const Gallery = () => {
     if (touchStart - touchEnd < -50) {
       // Swipe droite
       handlePrev();
+    }
+  };
+
+  // Fonction pour faire défiler le carousel mobile
+  const scrollMobileGallery = (direction) => {
+    const container = document.getElementById('mobile-gallery-container');
+    if (container) {
+      const scrollAmount = container.offsetWidth * 0.85;
+      container.scrollBy({ 
+        left: direction * scrollAmount, 
+        behavior: 'smooth' 
+      });
     }
   };
 
@@ -388,17 +406,12 @@ const Gallery = () => {
         </div>
 
         {/* Slider amélioré pour mobile */}
-        <div className="md:hidden px-4">
+        <div className="md:hidden px-4" ref={galleryRef}>
           <div className="relative">
             {/* Contrôles de navigation */}
             <button 
               className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-deep-black/50 text-pure-white rounded-full p-1 shadow-md"
-              onClick={() => {
-                const container = document.getElementById('mobile-gallery-container');
-                if (container) {
-                  container.scrollBy({ left: -280, behavior: 'smooth' });
-                }
-              }}
+              onClick={() => scrollMobileGallery(-1)}
               aria-label="Image précédente"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -408,12 +421,7 @@ const Gallery = () => {
             
             <button 
               className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-deep-black/50 text-pure-white rounded-full p-1 shadow-md"
-              onClick={() => {
-                const container = document.getElementById('mobile-gallery-container');
-                if (container) {
-                  container.scrollBy({ left: 280, behavior: 'smooth' });
-                }
-              }}
+              onClick={() => scrollMobileGallery(1)}
               aria-label="Image suivante"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -453,7 +461,7 @@ const Gallery = () => {
               {Array.from({ length: Math.min(6, Math.ceil(images.slice(0, 12).length / 2)) }).map((_, i) => (
                 <div 
                   key={`dot-${i}`}
-                  className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
+                  className={`w-1.5 h-1.5 rounded-full ${i === activeSlideIndex ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
                 ></div>
               ))}
             </div>
