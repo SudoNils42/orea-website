@@ -117,7 +117,25 @@ const translations = {
       breakfast: "Petit-déjeuner et chef disponibles (supplément)",
       airport: "Transfert aéroport disponible (supplément)",
       notice: "* Les tarifs peuvent varier selon la saison. Check-in: 14h00, Check-out: 11h00.",
-      contactButton: "Contactez-nous"
+      contactButton: "Contactez-nous",
+      pricePerNight: "À partir de 180€ / nuit",
+      maxOccupancy: "Capacité maximale : 4 personnes",
+      features: [
+        "2 chambres avec climatisation",
+        "Piscine privée",
+        "Wi-Fi gratuit",
+        "Service de ménage quotidien",
+        "Petit-déjeuner inclus",
+        "Transfert aéroport (sur demande)"
+      ],
+      services: "Services additionnels disponibles sur demande",
+      booking: {
+        title: "Réservez maintenant",
+        description: "Réservez votre séjour à Villa Orea sur l'une de ces plateformes :",
+        airbnb: "Réserver sur Airbnb",
+        booking: "Réserver sur Booking.com",
+        agoda: "Réserver sur Agoda"
+      }
     },
     // Contact
     contact: {
@@ -288,7 +306,25 @@ const translations = {
       breakfast: "Breakfast and chef available (extra charge)",
       airport: "Airport transfer available (extra charge)",
       notice: "* Rates may vary by season. Check-in: 2:00 PM, Check-out: 11:00 AM.",
-      contactButton: "Contact Us"
+      contactButton: "Contact Us",
+      pricePerNight: "From €180 / night",
+      maxOccupancy: "Maximum occupancy: 4 people",
+      features: [
+        "2 air-conditioned bedrooms",
+        "Private pool",
+        "Free Wi-Fi",
+        "Daily housekeeping",
+        "Breakfast included", 
+        "Airport transfer (on request)"
+      ],
+      services: "Additional services available upon request",
+      booking: {
+        title: "Book Now",
+        description: "Book your stay at Villa Orea on one of these platforms:",
+        airbnb: "Book on Airbnb",
+        booking: "Book on Booking.com",
+        agoda: "Book on Agoda"
+      }
     },
     // Contact
     contact: {
@@ -422,7 +458,25 @@ const translations = {
       breakfast: "可提供早餐和厨师服务（额外收费）",
       airport: "可提供机场接送服务（额外收费）",
       notice: "* 价格可能因季节而异。入住时间: 14:00, 退房时间: 11:00。",
-      contactButton: "联系我们"
+      contactButton: "联系我们",
+      pricePerNight: "起价€180 /晚",
+      maxOccupancy: "最大入住人数：4人",
+      features: [
+        "2间带空调的卧室",
+        "私人泳池",
+        "免费Wi-Fi",
+        "每日客房清洁",
+        "包含早餐",
+        "机场接送（需额外付费）"
+      ],
+      services: "额外服务可应要求提供",
+      booking: {
+        title: "立即预订",
+        description: "通过以下平台预订您的住宿：",
+        airbnb: "在Airbnb上预订",
+        booking: "在Booking.com上预订",
+        agoda: "在Agoda上预订"
+      }
     },
     // Footer
     footer: {
@@ -513,7 +567,25 @@ const translations = {
       breakfast: "Desayuno y chef disponibles (cargo adicional)",
       airport: "Traslado al aeropuerto disponible (cargo adicional)",
       notice: "* Las tarifas pueden variar según la temporada. Check-in: 14:00, Check-out: 11:00.",
-      contactButton: "Contáctenos"
+      contactButton: "Contáctenos",
+      pricePerNight: "Desde €180 / noche",
+      maxOccupancy: "Capacidad máxima: 4 personas",
+      features: [
+        "2 habitaciones con aire acondicionado",
+        "Piscina privada",
+        "Wi-Fi gratuito",
+        "Limpieza diaria",
+        "Desayuno incluido",
+        "Traslado al aeropuerto (sobre pedido)"
+      ],
+      services: "Servicios adicionales disponibles sobre pedido",
+      booking: {
+        title: "Reservar ahora",
+        description: "Reserve su estancia en Villa Orea en una de estas plataformas:",
+        airbnb: "Reservar en Airbnb",
+        booking: "Reservar en Booking.com",
+        agoda: "Reservar en Agoda"
+      }
     },
     // Footer
     footer: {
@@ -604,7 +676,25 @@ const translations = {
       breakfast: "Sarapan dan koki tersedia (biaya tambahan)",
       airport: "Antar jemput bandara tersedia (biaya tambahan)",
       notice: "* Tarif dapat bervariasi berdasarkan musim. Check-in: 14:00, Check-out: 11:00.",
-      contactButton: "Hubungi Kami"
+      contactButton: "Hubungi Kami",
+      pricePerNight: "Mulai dari €180 / malam",
+      maxOccupancy: "Kapasitas maksimum: 4 orang",
+      features: [
+        "2 kamar tidur dengan AC",
+        "Kolam renang pribadi",
+        "Wi-Fi gratis",
+        "Pembersihan harian",
+        "Sarapan termasuk",
+        "Antar jemput bandara (dengan biaya tambahan)"
+      ],
+      services: "Layanan tambahan tersedia atas permintaan",
+      booking: {
+        title: "Pesan Sekarang",
+        description: "Pesan akomodasi di Villa Orea di salah satu platform ini:",
+        airbnb: "Pesan di Airbnb",
+        booking: "Pesan di Booking.com",
+        agoda: "Pesan di Agoda"
+      }
     },
     // Footer
     footer: {
@@ -695,7 +785,25 @@ const translations = {
       breakfast: "Frühstück und Koch verfügbar (gegen Aufpreis)",
       airport: "Flughafentransfer verfügbar (gegen Aufpreis)",
       notice: "* Preise können je nach Saison variieren. Check-in: 14:00 Uhr, Check-out: 11:00 Uhr.",
-      contactButton: "Kontaktieren Sie uns"
+      contactButton: "Kontaktieren Sie uns",
+      pricePerNight: "Ab €180 / Nacht",
+      maxOccupancy: "Maximale Kapazität: 4 Personen",
+      features: [
+        "2 Luftgekühlte Schlafzimmer",
+        "Privater Pool",
+        "Kostenlose WLAN-Verbindung",
+        "Tägliche Reinigung",
+        "Frühstück inbegriffen",
+        "Flughafentransfer (auf Anfrage)"
+      ],
+      services: "Zusätzliche Dienste auf Anfrage",
+      booking: {
+        title: "Jetzt buchen",
+        description: "Ihre Unterkunft in Villa Orea buchen Sie auf einer dieser Plattformen:",
+        airbnb: "Auf Airbnb buchen",
+        booking: "Auf Booking.com buchen",
+        agoda: "Auf Agoda buchen"
+      }
     },
     // Footer
     footer: {
@@ -786,7 +894,25 @@ const translations = {
       breakfast: "Завтрак и повар доступны (за дополнительную плату)",
       airport: "Трансфер из аэропорта доступен (за дополнительную плату)",
       notice: "* Цены могут меняться в зависимости от сезона. Заезд: 14:00, выезд: 11:00.",
-      contactButton: "Связаться с нами"
+      contactButton: "Связаться с нами",
+      pricePerNight: "От €180 / ночь",
+      maxOccupancy: "Максимальная вместимость: 4 человека",
+      features: [
+        "2 номера с кондиционером",
+        "Частный бассейн",
+        "Бесплатный Wi-Fi",
+        "Ежедневная уборка",
+        "Завтрак включен",
+        "Трансфер из аэропорта (за дополнительную плату)"
+      ],
+      services: "Дополнительные услуги по запросу",
+      booking: {
+        title: "Забронировать",
+        description: "Забронируйте ваше пребывание в Villa Orea на одной из этих платформ:",
+        airbnb: "Забронировать на Airbnb",
+        booking: "Забронировать на Booking.com",
+        agoda: "Забронировать на Agoda"
+      }
     },
     // Footer
     footer: {
