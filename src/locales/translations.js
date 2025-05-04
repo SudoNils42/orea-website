@@ -119,6 +119,49 @@ const translations = {
       notice: "* Les tarifs peuvent varier selon la saison. Check-in: 14h00, Check-out: 11h00.",
       contactButton: "Contactez-nous"
     },
+    // Contact
+    contact: {
+      title: "Contactez-nous",
+      intro: "Vous avez des questions sur notre villa ? N'hésitez pas à nous contacter pour plus d'informations ou pour réserver votre séjour.",
+      form: {
+        title: "Envoyez-nous un message",
+        name: "Nom complet",
+        email: "Email",
+        subject: "Sujet",
+        message: "Message",
+        submitButton: "Envoyer",
+        namePlaceholder: "Votre nom",
+        emailPlaceholder: "votre@email.com",
+        subjectPlaceholder: "Sujet de votre message",
+        messagePlaceholder: "Votre message",
+        successMessage: "Votre message a été envoyé avec succès !",
+        errorMessage: "Veuillez corriger les erreurs dans le formulaire.",
+        nameError: "Le nom est requis",
+        emailError: "Email invalide",
+        subjectError: "Le sujet est requis",
+        messageError: "Le message est requis"
+      },
+      info: {
+        title: "Coordonnées",
+        email: {
+          label: "Email",
+          value: "booking@villaorea.com"
+        },
+        phone: {
+          label: "Téléphone",
+          value: "+62 812 3456 7890"
+        },
+        whatsapp: {
+          label: "WhatsApp",
+          value: "+62 812 3456 7890"
+        },
+        address: {
+          label: "Adresse",
+          value: "Seminyak, Bali, Indonésie"
+        },
+        map: "Carte Google Maps"
+      }
+    },
     // Pied de page
     footer: {
       rights: "Tous droits réservés",
@@ -246,6 +289,49 @@ const translations = {
       airport: "Airport transfer available (extra charge)",
       notice: "* Rates may vary by season. Check-in: 2:00 PM, Check-out: 11:00 AM.",
       contactButton: "Contact Us"
+    },
+    // Contact
+    contact: {
+      title: "Contact Us",
+      intro: "Do you have questions about our villa? Don't hesitate to contact us for more information or to book your stay.",
+      form: {
+        title: "Send us a message",
+        name: "Full name",
+        email: "Email",
+        subject: "Subject",
+        message: "Message",
+        submitButton: "Send",
+        namePlaceholder: "Your name",
+        emailPlaceholder: "your@email.com",
+        subjectPlaceholder: "Subject of your message",
+        messagePlaceholder: "Your message",
+        successMessage: "Your message has been sent successfully!",
+        errorMessage: "Please correct the errors in the form.",
+        nameError: "Name is required",
+        emailError: "Invalid email",
+        subjectError: "Subject is required",
+        messageError: "Message is required"
+      },
+      info: {
+        title: "Contact Information",
+        email: {
+          label: "Email",
+          value: "booking@villaorea.com"
+        },
+        phone: {
+          label: "Phone",
+          value: "+62 812 3456 7890"
+        },
+        whatsapp: {
+          label: "WhatsApp",
+          value: "+62 812 3456 7890"
+        },
+        address: {
+          label: "Address",
+          value: "Seminyak, Bali, Indonesia"
+        },
+        map: "Google Maps"
+      }
     },
     // Footer
     footer: {
