@@ -6,6 +6,7 @@ import translations from '../locales/translations';
 const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, ref) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const { currentLanguage } = useLanguage();
   const t = translations[currentLanguage];
@@ -40,16 +41,33 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
     // Pour le désactiver, l'utilisateur doit cliquer ailleurs
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-visible">
+    <section className="relative w-full py-16 overflow-visible">
       <div ref={ref} className="container mx-auto px-4 md:px-6">
+        {/* Menu burger en haut à droite */}
+        <div className="absolute top-4 right-4 z-20">
+          <button 
+            onClick={toggleMenu} 
+            className="flex flex-col justify-center items-center w-10 h-10 bg-white dark:bg-gray-800 rounded-full shadow-md"
+            aria-label="Menu"
+          >
+            <span className={`block w-5 h-0.5 bg-gray-800 dark:bg-white mb-1 ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''} transition-transform duration-300`}></span>
+            <span className={`block w-5 h-0.5 bg-gray-800 dark:bg-white ${isMenuOpen ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}></span>
+            <span className={`block w-5 h-0.5 bg-gray-800 dark:bg-white mt-1 ${isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''} transition-transform duration-300`}></span>
+          </button>
+        </div>
+
         <div className="flex flex-col items-center">
           {/* Contenu du héro - Toujours centré */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col justify-center items-center text-center max-w-xl mb-6 md:mb-8 lg:mb-10"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col justify-center items-center text-center max-w-2xl mb-8"
           >
             <p className="font-lora text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-2">
               {t.hero.subtitle}
@@ -71,12 +89,12 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             </button>
           </motion.div>
 
-          {/* Iframe Matterport - Taille adaptée mais toujours en bas */}
+          {/* Iframe Matterport - Retour à la taille originale */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className={`relative aspect-video w-full max-w-3xl lg:max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl border-2 ${(isHovering || is3DInteractive) ? 'border-emerald' : 'border-emerald/20 dark:border-emerald/40'} transition-all duration-300`}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className={`relative aspect-video w-full max-w-3xl mx-auto rounded-lg overflow-hidden shadow-xl border-2 ${(isHovering || is3DInteractive) ? 'border-emerald' : 'border-emerald/20 dark:border-emerald/40'} transition-all duration-300`}
             onMouseEnter={handleContainerMouseEnter}
             onMouseLeave={handleContainerMouseLeave}
           >
@@ -103,7 +121,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
                 src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
                 className="w-full h-full transition-opacity duration-700"
                 style={{ 
-                  height: '400px',
+                  height: '450px',
                   opacity: isLoading ? 0 : 1,
                   pointerEvents: is3DInteractive || isHovering ? 'auto' : 'none'
                 }}
