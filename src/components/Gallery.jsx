@@ -1,73 +1,143 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// Import des images principales pour garantir leur disponibilité
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../locales/translations';
+
+// Descriptions des images pour la galerie
+const imageDescriptions = {
+  fr: [
+    'Vue extérieure de la villa',
+    'Piscine à débordement',
+    'Espace salon extérieur',
+    'Terrasse avec vue',
+    'Chambre principale',
+    'Salle de bain luxueuse',
+    'Coin détente',
+    'Cuisine équipée',
+    'Salle à manger',
+    'Salon avec vue panoramique',
+    'Chambre d\'amis',
+    'Espace de travail',
+    'Entrée de la villa',
+    'Jardin tropical',
+    'Coin repas extérieur',
+    'Vue sur la piscine',
+    'Salle de bain en pierre',
+    'Coin lecture',
+    'Vue aérienne',
+    'Accès à la plage',
+    'Coucher de soleil depuis la terrasse',
+    'Espace détente au bord de la piscine',
+    'Chambre avec balcon',
+    'Détail architectural',
+    'Coin barbecue',
+    'Douche extérieure',
+    'Allée d\'entrée',
+    'Bar à cocktails',
+    'Espace yoga',
+    'Vue sur la jungle',
+    'Salle de massage',
+    'Détails et décoration',
+    'Lit king-size',
+    'Coin feu',
+    'Intérieur de la villa',
+    'Mobilier extérieur',
+    'Piscine de nuit'
+  ],
+  en: [
+    'Villa exterior view',
+    'Infinity pool',
+    'Outdoor living area',
+    'Terrace with view',
+    'Master bedroom',
+    'Luxurious bathroom',
+    'Relaxation area',
+    'Equipped kitchen',
+    'Dining room',
+    'Living room with panoramic view',
+    'Guest bedroom',
+    'Work space',
+    'Villa entrance',
+    'Tropical garden',
+    'Outdoor dining area',
+    'Pool view',
+    'Stone bathroom',
+    'Reading corner',
+    'Aerial view',
+    'Beach access',
+    'Sunset from the terrace',
+    'Relaxation area by the pool',
+    'Bedroom with balcony',
+    'Architectural detail',
+    'Barbecue area',
+    'Outdoor shower',
+    'Entrance pathway',
+    'Cocktail bar',
+    'Yoga space',
+    'Jungle view',
+    'Massage room',
+    'Details and decoration',
+    'King-size bed',
+    'Fire pit',
+    'Villa interior',
+    'Outdoor furniture',
+    'Pool at night'
+  ]
+};
+
+// Liste des noms de fichiers dans le dossier RESIZE
+const imageFilenames = [
+  'DSC05932.jpg', 'DSC05945.jpg', 'DSC05950.jpg', 'DSC05955.jpg', 'DSC05958.jpg',
+  'DSC05984.jpg', 'DSC05989.jpg', 'DSC06021.jpg', 'DSC06029.jpg', 'DSC06035.jpg',
+  'DSC06045.jpg', 'DSC06066.jpg', 'DSC06070.jpg', 'DSC06076.jpg', 'DSC06087.jpg',
+  'DSC06104.jpg', 'DSC06114.jpg', 'DSC06120.jpg', 'DSC06127.jpg', 'DSC06132.jpg',
+  'DSC06138.jpg', 'DSC06146.jpg', 'DSC06150.jpg', 'DSC06156.jpg', 'DSC06164.jpg',
+  'DSC06168.jpg', 'DSC06191.jpg', 'DSC06206.jpg', 'DSC06219.jpg', 'DSC06225.jpg',
+  'DSC06240.jpg', 'DSC06244.jpg', 'DSC06251.jpg', 'DSC06256.jpg', 'DSC06266.jpg',
+  'DSC06270.jpg', 'DSC06273.jpg'
+];
+
+// Import d'au moins 4 images pour le chargement initial rapide
 import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
 import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg';
 import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg';
 import image4 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg';
-import image5 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06251.jpg';
-import image6 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06244.jpg';
-import image7 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06240.jpg';
-import image8 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06225.jpg';
-
-// Images importées statiquement pour être sûr qu'elles sont disponibles
-const GUARANTEED_IMAGES = [
-  {
-    id: 1,
-    src: image1,
-    alt: 'Vue extérieure de la villa'
-  },
-  {
-    id: 2,
-    src: image2,
-    alt: 'Piscine à débordement'
-  },
-  {
-    id: 3,
-    src: image3,
-    alt: 'Espace salon extérieur'
-  },
-  {
-    id: 4,
-    src: image4,
-    alt: 'Terrasse avec vue'
-  },
-  {
-    id: 5,
-    src: image5,
-    alt: 'Chambre principale'
-  },
-  {
-    id: 6,
-    src: image6,
-    alt: 'Salle de bain luxueuse'
-  },
-  {
-    id: 7,
-    src: image7,
-    alt: 'Coin détente'
-  },
-  {
-    id: 8,
-    src: image8,
-    alt: 'Cuisine équipée'
-  }
-];
 
 const Gallery = () => {
+  const { currentLanguage } = useLanguage();
+  const t = translations[currentLanguage];
+  const descList = imageDescriptions[currentLanguage] || imageDescriptions.fr;
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [visibleImages, setVisibleImages] = useState(4);
+  const [images, setImages] = useState([]);
 
-  // Utiliser uniquement les images garanties pour éviter les espaces vides
-  const images = GUARANTEED_IMAGES;
+  // Créer la liste des images avec leurs chemins et descriptions
+  useEffect(() => {
+    // Les 4 premières images importées directement pour un chargement rapide
+    const preloadedImages = [
+      { id: 1, src: image1, alt: descList[0] || 'Villa Orea' },
+      { id: 2, src: image2, alt: descList[1] || 'Villa Orea' },
+      { id: 3, src: image3, alt: descList[2] || 'Villa Orea' },
+      { id: 4, src: image4, alt: descList[3] || 'Villa Orea' }
+    ];
+    
+    // Les autres images chargées par leur chemin
+    const otherImages = imageFilenames.slice(4).map((filename, index) => ({
+      id: index + 5,
+      src: `../assets/gallery-assets/250428 Villa Orea/2. RESIZE/${filename}`,
+      alt: descList[index + 4] || `Villa Orea - Image ${index + 5}`
+    }));
+    
+    setImages([...preloadedImages, ...otherImages]);
+  }, [currentLanguage, descList]);
 
   const loadMoreImages = () => {
-    // Afficher toutes les images disponibles
-    setVisibleImages(images.length);
+    setVisibleImages(Math.min(visibleImages + 8, images.length));
   };
 
   useEffect(() => {
@@ -166,7 +236,9 @@ const Gallery = () => {
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="mb-4">Galerie</h2>
           <p className="font-lora text-lg max-w-2xl mx-auto mb-6">
-            Découvrez notre villa de luxe à travers ces magnifiques images.
+            {currentLanguage === 'fr' 
+              ? 'Découvrez notre villa de luxe à travers ces magnifiques images.'
+              : 'Discover our luxury villa through these beautiful images.'}
           </p>
         </div>
 
@@ -177,14 +249,20 @@ const Gallery = () => {
               key={`image-${image.id}`}
               className="relative h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
               data-aos="fade-up"
-              data-aos-delay={(index % 9) * 100}
+              data-aos-delay={(index % 6) * 100}
               onClick={() => openModal(index)}
             >
               <img 
                 src={image.src} 
                 alt={image.alt} 
                 className="w-full h-full object-cover"
-                loading={index > 2 ? "lazy" : "eager"}
+                loading={index > 3 ? "lazy" : "eager"}
+                onError={(e) => {
+                  // Si l'image ne se charge pas correctement
+                  e.target.src = index < 4 
+                    ? image1 // Utiliser une image de secours pour les images qui ne chargent pas
+                    : image.src;
+                }}
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
@@ -207,6 +285,12 @@ const Gallery = () => {
                 alt={image.alt} 
                 className="w-full h-full object-cover"
                 loading={index > 1 ? "lazy" : "eager"}
+                onError={(e) => {
+                  // Si l'image ne se charge pas correctement
+                  e.target.src = index < 4 
+                    ? image1 // Utiliser une image de secours pour les images qui ne chargent pas
+                    : image.src;
+                }}
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
@@ -223,7 +307,7 @@ const Gallery = () => {
               className="btn btn-outline flex items-center mx-auto gap-2"
               onClick={loadMoreImages}
             >
-              <span>Voir toutes les photos</span>
+              <span>{currentLanguage === 'fr' ? 'Voir plus de photos' : 'View more photos'}</span>
               <span className="bg-pale-gold/10 text-pale-gold px-2 py-0.5 rounded-full text-sm">
                 {visibleImages}/{images.length}
               </span>
@@ -240,7 +324,7 @@ const Gallery = () => {
               <button 
                 className="absolute top-4 right-4 z-10 text-pure-white hover:text-pale-gold transition-colors"
                 onClick={closeModal}
-                aria-label="Fermer"
+                aria-label={currentLanguage === 'fr' ? 'Fermer' : 'Close'}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -254,7 +338,7 @@ const Gallery = () => {
                 <button 
                   className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
                   onClick={handlePrev}
-                  aria-label="Image précédente"
+                  aria-label={currentLanguage === 'fr' ? 'Image précédente' : 'Previous image'}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -269,7 +353,7 @@ const Gallery = () => {
                 <button 
                   className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
                   onClick={handleNext}
-                  aria-label="Image suivante"
+                  aria-label={currentLanguage === 'fr' ? 'Image suivante' : 'Next image'}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -297,14 +381,25 @@ const Gallery = () => {
                     }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
-                    <img 
-                      src={images[currentIndex].src} 
-                      alt={images[currentIndex].alt} 
-                      className="max-w-full max-h-[80vh] object-contain" 
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-deep-black bg-opacity-60">
-                      <p className="text-pure-white text-center">{images[currentIndex].alt}</p>
-                    </div>
+                    {images[currentIndex] && (
+                      <>
+                        <img 
+                          src={images[currentIndex].src} 
+                          alt={images[currentIndex].alt} 
+                          className="max-w-full max-h-[80vh] object-contain" 
+                          onError={(e) => {
+                            // Fallback en cas d'erreur de chargement
+                            e.target.src = image1;
+                          }}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-deep-black bg-opacity-60">
+                          <p className="text-pure-white text-center">{images[currentIndex].alt}</p>
+                          <p className="text-pure-white/70 text-xs text-center mt-1">
+                            {currentLanguage === 'fr' ? 'Image' : 'Image'} {currentIndex + 1}/{images.length}
+                          </p>
+                        </div>
+                      </>
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>
