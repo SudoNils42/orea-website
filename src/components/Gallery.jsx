@@ -458,10 +458,10 @@ const Gallery = () => {
             
             {/* Indicateur de position */}
             <div className="flex justify-center mt-4 gap-1.5 flex-wrap max-w-[280px] mx-auto">
-              {Array.from({ length: Math.min(12, Math.ceil(images.length / 3)) }).map((_, i) => (
+              {images.map((_, i) => (
                 <div 
                   key={`dot-${i}`}
-                  className={`w-1.5 h-1.5 rounded-full ${Math.floor(activeSlideIndex / 3) === i ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
+                  className={`w-1.5 h-1.5 rounded-full ${i === activeSlideIndex ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
                 ></div>
               ))}
             </div>
