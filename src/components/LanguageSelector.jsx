@@ -31,12 +31,12 @@ const LanguageSelector = () => {
     <div ref={dropdownRef} className="relative z-50">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 py-1 px-2 rounded-lg bg-emerald/20 hover:bg-emerald/30 transition-all duration-300 text-deep-black focus:outline-none border border-emerald/30"
+        className="flex items-center space-x-1 py-1 px-1 sm:px-2 rounded-lg bg-emerald/20 hover:bg-emerald/30 transition-all duration-300 text-deep-black focus:outline-none border border-emerald/30"
       >
         <span className="text-lg">{flags[currentLanguage]}</span>
         <span className="hidden sm:inline">{languageNames[currentLanguage]}</span>
         <svg 
-          className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+          className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
