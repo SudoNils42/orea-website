@@ -1,10 +1,14 @@
 import { useState, useEffect, forwardRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
+import translations from '../locales/translations';
 
 const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, ref) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
   const { scrollY } = useScroll();
+  const { currentLanguage } = useLanguage();
+  const t = translations[currentLanguage];
   
   // Effet parallax
   const yBg = useTransform(scrollY, [0, 500], [0, 150]);
@@ -48,27 +52,34 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             className="flex flex-col justify-center"
           >
             <h1 className="text-deep-black dark:text-pure-white mb-4">
-              Villa de Luxe à Bali
+              {t.hero.title}
             </h1>
-            <p className="font-lora text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.
+            <p className="font-lora text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-2">
+              {t.hero.subtitle}
+            </p>
+            <p className="font-lora text-md md:text-lg text-gray-600 dark:text-gray-400 mb-6">
+              {t.hero.description}
             </p>
             <button
               onClick={openModal}
               className="btn btn-primary self-start"
-              aria-label="Ouvrir la visite 3D"
+              aria-label={t.hero.tour3d}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 inline-block" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />
                 <path d="M10 8a2 2 0 100 4 2 2 0 000-4z" />
                 <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM5.172 12.828a6 6 0 118.656 0 6 6 0 01-8.656 0z" clipRule="evenodd" />
               </svg>
-              Visite 3D plein écran
+              {t.hero.tour3d}
             </button>
             
             {!isLoading && (
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 italic">
-                Vous pouvez aussi interagir directement avec la visite 3D ci-contre →
+                {currentLanguage === 'fr' ? "Vous pouvez aussi interagir directement avec la visite 3D ci-contre →" :
+                 currentLanguage === 'en' ? "You can also interact directly with the 3D tour on the right →" :
+                 currentLanguage === 'zh' ? "您也可以直接与右侧的3D导览互动 →" :
+                 currentLanguage === 'es' ? "También puede interactuar directamente con el recorrido 3D a la derecha →" :
+                 "Anda juga dapat berinteraksi langsung dengan tur 3D di sebelah kanan →"}
               </p>
             )}
           </motion.div>
@@ -91,7 +102,11 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
               <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                 <span className="loader mb-4"></span>
                 <p className="text-deep-black dark:text-pure-white font-inter text-center px-4">
-                  Chargement de la visite immersive...
+                  {currentLanguage === 'fr' ? "Chargement de la visite immersive..." :
+                   currentLanguage === 'en' ? "Loading immersive tour..." :
+                   currentLanguage === 'zh' ? "正在加载沉浸式导览..." :
+                   currentLanguage === 'es' ? "Cargando recorrido inmersivo..." :
+                   "Memuat tur imersif..."}
                 </p>
               </div>
             )}
@@ -107,7 +122,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
                 }}
                 frameBorder="0"
                 allow="xr-spatial-tracking"
-                title="Villa de Luxe à Bali Visite 3D"
+                title={`Villa Orea - ${t.hero.tour3d}`}
                 onLoad={() => setIsLoading(false)}
               ></iframe>
             </div>

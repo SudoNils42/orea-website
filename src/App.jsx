@@ -10,89 +10,99 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import MatterportModal from './components/MatterportModal';
+import { LanguageProvider } from './contexts/LanguageContext';
 
-function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const App = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [defaultFullscreen, setDefaultFullscreen] = useState(true);
   const [is3DInteractive, setIs3DInteractive] = useState(false);
   const heroRef = useRef(null);
+  
+  // Gestionnaire de scroll
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  // Gestionnaire de clic en dehors
+  const handleClickOutside = (event) => {
+    // Si un clic est fait en dehors de la section Hero, on désactive le mode interactif
+    if (heroRef.current && !heroRef.current.contains(event.target)) {
+      setIs3DInteractive(false);
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Ajouter un gestionnaire d'événements global pour désactiver le mode interactif
-    const handleClickOutside = (e) => {
-      if (heroRef.current && !heroRef.current.contains(e.target)) {
-        setIs3DInteractive(false);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
   const openModal = () => {
-    setIsModalOpen(true);
+    setModalOpen(true);
+    // Désactiver le scroll du body
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
+    setModalOpen(false);
+    // Réactiver le scroll du body
     document.body.style.overflow = 'auto';
   };
 
-  const handleFullscreenChange = (isFullscreen) => {
-    setDefaultFullscreen(isFullscreen);
+  // Gestionnaire pour le changement de mode plein écran
+  const handleFullscreenChange = () => {
+    // Si on sort du mode plein écran, on ferme la modal
+    if (!document.fullscreenElement) {
+      closeModal();
+    }
   };
 
-  const handle3DInteractiveChange = (isInteractive) => {
-    setIs3DInteractive(isInteractive);
+  useEffect(() => {
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+
+  // Gestionnaire pour le changement de mode interactif
+  const handle3DInteractiveChange = (value) => {
+    setIs3DInteractive(value);
   };
 
   return (
-    <div className="relative min-h-screen">
-      <Header scrollY={scrollY} openModal={openModal} />
-      
-      <main>
-        <Hero 
-          ref={heroRef}
-          openModal={openModal} 
-          is3DInteractive={is3DInteractive}
-          onInteractiveChange={handle3DInteractiveChange}
-        />
-        <About openModal={openModal} />
-        <Amenities />
-        <Gallery />
-        <FAQ />
-        <Testimonials />
-        <Pricing />
-        <Contact />
-      </main>
-      
-      <Footer openModal={openModal} />
-      
-      {isModalOpen && (
-        <MatterportModal 
-          isOpen={isModalOpen} 
-          onClose={closeModal} 
-          defaultFullscreen={defaultFullscreen}
-          onFullscreenChange={handleFullscreenChange}
-        />
-      )}
-    </div>
+    <LanguageProvider>
+      <div className="flex flex-col min-h-screen bg-pure-white dark:bg-deep-black text-gray-900 dark:text-gray-100">
+        <Header scrollY={scrollY} openModal={openModal} />
+        
+        <main className="flex-grow">
+          <Hero 
+            ref={heroRef}
+            openModal={openModal} 
+            is3DInteractive={is3DInteractive} 
+            onInteractiveChange={handle3DInteractiveChange}
+          />
+          <About />
+          <Amenities />
+          <Gallery />
+          <FAQ />
+          <Testimonials />
+          <Pricing />
+          <Contact />
+        </main>
+
+        <Footer />
+        
+        {modalOpen && (
+          <MatterportModal isOpen={modalOpen} onClose={closeModal} />
+        )}
+      </div>
+    </LanguageProvider>
   );
-}
+};
 
 export default App; 
