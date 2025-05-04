@@ -317,7 +317,7 @@ const Gallery = () => {
 
         {/* Bouton "Voir plus" */}
         {visibleImages < images.length && (
-          <div className="mt-8 flex justify-center" data-aos="fade-up">
+          <div className="mt-8 hidden md:flex justify-center" data-aos="fade-up">
             <button
               onClick={loadMoreImages}
               className="btn btn-outline flex items-center"
