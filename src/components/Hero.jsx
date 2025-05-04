@@ -41,9 +41,9 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
   };
 
   return (
-    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-visible">
+    <section className="relative w-full py-16 md:py-24 lg:py-28 overflow-visible">
       <div ref={ref} className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mt-8">
           {/* Contenu du héro - Toujours centré */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
