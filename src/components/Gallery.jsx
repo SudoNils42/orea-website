@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Import des images principales pour garantir leur disponibilité
+// Import des images de la villa
 import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
 import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg';
 import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg';
@@ -22,9 +22,26 @@ import image17 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC061
 import image18 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06132.jpg';
 import image19 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06127.jpg';
 import image20 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06120.jpg';
+import image21 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06114.jpg';
+import image22 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06104.jpg';
+import image23 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06087.jpg';
+import image24 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06076.jpg';
+import image25 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06070.jpg';
+import image26 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06066.jpg';
+import image27 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06045.jpg';
+import image28 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06035.jpg';
+import image29 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06029.jpg';
+import image30 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06021.jpg';
+import image31 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05989.jpg';
+import image32 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05984.jpg';
+import image33 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05958.jpg';
+import image34 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05955.jpg';
+import image35 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05950.jpg';
+import image36 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05945.jpg';
+import image37 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05932.jpg';
 
-// Images importées statiquement pour être sûr qu'elles sont disponibles
-const GUARANTEED_IMAGES = [
+// Toutes les images de la villa
+const VILLA_IMAGES = [
   {
     id: 1,
     src: image1,
@@ -124,6 +141,91 @@ const GUARANTEED_IMAGES = [
     id: 20,
     src: image20,
     alt: 'Accès à la plage'
+  },
+  {
+    id: 21,
+    src: image21,
+    alt: 'Espace yoga'
+  },
+  {
+    id: 22,
+    src: image22,
+    alt: 'Bar à cocktails'
+  },
+  {
+    id: 23,
+    src: image23,
+    alt: 'Allée d\'entrée'
+  },
+  {
+    id: 24,
+    src: image24,
+    alt: 'Douche extérieure'
+  },
+  {
+    id: 25,
+    src: image25,
+    alt: 'Coin feu extérieur'
+  },
+  {
+    id: 26,
+    src: image26,
+    alt: 'Vue sur la piscine depuis la terrasse'
+  },
+  {
+    id: 27,
+    src: image27,
+    alt: 'Entrée principale de la villa'
+  },
+  {
+    id: 28,
+    src: image28,
+    alt: 'Espace de travail avec vue'
+  },
+  {
+    id: 29,
+    src: image29,
+    alt: 'Espace détente au bord de la piscine'
+  },
+  {
+    id: 30,
+    src: image30,
+    alt: 'Salon extérieur avec vue panoramique'
+  },
+  {
+    id: 31,
+    src: image31,
+    alt: 'Détails architecturaux'
+  },
+  {
+    id: 32,
+    src: image32,
+    alt: 'Coin repas extérieur ombragé'
+  },
+  {
+    id: 33,
+    src: image33,
+    alt: 'Terrasse ombragée'
+  },
+  {
+    id: 34,
+    src: image34,
+    alt: 'Espace extérieur avec vue sur la nature'
+  },
+  {
+    id: 35,
+    src: image35,
+    alt: 'Éclairage nocturne de la piscine'
+  },
+  {
+    id: 36,
+    src: image36,
+    alt: 'Jardin tropical aménagé'
+  },
+  {
+    id: 37,
+    src: image37,
+    alt: 'Vue sur la terrasse et la piscine'
   }
 ];
 
@@ -133,14 +235,14 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(6); // Commencer par afficher 6 images
+  const [visibleImages, setVisibleImages] = useState(9); // Commencer par afficher 9 images
 
-  // Utiliser uniquement les images garanties pour éviter les espaces vides
-  const images = GUARANTEED_IMAGES;
+  // Utiliser toutes les images de la villa
+  const images = VILLA_IMAGES;
 
   const loadMoreImages = () => {
-    // Afficher 6 images de plus à chaque clic, ou toutes s'il en reste moins de 6
-    setVisibleImages(prev => Math.min(prev + 6, images.length));
+    // Afficher 9 images de plus à chaque clic, ou toutes s'il en reste moins de 9
+    setVisibleImages(prev => Math.min(prev + 9, images.length));
   };
 
   useEffect(() => {
