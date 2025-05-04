@@ -85,23 +85,20 @@ const imageDescriptions = {
   ]
 };
 
-// Liste des noms de fichiers dans le dossier RESIZE
-const imageFilenames = [
-  'DSC05932.jpg', 'DSC05945.jpg', 'DSC05950.jpg', 'DSC05955.jpg', 'DSC05958.jpg',
-  'DSC05984.jpg', 'DSC05989.jpg', 'DSC06021.jpg', 'DSC06029.jpg', 'DSC06035.jpg',
-  'DSC06045.jpg', 'DSC06066.jpg', 'DSC06070.jpg', 'DSC06076.jpg', 'DSC06087.jpg',
-  'DSC06104.jpg', 'DSC06114.jpg', 'DSC06120.jpg', 'DSC06127.jpg', 'DSC06132.jpg',
-  'DSC06138.jpg', 'DSC06146.jpg', 'DSC06150.jpg', 'DSC06156.jpg', 'DSC06164.jpg',
-  'DSC06168.jpg', 'DSC06191.jpg', 'DSC06206.jpg', 'DSC06219.jpg', 'DSC06225.jpg',
-  'DSC06240.jpg', 'DSC06244.jpg', 'DSC06251.jpg', 'DSC06256.jpg', 'DSC06266.jpg',
-  'DSC06270.jpg', 'DSC06273.jpg'
-];
-
-// Import d'au moins 4 images pour le chargement initial rapide
+// Importer les images que nous savons exister
 import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
 import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg';
 import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg';
 import image4 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg';
+import image5 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06251.jpg';
+import image6 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06244.jpg';
+import image7 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06240.jpg';
+import image8 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06225.jpg';
+
+// Créer une liste des images importées pour une utilisation ultérieure
+const importedImages = [
+  image1, image2, image3, image4, image5, image6, image7, image8
+];
 
 const Gallery = () => {
   const { currentLanguage } = useLanguage();
@@ -116,28 +113,25 @@ const Gallery = () => {
   const [visibleImages, setVisibleImages] = useState(4);
   const [images, setImages] = useState([]);
 
-  // Créer la liste des images avec leurs chemins et descriptions
+  // Créer la liste des images avec leurs descriptions
   useEffect(() => {
-    // Les 4 premières images importées directement pour un chargement rapide
-    const preloadedImages = [
+    // Solution simplifiée pour éviter les problèmes de chargement
+    const galleryImages = [
       { id: 1, src: image1, alt: descList[0] || 'Villa Orea' },
       { id: 2, src: image2, alt: descList[1] || 'Villa Orea' },
       { id: 3, src: image3, alt: descList[2] || 'Villa Orea' },
-      { id: 4, src: image4, alt: descList[3] || 'Villa Orea' }
+      { id: 4, src: image4, alt: descList[3] || 'Villa Orea' },
+      { id: 5, src: image5, alt: descList[4] || 'Villa Orea' },
+      { id: 6, src: image6, alt: descList[5] || 'Villa Orea' },
+      { id: 7, src: image7, alt: descList[6] || 'Villa Orea' },
+      { id: 8, src: image8, alt: descList[7] || 'Villa Orea' },
     ];
     
-    // Les autres images chargées par leur chemin
-    const otherImages = imageFilenames.slice(4).map((filename, index) => ({
-      id: index + 5,
-      src: `../assets/gallery-assets/250428 Villa Orea/2. RESIZE/${filename}`,
-      alt: descList[index + 4] || `Villa Orea - Image ${index + 5}`
-    }));
-    
-    setImages([...preloadedImages, ...otherImages]);
+    setImages(galleryImages);
   }, [currentLanguage, descList]);
 
   const loadMoreImages = () => {
-    setVisibleImages(Math.min(visibleImages + 8, images.length));
+    setVisibleImages(Math.min(visibleImages + 4, images.length));
   };
 
   useEffect(() => {
@@ -257,12 +251,6 @@ const Gallery = () => {
                 alt={image.alt} 
                 className="w-full h-full object-cover"
                 loading={index > 3 ? "lazy" : "eager"}
-                onError={(e) => {
-                  // Si l'image ne se charge pas correctement
-                  e.target.src = index < 4 
-                    ? image1 // Utiliser une image de secours pour les images qui ne chargent pas
-                    : image.src;
-                }}
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
@@ -285,12 +273,6 @@ const Gallery = () => {
                 alt={image.alt} 
                 className="w-full h-full object-cover"
                 loading={index > 1 ? "lazy" : "eager"}
-                onError={(e) => {
-                  // Si l'image ne se charge pas correctement
-                  e.target.src = index < 4 
-                    ? image1 // Utiliser une image de secours pour les images qui ne chargent pas
-                    : image.src;
-                }}
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
@@ -387,10 +369,6 @@ const Gallery = () => {
                           src={images[currentIndex].src} 
                           alt={images[currentIndex].alt} 
                           className="max-w-full max-h-[80vh] object-contain" 
-                          onError={(e) => {
-                            // Fallback en cas d'erreur de chargement
-                            e.target.src = image1;
-                          }}
                         />
                         <div className="absolute bottom-0 left-0 right-0 p-4 bg-deep-black bg-opacity-60">
                           <p className="text-pure-white text-center">{images[currentIndex].alt}</p>
