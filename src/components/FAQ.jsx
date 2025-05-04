@@ -1,40 +1,18 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
+import translations from '../locales/translations';
 
 const FAQ = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(null);
+  const { currentLanguage } = useLanguage();
   
-  const faqItems = [
-    {
-      id: 1,
-      question: "Puis-je organiser des événements dans la villa ?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."
-    },
-    {
-      id: 2,
-      question: "Le service de ménage est-il inclus dans le prix ?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."
-    },
-    {
-      id: 3,
-      question: "Y a-t-il un service de conciergerie disponible ?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."
-    },
-    {
-      id: 4,
-      question: "Comment se déroule le check-in et le check-out ?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."
-    },
-    {
-      id: 5,
-      question: "La villa est-elle adaptée aux enfants ?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."
-    }
-  ];
+  // Récupération des traductions en fonction de la langue actuelle
+  const t = translations[currentLanguage].faq || translations.fr.faq;
 
   // Filtrer les questions en fonction de la recherche
-  const filteredFAQs = faqItems.filter(item => 
+  const filteredFAQs = t.questions.filter(item => 
     item.question.toLowerCase().includes(searchQuery.toLowerCase()) || 
     item.answer.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -55,9 +33,9 @@ const FAQ = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12" data-aos="fade-up">
-            <h2 className="mb-4">Questions Fréquentes</h2>
+            <h2 className="mb-4">{t.title}</h2>
             <p className="font-lora text-lg max-w-2xl mx-auto mb-8">
-              Trouvez les réponses à vos questions les plus courantes ci-dessous.
+              {t.intro}
             </p>
             
             {/* Barre de recherche */}
@@ -86,12 +64,12 @@ const FAQ = () => {
           <div data-aos="scale-up" className="space-y-2">
             {filteredFAQs.length > 0 ? (
               filteredFAQs.map((item, index) => (
-                <div key={item.id} className="faq-item rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800">
+                <div key={index} className="faq-item rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800">
                   <button
                     className="faq-question"
                     onClick={() => toggleAccordion(index)}
                     aria-expanded={activeIndex === index}
-                    aria-controls={`faq-answer-${item.id}`}
+                    aria-controls={`faq-answer-${index}`}
                   >
                     <span>{item.question}</span>
                     <motion.span
@@ -107,7 +85,7 @@ const FAQ = () => {
                   <AnimatePresence>
                     {activeIndex === index && (
                       <motion.div
-                        id={`faq-answer-${item.id}`}
+                        id={`faq-answer-${index}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -135,13 +113,13 @@ const FAQ = () => {
 
           <div className="text-center mt-12" data-aos="fade-up">
             <p className="font-lora text-lg mb-4">
-              Vous avez d'autres questions ?
+              {t.contactText}
             </p>
             <a 
               href="#contact" 
               className="btn btn-outline inline-block"
             >
-              Contactez-nous
+              {t.contactButton}
             </a>
           </div>
         </div>

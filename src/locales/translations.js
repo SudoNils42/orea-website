@@ -21,6 +21,43 @@ const translations = {
       cta: "Réserver maintenant",
       tour3d: "Découvrir en 3D"
     },
+    // FAQ
+    faq: {
+      title: "Questions Fréquentes",
+      intro: "Trouvez les réponses à vos questions les plus courantes ci-dessous",
+      questions: [
+        {
+          question: "Quelle est l'heure d'arrivée et de départ ?",
+          answer: "L'enregistrement commence à 14h00 pour notre villa. Les bagages peuvent être déposés dès 11h00 pendant que nous préparons votre villa. Veuillez noter que des frais d'enregistrement tardif de 200 000 IDR s'appliquent pour les arrivées après 20h00. L'heure de départ est fixée à 11h00. Les départs tardifs sont soumis à disponibilité avec des frais supplémentaires de 50% du tarif journalier pour les départs entre 11h00 et 18h00, et 100% pour les départs après 18h00."
+        },
+        {
+          question: "Le petit-déjeuner est-il inclus dans la réservation ?",
+          answer: "Le petit-déjeuner n'est pas inclus dans le prix de la chambre. Vous pouvez cependant l'organiser facilement en contactant notre équipe de réservation ou de conciergerie. Nous proposons une variété de menus préparés par notre chef privé, directement dans votre villa. Le coût est de 150 000 IDR par personne, avec une commande minimum de 5 personnes. Un petit-déjeuner flottant est également disponible pour un supplément de 150 000 IDR par plateau."
+        },
+        {
+          question: "Y a-t-il un service de ménage quotidien ?",
+          answer: "Absolument ! Le ménage est assuré tous les jours de 9h00 à 17h00. Les draps sont changés tous les trois jours par souci de durabilité. Pour garantir votre intimité, veuillez vous mettre d'accord avec l'hôte ou le personnel de votre villa sur l'heure à laquelle le ménage sera effectué. Votre confort est notre priorité."
+        },
+        {
+          question: "Quelle est l'occupation maximale pour cette villa ?",
+          answer: "Cette villa peut accueillir confortablement jusqu'à 4 personnes. Cependant, elle peut accueillir un maximum de 6 personnes, les 5ème et 6ème personnes étant considérées comme supplémentaires. Un supplément de 340 000 IDR/nuit/personne s'applique. Si vous avez besoin de lits supplémentaires, n'hésitez pas à nous le faire savoir."
+        },
+        {
+          question: "Quels services sont inclus dans le prix de la villa ?",
+          answer: "Notre service comprend un responsable de villa dédié, un hôte de villa ou personnel dédié, le ménage quotidien, ainsi que du personnel pour l'entretien du jardin et de la piscine. Des services supplémentaires comme le pré-approvisionnement de la villa, les transferts depuis l'aéroport, les massages et d'autres prestations sont disponibles moyennant des frais additionnels."
+        },
+        {
+          question: "Est-il possible d'avoir des serviettes propres supplémentaires ?",
+          answer: "Certainement ! Nous sommes heureux de vous fournir des serviettes supplémentaires, sous réserve de disponibilité. N'hésitez pas à contacter l'hôte ou le personnel de votre villa et nous ferons de notre mieux pour répondre à votre demande dans les plus brefs délais."
+        },
+        {
+          question: "Comment puis-je réserver des repas pendant mon séjour ?",
+          answer: "Pour le déjeuner et le dîner, nous proposons des services variés, notamment des menus fixes, un service de barbecue en direct, des cuisines ethniques et même des repas raffinés préparés par un chef étoilé Michelin, le tout dans la villa. Les prix commencent à 450 000 IDR par personne. La villa dispose également d'une cuisine entièrement équipée pour préparer vos propres repas si vous le souhaitez."
+        }
+      ],
+      contactText: "Vous avez d'autres questions ?",
+      contactButton: "Contactez-nous"
+    },
     // À propos
     about: {
       title: "À Propos de la Villa",
@@ -111,6 +148,43 @@ const translations = {
       description: "Discover a peaceful haven in the heart of Bali",
       cta: "Book Now",
       tour3d: "3D Tour"
+    },
+    // FAQ
+    faq: {
+      title: "Frequently Asked Questions",
+      intro: "Find answers to your most common questions below",
+      questions: [
+        {
+          question: "What are the check-in and check-out times?",
+          answer: "Check-in starts at 2:00 PM for our villa. Luggage drop-off is welcome after 11:00 AM as we prepare your villa. Please note, a late check-in fee of IDR 200,000 applies for arrivals after 8:00 PM. Our check-out time is at 11:00 AM. Late check-out is subject to availability and involves extra charges: 50% of the daily rate for check-outs between 11:00 AM and 6:00 PM, and 100% for check-outs after 6:00 PM."
+        },
+        {
+          question: "Is breakfast included in the booking?",
+          answer: "Breakfast is not included in the room rate. However, you can easily arrange it by contacting our reservation or concierge team. We offer various menu options prepared by our private chef, right in your villa. The cost is IDR 150,000 per person, with a minimum order for 5 guests. You can also enjoy a floating breakfast for an additional fee of IDR 150,000 per tray."
+        },
+        {
+          question: "Is there a daily housekeeping service?",
+          answer: "Absolutely! Daily housekeeping is provided from 9:00 AM to 5:00 PM. Linens are changed every third day for sustainability. To ensure privacy, please coordinate with your Villa Host or Staff for a convenient cleaning time. Your comfort is our priority."
+        },
+        {
+          question: "What is the maximum occupancy for this villa?",
+          answer: "This villa comfortably accommodates up to 4 guests. However, it can host a maximum of 6 guests, with the 5th and 6th guests considered as extra. An additional fee of IDR 340,000/night/person applies. If you need extra beds, please let us know."
+        },
+        {
+          question: "What services are included in the villa price?",
+          answer: "Our service includes a dedicated Villa Manager, Villa Host or Staff, daily housekeeping, and garden and pool maintenance. Additional services such as villa pre-stocking, airport transfers, massage services, and other amenities are available for an extra fee."
+        },
+        {
+          question: "Can we have extra clean towels?",
+          answer: "Certainly! We are happy to provide extra towels, subject to availability. Please feel free to reach out to your Villa Host or Staff, and we'll do our best to accommodate your request promptly."
+        },
+        {
+          question: "How can I arrange meals during my stay?",
+          answer: "For lunch and dinner, we offer enhanced services, including set menus, live BBQ cooking, ethnic cuisines, and even fine dining prepared by a Michelin-star chef, all cooked in the villa. Prices start at IDR 450,000 per person. The villa also features a fully equipped kitchen, allowing you to prepare your own meals if you prefer."
+        }
+      ],
+      contactText: "Do you have other questions?",
+      contactButton: "Contact Us"
     },
     // About
     about: {
