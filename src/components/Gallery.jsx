@@ -321,11 +321,24 @@ const Gallery = () => {
   const scrollMobileGallery = (direction) => {
     const container = document.getElementById('mobile-gallery-container');
     if (container) {
-      const scrollAmount = container.offsetWidth * 0.85;
+      // Récupérer la largeur d'une image avec son espace
+      const items = container.querySelectorAll('[class*="snap-center"]');
+      if (items.length === 0) return;
+      
+      // Calculer le décalage exact pour une seule image
+      const itemWidth = items[0].offsetWidth + 12; // 12px est l'espacement entre les images (space-x-3)
+      
       container.scrollBy({ 
-        left: direction * scrollAmount, 
+        left: direction * itemWidth, 
         behavior: 'smooth' 
       });
+      
+      // Mettre à jour l'index actif après le défilement
+      setTimeout(() => {
+        const scrollPosition = container.scrollLeft;
+        const newIndex = Math.round(scrollPosition / itemWidth);
+        setActiveSlideIndex(newIndex);
+      }, 300); // Attendre la fin de l'animation
     }
   };
 
@@ -434,7 +447,7 @@ const Gallery = () => {
               id="mobile-gallery-container"
               className="overflow-x-auto flex space-x-3 pb-4 hide-scrollbar snap-x snap-mandatory"
             >
-              {images.map((image, index) => (
+              {images.slice(0, 12).map((image, index) => (
                 <div
                   key={`mobile-image-${image.id}`}
                   className="snap-center shrink-0 w-[80vw] max-w-[280px] h-[260px] rounded-xl overflow-hidden shadow-lg"
@@ -457,8 +470,8 @@ const Gallery = () => {
             </div>
             
             {/* Indicateur de position */}
-            <div className="flex justify-center mt-4 gap-1.5 flex-wrap max-w-[280px] mx-auto">
-              {images.map((_, i) => (
+            <div className="flex justify-center mt-4 gap-1.5">
+              {Array.from({ length: Math.min(6, Math.ceil(images.slice(0, 12).length / 2)) }).map((_, i) => (
                 <div 
                   key={`dot-${i}`}
                   className={`w-1.5 h-1.5 rounded-full ${i === activeSlideIndex ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
