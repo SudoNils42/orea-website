@@ -235,14 +235,14 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(9); // Commencer par afficher 9 images
+  const [visibleImages, setVisibleImages] = useState(8); // Commencer par afficher 8 images (2 rangées de 4)
 
   // Utiliser toutes les images de la villa
   const images = VILLA_IMAGES;
 
   const loadMoreImages = () => {
-    // Afficher 9 images de plus à chaque clic, ou toutes s'il en reste moins de 9
-    setVisibleImages(prev => Math.min(prev + 9, images.length));
+    // Afficher 8 images de plus à chaque clic, ou toutes s'il en reste moins de 8
+    setVisibleImages(prev => Math.min(prev + 8, images.length));
   };
 
   useEffect(() => {
@@ -346,20 +346,20 @@ const Gallery = () => {
         </div>
 
         {/* Grille d'images pour desktop */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {images.slice(0, visibleImages).map((image, index) => (
             <div
               key={`image-${image.id}`}
-              className="relative h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+              className="relative h-64 md:h-72 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
               data-aos="fade-up"
-              data-aos-delay={(index % 9) * 100}
+              data-aos-delay={(index % 8) * 100}
               onClick={() => openModal(index)}
             >
               <img 
                 src={image.src} 
                 alt={image.alt} 
                 className="w-full h-full object-cover"
-                loading={index > 2 ? "lazy" : "eager"}
+                loading={index > 3 ? "lazy" : "eager"}
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
