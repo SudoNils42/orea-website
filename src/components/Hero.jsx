@@ -49,11 +49,8 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center items-center text-center md:items-start md:text-left"
           >
-            <h1 className="text-deep-black dark:text-pure-white mb-4">
-              {t.hero.title}
-            </h1>
             <p className="font-lora text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-2">
               {t.hero.subtitle}
             </p>
@@ -62,7 +59,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             </p>
             <button
               onClick={openModal}
-              className="btn btn-primary self-start"
+              className="btn btn-primary"
               aria-label={t.hero.tour3d}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 inline-block" viewBox="0 0 20 20" fill="currentColor">
@@ -72,16 +69,6 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
               </svg>
               {t.hero.tour3d}
             </button>
-            
-            {!isLoading && (
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 italic">
-                {currentLanguage === 'fr' ? "Vous pouvez aussi interagir directement avec la visite 3D ci-contre →" :
-                 currentLanguage === 'en' ? "You can also interact directly with the 3D tour on the right →" :
-                 currentLanguage === 'zh' ? "您也可以直接与右侧的3D导览互动 →" :
-                 currentLanguage === 'es' ? "También puede interactuar directamente con el recorrido 3D a la derecha →" :
-                 "Anda juga dapat berinteraksi langsung dengan tur 3D di sebelah kanan →"}
-              </p>
-            )}
           </motion.div>
 
           {/* Iframe Matterport dans un conteneur */}
