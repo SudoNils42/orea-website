@@ -46,7 +46,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black">
+    <section id="pricing" className="py-16 md:py-24 bg-pure-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12" data-aos="fade-up">
@@ -59,7 +59,7 @@ const Pricing = () => {
           <div className="mx-auto max-w-lg">
             {/* Plateformes de réservation */}
             <div 
-              className="bg-gradient-to-br from-emerald/10 to-pale-gold/10 dark:from-emerald/20 dark:to-pale-gold/20 p-8 rounded-lg"
+              className="bg-gradient-to-br from-emerald/10 to-pale-gold/10 p-8 rounded-lg"
               data-aos="fade-up"
             >
               <h3 className="text-2xl font-bold mb-6 text-center">{t.pricing.bookOnline}</h3>
@@ -71,7 +71,7 @@ const Pricing = () => {
                     href={platform.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-4 rounded-lg border border-emerald/20 dark:border-pale-gold/20 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300"
+                    className="flex items-center justify-between p-4 rounded-lg border border-emerald/20 hover:bg-white transition-all duration-300"
                   >
                     <div className="flex items-center">
                       <img 
@@ -81,7 +81,7 @@ const Pricing = () => {
                       />
                       <span className="ml-4 font-semibold">{platform.name}</span>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-emerald dark:text-pale-gold" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-emerald" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                   </a>

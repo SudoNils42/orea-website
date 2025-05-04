@@ -51,15 +51,15 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex flex-col justify-center items-center text-center max-w-xl mb-6 md:mb-8 lg:mb-10"
           >
-            <p className="font-lora text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-2">
+            <p className="font-lora text-lg md:text-xl lg:text-2xl text-gray-700 mb-2">
               {t.hero.subtitle}
             </p>
-            <p className="font-lora text-md md:text-lg text-gray-600 dark:text-gray-400 mb-6">
+            <p className="font-lora text-md md:text-lg text-gray-600 mb-6">
               {t.hero.description}
             </p>
             <button
               onClick={openModal}
-              className="font-lora text-sm border-b border-pale-gold hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300 flex items-center py-1 px-2 focus:outline-none"
+              className="font-lora text-sm border-b border-pale-gold hover:text-emerald transition-colors duration-300 flex items-center py-1 px-2 focus:outline-none"
               aria-label={t.hero.tour3d}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-pale-gold" viewBox="0 0 20 20" fill="currentColor">
@@ -92,7 +92,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             {isLoading && (
               <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                 <span className="loader mb-4"></span>
-                <p className="text-deep-black dark:text-pure-white font-inter text-center px-4">
+                <p className="text-deep-black font-inter text-center px-4">
                   {currentLanguage === 'fr' ? "Chargement de la visite immersive..." :
                    currentLanguage === 'en' ? "Loading immersive tour..." :
                    currentLanguage === 'zh' ? "正在加载沉浸式导览..." :
@@ -140,7 +140,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
       >
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
-          className="h-6 w-6 text-deep-black dark:text-pure-white" 
+          className="h-6 w-6 text-deep-black" 
           fill="none" 
           viewBox="0 0 24 24" 
           stroke="currentColor"

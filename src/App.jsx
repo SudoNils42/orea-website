@@ -76,7 +76,7 @@ const App = () => {
 
   return (
     <LanguageProvider>
-      <div className="flex flex-col min-h-screen bg-pure-white dark:bg-deep-black text-gray-900 dark:text-gray-100">
+      <div className="flex flex-col min-h-screen bg-pure-white text-gray-900">
         <Header scrollY={scrollY} openModal={openModal} />
         
         <main className="flex-grow">

@@ -13,20 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Détection du mode sombre préféré par l'utilisateur
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  document.documentElement.classList.add('dark');
-} else {
-  document.documentElement.classList.remove('dark');
-}
+// Forcer le mode clair en retirant toujours la classe 'dark'
+document.documentElement.classList.remove('dark');
 
-// Écouteur pour les changements de préférence de thème
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-  if (event.matches) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+// Ignorer les préférences du système pour toujours rester en mode clair
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  document.documentElement.classList.remove('dark');
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(

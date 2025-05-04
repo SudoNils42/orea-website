@@ -67,11 +67,11 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-deep-black text-pure-white">
+    <section className="py-16 md:py-24 bg-gray-50 text-deep-black">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="mb-4 text-pure-white">Témoignages</h2>
-          <p className="font-lora text-lg max-w-2xl mx-auto mb-6 text-gray-300">
+          <h2 className="mb-4 text-deep-black">Témoignages</h2>
+          <p className="font-lora text-lg max-w-2xl mx-auto mb-6 text-gray-700">
             Ce que nos clients disent de leur expérience.
           </p>
         </div>
@@ -81,7 +81,7 @@ const Testimonials = () => {
           <div className="hidden md:block">
             <button
               onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-3 text-pure-white transition-colors duration-300 z-10"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-3 text-emerald transition-colors duration-300 z-10"
               aria-label="Témoignage précédent"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,7 +90,7 @@ const Testimonials = () => {
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-3 text-pure-white transition-colors duration-300 z-10"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-3 text-emerald transition-colors duration-300 z-10"
               aria-label="Témoignage suivant"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,7 +147,7 @@ const Testimonials = () => {
                 aria-label={`Aller au témoignage ${index + 1}`}
                 aria-current={index === current ? 'true' : 'false'}
                 className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  index === current ? 'bg-pale-gold' : 'bg-gray-600 hover:bg-gray-500'
+                  index === current ? 'bg-pale-gold' : 'bg-gray-300 hover:bg-gray-400'
                 }`}
               />
             ))}
@@ -157,7 +157,7 @@ const Testimonials = () => {
           <div className="flex justify-between mt-8 md:hidden">
             <button
               onClick={prevTestimonial}
-              className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-pure-white transition-colors duration-300"
+              className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
               aria-label="Témoignage précédent"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -166,7 +166,7 @@ const Testimonials = () => {
             </button>
             <button
               onClick={nextTestimonial}
-              className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-pure-white transition-colors duration-300"
+              className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
               aria-label="Témoignage suivant"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -10,6 +10,8 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* Styles pour le loader */
@@ -35,13 +37,9 @@ body {
 
 /* Effet de verre dépoli */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-}
-
-.dark .glass-effect {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Style personnalisé pour la scrollbar */
@@ -51,10 +49,6 @@ body {
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: #333;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -76,8 +70,9 @@ body {
   @apply px-6 py-3 font-inter font-semibold rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
 }
 
+/* Nouveau style pour les boutons primaires - style élégant et discret */
 .btn-primary {
-  @apply bg-emerald text-pure-white hover:bg-opacity-90 focus:ring-emerald;
+  @apply font-lora text-sm border-b border-pale-gold hover:text-emerald transition-colors duration-300 flex items-center py-1 px-2 focus:outline-none focus:ring-0 ring-offset-0 rounded-none bg-transparent text-deep-black;
 }
 
 .btn-secondary {
@@ -88,13 +83,9 @@ body {
   @apply border-2 border-emerald text-emerald hover:bg-emerald hover:text-pure-white focus:ring-emerald;
 }
 
-.dark .btn-outline {
-  @apply border-pale-gold text-pale-gold hover:bg-pale-gold hover:text-deep-black focus:ring-pale-gold;
-}
-
 /* Styles pour les titres */
 h1, h2, h3, h4, h5, h6 {
-  @apply font-inter;
+  @apply font-inter text-deep-black;
 }
 
 h1 {
@@ -116,7 +107,7 @@ h3 {
 
 /* Animation du menu hamburger */
 .hamburger-line {
-  @apply w-6 h-0.5 bg-deep-black dark:bg-pure-white transition-all duration-300;
+  @apply w-6 h-0.5 bg-deep-black transition-all duration-300;
 }
 
 .hamburger-active .hamburger-line:nth-child(1) {
@@ -133,24 +124,24 @@ h3 {
 
 /* Style pour la section FAQ */
 .faq-item {
-  @apply border-b border-gray-200 dark:border-gray-700 py-4;
+  @apply border-b border-gray-200 py-4;
 }
 
 .faq-question {
-  @apply font-inter font-bold text-lg flex justify-between items-center w-full text-left py-2 px-4;
+  @apply font-inter font-bold text-lg flex justify-between items-center w-full text-left py-2 px-4 text-deep-black;
 }
 
 .faq-answer {
-  @apply font-lora py-2 px-4 text-gray-700 dark:text-gray-300;
+  @apply font-lora py-2 px-4 text-gray-700;
 }
 
 /* Style pour le formulaire de contact */
 .form-input {
-  @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald dark:focus:ring-pale-gold bg-white dark:bg-gray-800 text-deep-black dark:text-pure-white;
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald bg-white text-deep-black;
 }
 
 .form-label {
-  @apply block mb-2 font-medium;
+  @apply block mb-2 font-medium text-deep-black;
 }
 
 /* Toast notifications */
@@ -171,11 +162,12 @@ h3 {
   position: relative;
   transition: all 0.3s ease;
   pointer-events: auto; /* Permettre l'interaction par défaut */
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .matterport-iframe.interactive {
   z-index: 30;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   transform: scale(1.01);
 }
 
@@ -185,7 +177,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   opacity: 1;
   transition: opacity 0.3s ease;
   pointer-events: auto;
@@ -202,7 +194,7 @@ h3 {
 }
 
 .matterport-play-button {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(4, 89, 63, 0.9);
   color: white;
   border-radius: 50%;
   padding: 1rem;

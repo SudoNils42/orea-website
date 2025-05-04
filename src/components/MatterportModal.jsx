@@ -48,7 +48,7 @@ const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscre
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className={`fixed inset-0 z-50 ${isFullscreen ? 'bg-deep-black bg-opacity-95' : 'bg-transparent pointer-events-none'} flex items-center justify-center`}
+          className={`fixed inset-0 z-50 ${isFullscreen ? 'bg-gray-200 bg-opacity-95' : 'bg-transparent pointer-events-none'} flex items-center justify-center`}
           initial="hidden"
           animate="visible"
           exit="hidden"
@@ -58,7 +58,7 @@ const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscre
             <div className="absolute top-4 right-4 z-10 flex gap-2">
               <button
                 onClick={toggleFullscreen}
-                className="bg-deep-black bg-opacity-70 text-pure-white rounded-full p-2 hover:bg-emerald transition-colors duration-300"
+                className="bg-white bg-opacity-70 text-deep-black rounded-full p-2 hover:bg-emerald hover:text-white transition-colors duration-300"
                 aria-label={isFullscreen ? "Réduire la visite 3D" : "Agrandir la visite 3D"}
               >
                 {isFullscreen ? (
@@ -73,7 +73,7 @@ const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscre
               </button>
               <button
                 onClick={onClose}
-                className="bg-deep-black bg-opacity-70 text-pure-white rounded-full p-2 hover:bg-emerald transition-colors duration-300"
+                className="bg-white bg-opacity-70 text-deep-black rounded-full p-2 hover:bg-emerald hover:text-white transition-colors duration-300"
                 aria-label="Fermer la visite 3D"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

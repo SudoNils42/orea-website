@@ -53,7 +53,7 @@ const Header = ({ scrollY, openModal }) => {
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isSticky 
-          ? 'py-3 bg-pure-white bg-opacity-90 dark:bg-deep-black dark:bg-opacity-90 backdrop-blur-md shadow-md' 
+          ? 'py-3 bg-pure-white bg-opacity-90 backdrop-blur-md shadow-md' 
           : 'py-5 bg-transparent'
       }`}
     >
@@ -82,7 +82,7 @@ const Header = ({ scrollY, openModal }) => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div 
-              className="fixed top-0 right-0 h-screen w-full sm:w-80 bg-pure-white dark:bg-deep-black z-10 shadow-xl"
+              className="fixed top-0 right-0 h-screen w-full sm:w-80 bg-pure-white z-10 shadow-xl"
               initial="closed"
               animate="open"
               exit="closed"
@@ -92,7 +92,7 @@ const Header = ({ scrollY, openModal }) => {
                 <nav className="flex flex-col space-y-6 mb-8">
                   <motion.a 
                     href="#about" 
-                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
@@ -100,7 +100,7 @@ const Header = ({ scrollY, openModal }) => {
                   </motion.a>
                   <motion.a 
                     href="#amenities" 
-                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
@@ -108,7 +108,7 @@ const Header = ({ scrollY, openModal }) => {
                   </motion.a>
                   <motion.a 
                     href="#gallery" 
-                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
@@ -116,7 +116,7 @@ const Header = ({ scrollY, openModal }) => {
                   </motion.a>
                   <motion.a 
                     href="#faq" 
-                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
@@ -124,7 +124,7 @@ const Header = ({ scrollY, openModal }) => {
                   </motion.a>
                   <motion.a 
                     href="#testimonials" 
-                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
@@ -132,7 +132,7 @@ const Header = ({ scrollY, openModal }) => {
                   </motion.a>
                   <motion.a 
                     href="#pricing" 
-                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
@@ -140,7 +140,7 @@ const Header = ({ scrollY, openModal }) => {
                   </motion.a>
                   <motion.a 
                     href="#contact" 
-                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
