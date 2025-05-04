@@ -235,14 +235,14 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(8); // Commencer par afficher 8 images (2 rangées de 4)
+  const [visibleImages, setVisibleImages] = useState(4); // Commencer par afficher 4 images seulement
 
   // Utiliser toutes les images de la villa
   const images = VILLA_IMAGES;
 
   const loadMoreImages = () => {
-    // Afficher 8 images de plus à chaque clic, ou toutes s'il en reste moins de 8
-    setVisibleImages(prev => Math.min(prev + 8, images.length));
+    // Afficher 4 images de plus à chaque clic
+    setVisibleImages(prev => Math.min(prev + 4, images.length));
   };
 
   useEffect(() => {
