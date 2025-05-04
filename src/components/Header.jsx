@@ -62,20 +62,9 @@ const Header = ({ scrollY, openModal }) => {
           <img src={logoImage} alt="Villa Orea Logo" className="h-10 md:h-12" />
         </a>
 
-        {/* Navigation Desktop */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <a href="#about" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">{t.nav.about}</a>
-          <a href="#amenities" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">{t.nav.amenities}</a>
-          <a href="#gallery" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">{t.nav.gallery}</a>
-          <a href="#faq" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">{t.nav.faq}</a>
-          <a href="#testimonials" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">{t.nav.testimonials}</a>
-          <a href="#pricing" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">{t.nav.pricing}</a>
-          <a href="#contact" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">{t.nav.contact}</a>
-          <LanguageSelector />
-        </nav>
-
-        {/* Bouton hamburger et sélecteur de langue mobile */}
-        <div className="md:hidden flex items-center space-x-2 z-20">
+        {/* Navigation Desktop - supprimée pour tous les formats */}
+        {/* Bouton hamburger et sélecteur de langue pour tous les formats */}
+        <div className="flex items-center space-x-2 z-20">
           <LanguageSelector />
           <button 
             className={`flex flex-col justify-center items-center w-10 h-10 ${isMenuOpen ? 'hamburger-active' : ''}`} 
