@@ -434,7 +434,7 @@ const Gallery = () => {
               id="mobile-gallery-container"
               className="overflow-x-auto flex space-x-3 pb-4 hide-scrollbar snap-x snap-mandatory"
             >
-              {images.slice(0, 12).map((image, index) => (
+              {images.map((image, index) => (
                 <div
                   key={`mobile-image-${image.id}`}
                   className="snap-center shrink-0 w-[80vw] max-w-[280px] h-[260px] rounded-xl overflow-hidden shadow-lg"
@@ -457,11 +457,11 @@ const Gallery = () => {
             </div>
             
             {/* Indicateur de position */}
-            <div className="flex justify-center mt-4 gap-1.5">
-              {Array.from({ length: Math.min(6, Math.ceil(images.slice(0, 12).length / 2)) }).map((_, i) => (
+            <div className="flex justify-center mt-4 gap-1.5 flex-wrap max-w-[280px] mx-auto">
+              {Array.from({ length: Math.min(12, Math.ceil(images.length / 3)) }).map((_, i) => (
                 <div 
                   key={`dot-${i}`}
-                  className={`w-1.5 h-1.5 rounded-full ${i === activeSlideIndex ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
+                  className={`w-1.5 h-1.5 rounded-full ${Math.floor(activeSlideIndex / 3) === i ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
                 ></div>
               ))}
             </div>
