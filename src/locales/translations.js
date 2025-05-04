@@ -111,31 +111,14 @@ const translations = {
       title: "Tarifs et Réservation",
       intro: "Découvrez notre villa de luxe à Seminyak, offrant un mélange parfait de confort moderne et d'ambiance tropicale, avec un excellent rapport qualité-prix pour votre séjour à Bali.",
       priceFrom: "À partir de 350€/nuit",
+      bookOnline: "Réservez en ligne",
       minStay: "Séjour minimum de 3 nuits",
       capacity: "Capacité de 4 personnes (max 6 avec supplément)",
       cleaning: "Ménage quotidien inclus",
       breakfast: "Petit-déjeuner et chef disponibles (supplément)",
       airport: "Transfert aéroport disponible (supplément)",
       notice: "* Les tarifs peuvent varier selon la saison. Check-in: 14h00, Check-out: 11h00.",
-      contactButton: "Contactez-nous",
-      pricePerNight: "À partir de 180€ / nuit",
-      maxOccupancy: "Capacité maximale : 4 personnes",
-      features: [
-        "2 chambres avec climatisation",
-        "Piscine privée",
-        "Wi-Fi gratuit",
-        "Service de ménage quotidien",
-        "Petit-déjeuner inclus",
-        "Transfert aéroport (sur demande)"
-      ],
-      services: "Services additionnels disponibles sur demande",
-      booking: {
-        title: "Réservez maintenant",
-        description: "Réservez votre séjour à Villa Orea sur l'une de ces plateformes :",
-        airbnb: "Réserver sur Airbnb",
-        booking: "Réserver sur Booking.com",
-        agoda: "Réserver sur Agoda"
-      }
+      contactButton: "Contactez-nous"
     },
     // Contact
     contact: {
@@ -300,31 +283,14 @@ const translations = {
       title: "Pricing and Booking",
       intro: "Discover our luxury villa in Seminyak, offering the perfect blend of modern comfort and tropical ambiance, with excellent value for your Bali stay.",
       priceFrom: "From €350/night",
+      bookOnline: "Book Online",
       minStay: "Minimum stay of 3 nights",
       capacity: "Capacity of 4 people (max 6 with supplement)",
       cleaning: "Daily housekeeping included",
       breakfast: "Breakfast and chef available (extra charge)",
       airport: "Airport transfer available (extra charge)",
       notice: "* Rates may vary by season. Check-in: 2:00 PM, Check-out: 11:00 AM.",
-      contactButton: "Contact Us",
-      pricePerNight: "From €180 / night",
-      maxOccupancy: "Maximum occupancy: 4 people",
-      features: [
-        "2 air-conditioned bedrooms",
-        "Private pool",
-        "Free Wi-Fi",
-        "Daily housekeeping",
-        "Breakfast included", 
-        "Airport transfer (on request)"
-      ],
-      services: "Additional services available upon request",
-      booking: {
-        title: "Book Now",
-        description: "Book your stay at Villa Orea on one of these platforms:",
-        airbnb: "Book on Airbnb",
-        booking: "Book on Booking.com",
-        agoda: "Book on Agoda"
-      }
+      contactButton: "Contact Us"
     },
     // Contact
     contact: {
@@ -452,31 +418,14 @@ const translations = {
       title: "价格与预订",
       intro: "探索我们在苍古的豪华别墅，提供现代舒适与热带氛围的完美融合，为您在巴厘岛的住宿带来极高的性价比。",
       priceFrom: "起价€350/晚",
+      bookOnline: "在线预订",
       minStay: "最少入住3晚",
       capacity: "可容纳4人（最多6人，需附加费用）",
       cleaning: "包含每日客房清洁",
       breakfast: "可提供早餐和厨师服务（额外收费）",
       airport: "可提供机场接送服务（额外收费）",
       notice: "* 价格可能因季节而异。入住时间: 14:00, 退房时间: 11:00。",
-      contactButton: "联系我们",
-      pricePerNight: "起价€180 /晚",
-      maxOccupancy: "最大入住人数：4人",
-      features: [
-        "2间带空调的卧室",
-        "私人泳池",
-        "免费Wi-Fi",
-        "每日客房清洁",
-        "包含早餐",
-        "机场接送（需额外付费）"
-      ],
-      services: "额外服务可应要求提供",
-      booking: {
-        title: "立即预订",
-        description: "通过以下平台预订您的住宿：",
-        airbnb: "在Airbnb上预订",
-        booking: "在Booking.com上预订",
-        agoda: "在Agoda上预订"
-      }
+      contactButton: "联系我们"
     },
     // Footer
     footer: {
@@ -561,31 +510,14 @@ const translations = {
       title: "Precios y Reservas",
       intro: "Descubra nuestra lujosa villa en Seminyak, que ofrece la perfecta combinación de confort moderno y ambiente tropical, con excelente valor para su estancia en Bali.",
       priceFrom: "Desde €350/noche",
+      bookOnline: "Reservar en línea",
       minStay: "Estancia mínima de 3 noches",
-      capacity: "Capacidad para 4 personas (máx. 6 con suplemento)",
+      capacity: "Capacidad para 4 personas (máximo 6 con recargo)",
       cleaning: "Limpieza diaria incluida",
-      breakfast: "Desayuno y chef disponibles (cargo adicional)",
-      airport: "Traslado al aeropuerto disponible (cargo adicional)",
+      breakfast: "Desayuno y chef disponibles (extra)",
+      airport: "Traslado al aeropuerto disponible (extra)",
       notice: "* Las tarifas pueden variar según la temporada. Check-in: 14:00, Check-out: 11:00.",
-      contactButton: "Contáctenos",
-      pricePerNight: "Desde €180 / noche",
-      maxOccupancy: "Capacidad máxima: 4 personas",
-      features: [
-        "2 habitaciones con aire acondicionado",
-        "Piscina privada",
-        "Wi-Fi gratuito",
-        "Limpieza diaria",
-        "Desayuno incluido",
-        "Traslado al aeropuerto (sobre pedido)"
-      ],
-      services: "Servicios adicionales disponibles sobre pedido",
-      booking: {
-        title: "Reservar ahora",
-        description: "Reserve su estancia en Villa Orea en una de estas plataformas:",
-        airbnb: "Reservar en Airbnb",
-        booking: "Reservar en Booking.com",
-        agoda: "Reservar en Agoda"
-      }
+      contactButton: "Contáctenos"
     },
     // Footer
     footer: {
@@ -670,31 +602,14 @@ const translations = {
       title: "Harga dan Pemesanan",
       intro: "Temukan villa mewah kami di Seminyak, yang menawarkan perpaduan sempurna antara kenyamanan modern dan suasana tropis, dengan nilai luar biasa untuk pengalaman Anda di Bali.",
       priceFrom: "Mulai dari €350/malam",
+      bookOnline: "Online Booking",
       minStay: "Minimum menginap 3 malam",
       capacity: "Kapasitas 4 orang (maks. 6 dengan biaya tambahan)",
       cleaning: "Pembersihan harian termasuk",
       breakfast: "Sarapan dan koki tersedia (biaya tambahan)",
       airport: "Antar jemput bandara tersedia (biaya tambahan)",
       notice: "* Tarif dapat bervariasi berdasarkan musim. Check-in: 14:00, Check-out: 11:00.",
-      contactButton: "Hubungi Kami",
-      pricePerNight: "Mulai dari €180 / malam",
-      maxOccupancy: "Kapasitas maksimum: 4 orang",
-      features: [
-        "2 kamar tidur dengan AC",
-        "Kolam renang pribadi",
-        "Wi-Fi gratis",
-        "Pembersihan harian",
-        "Sarapan termasuk",
-        "Antar jemput bandara (dengan biaya tambahan)"
-      ],
-      services: "Layanan tambahan tersedia atas permintaan",
-      booking: {
-        title: "Pesan Sekarang",
-        description: "Pesan akomodasi di Villa Orea di salah satu platform ini:",
-        airbnb: "Pesan di Airbnb",
-        booking: "Pesan di Booking.com",
-        agoda: "Pesan di Agoda"
-      }
+      contactButton: "Hubungi Kami"
     },
     // Footer
     footer: {
@@ -779,31 +694,14 @@ const translations = {
       title: "Preise und Buchung",
       intro: "Entdecken Sie unsere Luxusvilla in Seminyak, die die perfekte Mischung aus modernem Komfort und tropischem Ambiente bietet, mit ausgezeichnetem Preis-Leistungs-Verhältnis für Ihren Bali-Aufenthalt.",
       priceFrom: "Ab €350/Nacht",
+      bookOnline: "Online Buchung",
       minStay: "Mindestaufenthalt von 3 Nächten",
       capacity: "Kapazität für 4 Personen (max. 6 mit Aufpreis)",
       cleaning: "Tägliche Reinigung inbegriffen",
       breakfast: "Frühstück und Koch verfügbar (gegen Aufpreis)",
       airport: "Flughafentransfer verfügbar (gegen Aufpreis)",
       notice: "* Preise können je nach Saison variieren. Check-in: 14:00 Uhr, Check-out: 11:00 Uhr.",
-      contactButton: "Kontaktieren Sie uns",
-      pricePerNight: "Ab €180 / Nacht",
-      maxOccupancy: "Maximale Kapazität: 4 Personen",
-      features: [
-        "2 Luftgekühlte Schlafzimmer",
-        "Privater Pool",
-        "Kostenlose WLAN-Verbindung",
-        "Tägliche Reinigung",
-        "Frühstück inbegriffen",
-        "Flughafentransfer (auf Anfrage)"
-      ],
-      services: "Zusätzliche Dienste auf Anfrage",
-      booking: {
-        title: "Jetzt buchen",
-        description: "Ihre Unterkunft in Villa Orea buchen Sie auf einer dieser Plattformen:",
-        airbnb: "Auf Airbnb buchen",
-        booking: "Auf Booking.com buchen",
-        agoda: "Auf Agoda buchen"
-      }
+      contactButton: "Kontaktieren Sie uns"
     },
     // Footer
     footer: {
@@ -888,31 +786,14 @@ const translations = {
       title: "Цены и бронирование",
       intro: "Откройте для себя нашу роскошную виллу в Семиньяке, предлагающую идеальное сочетание современного комфорта и тропической атмосферы, с отличным соотношением цены и качества для вашего пребывания на Бали.",
       priceFrom: "От €350/ночь",
+      bookOnline: "Online Booking",
       minStay: "Минимальное пребывание 3 ночи",
       capacity: "Вместимость 4 человека (макс. 6 с доплатой)",
       cleaning: "Ежедневная уборка включена",
       breakfast: "Завтрак и повар доступны (за дополнительную плату)",
       airport: "Трансфер из аэропорта доступен (за дополнительную плату)",
       notice: "* Цены могут меняться в зависимости от сезона. Заезд: 14:00, выезд: 11:00.",
-      contactButton: "Связаться с нами",
-      pricePerNight: "От €180 / ночь",
-      maxOccupancy: "Максимальная вместимость: 4 человека",
-      features: [
-        "2 номера с кондиционером",
-        "Частный бассейн",
-        "Бесплатный Wi-Fi",
-        "Ежедневная уборка",
-        "Завтрак включен",
-        "Трансфер из аэропорта (за дополнительную плату)"
-      ],
-      services: "Дополнительные услуги по запросу",
-      booking: {
-        title: "Забронировать",
-        description: "Забронируйте ваше пребывание в Villa Orea на одной из этих платформ:",
-        airbnb: "Забронировать на Airbnb",
-        booking: "Забронировать на Booking.com",
-        agoda: "Забронировать на Agoda"
-      }
+      contactButton: "Связаться с нами"
     },
     // Footer
     footer: {
