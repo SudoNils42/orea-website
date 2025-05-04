@@ -71,12 +71,16 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             </button>
           </motion.div>
 
-          {/* Iframe Matterport - Taille adaptée avec contraintes pour grands écrans */}
+          {/* Iframe Matterport - Container adaptatif pour tous les écrans */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className={`relative aspect-video w-full max-w-3xl mx-auto rounded-lg overflow-hidden shadow-xl border-2 ${(isHovering || is3DInteractive) ? 'border-emerald' : 'border-emerald/20 dark:border-emerald/40'} transition-all duration-300`}
+            className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl border-2 aspect-[16/9] box-border"
+            style={{
+              borderColor: (isHovering || is3DInteractive) ? '#04593F' : 'rgba(4, 89, 63, 0.2)',
+              transition: 'all 0.3s ease'
+            }}
             onMouseEnter={handleContainerMouseEnter}
             onMouseLeave={handleContainerMouseLeave}
           >
@@ -98,13 +102,11 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
               </div>
             )}
             
-            <div className={`matterport-iframe ${is3DInteractive ? 'interactive' : ''}`}>
+            <div className={`matterport-iframe ${is3DInteractive ? 'interactive' : ''}`} style={{ width: '100%', height: '100%', position: 'absolute' }}>
               <iframe
                 src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
                 className="w-full h-full transition-opacity duration-700"
                 style={{ 
-                  height: '400px',
-                  maxHeight: '60vh',
                   opacity: isLoading ? 0 : 1,
                   pointerEvents: is3DInteractive || isHovering ? 'auto' : 'none'
                 }}
