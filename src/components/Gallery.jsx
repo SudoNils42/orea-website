@@ -1,113 +1,83 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Descriptions des images - à maintenir dans le même ordre que les noms de fichier pour une correspondance correcte
-const IMAGE_DESCRIPTIONS = {
-  'DSC05932.jpg': 'Vue depuis la terrasse',
-  'DSC05945.jpg': 'Jardin tropical',
-  'DSC05950.jpg': 'Piscine de nuit',
-  'DSC05955.jpg': 'Espace extérieur',
-  'DSC05958.jpg': 'Terrasse ombragée',
-  'DSC05984.jpg': 'Coin repas extérieur',
-  'DSC05989.jpg': 'Détails architecturaux',
-  'DSC06021.jpg': 'Salon avec vue panoramique',
-  'DSC06029.jpg': 'Espace détente au bord de la piscine',
-  'DSC06035.jpg': 'Espace de travail',
-  'DSC06045.jpg': 'Entrée de la villa',
-  'DSC06066.jpg': 'Vue sur la piscine',
-  'DSC06070.jpg': 'Coin feu extérieur',
-  'DSC06076.jpg': 'Douche extérieure',
-  'DSC06087.jpg': 'Allée d\'entrée',
-  'DSC06104.jpg': 'Bar à cocktails',
-  'DSC06114.jpg': 'Espace yoga',
-  'DSC06120.jpg': 'Vue sur la jungle',
-  'DSC06127.jpg': 'Salle de massage',
-  'DSC06132.jpg': 'Détails et décoration',
-  'DSC06138.jpg': 'Lit king-size',
-  'DSC06146.jpg': 'Vue aérienne',
-  'DSC06150.jpg': 'Accès à la plage',
-  'DSC06156.jpg': 'Coucher de soleil depuis la terrasse',
-  'DSC06164.jpg': 'Chambre avec balcon',
-  'DSC06168.jpg': 'Détail architectural',
-  'DSC06191.jpg': 'Chambre d\'amis',
-  'DSC06206.jpg': 'Salle à manger',
-  'DSC06219.jpg': 'Cuisine équipée',
-  'DSC06225.jpg': 'Coin lecture',
-  'DSC06240.jpg': 'Coin détente',
-  'DSC06244.jpg': 'Salle de bain luxueuse',
-  'DSC06251.jpg': 'Salle de bain en pierre',
-  'DSC06256.jpg': 'Terrasse avec vue',
-  'DSC06266.jpg': 'Espace salon extérieur',
-  'DSC06270.jpg': 'Piscine à débordement',
-  'DSC06273.jpg': 'Vue extérieure de la villa'
-};
+// Import des images principales pour garantir leur disponibilité
+import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
+import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg';
+import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg';
+import image4 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg';
+import image5 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06251.jpg';
+import image6 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06244.jpg';
+import image7 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06240.jpg';
+import image8 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06225.jpg';
+import image9 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06219.jpg';
+import image10 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06206.jpg';
+import image11 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06191.jpg';
+import image12 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06168.jpg';
 
-// Fonction pour obtenir toutes les images
-function getAllImages() {
-  // Importation explicite des 4 premières images pour un chargement prioritaire
-  const priorityImages = [
-    {
-      id: 1,
-      src: require('../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg'),
-      alt: IMAGE_DESCRIPTIONS['DSC06273.jpg'] || 'Villa Orea - Vue extérieure',
-      filename: 'DSC06273.jpg'
-    },
-    {
-      id: 2,
-      src: require('../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg'),
-      alt: IMAGE_DESCRIPTIONS['DSC06270.jpg'] || 'Villa Orea - Piscine',
-      filename: 'DSC06270.jpg'
-    },
-    {
-      id: 3,
-      src: require('../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg'),
-      alt: IMAGE_DESCRIPTIONS['DSC06266.jpg'] || 'Villa Orea - Salon extérieur',
-      filename: 'DSC06266.jpg'
-    },
-    {
-      id: 4,
-      src: require('../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg'),
-      alt: IMAGE_DESCRIPTIONS['DSC06256.jpg'] || 'Villa Orea - Terrasse',
-      filename: 'DSC06256.jpg'
-    }
-  ];
-  
-  // Autres noms de fichiers des images du dossier RESIZE
-  const otherImageFilenames = [
-    'DSC05932.jpg', 'DSC05945.jpg', 'DSC05950.jpg', 'DSC05955.jpg', 'DSC05958.jpg',
-    'DSC05984.jpg', 'DSC05989.jpg', 'DSC06021.jpg', 'DSC06029.jpg', 'DSC06035.jpg',
-    'DSC06045.jpg', 'DSC06066.jpg', 'DSC06070.jpg', 'DSC06076.jpg', 'DSC06087.jpg',
-    'DSC06104.jpg', 'DSC06114.jpg', 'DSC06120.jpg', 'DSC06127.jpg', 'DSC06132.jpg',
-    'DSC06138.jpg', 'DSC06146.jpg', 'DSC06150.jpg', 'DSC06156.jpg', 'DSC06164.jpg',
-    'DSC06168.jpg', 'DSC06191.jpg', 'DSC06206.jpg', 'DSC06219.jpg', 'DSC06225.jpg',
-    'DSC06240.jpg', 'DSC06244.jpg', 'DSC06251.jpg', 'DSC06256.jpg', 'DSC06266.jpg',
-    'DSC06270.jpg', 'DSC06273.jpg'
-  ];
-  
-  // Filtrer les noms de fichiers déjà inclus dans priorityImages
-  const priorityFilenames = priorityImages.map(img => img.filename);
-  const remainingFilenames = otherImageFilenames.filter(
-    filename => !priorityFilenames.includes(filename)
-  );
-  
-  // Créer les objets pour les images restantes
-  const otherImages = remainingFilenames.map((filename, index) => {
-    try {
-      return {
-        id: priorityImages.length + index + 1,
-        src: require(`../assets/gallery-assets/250428 Villa Orea/2. RESIZE/${filename}`),
-        alt: IMAGE_DESCRIPTIONS[filename] || `Villa Orea - Image ${index + 5}`,
-        filename
-      };
-    } catch (e) {
-      console.warn(`Impossible de charger l'image: ${filename}`, e);
-      return null;
-    }
-  }).filter(Boolean); // Filtrer les images qui n'ont pas pu être chargées
-  
-  // Combiner les images prioritaires avec les autres
-  return [...priorityImages, ...otherImages];
-}
+// Images importées statiquement pour être sûr qu'elles sont disponibles
+const GUARANTEED_IMAGES = [
+  {
+    id: 1,
+    src: image1,
+    alt: 'Vue extérieure de la villa'
+  },
+  {
+    id: 2,
+    src: image2,
+    alt: 'Piscine à débordement'
+  },
+  {
+    id: 3,
+    src: image3,
+    alt: 'Espace salon extérieur'
+  },
+  {
+    id: 4,
+    src: image4,
+    alt: 'Terrasse avec vue'
+  },
+  {
+    id: 5,
+    src: image5,
+    alt: 'Chambre principale'
+  },
+  {
+    id: 6,
+    src: image6,
+    alt: 'Salle de bain luxueuse'
+  },
+  {
+    id: 7,
+    src: image7,
+    alt: 'Coin détente'
+  },
+  {
+    id: 8,
+    src: image8,
+    alt: 'Cuisine équipée'
+  },
+  {
+    id: 9,
+    src: image9,
+    alt: 'Salle à manger'
+  },
+  {
+    id: 10,
+    src: image10,
+    alt: 'Salon avec vue panoramique'
+  },
+  {
+    id: 11,
+    src: image11,
+    alt: 'Chambre d\'amis'
+  },
+  {
+    id: 12,
+    src: image12,
+    alt: 'Espace de travail'
+  }
+];
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -116,24 +86,13 @@ const Gallery = () => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [visibleImages, setVisibleImages] = useState(4); // Commencer par afficher 4 images
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  // Charger toutes les images au démarrage
-  useEffect(() => {
-    try {
-      const allImages = getAllImages();
-      setImages(allImages);
-    } catch (error) {
-      console.error('Erreur lors du chargement des images:', error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  // Utiliser uniquement les images garanties pour éviter les espaces vides
+  const images = GUARANTEED_IMAGES;
 
   const loadMoreImages = () => {
-    // Afficher 8 images de plus à chaque clic, ou toutes s'il en reste moins de 8
-    setVisibleImages(prev => Math.min(prev + 8, images.length));
+    // Afficher 4 images de plus à chaque clic, ou toutes s'il en reste moins de 4
+    setVisibleImages(prev => Math.min(prev + 4, images.length));
   };
 
   useEffect(() => {
@@ -225,26 +184,6 @@ const Gallery = () => {
       opacity: 0,
     }),
   };
-
-  if (loading) {
-    return (
-      <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <div className="animate-pulse">
-            <h2 className="mb-4">Galerie</h2>
-            <p className="font-lora text-lg max-w-2xl mx-auto mb-6">
-              Chargement des images...
-            </p>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="h-64 md:h-80 rounded-lg bg-gray-200 dark:bg-gray-700"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black">
@@ -384,12 +323,12 @@ const Gallery = () => {
                     className="absolute inset-0 flex items-center justify-center"
                   >
                     <img 
-                      src={images[currentIndex]?.src} 
-                      alt={images[currentIndex]?.alt} 
+                      src={images[currentIndex].src} 
+                      alt={images[currentIndex].alt} 
                       className="max-w-full max-h-[80vh] object-contain" 
                     />
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-deep-black bg-opacity-60">
-                      <p className="text-pure-white text-center">{images[currentIndex]?.alt}</p>
+                      <p className="text-pure-white text-center">{images[currentIndex].alt}</p>
                     </div>
                   </motion.div>
                 </AnimatePresence>
