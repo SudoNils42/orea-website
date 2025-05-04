@@ -84,9 +84,9 @@ const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscre
 
             <div className={`relative w-full h-full rounded-lg overflow-hidden ${!isFullscreen ? 'shadow-2xl border-2 border-emerald' : ''}`}>
               {isLoading && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-deep-black">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
                   <span className="loader mb-4"></span>
-                  <p className="text-pure-white font-inter">Chargement de la visite virtuelle...</p>
+                  <p className="text-deep-black font-inter">Chargement de la visite virtuelle...</p>
                 </div>
               )}
               

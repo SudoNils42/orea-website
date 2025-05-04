@@ -139,11 +139,11 @@ const Amenities = () => {
   ];
 
   return (
-    <section id="amenities" className="pt-16 pb-20 md:pt-20 md:pb-24 bg-deep-black text-pure-white">
+    <section id="amenities" className="pt-16 pb-20 md:pt-20 md:pb-24 bg-white text-deep-black">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-pure-white mb-4">{t.amenities.title}</h2>
-          <p className="font-lora text-lg max-w-2xl mx-auto text-gray-300">
+          <h2 className="text-deep-black mb-4">{t.amenities.title}</h2>
+          <p className="font-lora text-lg max-w-2xl mx-auto text-gray-700">
             {t.amenities.intro}
           </p>
         </div>
@@ -152,17 +152,17 @@ const Amenities = () => {
           {amenities.map((item, index) => (
             <div 
               key={item.id} 
-              className="bg-black bg-opacity-60 backdrop-blur-sm rounded-lg shadow-md p-6 border border-emerald/10 transition-all duration-300 hover:shadow-emerald/20 hover:border-emerald/30"
+              className="bg-gray-50 rounded-lg shadow-md p-6 border border-emerald/10 transition-all duration-300 hover:shadow-emerald/20 hover:border-emerald/30"
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 text-pale-gold">
+                <div className="mb-4 text-emerald">
                   {item.icon}
                 </div>
-                <h3 className="text-xl mb-2 text-pure-white">{item.name}</h3>
+                <h3 className="text-xl mb-2 text-deep-black">{item.name}</h3>
                 <div className="w-12 h-1 bg-pale-gold rounded-full mb-4"></div>
-                <p className="font-lora text-gray-300">
+                <p className="font-lora text-gray-700">
                   {item.description}
                 </p>
               </div>
