@@ -60,15 +60,14 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(9);
+  const [visibleImages, setVisibleImages] = useState(6);
 
   // Utiliser uniquement les images garanties pour éviter les espaces vides
   const images = GUARANTEED_IMAGES;
 
   const loadMoreImages = () => {
-    // Cette fonction n'est plus nécessaire car nous avons un nombre fixe d'images
-    // Mais nous la gardons au cas où nous ajouterions plus d'images à l'avenir
-    setVisibleImages(prev => Math.min(prev + 8, images.length));
+    // Afficher toutes les images disponibles
+    setVisibleImages(images.length);
   };
 
   useEffect(() => {
@@ -173,7 +172,7 @@ const Gallery = () => {
 
         {/* Grille d'images pour desktop */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {images.map((image, index) => (
+          {images.slice(0, visibleImages).map((image, index) => (
             <div
               key={`image-${image.id}`}
               className="relative h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
@@ -197,7 +196,7 @@ const Gallery = () => {
 
         {/* Grille d'images pour mobile */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:hidden gap-4">
-          {images.map((image, index) => (
+          {images.slice(0, visibleImages).map((image, index) => (
             <div
               key={`mobile-image-${image.id}`}
               className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
@@ -216,6 +215,18 @@ const Gallery = () => {
             </div>
           ))}
         </div>
+
+        {/* Bouton "Voir plus" */}
+        {visibleImages < images.length && (
+          <div className="text-center mt-8">
+            <button 
+              className="btn btn-outline"
+              onClick={loadMoreImages}
+            >
+              Voir plus de photos
+            </button>
+          </div>
+        )}
 
         {/* Modal pour agrandir les images */}
         <AnimatePresence>
