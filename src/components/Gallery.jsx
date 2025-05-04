@@ -249,14 +249,22 @@ const Gallery = () => {
 
     const handleScroll = () => {
       const scrollPosition = container.scrollLeft;
-      const itemWidth = container.offsetWidth;
+      // Calculer la largeur réelle d'un élément (image + espacement)
+      const items = container.querySelectorAll('[class*="snap-center"]');
+      if (items.length === 0) return;
+      
+      const itemWidth = items[0].offsetWidth + 12; // 12px est l'espacement entre les images
       const currentIndex = Math.round(scrollPosition / itemWidth);
-      setActiveSlideIndex(currentIndex);
+      
+      // S'assurer que l'index est valide
+      if (currentIndex >= 0 && currentIndex < images.length) {
+        setActiveSlideIndex(currentIndex);
+      }
     };
 
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [images.length]);
 
   // Vérifier la taille de l'écran
   useEffect(() => {
@@ -328,17 +336,19 @@ const Gallery = () => {
       // Calculer le décalage exact pour une seule image
       const itemWidth = items[0].offsetWidth + 12; // 12px est l'espacement entre les images (space-x-3)
       
-      container.scrollBy({ 
-        left: direction * itemWidth, 
+      // Calculer le nouvel index en fonction de la direction
+      const currentScrollPosition = container.scrollLeft;
+      const currentIndex = Math.round(currentScrollPosition / itemWidth);
+      const newIndex = Math.max(0, Math.min(images.length - 1, currentIndex + direction));
+      
+      // Faire défiler vers la position exacte de la nouvelle image
+      container.scrollTo({ 
+        left: newIndex * itemWidth, 
         behavior: 'smooth' 
       });
       
-      // Mettre à jour l'index actif après le défilement
-      setTimeout(() => {
-        const scrollPosition = container.scrollLeft;
-        const newIndex = Math.round(scrollPosition / itemWidth);
-        setActiveSlideIndex(newIndex);
-      }, 300); // Attendre la fin de l'animation
+      // Mettre à jour l'index actif
+      setActiveSlideIndex(newIndex);
     }
   };
 
