@@ -64,14 +64,14 @@ const Pricing = () => {
             >
               <h3 className="text-2xl font-bold mb-6 text-center">{t.pricing.bookOnline}</h3>
               
-              <div className="flex flex-wrap justify-center items-center gap-6">
+              <div className="space-y-6">
                 {bookingPlatforms.map((platform) => (
                   <a 
                     key={platform.name}
                     href={platform.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center p-4 rounded-lg border border-emerald/20 hover:bg-white transition-all duration-300 w-[130px] h-[80px]"
+                    className="flex items-center justify-center p-4 rounded-lg border border-emerald/20 hover:bg-white transition-all duration-300 w-full"
                   >
                     <img 
                       src={platform.logo} 
