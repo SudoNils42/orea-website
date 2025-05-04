@@ -77,8 +77,8 @@ function App() {
         <Gallery />
         <FAQ />
         <Testimonials />
-        <Contact />
         <Pricing />
+        <Contact />
       </main>
       
       <Footer openModal={openModal} />

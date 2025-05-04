@@ -64,8 +64,8 @@ const Header = ({ scrollY, openModal }) => {
           <a href="#gallery" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Galerie</a>
           <a href="#faq" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">FAQ</a>
           <a href="#testimonials" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Avis</a>
-          <a href="#contact" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Contact</a>
           <a href="#pricing" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Tarifs</a>
+          <a href="#contact" className="font-inter font-medium hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300">Contact</a>
           <button 
             onClick={openModal} 
             className="btn btn-primary flex items-center"
@@ -145,20 +145,20 @@ const Header = ({ scrollY, openModal }) => {
                     Avis
                   </motion.a>
                   <motion.a 
-                    href="#contact" 
-                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
-                    onClick={closeMenu}
-                    variants={menuItemVariants}
-                  >
-                    Contact
-                  </motion.a>
-                  <motion.a 
                     href="#pricing" 
                     className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
                     onClick={closeMenu}
                     variants={menuItemVariants}
                   >
                     Tarifs
+                  </motion.a>
+                  <motion.a 
+                    href="#contact" 
+                    className="font-inter font-medium text-lg hover:text-emerald dark:hover:text-pale-gold transition-colors duration-300"
+                    onClick={closeMenu}
+                    variants={menuItemVariants}
+                  >
+                    Contact
                   </motion.a>
                 </nav>
                 <motion.div className="mt-auto" variants={menuItemVariants}>
