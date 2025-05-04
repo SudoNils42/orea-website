@@ -26,6 +26,8 @@ const About = ({ openModal }) => {
            currentLanguage === 'en' ? "Master suite with king-size bed" :
            currentLanguage === 'zh' ? "带特大床的主套房" :
            currentLanguage === 'es' ? "Suite principal con cama king-size" :
+           currentLanguage === 'de' ? "Hauptsuite mit Kingsize-Bett" :
+           currentLanguage === 'ru' ? "Главный люкс с кроватью размера кинг-сайз" :
            "Kamar utama dengan tempat tidur king-size",
     },
     {
@@ -35,6 +37,8 @@ const About = ({ openModal }) => {
            currentLanguage === 'en' ? "Panoramic view from the terrace" :
            currentLanguage === 'zh' ? "从露台看到的全景" :
            currentLanguage === 'es' ? "Vista panorámica desde la terraza" :
+           currentLanguage === 'de' ? "Panoramablick von der Terrasse" :
+           currentLanguage === 'ru' ? "Панорамный вид с террасы" :
            "Pemandangan panorama dari teras",
     },
     {
@@ -44,6 +48,8 @@ const About = ({ openModal }) => {
            currentLanguage === 'en' ? "Outdoor lounge with pool" :
            currentLanguage === 'zh' ? "带游泳池的户外休息区" :
            currentLanguage === 'es' ? "Salón al aire libre con piscina" :
+           currentLanguage === 'de' ? "Außenlounge mit Pool" :
+           currentLanguage === 'ru' ? "Зона отдыха у бассейна" :
            "Ruang tamu luar dengan kolam renang",
     },
     {
@@ -53,6 +59,8 @@ const About = ({ openModal }) => {
            currentLanguage === 'en' ? "Massage room with garden view" :
            currentLanguage === 'zh' ? "带花园景观的按摩室" :
            currentLanguage === 'es' ? "Sala de masajes con vista al jardín" :
+           currentLanguage === 'de' ? "Massageraum mit Gartenblick" :
+           currentLanguage === 'ru' ? "Массажная комната с видом на сад" :
            "Ruang pijat dengan pemandangan taman",
     }
   ];
