@@ -1,60 +1,32 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+// Import des images principales pour garantir leur disponibilité
 import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
 import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg';
 import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg';
 import image4 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg';
 
-// Importations des images principales pour éviter les problèmes de chargement
-const mainImages = [
-  image1,
-  image2,
-  image3,
-  image4
+// Liste des images confirmées comme existantes
+const VERIFIED_IMAGES = [
+  'DSC05932.jpg', 'DSC05945.jpg', 'DSC05950.jpg', 'DSC05955.jpg', 'DSC05958.jpg', 
+  'DSC05984.jpg', 'DSC05989.jpg', 'DSC06021.jpg', 'DSC06029.jpg', 'DSC06035.jpg', 
+  'DSC06045.jpg', 'DSC06066.jpg', 'DSC06070.jpg', 'DSC06076.jpg', 'DSC06087.jpg', 
+  'DSC06104.jpg', 'DSC06114.jpg', 'DSC06120.jpg', 'DSC06127.jpg', 'DSC06132.jpg', 
+  'DSC06138.jpg', 'DSC06146.jpg', 'DSC06150.jpg', 'DSC06156.jpg', 'DSC06164.jpg', 
+  'DSC06168.jpg', 'DSC06191.jpg', 'DSC06206.jpg', 'DSC06219.jpg', 'DSC06225.jpg', 
+  'DSC06240.jpg', 'DSC06244.jpg', 'DSC06251.jpg', 'DSC06256.jpg', 'DSC06266.jpg', 
+  'DSC06270.jpg', 'DSC06273.jpg'
 ];
 
-// Chemins des images redimensionnées
-const imagePaths = [
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06251.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06244.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06240.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06225.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06219.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06206.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06191.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06168.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06164.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06156.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06150.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06146.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06138.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06132.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06127.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06120.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06114.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06104.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06087.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06076.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06070.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06066.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06045.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06035.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06021.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06029.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05989.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05984.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05958.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05955.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05950.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05945.jpg',
-  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05932.jpg'
-];
+// Images importées pour un chargement fiable
+const mainImages = [image1, image2, image3, image4];
 
-// Descriptions des images
+// Construction des chemins d'images en se basant sur la liste vérifiée
+const imagePaths = VERIFIED_IMAGES.map(filename => 
+  `../assets/gallery-assets/250428 Villa Orea/2. RESIZE/${filename}`
+);
+
+// Descriptions des images - ajustées pour correspondre exactement au nombre d'images
 const imageDescriptions = [
   'Vue extérieure de la villa',
   'Piscine à débordement',
@@ -93,7 +65,7 @@ const imageDescriptions = [
   'Intérieur de la villa',
   'Mobilier extérieur',
   'Piscine de nuit'
-];
+].slice(0, VERIFIED_IMAGES.length); // Limiter aux images réelles
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -101,17 +73,28 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(8);
+  const [visibleImages, setVisibleImages] = useState(9); // Afficher 9 images à la fois (3x3)
+  const [loadedImages, setLoadedImages] = useState([]); // Images correctement chargées
 
   // Créer les images avec leurs descriptions
   const images = imagePaths.map((path, index) => ({
     id: index + 1,
     src: index < 4 ? mainImages[index] : path, // Utiliser les images importées pour les 4 premières
-    alt: imageDescriptions[index] || `Villa de luxe à Bali - Image ${index + 1}`
+    alt: imageDescriptions[index] || `Villa Orea - Image ${index + 1}`
   }));
 
+  // Mettre à jour la liste des images chargées
+  const handleImageLoad = (id) => {
+    setLoadedImages(prev => [...prev, id]);
+  };
+
+  const handleImageError = (id) => {
+    // Si une image ne charge pas, on la retire des loadedImages
+    setLoadedImages(prev => prev.filter(imageId => imageId !== id));
+  };
+
   const loadMoreImages = () => {
-    setVisibleImages(prev => Math.min(prev + 8, images.length));
+    setVisibleImages(prev => Math.min(prev + 9, images.length));
   };
 
   useEffect(() => {
@@ -216,35 +199,25 @@ const Gallery = () => {
 
         {/* Grille d'images pour desktop */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {/* Images de la galerie */}
           {images.slice(0, visibleImages).map((image, index) => (
             <div
-              key={`image-${index}`}
+              key={`image-${image.id}`}
               className="relative h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
               data-aos="fade-up"
-              data-aos-delay={index * 100}
+              data-aos-delay={(index % 9) * 100}
               onClick={() => openModal(index)}
             >
               <img 
-                src={index < 4 ? mainImages[index] : images[index].src} 
-                alt={images[index].alt} 
+                src={index < 4 ? mainImages[index] : image.src} 
+                alt={image.alt} 
                 className="w-full h-full object-cover"
                 loading={index > 2 ? "lazy" : "eager"}
-                onError={(e) => {
-                  // Si l'image ne se charge pas, on affiche une couleur de fond
-                  e.target.parentElement.style.backgroundColor = '#eee';
-                  e.target.style.display = 'none';
-                  
-                  // Ajouter un message d'erreur
-                  const errorMessage = document.createElement('div');
-                  errorMessage.className = 'absolute inset-0 flex items-center justify-center text-center p-4';
-                  errorMessage.innerHTML = `<p>Image non disponible</p>`;
-                  e.target.parentElement.appendChild(errorMessage);
-                }}
+                onLoad={() => handleImageLoad(image.id)}
+                onError={() => handleImageError(image.id)}
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
-                <p className="text-pure-white text-sm">{images[index].alt}</p>
+                <p className="text-pure-white text-sm">{image.alt}</p>
               </div>
             </div>
           ))}
@@ -254,28 +227,21 @@ const Gallery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:hidden gap-4">
           {images.slice(0, visibleImages).map((image, index) => (
             <div
-              key={`mobile-image-${index}`}
+              key={`mobile-image-${image.id}`}
               className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
               onClick={() => openModal(index)}
             >
               <img 
-                src={index < 4 ? mainImages[index] : images[index].src} 
-                alt={images[index].alt} 
+                src={index < 4 ? mainImages[index] : image.src} 
+                alt={image.alt} 
                 className="w-full h-full object-cover"
                 loading={index > 1 ? "lazy" : "eager"}
-                onError={(e) => {
-                  e.target.parentElement.style.backgroundColor = '#eee';
-                  e.target.style.display = 'none';
-                  
-                  const errorMessage = document.createElement('div');
-                  errorMessage.className = 'absolute inset-0 flex items-center justify-center text-center p-4';
-                  errorMessage.innerHTML = `<p>Image non disponible</p>`;
-                  e.target.parentElement.appendChild(errorMessage);
-                }}
+                onLoad={() => handleImageLoad(image.id)}
+                onError={() => handleImageError(image.id)}
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
-                <p className="text-pure-white text-sm">{images[index].alt}</p>
+                <p className="text-pure-white text-sm">{image.alt}</p>
               </div>
             </div>
           ))}
@@ -288,7 +254,7 @@ const Gallery = () => {
               className="btn btn-outline"
               onClick={loadMoreImages}
             >
-              Voir plus de photos
+              Voir plus de photos ({visibleImages}/{images.length})
             </button>
           </div>
         )}
@@ -363,6 +329,8 @@ const Gallery = () => {
                       src={currentIndex < 4 ? mainImages[currentIndex] : images[currentIndex].src} 
                       alt={images[currentIndex].alt} 
                       className="max-w-full max-h-[80vh] object-contain" 
+                      onLoad={() => handleImageLoad(images[currentIndex].id)}
+                      onError={() => handleImageError(images[currentIndex].id)}
                     />
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-deep-black bg-opacity-60">
                       <p className="text-pure-white text-center">{images[currentIndex].alt}</p>
