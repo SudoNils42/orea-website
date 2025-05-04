@@ -60,7 +60,7 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(6);
+  const [visibleImages, setVisibleImages] = useState(4);
 
   // Utiliser uniquement les images garanties pour éviter les espaces vides
   const images = GUARANTEED_IMAGES;
@@ -220,10 +220,13 @@ const Gallery = () => {
         {visibleImages < images.length && (
           <div className="text-center mt-8">
             <button 
-              className="btn btn-outline"
+              className="btn btn-outline flex items-center mx-auto gap-2"
               onClick={loadMoreImages}
             >
-              Voir plus de photos
+              <span>Voir toutes les photos</span>
+              <span className="bg-pale-gold/10 text-pale-gold px-2 py-0.5 rounded-full text-sm">
+                {visibleImages}/{images.length}
+              </span>
             </button>
           </div>
         )}
