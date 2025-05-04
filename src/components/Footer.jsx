@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
+import logoImage from '../assets/logo/fulllogo_transparent_nobuffer.png';
+import iconOnly from '../assets/logo/icononly_transparent_nobuffer.png';
 
 const Footer = ({ openModal }) => {
   const { currentLanguage } = useLanguage();
@@ -15,9 +17,8 @@ const Footer = ({ openModal }) => {
           {/* Logo et tagline */}
           <div className="md:col-span-1">
             <div className="flex flex-col">
-              <a href="#" className="font-inter font-black text-xl mb-2">
-                <span className="text-emerald">Villa</span>
-                <span className="text-pale-gold">Orea</span>
+              <a href="#" className="mb-3">
+                <img src={logoImage} alt="Villa Orea Logo" className="h-10" />
               </a>
               <p className="text-sm text-gray-400 mb-4">
                 Seminyak, Bali, Indonesia
@@ -84,7 +85,8 @@ const Footer = ({ openModal }) => {
         </div>
 
         <div className="border-t border-gray-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm mb-4 md:mb-0">
+          <div className="text-gray-400 text-sm mb-4 md:mb-0 flex items-center">
+            <img src={iconOnly} alt="Villa Orea Icon" className="h-5 mr-2" />
             &copy; {currentYear} Villa Orea. {t.footer.rights}.
           </div>
           <div className="text-gray-500 text-xs">

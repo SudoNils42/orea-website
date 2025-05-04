@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
+import logoImage from '../assets/logo/fulllogo_transparent_nobuffer.png';
 
 const Header = ({ scrollY, openModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,9 +58,8 @@ const Header = ({ scrollY, openModal }) => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a href="#" className="font-inter font-black text-xl md:text-2xl z-20">
-          <span className="text-emerald">Villa</span>
-          <span className="text-pale-gold">Orea</span>
+        <a href="#" className="z-20">
+          <img src={logoImage} alt="Villa Orea Logo" className="h-10 md:h-12" />
         </a>
 
         {/* Navigation Desktop */}
