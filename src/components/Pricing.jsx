@@ -4,6 +4,7 @@ import translations from '../locales/translations';
 import airbnbLogo from '../assets/booking-platforms/airbnb-logo.svg';
 import bookingLogo from '../assets/booking-platforms/booking-logo.svg';
 import agodaLogo from '../assets/booking-platforms/agoda-logo.svg';
+import tripLogo from '../assets/booking-platforms/trip-logo.svg';
 
 const Pricing = () => {
   const { currentLanguage } = useLanguage();
@@ -35,6 +36,12 @@ const Pricing = () => {
       logo: agodaLogo,
       url: 'https://www.agoda.com/villa-orea/hotel/bali-id.html', // À remplacer par votre vrai lien Agoda
       alt: 'Agoda Logo'
+    },
+    {
+      name: 'Trip.com',
+      logo: tripLogo,
+      url: 'https://www.trip.com/hotels/detail/?hotelid=12345678', // À remplacer par votre vrai lien Trip.com
+      alt: 'Trip.com Logo'
     }
   ];
 
