@@ -1,49 +1,57 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import placeholder1 from '../assets/placeholder1.jpg';
-import placeholder2 from '../assets/placeholder2.jpg';
-import placeholder3 from '../assets/placeholder3.jpg';
-import placeholder4 from '../assets/placeholder4.jpg';
+import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
+import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg';
+import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg';
+import image4 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg';
+
+// Importations des images principales pour éviter les problèmes de chargement
+const mainImages = [
+  image1,
+  image2,
+  image3,
+  image4
+];
 
 // Chemins des images redimensionnées
 const imagePaths = [
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06251.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06244.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06240.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06225.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06219.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06206.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06191.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06168.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06164.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06156.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06150.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06146.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06138.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06132.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06127.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06120.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06114.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06104.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06087.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06076.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06070.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06066.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06045.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06035.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06021.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06029.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05989.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05984.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05958.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05955.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05950.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05945.jpg',
-  '/src/assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05932.jpg'
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06251.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06244.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06240.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06225.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06219.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06206.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06191.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06168.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06164.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06156.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06150.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06146.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06138.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06132.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06127.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06120.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06114.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06104.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06087.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06076.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06070.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06066.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06045.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06035.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06021.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06029.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05989.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05984.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05958.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05955.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05950.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05945.jpg',
+  '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05932.jpg'
 ];
 
 // Descriptions des images
@@ -87,47 +95,23 @@ const imageDescriptions = [
   'Piscine de nuit'
 ];
 
-// Images de remplacement pour les emplacements vides (placeholders)
-const placeholderImages = [
-  {
-    id: 'placeholder1',
-    src: placeholder1,
-    alt: 'Suite principale avec lit king-size'
-  },
-  {
-    id: 'placeholder2',
-    src: placeholder2,
-    alt: 'Vue panoramique depuis la terrasse'
-  },
-  {
-    id: 'placeholder3',
-    src: placeholder3,
-    alt: 'Salon extérieur avec piscine'
-  },
-  {
-    id: 'placeholder4',
-    src: placeholder4,
-    alt: 'Salle de massage avec vue sur jardin'
-  }
-];
-
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(4);
+  const [visibleImages, setVisibleImages] = useState(8);
 
   // Créer les images avec leurs descriptions
-  const images = [...imagePaths.map((path, index) => ({
+  const images = imagePaths.map((path, index) => ({
     id: index + 1,
-    src: path,
+    src: index < 4 ? mainImages[index] : path, // Utiliser les images importées pour les 4 premières
     alt: imageDescriptions[index] || `Villa de luxe à Bali - Image ${index + 1}`
-  })), ...placeholderImages];
+  }));
 
   const loadMoreImages = () => {
-    setVisibleImages(prev => Math.min(prev + 4, images.length));
+    setVisibleImages(prev => Math.min(prev + 8, images.length));
   };
 
   useEffect(() => {
@@ -232,8 +216,8 @@ const Gallery = () => {
 
         {/* Grille d'images pour desktop */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {/* Images régulières de la galerie */}
-          {imagePaths.slice(0, visibleImages).map((path, index) => (
+          {/* Images de la galerie */}
+          {images.slice(0, visibleImages).map((image, index) => (
             <div
               key={`image-${index}`}
               className="relative h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
@@ -242,74 +226,56 @@ const Gallery = () => {
               onClick={() => openModal(index)}
             >
               <img 
-                src={path} 
-                alt={imageDescriptions[index] || `Villa de luxe à Bali - Image ${index + 1}`} 
+                src={index < 4 ? mainImages[index] : images[index].src} 
+                alt={images[index].alt} 
                 className="w-full h-full object-cover"
                 loading={index > 2 ? "lazy" : "eager"}
                 onError={(e) => {
                   // Si l'image ne se charge pas, on affiche une couleur de fond
-                  e.currentTarget.style.backgroundColor = '#1a1a1a';
+                  e.target.parentElement.style.backgroundColor = '#eee';
+                  e.target.style.display = 'none';
+                  
+                  // Ajouter un message d'erreur
+                  const errorMessage = document.createElement('div');
+                  errorMessage.className = 'absolute inset-0 flex items-center justify-center text-center p-4';
+                  errorMessage.innerHTML = `<p>Image non disponible</p>`;
+                  e.target.parentElement.appendChild(errorMessage);
                 }}
               />
-              <div className="absolute inset-0 bg-deep-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 flex items-end justify-start p-4">
-                <p className="text-pure-white font-inter font-medium text-sm md:text-base">
-                  {imageDescriptions[index] || `Villa de luxe à Bali - Image ${index + 1}`}
-                </p>
-              </div>
-              <div className="absolute inset-0 bg-deep-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12 text-pure-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                  />
-                </svg>
+              <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
+                <p className="text-pure-white text-sm">{images[index].alt}</p>
               </div>
             </div>
           ))}
-          
-          {/* Images placeholder toujours affichées, indépendamment de visibleImages */}
-          {placeholderImages.map((image, index) => (
+        </div>
+
+        {/* Grille d'images pour mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:hidden gap-4">
+          {images.slice(0, visibleImages).map((image, index) => (
             <div
-              key={image.id}
-              className="relative h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-              data-aos="fade-up"
-              data-aos-delay={(index) * 100}
-              onClick={() => openModal(imagePaths.length + index)}
+              key={`mobile-image-${index}`}
+              className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+              onClick={() => openModal(index)}
             >
               <img 
-                src={image.src} 
-                alt={image.alt} 
+                src={index < 4 ? mainImages[index] : images[index].src} 
+                alt={images[index].alt} 
                 className="w-full h-full object-cover"
-                loading="eager"
+                loading={index > 1 ? "lazy" : "eager"}
+                onError={(e) => {
+                  e.target.parentElement.style.backgroundColor = '#eee';
+                  e.target.style.display = 'none';
+                  
+                  const errorMessage = document.createElement('div');
+                  errorMessage.className = 'absolute inset-0 flex items-center justify-center text-center p-4';
+                  errorMessage.innerHTML = `<p>Image non disponible</p>`;
+                  e.target.parentElement.appendChild(errorMessage);
+                }}
               />
-              <div className="absolute inset-0 bg-deep-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 flex items-end justify-start p-4">
-                <p className="text-pure-white font-inter font-medium text-sm md:text-base">
-                  {image.alt}
-                </p>
-              </div>
-              <div className="absolute inset-0 bg-deep-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12 text-pure-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                  />
-                </svg>
+              <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
+                <p className="text-pure-white text-sm">{images[index].alt}</p>
               </div>
             </div>
           ))}
@@ -317,187 +283,64 @@ const Gallery = () => {
 
         {/* Bouton "Voir plus" */}
         {visibleImages < images.length && (
-          <div className="mt-8 hidden md:flex justify-center" data-aos="fade-up">
-            <button
+          <div className="text-center mt-8">
+            <button 
+              className="btn btn-outline"
               onClick={loadMoreImages}
-              className="btn btn-outline flex items-center"
-              aria-label="Voir plus d'images"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"
-                />
-              </svg>
-              Voir plus
+              Voir plus de photos
             </button>
           </div>
         )}
 
-        {/* Carrousel pour mobile */}
-        <div
-          className="md:hidden relative h-80 rounded-lg overflow-hidden"
-          data-aos="fade-up"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div className="relative h-full overflow-hidden">
-            <AnimatePresence initial={false} custom={direction}>
-              <motion.div
-                key={currentIndex}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: 'spring', stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 },
-                }}
-                className="absolute inset-0"
-              >
-                {currentIndex < imagePaths.length ? (
-                  <img 
-                    src={images[currentIndex].src} 
-                    alt={images[currentIndex].alt} 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.backgroundColor = '#1a1a1a';
-                      e.currentTarget.parentElement.classList.add('bg-gradient-to-br', 'from-deep-black', 'to-gray-800');
-                      // Afficher une icône si l'image ne se charge pas
-                      const iconElement = document.createElement('div');
-                      iconElement.className = 'absolute inset-0 flex items-center justify-center';
-                      iconElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-pale-gold opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>`;
-                      e.currentTarget.parentElement.appendChild(iconElement);
-                    }}
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-deep-black to-gray-800 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-pale-gold opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-deep-black bg-opacity-30 flex items-end justify-start p-4">
-                  <p className="text-pure-white font-inter font-medium">
-                    {images[currentIndex].alt}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Contrôles du carrousel */}
-          <button
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-pure-white dark:bg-deep-black bg-opacity-50 dark:bg-opacity-50 rounded-full p-2 text-deep-black dark:text-pure-white hover:bg-opacity-70 dark:hover:bg-opacity-70 transition-all duration-300"
-            onClick={handlePrev}
-            aria-label="Image précédente"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-          <button
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-pure-white dark:bg-deep-black bg-opacity-50 dark:bg-opacity-50 rounded-full p-2 text-deep-black dark:text-pure-white hover:bg-opacity-70 dark:hover:bg-opacity-70 transition-all duration-300"
-            onClick={handleNext}
-            aria-label="Image suivante"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 overflow-auto px-4">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setDirection(index > currentIndex ? 1 : -1);
-                  setCurrentIndex(index);
-                }}
-                className={`w-2 h-2 rounded-full flex-shrink-0 ${
-                  index === currentIndex
-                    ? 'bg-emerald dark:bg-pale-gold'
-                    : 'bg-gray-300 dark:bg-gray-700'
-                }`}
-                aria-label={`Aller à l'image ${index + 1}`}
-                aria-current={index === currentIndex ? 'true' : 'false'}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Modale de visualisation plein écran */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-deep-black bg-opacity-95 flex items-center justify-center"
-            onClick={closeModal}
-          >
-            <div
-              className="relative w-full h-full md:w-4/5 md:h-4/5 max-w-5xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
+        {/* Modal pour agrandir les images */}
+        <AnimatePresence>
+          {isModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-deep-black bg-opacity-90">
+              <div className="absolute inset-0" onClick={closeModal}></div>
+              
+              <button 
+                className="absolute top-4 right-4 z-10 text-pure-white hover:text-pale-gold transition-colors"
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-10 bg-deep-black bg-opacity-50 text-pure-white rounded-full p-2 hover:bg-emerald transition-colors duration-300"
-                aria-label="Fermer la galerie"
+                aria-label="Fermer"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
 
-              <div
-                className="w-full h-full relative overflow-hidden"
+              <div 
+                className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button 
+                  className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
+                  onClick={handlePrev}
+                  aria-label="Image précédente"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              </div>
+
+              <div 
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button 
+                  className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
+                  onClick={handleNext}
+                  aria-label="Image suivante"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              <div 
+                className="relative w-full max-w-5xl max-h-[85vh] overflow-hidden"
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -511,99 +354,26 @@ const Gallery = () => {
                     animate="center"
                     exit="exit"
                     transition={{
-                      x: { type: 'spring', stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 },
+                      x: { type: "spring", stiffness: 300, damping: 30 },
+                      opacity: { duration: 0.2 }
                     }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
                     <img 
-                      src={images[currentIndex].src} 
+                      src={currentIndex < 4 ? mainImages[currentIndex] : images[currentIndex].src} 
                       alt={images[currentIndex].alt} 
-                      className="w-full h-full object-contain"
-                      onError={(e) => {
-                        e.currentTarget.style.backgroundColor = '#1a1a1a';
-                        e.currentTarget.parentElement.classList.add('bg-gradient-to-br', 'from-deep-black', 'to-gray-800');
-                        // Afficher une icône si l'image ne se charge pas
-                        const iconElement = document.createElement('div');
-                        iconElement.className = 'absolute inset-0 flex items-center justify-center';
-                        iconElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-pale-gold opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>`;
-                        e.currentTarget.parentElement.appendChild(iconElement);
-                      }}
+                      className="max-w-full max-h-[80vh] object-contain" 
                     />
-                    <div className="absolute bottom-0 left-0 right-0 bg-deep-black bg-opacity-50 text-pure-white p-2 md:p-4">
-                      <p className="font-inter font-medium text-center">
-                        {images[currentIndex].alt}
-                      </p>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-deep-black bg-opacity-60">
+                      <p className="text-pure-white text-center">{images[currentIndex].alt}</p>
                     </div>
                   </motion.div>
                 </AnimatePresence>
-
-                <button
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-pure-white dark:bg-deep-black bg-opacity-50 dark:bg-opacity-50 rounded-full p-2 text-deep-black dark:text-pure-white hover:bg-opacity-70 dark:hover:bg-opacity-70 transition-all duration-300"
-                  onClick={handlePrev}
-                  aria-label="Image précédente"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                </button>
-                <button
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-pure-white dark:bg-deep-black bg-opacity-50 dark:bg-opacity-50 rounded-full p-2 text-deep-black dark:text-pure-white hover:bg-opacity-70 dark:hover:bg-opacity-70 transition-all duration-300"
-                  onClick={handleNext}
-                  aria-label="Image suivante"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              </div>
-
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-3 overflow-auto px-4">
-                {images.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setDirection(index > currentIndex ? 1 : -1);
-                      setCurrentIndex(index);
-                    }}
-                    className={`w-3 h-3 rounded-full flex-shrink-0 ${
-                      index === currentIndex
-                        ? 'bg-emerald dark:bg-pale-gold'
-                        : 'bg-gray-300 dark:bg-gray-700'
-                    }`}
-                    aria-label={`Aller à l'image ${index + 1}`}
-                    aria-current={index === currentIndex ? 'true' : 'false'}
-                  />
-                ))}
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   );
 };
