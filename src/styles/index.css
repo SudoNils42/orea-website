@@ -3,11 +3,8 @@
 @tailwind utilities;
 
 /* Styles globaux */
-html {
+html, body {
   scroll-behavior: smooth;
-}
-
-body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #ffffff;
@@ -45,19 +42,55 @@ body {
 /* Style personnalisé pour la scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 6px; /* Pour les scrollbars horizontales, légèrement plus épaisse pour mobile */
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgba(230, 198, 122, 0.1); /* Doré très léger */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #04593F;
+  background: #04593F; /* Vert émeraude */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E6C67A;
+  background: #E6C67A; /* Doré au survol */
+}
+
+/* Styles spécifiques pour la galerie */
+#mobile-gallery-container::-webkit-scrollbar {
+  height: 6px !important;
+  display: block !important;
+}
+
+#mobile-gallery-container::-webkit-scrollbar-thumb {
+  background: #04593F !important;
+  border-radius: 4px;
+  min-height: 40px;
+}
+
+#mobile-gallery-container::-webkit-scrollbar-track {
+  background: rgba(230, 198, 122, 0.1);
+}
+
+#mobile-gallery-container {
+  scrollbar-width: thin !important;
+  scrollbar-color: #04593F rgba(230, 198, 122, 0.1) !important;
+}
+
+/* Classe utilitaire pour assurer que la scrollbar est visible */
+.scrollbar-visible {
+  scrollbar-width: thin; /* Pour Firefox */
+  -ms-overflow-style: auto; /* Pour IE/Edge */
+  scrollbar-color: #04593F rgba(230, 198, 122, 0.1); /* Pour Firefox - couleur emerald */
+}
+.scrollbar-visible::-webkit-scrollbar {
+  display: block; /* Force l'affichage sur webkit (Chrome/Safari) */
+}
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: #04593F; /* Assure la couleur verte sur tous les appareils */
+  min-height: 40px; /* Hauteur minimale pour une meilleure visibilité sur mobile */
 }
 
 /* Styles pour les transitions */
@@ -108,12 +141,6 @@ h3 {
 /* Animation du menu hamburger */
 .hamburger-line {
   @apply w-6 h-0.5 bg-deep-black transition-all duration-300;
-}
-
-@media (max-width: 768px) {
-  .hamburger-line {
-    @apply w-5 h-0.5;
-  }
 }
 
 .hamburger-active .hamburger-line:nth-child(1) {

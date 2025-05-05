@@ -241,6 +241,36 @@ const Gallery = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const galleryRef = useRef(null);
 
+  // Assurer que la barre de défilement est toujours verte
+  useEffect(() => {
+    const container = document.getElementById('mobile-gallery-container');
+    if (container) {
+      // Appliquer les styles directement
+      container.style.scrollbarWidth = 'thin';
+      container.style.scrollbarColor = '#04593F rgba(230, 198, 122, 0.1)';
+      
+      // Ajouter un style spécifique pour webkit (Chrome, Safari)
+      const styleElement = document.createElement('style');
+      styleElement.textContent = `
+        #mobile-gallery-container::-webkit-scrollbar {
+          height: 6px !important;
+        }
+        #mobile-gallery-container::-webkit-scrollbar-thumb {
+          background: #04593F !important;
+          border-radius: 4px;
+        }
+        #mobile-gallery-container::-webkit-scrollbar-track {
+          background: rgba(230, 198, 122, 0.1);
+        }
+      `;
+      document.head.appendChild(styleElement);
+      
+      return () => {
+        document.head.removeChild(styleElement);
+      };
+    }
+  }, []);
+
   // Écouter les événements de défilement pour les points de navigation
   useEffect(() => {
     const container = document.getElementById('mobile-gallery-container');
@@ -288,6 +318,20 @@ const Gallery = () => {
     setCurrentIndex(index);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
+    
+    // Précharger les images adjacentes
+    preloadAdjacentImages(index);
+  };
+
+  // Fonction pour précharger les images adjacentes
+  const preloadAdjacentImages = (index) => {
+    // Précharger jusqu'à 2 images avant et après
+    for (let i = Math.max(0, index - 2); i <= Math.min(images.length - 1, index + 2); i++) {
+      if (i !== index) { // Ne pas précharger l'image actuelle
+        const img = new Image();
+        img.src = images[i].src;
+      }
+    }
   };
 
   const closeModal = () => {
@@ -297,12 +341,16 @@ const Gallery = () => {
 
   const handlePrev = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+    preloadAdjacentImages(newIndex);
   };
 
   const handleNext = () => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+    preloadAdjacentImages(newIndex);
   };
 
   const handleTouchStart = (e) => {
@@ -379,20 +427,48 @@ const Gallery = () => {
     };
   }, [isModalOpen]);
 
+  // Animation pour les slides avec timing amélioré
   const slideVariants = {
     enter: (direction) => ({
       x: direction > 0 ? '100%' : '-100%',
       opacity: 0,
+      scale: 1, // Conserver l'échelle pendant la transition
     }),
     center: {
       x: 0,
       opacity: 1,
+      scale: 1,
     },
     exit: (direction) => ({
       x: direction > 0 ? '-100%' : '100%',
       opacity: 0,
+      scale: 1, // Conserver l'échelle pendant la transition
     }),
   };
+
+  // Timing de transition amélioré
+  const slideTransition = {
+    x: { type: "spring", stiffness: 300, damping: 30, bounce: 0 },
+    opacity: { duration: 0.2 },
+    scale: { duration: 0 } // Pas de transition sur l'échelle
+  };
+
+  // Précharger les images adjacentes lors de l'ouverture de la modale
+  useEffect(() => {
+    if (isModalOpen) {
+      // Précharger l'image précédente
+      if (currentIndex > 0) {
+        const prevImg = new Image();
+        prevImg.src = images[currentIndex - 1].src;
+      }
+      
+      // Précharger l'image suivante
+      if (currentIndex < images.length - 1) {
+        const nextImg = new Image();
+        nextImg.src = images[currentIndex + 1].src;
+      }
+    }
+  }, [isModalOpen, currentIndex, images]);
 
   return (
     <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black">
@@ -428,83 +504,6 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Slider amélioré pour mobile */}
-        <div className="md:hidden px-4" ref={galleryRef}>
-          <div className="relative">
-            {/* Contrôles de navigation */}
-            <button 
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-deep-black/50 text-pure-white rounded-full p-1 shadow-md"
-              onClick={() => scrollMobileGallery(-1)}
-              aria-label="Image précédente"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <button 
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-deep-black/50 text-pure-white rounded-full p-1 shadow-md"
-              onClick={() => scrollMobileGallery(1)}
-              aria-label="Image suivante"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-            
-            {/* Container du slider */}
-            <div 
-              id="mobile-gallery-container"
-              className="overflow-x-auto flex space-x-3 pb-4 hide-scrollbar snap-x snap-mandatory"
-            >
-              {images.map((image, index) => (
-                <div
-                  key={`mobile-image-${image.id}`}
-                  className="snap-center shrink-0 w-[80vw] max-w-[280px] h-[260px] rounded-xl overflow-hidden shadow-lg"
-                  onClick={() => openModal(index)}
-                >
-                  <div className="relative w-full h-full">
-                    <img 
-                      src={image.src} 
-                      alt={image.alt} 
-                      className="w-full h-full object-cover"
-                      loading={index > 1 ? "lazy" : "eager"}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-deep-black/70 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-3">
-                      <p className="text-pure-white text-sm font-medium">{image.alt}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Indicateur de position */}
-            <div className="flex justify-center mt-4 gap-1.5 flex-wrap max-w-[280px] mx-auto">
-              {images.map((_, i) => (
-                <div 
-                  key={`dot-${i}`}
-                  className={`w-1.5 h-1.5 rounded-full ${i === activeSlideIndex ? 'bg-pale-gold' : 'bg-pure-white/30'} transition-all duration-300`}
-                ></div>
-              ))}
-            </div>
-            
-            {/* Texte incitatif */}
-            <p className="text-center text-sm text-pure-white/70 mt-3">Faites glisser pour voir plus d'images</p>
-          </div>
-        </div>
-
-        {/* Ajout de style pour masquer la scrollbar tout en gardant la fonctionnalité */}
-        <style jsx="true">{`
-          .hide-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;     /* Firefox */
-          }
-          .hide-scrollbar::-webkit-scrollbar {
-            display: none;             /* Chrome, Safari and Opera */
-          }
-        `}</style>
-
         {/* Bouton "Voir plus" - seulement pour desktop */}
         {visibleImages < images.length && (
           <div className="hidden md:block text-center mt-8">
@@ -519,91 +518,154 @@ const Gallery = () => {
             </button>
           </div>
         )}
-
-        {/* Modal pour agrandir les images */}
-        <AnimatePresence>
-          {isModalOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-deep-black bg-opacity-90">
-              <div className="absolute inset-0" onClick={closeModal}></div>
-              
-              <button 
-                className="absolute top-4 right-4 z-10 text-pure-white hover:text-pale-gold transition-colors"
-                onClick={closeModal}
-                aria-label="Fermer"
+      </div>
+      {/* Slider amélioré pour mobile */}
+      <div className="md:hidden mb-3" ref={galleryRef}>
+        <div className="relative">
+          {/* Contrôles de navigation */}
+          <button 
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-emerald/80 text-pure-white hover:bg-emerald rounded-full p-2 shadow-md"
+            onClick={() => scrollMobileGallery(-1)}
+            aria-label="Image précédente"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-emerald/80 text-pure-white hover:bg-emerald rounded-full p-2 shadow-md"
+            onClick={() => scrollMobileGallery(1)}
+            aria-label="Image suivante"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          
+          {/* Container du slider */}
+          <div 
+            id="mobile-gallery-container"
+            className="overflow-x-auto flex space-x-3 pb-6 pt-1 px-2 snap-x snap-mandatory scrollbar-visible"
+            style={{ 
+              scrollbarWidth: 'thin',
+              scrollbarColor: '#04593F rgba(230, 198, 122, 0.1)' 
+            }}
+          >
+            {images.map((image, index) => (
+              <div
+                key={`mobile-image-${image.id}`}
+                className="snap-center shrink-0 w-[80vw] max-w-[280px] h-[260px] rounded-xl overflow-hidden shadow-lg"
+                onClick={() => openModal(index)}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <div className="relative w-full h-full">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="w-full h-full object-cover"
+                    loading={index > 1 ? "lazy" : "eager"}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep-black/70 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <p className="text-pure-white text-sm font-medium">{image.alt}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Modal pour agrandir les images */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-deep-black bg-opacity-90">
+            <div className="absolute inset-0" onClick={closeModal}></div>
+            
+            <button 
+              className="absolute top-4 right-4 z-10 text-pure-white hover:text-pale-gold transition-colors"
+              onClick={closeModal}
+              aria-label="Fermer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div 
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
+                onClick={handlePrev}
+                aria-label="Image précédente"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
+            </div>
 
-              <div 
-                className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10"
-                onClick={(e) => e.stopPropagation()}
+            <div 
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
+                onClick={handleNext}
+                aria-label="Image suivante"
               >
-                <button 
-                  className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
-                  onClick={handlePrev}
-                  aria-label="Image précédente"
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <div 
+              className={`relative ${isSmallScreen ? 'w-[95%] h-[80%]' : 'w-full h-full max-w-5xl max-h-[85vh]'} flex items-center justify-center p-2 md:p-4`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={slideTransition}
+                  className="w-full h-full flex flex-col items-center justify-center"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-              </div>
-
-              <div 
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button 
-                  className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
-                  onClick={handleNext}
-                  aria-label="Image suivante"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-
-              <div 
-                className={`relative ${isSmallScreen ? 'w-[95%] h-[80%]' : 'w-full h-full max-w-5xl max-h-[85vh]'} flex items-center justify-center p-2 md:p-4`}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-              >
-                <AnimatePresence initial={false} custom={direction}>
-                  <motion.div
-                    key={currentIndex}
-                    custom={direction}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                      x: { type: "spring", stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 }
-                    }}
-                    className="w-full h-full flex flex-col items-center justify-center"
-                  >
-                    <div className="relative w-full h-full flex items-center justify-center p-1 md:p-0">
+                  <div className="relative w-full h-full flex items-center justify-center p-1 md:p-0">
+                    <div className={`${isSmallScreen ? 'h-[60vh]' : 'h-[70vh]'} w-full flex items-center justify-center`}>
                       <img 
                         src={images[currentIndex].src} 
                         alt={images[currentIndex].alt} 
-                        className={`${isSmallScreen ? 'max-h-[60vh]' : 'max-h-[70vh]'} w-auto h-auto object-contain rounded-lg`}
-                        style={{ maxWidth: '100%' }}
+                        className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
+                        style={{ 
+                          objectFit: 'contain',
+                          transition: 'none'
+                        }}
                       />
                     </div>
-                    <div className="w-full p-2 md:p-3 mt-2 bg-deep-black bg-opacity-60 rounded-lg">
-                      <p className="text-pure-white text-center text-sm md:text-base">{images[currentIndex].alt}</p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                  </div>
+                  <div className="w-full p-2 md:p-3 mt-2 bg-deep-black bg-opacity-60 rounded-lg">
+                    <p className="text-pure-white text-center text-sm md:text-base">{images[currentIndex].alt}</p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+              
+              {/* Préchargement des images adjacentes */}
+              <div className="hidden">
+                {currentIndex > 0 && <img src={images[currentIndex - 1].src} alt="Préchargement" />}
+                {currentIndex < images.length - 1 && <img src={images[currentIndex + 1].src} alt="Préchargement" />}
               </div>
             </div>
-          )}
-        </AnimatePresence>
-      </div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
