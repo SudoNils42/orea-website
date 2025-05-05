@@ -1,39 +1,31 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLanguage } from '../contexts/LanguageContext';
-import translations from '../locales/translations';
 
 const Testimonials = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
-  const { currentLanguage } = useLanguage();
-  const t = translations[currentLanguage]?.testimonials || {
-    title: "Témoignages",
-    intro: "Ce que nos clients disent de leur expérience.",
-    prevLabel: "Témoignage précédent",
-    nextLabel: "Témoignage suivant",
-    goToLabel: "Aller au témoignage",
-    items: [
-      {
-        id: 1,
-        name: 'Sophie et Pierre',
-        location: 'Paris, France',
-        text: 'Une villa exceptionnelle ! Nous avons adoré notre séjour à Seminyak. Le personnel était attentionné et la piscine privée était parfaite pour se détendre.'
-      },
-      {
-        id: 2,
-        name: 'James et Emma',
-        location: 'Londres, Royaume-Uni',
-        text: 'Un véritable havre de paix au cœur de Bali. Villa Orea offre un mélange parfait de luxe et d\'authenticité. Nous reviendrons certainement !'
-      },
-      {
-        id: 3,
-        name: 'Alessandro et Maria',
-        location: 'Rome, Italie',
-        text: 'Séjour inoubliable dans un cadre idyllique. La villa est magnifiquement décorée et idéalement située. Une expérience balinaise authentique.'
-      }
-    ]
-  };
+
+  // Témoignages fictifs
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Sophie et Pierre',
+      location: 'Paris, France',
+      text: 'Villa Orea a dépassé toutes nos attentes. Un havre de paix parfait après une journée d\'exploration de Bali. Le personnel était incroyablement attentionné et la villa est magnifiquement décorée.'
+    },
+    {
+      id: 2,
+      name: 'James et Emma',
+      location: 'Londres, Royaume-Uni',
+      text: 'Séjour incroyable à Villa Orea. L\'emplacement est idéal, à quelques minutes des meilleures plages et restaurants de Seminyak. La piscine privée était notre refuge préféré après les journées chaudes.'
+    },
+    {
+      id: 3,
+      name: 'Alessandro et Maria',
+      location: 'Rome, Italie',
+      text: 'Un petit paradis à Seminyak. La villa est aussi belle que sur les photos, très propre et l\'accueil a été parfait. Un séjour mémorable que nous recommandons sans hésitation!'
+    }
+  ];
 
   useEffect(() => {
     // Initialiser AOS si nécessaire
@@ -50,21 +42,14 @@ const Testimonials = () => {
   }, [current]);
 
   const nextTestimonial = () => {
-    if (!t.items || t.items.length === 0) return;
     setDirection(1);
-    setCurrent((current + 1) % t.items.length);
+    setCurrent((current + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    if (!t.items || t.items.length === 0) return;
     setDirection(-1);
-    setCurrent((current - 1 + t.items.length) % t.items.length);
+    setCurrent((current - 1 + testimonials.length) % testimonials.length);
   };
-
-  // Si aucun témoignage n'est disponible, ne pas afficher la section
-  if (!t.items || t.items.length === 0) {
-    return null;
-  }
 
   const variants = {
     enter: (direction) => ({
@@ -82,12 +67,12 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-12 md:py-24 bg-gray-50 text-deep-black">
+    <section id="testimonials" className="py-16 md:py-24 bg-gray-50 text-deep-black">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-8 md:mb-12" data-aos="fade-up">
-          <h2 className="mb-3 md:mb-4 text-deep-black">{t.title}</h2>
-          <p className="font-lora text-base md:text-lg max-w-2xl mx-auto mb-4 md:mb-6 text-gray-700">
-            {t.intro}
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="mb-4 text-deep-black">Témoignages</h2>
+          <p className="font-lora text-lg max-w-2xl mx-auto mb-6 text-gray-700">
+            Ce que nos clients disent de leur expérience.
           </p>
         </div>
 
@@ -97,7 +82,7 @@ const Testimonials = () => {
             <button
               onClick={prevTestimonial}
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-3 text-emerald transition-colors duration-300 z-10"
-              aria-label={t.prevLabel}
+              aria-label="Témoignage précédent"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -106,7 +91,7 @@ const Testimonials = () => {
             <button
               onClick={nextTestimonial}
               className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-3 text-emerald transition-colors duration-300 z-10"
-              aria-label={t.nextLabel}
+              aria-label="Témoignage suivant"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -115,7 +100,7 @@ const Testimonials = () => {
           </div>
 
           {/* Carrousel de témoignages */}
-          <div className="overflow-hidden relative min-h-[350px] sm:min-h-[280px]">
+          <div className="overflow-hidden relative min-h-[400px] sm:min-h-[320px]">
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={current}
@@ -128,64 +113,61 @@ const Testimonials = () => {
                   x: { type: "spring", stiffness: 300, damping: 30 },
                   opacity: { duration: 0.2 }
                 }}
-                className="absolute w-full"
+                className="absolute w-full h-auto min-h-full"
               >
-                <div className="bg-white shadow-lg border border-gray-200 p-6 md:p-10 rounded-lg text-center flex flex-col justify-between h-full">
+                <div className="bg-white shadow-lg border border-gray-200 p-5 md:p-10 rounded-lg text-center flex flex-col justify-between h-full">
                   <div>
-                    <div className="mb-4 md:mb-6">
-                      <svg className="mx-auto h-8 w-8 md:h-10 md:w-10 text-pale-gold" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <div className="mb-3 md:mb-6">
+                      <svg className="mx-auto h-7 w-7 md:h-10 md:w-10 text-pale-gold" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                         <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                       </svg>
                     </div>
-                    <blockquote className="font-lora text-base md:text-lg lg:text-xl italic text-gray-700 mb-6 md:mb-8">
-                      {t.items[current].text}
+                    <blockquote className="font-lora text-sm md:text-lg lg:text-xl italic text-gray-700 mb-5 md:mb-8">
+                      {testimonials[current].text}
                     </blockquote>
                   </div>
-                  <div className="mt-auto">
-                    <p className="font-inter font-bold text-emerald">{t.items[current].name}</p>
-                    <p className="text-sm text-gray-500">{t.items[current].location}</p>
+                  <div className="mt-4">
+                    <p className="font-inter font-bold text-emerald">{testimonials[current].name}</p>
+                    <p className="text-xs md:text-sm text-gray-500">{testimonials[current].location}</p>
                   </div>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Indicateurs (mobile et desktop) et flèches de navigation mobile sur la même ligne */}
-          <div className="flex justify-between items-center mt-8">
-            {/* Bouton précédent (mobile) */}
+          {/* Indicateurs (mobile et desktop) */}
+          <div className="flex justify-center mt-8 space-x-3">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setDirection(index > current ? 1 : -1);
+                  setCurrent(index);
+                }}
+                aria-label={`Aller au témoignage ${index + 1}`}
+                aria-current={index === current ? 'true' : 'false'}
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                  index === current ? 'bg-pale-gold' : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Flèches de navigation (mobile) */}
+          <div className="flex justify-between mt-8 md:hidden">
             <button
               onClick={prevTestimonial}
-              className="md:hidden bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
-              aria-label={t.prevLabel}
+              className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
+              aria-label="Témoignage précédent"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            
-            {/* Indicateurs */}
-            <div className="flex justify-center space-x-3">
-              {t.items.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setDirection(index > current ? 1 : -1);
-                    setCurrent(index);
-                  }}
-                  aria-label={`${t.goToLabel} ${index + 1}`}
-                  aria-current={index === current ? 'true' : 'false'}
-                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                    index === current ? 'bg-pale-gold' : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
-              ))}
-            </div>
-            
-            {/* Bouton suivant (mobile) */}
             <button
               onClick={nextTestimonial}
-              className="md:hidden bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
-              aria-label={t.nextLabel}
+              className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
+              aria-label="Témoignage suivant"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
