@@ -76,7 +76,10 @@ const Pricing = () => {
                     <img 
                       src={platform.logo} 
                       alt={platform.alt} 
-                      className={`h-auto max-h-10 w-auto max-w-[200px] object-contain ${platform.name === 'Agoda' ? 'max-h-12' : ''}`}
+                      className={`h-auto w-auto object-contain 
+                        ${platform.name === 'Agoda' ? 'max-h-14' : 'max-h-12'} 
+                        ${platform.name === 'Airbnb' ? 'max-w-[160px]' : 'max-w-[200px]'}
+                      `}
                     />
                   </a>
                 ))}
