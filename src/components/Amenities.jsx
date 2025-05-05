@@ -1,10 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
 
 const Amenities = () => {
   const { currentLanguage } = useLanguage();
   const t = translations[currentLanguage];
+  // État pour suivre les commodités ouvertes
+  const [openAmenities, setOpenAmenities] = useState({});
+  
+  // Fonction pour basculer l'état d'une commodité
+  const toggleAmenity = (id) => {
+    setOpenAmenities(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
   
   useEffect(() => {
     // Initialiser AOS si nécessaire
@@ -152,19 +162,35 @@ const Amenities = () => {
           {amenities.map((item, index) => (
             <div 
               key={item.id} 
-              className="bg-gray-50 rounded-lg shadow-md p-6 border border-emerald/10 transition-all duration-300 hover:shadow-emerald/20 hover:border-emerald/30"
+              className="bg-gray-50 rounded-lg shadow-md p-6 border border-emerald/10 transition-all duration-300 hover:shadow-emerald/20 hover:border-emerald/30 cursor-pointer"
               data-aos="zoom-in"
               data-aos-delay={index * 100}
+              onClick={() => toggleAmenity(item.id)}
             >
               <div className="flex flex-col items-center text-center">
                 <div className="mb-4 text-emerald">
                   {item.icon}
                 </div>
-                <h3 className="text-xl mb-2 text-deep-black">{item.name}</h3>
-                <div className="w-12 h-1 bg-pale-gold rounded-full mb-4"></div>
-                <p className="font-lora text-gray-700">
-                  {item.description}
-                </p>
+                <h3 className="text-xl mb-2 text-deep-black group text-center">
+                  <span className={`transition-colors duration-300 ${openAmenities[item.id] ? 'text-emerald' : ''}`}>{item.name}</span>
+                </h3>
+                
+                {/* Ligne décorative conditionnelle */}
+                {openAmenities[item.id] && (
+                  <div className="w-12 h-1 bg-pale-gold rounded-full mb-4 transition-all duration-300"></div>
+                )}
+                
+                {/* Description conditionnelle */}
+                <div 
+                  id={`amenity-content-${item.id}`}
+                  className={`font-lora text-gray-700 overflow-hidden transition-all duration-500 ease-in-out ${
+                    openAmenities[item.id] 
+                    ? 'max-h-[200px] opacity-100 pt-2 pb-4' 
+                    : 'max-h-0 opacity-0 pt-0 pb-0'
+                  }`}
+                >
+                  <p className="transition-all duration-300">{item.description}</p>
+                </div>
               </div>
             </div>
           ))}

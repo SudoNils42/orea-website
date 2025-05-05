@@ -69,6 +69,7 @@ const translations = {
     amenities: {
       title: "Commodités",
       intro: "Tout a été pensé pour faire de votre séjour à Villa Orea une expérience luxueuse et inoubliable.",
+      clickForDetails: "Cliquez pour plus de détails",
       wifi: {
         name: "Wi-Fi Haut Débit",
         description: "Connexion internet rapide disponible dans toutes les pièces de la villa pour rester connecté durant votre séjour."
@@ -241,6 +242,7 @@ const translations = {
     amenities: {
       title: "Amenities",
       intro: "Everything has been designed to make your stay at Villa Orea a luxurious and unforgettable experience.",
+      clickForDetails: "Click for more details",
       wifi: {
         name: "High-Speed WiFi",
         description: "Fast internet connection available in all rooms of the villa to stay connected during your stay."
@@ -376,6 +378,7 @@ const translations = {
     amenities: {
       title: "设施",
       intro: "为了让您在Villa Orea的住宿体验成为豪华难忘的经历，我们考虑到了一切。",
+      clickForDetails: "点击查看更多详情",
       wifi: {
         name: "高速WiFi",
         description: "别墅所有房间均可使用快速互联网连接，在您住宿期间保持连接。"
@@ -468,6 +471,7 @@ const translations = {
     amenities: {
       title: "Comodidades",
       intro: "Todo ha sido diseñado para hacer de su estancia en Villa Orea una experiencia lujosa e inolvidable.",
+      clickForDetails: "Click para más detalles",
       wifi: {
         name: "WiFi de alta velocidad",
         description: "Conexión a internet rápida disponible en todas las habitaciones de la villa para mantenerse conectado durante su estancia."
@@ -560,6 +564,7 @@ const translations = {
     amenities: {
       title: "Fasilitas",
       intro: "Semuanya telah dirancang untuk membuat pengalaman menginap Anda di Villa Orea menjadi mewah dan tak terlupakan.",
+      clickForDetails: "Klik untuk detail lebih lanjut",
       wifi: {
         name: "WiFi Kecepatan Tinggi",
         description: "Koneksi internet cepat tersedia di semua kamar villa untuk tetap terhubung selama Anda menginap."
@@ -652,6 +657,7 @@ const translations = {
     amenities: {
       title: "Ausstattung",
       intro: "Alles wurde gestaltet, um Ihren Aufenthalt in der Villa Orea zu einem luxuriösen und unvergesslichen Erlebnis zu machen.",
+      clickForDetails: "Klicken Sie für weitere Details",
       wifi: {
         name: "Hochgeschwindigkeits-WLAN",
         description: "Schnelle Internetverbindung in allen Räumen der Villa, um während Ihres Aufenthalts verbunden zu bleiben."
@@ -744,6 +750,7 @@ const translations = {
     amenities: {
       title: "Удобства",
       intro: "Всё продумано, чтобы ваше пребывание на вилле Orea стало роскошным и незабываемым.",
+      clickForDetails: "Нажмите для получения дополнительной информации",
       wifi: {
         name: "Высокоскоростной Wi-Fi",
         description: "Быстрое интернет-соединение доступно во всех комнатах виллы, чтобы оставаться на связи во время пребывания."
