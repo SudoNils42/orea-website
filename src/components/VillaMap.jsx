@@ -26,7 +26,7 @@ const VillaMap = () => {
       color: '#10b981',
       fillColor: '#10b981',
       fillOpacity: 0.08,
-      radius: 800,
+      radius: 1000,
       weight: 0,
     }).addTo(map);
     // Cercle principal (trait continu)
@@ -34,7 +34,7 @@ const VillaMap = () => {
       color: '#10b981',
       fillColor: '#10b981',
       fillOpacity: 0.18,
-      radius: 700,
+      radius: 900,
       weight: 2,
     }).addTo(map);
 
