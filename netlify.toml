@@ -1,0 +1,22 @@
+[build]
+  publish = "dist"
+  functions = "netlify/functions"
+
+[dev]
+  functions = "netlify/functions"
+
+# Variables d'environnement pour le développement local
+# Vous configurerez vos variables réelles dans l'interface Netlify
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirection pour les SPA (Single Page Applications)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Configuration de la fonction contact-form
+[[functions]]
+  directory = "netlify/functions"
+  node_bundler = "esbuild" 

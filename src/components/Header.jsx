@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -13,6 +13,8 @@ const Header = ({ scrollY, openModal }) => {
 
   useEffect(() => {
     setIsSticky(scrollY > 50);
+    // Log la position lors du défilement pour debug
+    console.log("Scroll Y:", scrollY, "isSticky:", scrollY > 50);
   }, [scrollY]);
 
   const toggleMenu = () => {
@@ -57,23 +59,25 @@ const Header = ({ scrollY, openModal }) => {
           : 'py-5 bg-transparent'
       }`}
     >
-      <div className="w-full px-4 md:container md:mx-auto md:px-6 flex items-center justify-between">
-        <a href="#" className="z-20 ml-0 mr-2">
-          <img src={logoImage} alt="Villa Orea Logo" className="h-8 md:h-12" />
+      <div className="container mx-auto px-4 flex items-center justify-between max-w-full">
+        <a href="#" className="z-20">
+          <img src={logoImage} alt="Villa Orea Logo" className="h-12" />
         </a>
 
         {/* Navigation Desktop - supprimée pour tous les formats */}
         {/* Bouton hamburger et sélecteur de langue pour tous les formats */}
-        <div className="flex items-center space-x-1 md:space-x-2 z-20 ml-auto">
+        <div 
+          className="flex items-center space-x-2 z-20 header-buttons"
+        >
           <LanguageSelector />
           <button 
-            className={`flex flex-col justify-center items-center w-8 md:w-10 h-9 md:h-10 ${isMenuOpen ? 'hamburger-active' : ''}`} 
+            className={`flex flex-col justify-center items-center w-9 md:w-10 h-10 ${isMenuOpen ? 'hamburger-active' : ''}`} 
             onClick={toggleMenu}
             aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={isMenuOpen}
           >
-            <span className="hamburger-line mb-1"></span>
-            <span className="hamburger-line mb-1"></span>
+            <span className="hamburger-line mb-1.5"></span>
+            <span className="hamburger-line mb-1.5"></span>
             <span className="hamburger-line"></span>
           </button>
         </div>

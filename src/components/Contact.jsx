@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
+import VillaMap from './VillaMap';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -259,16 +260,9 @@ const Contact = () => {
               </div>
             </div>
             
-            {/* Carte (placeholder) */}
+            {/* Carte (Leaflet) */}
             <div className="relative h-64 rounded-lg overflow-hidden">
-              <div className="absolute inset-0 glass-effect">
-                <div className="absolute inset-0 bg-emerald opacity-10"></div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-deep-black dark:text-pure-white opacity-40 font-inter font-medium">
-                  {t.info.map}
-                </p>
-              </div>
+              <VillaMap />
             </div>
           </div>
         </div>
