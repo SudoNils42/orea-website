@@ -31,7 +31,7 @@ const LanguageSelector = () => {
     <div ref={dropdownRef} className="relative z-50">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 py-1 px-1 sm:px-2 rounded-lg bg-emerald/20 hover:bg-emerald/30 transition-all duration-300 text-deep-black focus:outline-none border border-emerald/30"
+        className="flex items-center space-x-1 py-1 px-1.5 sm:px-2 rounded-lg bg-emerald/20 hover:bg-emerald/30 transition-all duration-300 text-deep-black focus:outline-none border border-emerald/30"
       >
         <span className="text-lg">{flags[currentLanguage]}</span>
         <span className="hidden sm:inline">{languageNames[currentLanguage]}</span>
@@ -46,13 +46,13 @@ const LanguageSelector = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute mt-2 w-40 rounded-lg shadow-md bg-white border border-emerald/20 overflow-hidden transition-all duration-300">
+        <div className="absolute mt-2 w-32 sm:w-40 rounded-lg shadow-md bg-white border border-emerald/20 overflow-hidden transition-all duration-300 right-0">
           <div className="py-1">
             {Object.keys(flags).map((lang) => (
               <button
                 key={lang}
                 onClick={() => handleLanguageChange(lang)}
-                className={`w-full text-left px-4 py-2 flex items-center space-x-3 hover:bg-emerald/10 transition-all duration-300 ${
+                className={`w-full text-left px-3 sm:px-4 py-2 flex items-center space-x-3 hover:bg-emerald/10 transition-all duration-300 ${
                   currentLanguage === lang ? 'text-emerald font-medium' : 'text-deep-black'
                 }`}
               >
