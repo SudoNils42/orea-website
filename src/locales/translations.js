@@ -135,7 +135,7 @@ const translations = {
         emailPlaceholder: "votre@email.com",
         subjectPlaceholder: "Sujet de votre message",
         messagePlaceholder: "Votre message",
-        successMessage: "Votre message a été envoyé avec succès !",
+        successMessage: "Votre client de messagerie va s'ouvrir avec votre message préparé",
         errorMessage: "Veuillez corriger les erreurs dans le formulaire.",
         nameError: "Le nom est requis",
         emailError: "Email invalide",
@@ -146,7 +146,7 @@ const translations = {
         title: "Coordonnées",
         email: {
           label: "Email",
-          value: "booking@villaorea.com"
+          value: "contact@villaorea.com"
         },
         phone: {
           label: "Téléphone",
@@ -307,7 +307,7 @@ const translations = {
         emailPlaceholder: "your@email.com",
         subjectPlaceholder: "Subject of your message",
         messagePlaceholder: "Your message",
-        successMessage: "Your message has been sent successfully!",
+        successMessage: "Your email client will open with your message prepared",
         errorMessage: "Please correct the errors in the form.",
         nameError: "Name is required",
         emailError: "Invalid email",
