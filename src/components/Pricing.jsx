@@ -71,13 +71,13 @@ const Pricing = () => {
                     href={platform.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center py-5 px-4 rounded-lg bg-white border border-emerald/10 hover:border-emerald/30 hover:shadow-md transition-all duration-300 w-full"
+                    className="flex items-center justify-center py-5 px-4 rounded-lg bg-white border border-emerald/10 hover:border-emerald/30 hover:shadow-md transition-all duration-300 w-full h-[90px]"
                   >
                     <img 
                       src={platform.logo} 
                       alt={platform.alt} 
                       className={`h-auto w-auto object-contain 
-                        ${platform.name === 'Agoda' ? 'max-h-[70px] min-h-[50px]' : 'max-h-12'} 
+                        ${platform.name === 'Agoda' ? 'max-h-16 scale-[1.6]' : 'max-h-12'} 
                         ${platform.name === 'Airbnb' ? 'max-w-[160px]' : 'max-w-[200px]'}
                       `}
                     />
