@@ -77,7 +77,7 @@ const Pricing = () => {
                       src={platform.logo} 
                       alt={platform.alt} 
                       className={`h-auto w-auto object-contain 
-                        ${platform.name === 'Agoda' ? 'max-h-14' : 'max-h-12'} 
+                        ${platform.name === 'Agoda' ? 'max-h-[70px] min-h-[50px]' : 'max-h-12'} 
                         ${platform.name === 'Airbnb' ? 'max-w-[160px]' : 'max-w-[200px]'}
                       `}
                     />
