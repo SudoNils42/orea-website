@@ -7,29 +7,33 @@ const Testimonials = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const { currentLanguage } = useLanguage();
-  const t = translations[currentLanguage].testimonials;
-
-  // Témoignages fictifs
-  const testimonials = [
-    {
-      id: 1,
-      name: 'Sophie et Pierre',
-      location: 'Paris, France',
-      text: 'Une villa exceptionnelle ! Nous avons adoré notre séjour à Seminyak. Le personnel était attentionné et la piscine privée était parfaite pour se détendre.'
-    },
-    {
-      id: 2,
-      name: 'James et Emma',
-      location: 'Londres, Royaume-Uni',
-      text: 'Un véritable havre de paix au cœur de Bali. Villa Orea offre un mélange parfait de luxe et d\'authenticité. Nous reviendrons certainement !'
-    },
-    {
-      id: 3,
-      name: 'Alessandro et Maria',
-      location: 'Rome, Italie',
-      text: 'Séjour inoubliable dans un cadre idyllique. La villa est magnifiquement décorée et idéalement située. Une expérience balinaise authentique.'
-    }
-  ];
+  const t = translations[currentLanguage]?.testimonials || {
+    title: "Témoignages",
+    intro: "Ce que nos clients disent de leur expérience.",
+    prevLabel: "Témoignage précédent",
+    nextLabel: "Témoignage suivant",
+    goToLabel: "Aller au témoignage",
+    items: [
+      {
+        id: 1,
+        name: 'Sophie et Pierre',
+        location: 'Paris, France',
+        text: 'Une villa exceptionnelle ! Nous avons adoré notre séjour à Seminyak. Le personnel était attentionné et la piscine privée était parfaite pour se détendre.'
+      },
+      {
+        id: 2,
+        name: 'James et Emma',
+        location: 'Londres, Royaume-Uni',
+        text: 'Un véritable havre de paix au cœur de Bali. Villa Orea offre un mélange parfait de luxe et d\'authenticité. Nous reviendrons certainement !'
+      },
+      {
+        id: 3,
+        name: 'Alessandro et Maria',
+        location: 'Rome, Italie',
+        text: 'Séjour inoubliable dans un cadre idyllique. La villa est magnifiquement décorée et idéalement située. Une expérience balinaise authentique.'
+      }
+    ]
+  };
 
   useEffect(() => {
     // Initialiser AOS si nécessaire
@@ -46,14 +50,21 @@ const Testimonials = () => {
   }, [current]);
 
   const nextTestimonial = () => {
+    if (!t.items || t.items.length === 0) return;
     setDirection(1);
     setCurrent((current + 1) % t.items.length);
   };
 
   const prevTestimonial = () => {
+    if (!t.items || t.items.length === 0) return;
     setDirection(-1);
     setCurrent((current - 1 + t.items.length) % t.items.length);
   };
+
+  // Si aucun témoignage n'est disponible, ne pas afficher la section
+  if (!t.items || t.items.length === 0) {
+    return null;
+  }
 
   const variants = {
     enter: (direction) => ({
