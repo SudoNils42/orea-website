@@ -44,9 +44,9 @@ const FAQ = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Rechercher une question..."
+                placeholder={t.searchPlaceholder}
                 className="w-full px-4 py-3 rounded-full border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald dark:focus:ring-pale-gold bg-white dark:bg-gray-800 text-deep-black dark:text-pure-white pr-10"
-                aria-label="Rechercher une question"
+                aria-label={t.searchLabel}
               />
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -100,12 +100,12 @@ const FAQ = () => {
               ))
             ) : (
               <div className="text-center py-8">
-                <p>Aucun résultat trouvé pour "{searchQuery}"</p>
+                <p>{t.noResults.replace('{query}', searchQuery)}</p>
                 <button 
                   className="mt-4 text-emerald dark:text-pale-gold underline"
                   onClick={() => setSearchQuery('')}
                 >
-                  Réinitialiser la recherche
+                  {t.resetSearch}
                 </button>
               </div>
             )}

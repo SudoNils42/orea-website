@@ -25,6 +25,10 @@ const translations = {
     faq: {
       title: "Questions Fréquentes",
       intro: "Trouvez les réponses à vos questions les plus courantes ci-dessous",
+      searchPlaceholder: "Rechercher une question...",
+      searchLabel: "Rechercher une question",
+      noResults: "Aucun résultat trouvé pour \"{query}\"",
+      resetSearch: "Réinitialiser la recherche",
       questions: [
         {
           question: "Quelle est l'heure d'arrivée et de départ ?",
@@ -243,6 +247,10 @@ const translations = {
     faq: {
       title: "Frequently Asked Questions",
       intro: "Find answers to your most common questions below",
+      searchPlaceholder: "Search a question...",
+      searchLabel: "Search a question",
+      noResults: "No results found for \"{query}\"",
+      resetSearch: "Reset search",
       questions: [
         {
           question: "What are the check-in and check-out times?",
