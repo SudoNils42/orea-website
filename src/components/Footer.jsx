@@ -22,19 +22,12 @@ const Footer = ({ openModal }) => {
     <footer className="bg-gray-100 text-gray-700 py-10 border-t border-gray-200">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
-          {/* Première colonne - Logo et informations */}
+          {/* Première colonne - Réseaux sociaux et Réservations */}
           <div className="md:col-span-4">
-            <div className="flex flex-col">
-              <a href="#" className="mb-3">
-                <img src={logoImage} alt="Villa Orea Logo" className="h-12" />
-              </a>
-              <p className="text-sm mb-4">
-                Seminyak, Bali, Indonesia
-              </p>
-              
+            <div className="flex flex-col">              
               {/* Suivez-nous section */}
               <div className="mb-6">
-                <h3 className="font-lora text-sm text-deep-black mb-3">Suivez-nous sur</h3>
+                <h3 className="font-lora text-lg text-deep-black mb-4">Suivez-nous sur</h3>
                 <div className="flex space-x-3">
                   <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                     <img src={instagramLogo} alt="Instagram" className="w-8 h-8 rounded-sm" />
@@ -47,7 +40,7 @@ const Footer = ({ openModal }) => {
               
               {/* Réservez section */}
               <div>
-                <h3 className="font-lora text-sm text-deep-black mb-3">Réservez sur</h3>
+                <h3 className="font-lora text-lg text-deep-black mb-4">Réservez sur</h3>
                 <div className="flex flex-col space-y-3">
                   <a href="https://airbnb.com" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300 w-32">
                     <img src={airbnbLogo} alt="Airbnb" className="h-6" />
@@ -66,7 +59,7 @@ const Footer = ({ openModal }) => {
             </div>
           </div>
 
-          {/* Troisième colonne - Contact */}
+          {/* Deuxième colonne - Contact */}
           <div className="md:col-span-4">
             <h3 className="font-lora text-lg text-deep-black mb-4">Contact</h3>
             <ul className="space-y-4">
@@ -85,7 +78,7 @@ const Footer = ({ openModal }) => {
             </ul>
           </div>
 
-          {/* Quatrième colonne - Legal */}
+          {/* Troisième colonne - Legal */}
           <div className="md:col-span-4">
             <h3 className="font-lora text-lg text-deep-black mb-4">Legal</h3>
             <ul className="space-y-2">
