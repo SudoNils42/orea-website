@@ -110,6 +110,12 @@ h3 {
   @apply w-6 h-0.5 bg-deep-black transition-all duration-300;
 }
 
+@media (max-width: 768px) {
+  .hamburger-line {
+    @apply w-5 h-0.5;
+  }
+}
+
 .hamburger-active .hamburger-line:nth-child(1) {
   @apply rotate-45 translate-y-1.5;
 }
