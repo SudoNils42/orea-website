@@ -24,9 +24,10 @@ const Footer = ({ openModal }) => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
           {/* Première colonne - Réseaux sociaux et Réservations */}
           <div className="md:col-span-4">
-            <div className="flex flex-col">              
+            {/* Sections Suivez-nous et Réservez côte à côte sur les écrans plus larges */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6">
               {/* Suivez-nous section */}
-              <div className="mb-6">
+              <div>
                 <h3 className="font-lora text-lg text-deep-black mb-4">Suivez-nous sur</h3>
                 <div className="flex space-x-3">
                   <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
