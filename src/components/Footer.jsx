@@ -23,7 +23,7 @@ const Footer = ({ openModal }) => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
           {/* Première colonne - Logo et informations */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-4">
             <div className="flex flex-col">
               <a href="#" className="mb-3">
                 <img src={logoImage} alt="Villa Orea Logo" className="h-12" />
@@ -66,22 +66,8 @@ const Footer = ({ openModal }) => {
             </div>
           </div>
 
-          {/* Deuxième colonne - Navigation */}
-          <div className="md:col-span-3">
-            <h3 className="font-lora text-lg text-deep-black mb-4">Navigation</h3>
-            <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-600 hover:text-emerald transition-colors duration-300">{t.nav.about}</a></li>
-              <li><a href="#amenities" className="text-gray-600 hover:text-emerald transition-colors duration-300">{t.nav.amenities}</a></li>
-              <li><a href="#gallery" className="text-gray-600 hover:text-emerald transition-colors duration-300">{t.nav.gallery}</a></li>
-              <li><a href="#faq" className="text-gray-600 hover:text-emerald transition-colors duration-300">{t.nav.faq}</a></li>
-              <li><a href="#testimonials" className="text-gray-600 hover:text-emerald transition-colors duration-300">{t.nav.testimonials}</a></li>
-              <li><a href="#pricing" className="text-gray-600 hover:text-emerald transition-colors duration-300">{t.nav.pricing}</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-emerald transition-colors duration-300">{t.nav.contact}</a></li>
-            </ul>
-          </div>
-
           {/* Troisième colonne - Contact */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-4">
             <h3 className="font-lora text-lg text-deep-black mb-4">Contact</h3>
             <ul className="space-y-4">
               <li className="flex items-start space-x-2">
@@ -100,7 +86,7 @@ const Footer = ({ openModal }) => {
           </div>
 
           {/* Quatrième colonne - Legal */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-4">
             <h3 className="font-lora text-lg text-deep-black mb-4">Legal</h3>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-600 hover:text-emerald transition-colors duration-300">{t.footer.privacyPolicy}</a></li>
