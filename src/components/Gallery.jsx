@@ -389,11 +389,20 @@ const Gallery = () => {
       const currentIndex = Math.round(currentScrollPosition / itemWidth);
       const newIndex = Math.max(0, Math.min(images.length - 1, currentIndex + direction));
       
-      // Faire défiler vers la position exacte de la nouvelle image
-      container.scrollTo({ 
-        left: newIndex * itemWidth, 
-        behavior: 'smooth' 
-      });
+      // Vérifier si nous sommes déjà à la limite et empêcher le défilement au-delà
+      if ((direction > 0 && newIndex >= images.length - 1) || (direction < 0 && newIndex <= 0)) {
+        // Assurer que nous sommes exactement à la bonne position limite pour éviter les décalages
+        container.scrollTo({ 
+          left: direction > 0 ? (images.length - 1) * itemWidth : 0, 
+          behavior: 'smooth' 
+        });
+      } else {
+        // Faire défiler vers la position exacte de la nouvelle image
+        container.scrollTo({ 
+          left: newIndex * itemWidth, 
+          behavior: 'smooth' 
+        });
+      }
       
       // Mettre à jour l'index actif
       setActiveSlideIndex(newIndex);
@@ -469,6 +478,63 @@ const Gallery = () => {
       }
     }
   }, [isModalOpen, currentIndex, images]);
+
+  // Ajout d'un contrôle pour empêcher le défilement excessif
+  useEffect(() => {
+    const container = document.getElementById('mobile-gallery-container');
+    if (!container) return;
+    
+    // Fonction pour corriger le défilement lorsqu'on atteint les limites
+    const handleScrollEnd = () => {
+      // Obtenir la largeur réelle du contenu scrollable
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      const maxScrollLeft = scrollWidth - clientWidth;
+      
+      // Petite temporisation pour laisser le scroll se stabiliser
+      setTimeout(() => {
+        // Si on a dépassé la limite droite, corriger la position
+        if (container.scrollLeft > maxScrollLeft) {
+          container.scrollTo({
+            left: maxScrollLeft,
+            behavior: 'auto'
+          });
+        }
+        
+        // Si on a dépassé la limite gauche, corriger la position
+        if (container.scrollLeft < 0) {
+          container.scrollTo({
+            left: 0,
+            behavior: 'auto'
+          });
+        }
+      }, 150);
+    };
+    
+    // Empêcher le défilement de la page lorsqu'on atteint la fin du carousel
+    const preventOverscroll = (e) => {
+      // Détecter si on est à la limite droite ou gauche
+      const scrollLeft = container.scrollLeft;
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      
+      // Empêcher le défilement au-delà des limites
+      if ((scrollLeft <= 0 && e.deltaX < 0) || 
+          (scrollLeft >= maxScrollLeft && e.deltaX > 0)) {
+        e.preventDefault();
+        return false;
+      }
+      
+      return true;
+    };
+    
+    container.addEventListener('scroll', handleScrollEnd);
+    container.addEventListener('wheel', preventOverscroll, { passive: false });
+    
+    return () => {
+      container.removeEventListener('scroll', handleScrollEnd);
+      container.removeEventListener('wheel', preventOverscroll);
+    };
+  }, []);
 
   return (
     <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black">
@@ -549,7 +615,9 @@ const Gallery = () => {
             className="overflow-x-auto flex space-x-3 pb-6 pt-1 px-2 snap-x snap-mandatory scrollbar-visible"
             style={{ 
               scrollbarWidth: 'thin',
-              scrollbarColor: '#04593F rgba(230, 198, 122, 0.1)' 
+              scrollbarColor: '#04593F rgba(230, 198, 122, 0.1)',
+              overscrollBehavior: 'contain', // Empêcher le défilement excessif
+              WebkitOverflowScrolling: 'touch' // Améliorer le défilement sur iOS
             }}
           >
             {images.map((image, index) => (

@@ -6,9 +6,10 @@
 html, body {
   scroll-behavior: smooth;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Empêcher le défilement horizontal du document */
   background-color: #ffffff;
   color: #000000;
+  overscroll-behavior-x: none; /* Empêcher le défilement excessif en horizontal */
 }
 
 /* Styles pour le loader */
@@ -77,6 +78,18 @@ html, body {
 #mobile-gallery-container {
   scrollbar-width: thin !important;
   scrollbar-color: #04593F rgba(230, 198, 122, 0.1) !important;
+  overscroll-behavior-x: contain !important; /* Empêcher les effets de rebond qui causent le décalage */
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* Pour IE */
+  max-width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Empêcher le décalage de la page lors du défilement horizontal */
+section#gallery {
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
 }
 
 /* Classe utilitaire pour assurer que la scrollbar est visible */
