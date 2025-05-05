@@ -80,7 +80,7 @@ const Contact = () => {
       
       // Construire l'URL mailto avec tous les paramètres
       const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `De: ${formData.name} (${formData.email})\n\n${formData.message}`
+        `De: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
       )}`;
       
       // Ouvrir le client de messagerie de l'utilisateur
