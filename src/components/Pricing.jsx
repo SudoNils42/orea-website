@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
-import airbnbLogo from '../assets/booking-platforms/png/airbnb-logo.svg';
-import bookingLogo from '../assets/booking-platforms/png/booking-logo.svg';
-import agodaLogo from '../assets/booking-platforms/png/agoda-logo.png';
-import tripLogo from '../assets/booking-platforms/png/trip-logo.svg';
+import airbnbLogo from '../assets/booking-platforms/hd-airbnb-official-logo-brand-png-image-701751694789803fttrlqeagv.png';
+import bookingLogo from '../assets/booking-platforms/booking.png';
+import agodaLogo from '../assets/booking-platforms/Agoda_transparent_logo.png';
+import tripLogo from '../assets/booking-platforms/Trip.com_logo.svg.png';
 
 const Pricing = () => {
   const { currentLanguage } = useLanguage();
