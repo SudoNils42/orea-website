@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
-import airbnbLogo from '../assets/booking-platforms/airbnb-logo.svg';
-import bookingLogo from '../assets/booking-platforms/booking-logo.svg';
+import airbnbLogo from '../assets/booking-platforms/png/airbnb-logo.svg';
+import bookingLogo from '../assets/booking-platforms/png/booking-logo.svg';
 import agodaLogo from '../assets/booking-platforms/png/agoda-logo.png';
 import tripLogo from '../assets/booking-platforms/png/trip-logo.svg';
 
