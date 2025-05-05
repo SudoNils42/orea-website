@@ -57,14 +57,14 @@ const Header = ({ scrollY, openModal }) => {
           : 'py-5 bg-transparent'
       }`}
     >
-      <div className="w-full px-2 md:container md:mx-auto md:px-6 flex items-center justify-between">
-        <a href="#" className="z-20">
-          <img src={logoImage} alt="Villa Orea Logo" className="h-10 md:h-12" />
+      <div className="w-full px-4 md:container md:mx-auto md:px-6 flex items-center justify-between">
+        <a href="#" className="z-20 ml-0 mr-2">
+          <img src={logoImage} alt="Villa Orea Logo" className="h-8 md:h-12" />
         </a>
 
         {/* Navigation Desktop - supprimée pour tous les formats */}
         {/* Bouton hamburger et sélecteur de langue pour tous les formats */}
-        <div className="flex items-center space-x-1 md:space-x-2 z-20 mr-1">
+        <div className="flex items-center space-x-1 md:space-x-2 z-20 ml-auto">
           <LanguageSelector />
           <button 
             className={`flex flex-col justify-center items-center w-8 md:w-10 h-9 md:h-10 ${isMenuOpen ? 'hamburger-active' : ''}`} 
