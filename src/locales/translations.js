@@ -170,6 +170,35 @@ const translations = {
       privacyPolicy: "Politique de confidentialité",
       terms: "Conditions d'utilisation",
       cookiePolicy: "Politique des cookies"
+    },
+    
+    // Témoignages
+    testimonials: {
+      title: "Témoignages",
+      intro: "Ce que nos clients disent de leur expérience.",
+      prevLabel: "Témoignage précédent",
+      nextLabel: "Témoignage suivant",
+      goToLabel: "Aller au témoignage",
+      items: [
+        {
+          id: 1,
+          name: 'Sophie et Pierre',
+          location: 'Paris, France',
+          text: 'Une villa exceptionnelle ! Nous avons adoré notre séjour à Seminyak. Le personnel était attentionné et la piscine privée était parfaite pour se détendre.'
+        },
+        {
+          id: 2,
+          name: 'James et Emma',
+          location: 'Londres, Royaume-Uni',
+          text: 'Un véritable havre de paix au cœur de Bali. Villa Orea offre un mélange parfait de luxe et d\'authenticité. Nous reviendrons certainement !'
+        },
+        {
+          id: 3,
+          name: 'Alessandro et Maria',
+          location: 'Rome, Italie',
+          text: 'Séjour inoubliable dans un cadre idyllique. La villa est magnifiquement décorée et idéalement située. Une expérience balinaise authentique.'
+        }
+      ]
     }
   },
   
@@ -343,6 +372,35 @@ const translations = {
       privacyPolicy: "Privacy Policy",
       terms: "Terms of Use",
       cookiePolicy: "Cookie Policy"
+    },
+    
+    // Témoignages
+    testimonials: {
+      title: "Testimonials",
+      intro: "What our guests say about their experience.",
+      prevLabel: "Previous testimonial",
+      nextLabel: "Next testimonial",
+      goToLabel: "Go to testimonial",
+      items: [
+        {
+          id: 1,
+          name: 'Sophie and Pierre',
+          location: 'Paris, France',
+          text: 'An exceptional villa! We loved our stay in Seminyak. The staff was attentive and the private pool was perfect for relaxing.'
+        },
+        {
+          id: 2,
+          name: 'James and Emma',
+          location: 'London, UK',
+          text: 'A true haven of peace in the heart of Bali. Villa Orea offers a perfect blend of luxury and authenticity. We will definitely come back!'
+        },
+        {
+          id: 3,
+          name: 'Alessandro and Maria',
+          location: 'Rome, Italy',
+          text: 'Unforgettable stay in an idyllic setting. The villa is beautifully decorated and ideally located. An authentic Balinese experience.'
+        }
+      ]
     }
   },
   
