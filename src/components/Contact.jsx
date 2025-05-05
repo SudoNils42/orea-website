@@ -14,9 +14,13 @@ const Contact = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('');
-  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const { currentLanguage } = useLanguage();
   const t = translations[currentLanguage].contact || translations.fr.contact;
+
+  // Configuration de l'email de destination
+  const RECIPIENT_EMAIL = t.info.email.value; // Utilise l'email défini dans les traductions
 
   useEffect(() => {
     // Initialiser AOS si nécessaire
@@ -69,7 +73,20 @@ const Contact = () => {
     e.preventDefault();
     
     if (validateForm()) {
-      // Simuler l'envoi du formulaire
+      setIsSubmitting(true);
+      
+      // Configuration de l'email de destination
+      const recipientEmail = t.info.email.value;
+      
+      // Construire l'URL mailto avec tous les paramètres
+      const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+        `De: ${formData.name} (${formData.email})\n\n${formData.message}`
+      )}`;
+      
+      // Ouvrir le client de messagerie de l'utilisateur
+      window.location.href = mailtoUrl;
+      
+      // Afficher un message de succès
       setToastMessage(t.form.successMessage);
       setToastType('success');
       setShowToast(true);
@@ -81,6 +98,9 @@ const Contact = () => {
         subject: '',
         message: ''
       });
+      
+      // Arrêter l'indicateur de soumission
+      setIsSubmitting(false);
       
       // Cacher le toast après 3 secondes
       setTimeout(() => {
@@ -185,7 +205,7 @@ const Contact = () => {
                 )}
               </div>
               
-              <button type="submit" className="btn btn-primary w-full">
+              <button type="submit" className="btn btn-primary w-full" disabled={isSubmitting}>
                 {t.form.submitButton}
               </button>
             </form>
