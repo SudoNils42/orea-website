@@ -135,38 +135,41 @@ const Testimonials = () => {
             </AnimatePresence>
           </div>
 
-          {/* Indicateurs (mobile et desktop) */}
-          <div className="flex justify-center mt-8 space-x-3">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setDirection(index > current ? 1 : -1);
-                  setCurrent(index);
-                }}
-                aria-label={`Aller au témoignage ${index + 1}`}
-                aria-current={index === current ? 'true' : 'false'}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  index === current ? 'bg-pale-gold' : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Flèches de navigation (mobile) */}
-          <div className="flex justify-between mt-8 md:hidden">
+          {/* Indicateurs (mobile et desktop) et flèches de navigation mobile sur la même ligne */}
+          <div className="flex justify-between items-center mt-8">
+            {/* Bouton précédent (mobile) */}
             <button
               onClick={prevTestimonial}
-              className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
+              className="md:hidden bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
               aria-label="Témoignage précédent"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
+            
+            {/* Indicateurs */}
+            <div className="flex justify-center space-x-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setDirection(index > current ? 1 : -1);
+                    setCurrent(index);
+                  }}
+                  aria-label={`Aller au témoignage ${index + 1}`}
+                  aria-current={index === current ? 'true' : 'false'}
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                    index === current ? 'bg-pale-gold' : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+            
+            {/* Bouton suivant (mobile) */}
             <button
               onClick={nextTestimonial}
-              className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
+              className="md:hidden bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
               aria-label="Témoignage suivant"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
