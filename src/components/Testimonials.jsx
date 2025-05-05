@@ -11,19 +11,19 @@ const Testimonials = () => {
       id: 1,
       name: 'Sophie et Pierre',
       location: 'Paris, France',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.'
+      text: 'Une villa exceptionnelle ! Nous avons adoré notre séjour à Seminyak. Le personnel était attentionné et la piscine privée était parfaite pour se détendre.'
     },
     {
       id: 2,
       name: 'James et Emma',
       location: 'Londres, Royaume-Uni',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.'
+      text: 'Un véritable havre de paix au cœur de Bali. Villa Orea offre un mélange parfait de luxe et d\'authenticité. Nous reviendrons certainement !'
     },
     {
       id: 3,
       name: 'Alessandro et Maria',
       location: 'Rome, Italie',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.'
+      text: 'Séjour inoubliable dans un cadre idyllique. La villa est magnifiquement décorée et idéalement située. Une expérience balinaise authentique.'
     }
   ];
 
@@ -67,11 +67,11 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-gray-50 text-deep-black">
+    <section id="testimonials" className="py-12 md:py-24 bg-gray-50 text-deep-black">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="mb-4 text-deep-black">Témoignages</h2>
-          <p className="font-lora text-lg max-w-2xl mx-auto mb-6 text-gray-700">
+        <div className="text-center mb-8 md:mb-12" data-aos="fade-up">
+          <h2 className="mb-3 md:mb-4 text-deep-black">Témoignages</h2>
+          <p className="font-lora text-base md:text-lg max-w-2xl mx-auto mb-4 md:mb-6 text-gray-700">
             Ce que nos clients disent de leur expérience.
           </p>
         </div>
@@ -100,7 +100,7 @@ const Testimonials = () => {
           </div>
 
           {/* Carrousel de témoignages */}
-          <div className="overflow-hidden relative min-h-[280px]">
+          <div className="overflow-hidden relative min-h-[350px] sm:min-h-[280px]">
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={current}
@@ -115,14 +115,14 @@ const Testimonials = () => {
                 }}
                 className="absolute w-full"
               >
-                <div className="bg-white shadow-lg border border-gray-200 p-8 md:p-10 rounded-lg text-center flex flex-col justify-between h-full">
+                <div className="bg-white shadow-lg border border-gray-200 p-6 md:p-10 rounded-lg text-center flex flex-col justify-between h-full">
                   <div>
-                    <div className="mb-6">
-                      <svg className="mx-auto h-10 w-10 text-pale-gold" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <div className="mb-4 md:mb-6">
+                      <svg className="mx-auto h-8 w-8 md:h-10 md:w-10 text-pale-gold" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                         <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                       </svg>
                     </div>
-                    <blockquote className="font-lora text-lg md:text-xl italic text-gray-700 mb-8">
+                    <blockquote className="font-lora text-base md:text-lg lg:text-xl italic text-gray-700 mb-6 md:mb-8">
                       {testimonials[current].text}
                     </blockquote>
                   </div>
