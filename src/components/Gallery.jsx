@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLanguage } from '../contexts/LanguageContext';
-import translations from '../locales/translations';
 
 // Import des images de la villa
 import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
@@ -242,16 +240,6 @@ const Gallery = () => {
   const [touchEnd, setTouchEnd] = useState(0);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const galleryRef = useRef(null);
-  const { currentLanguage } = useLanguage();
-  const t = translations[currentLanguage]?.gallery || {
-    title: "Galerie",
-    intro: "Découvrez notre villa de luxe à travers ces magnifiques images.",
-    loadMore: "Voir plus de photos",
-    prevImage: "Image précédente",
-    nextImage: "Image suivante",
-    closeModal: "Fermer la galerie",
-    imageCounter: "image {current} sur {total}"
-  };
 
   // Assurer que la barre de défilement est toujours verte
   useEffect(() => {
@@ -552,9 +540,9 @@ const Gallery = () => {
     <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="mb-4">{t.title}</h2>
+          <h2 className="mb-4">Galerie</h2>
           <p className="font-lora text-lg max-w-2xl mx-auto mb-6">
-            {t.intro}
+            Découvrez notre villa de luxe à travers ces magnifiques images.
           </p>
         </div>
 
@@ -589,7 +577,7 @@ const Gallery = () => {
               className="btn btn-outline flex items-center mx-auto gap-2"
               onClick={loadMoreImages}
             >
-              <span>{t.loadMore}</span>
+              <span>Voir plus de photos</span>
               <span className="bg-pale-gold/10 text-pale-gold px-2 py-0.5 rounded-full text-sm">
                 {visibleImages}/{images.length}
               </span>
@@ -604,7 +592,7 @@ const Gallery = () => {
           <button 
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-emerald/80 text-pure-white hover:bg-emerald rounded-full p-2 shadow-md"
             onClick={() => scrollMobileGallery(-1)}
-            aria-label={t.prevImage}
+            aria-label="Image précédente"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -614,7 +602,7 @@ const Gallery = () => {
           <button 
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-emerald/80 text-pure-white hover:bg-emerald rounded-full p-2 shadow-md"
             onClick={() => scrollMobileGallery(1)}
-            aria-label={t.nextImage}
+            aria-label="Image suivante"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -662,9 +650,9 @@ const Gallery = () => {
             <div className="absolute inset-0" onClick={closeModal}></div>
             
             <button 
-              className="absolute top-4 right-4 text-white hover:text-pale-gold transition-colors duration-300"
+              className="absolute top-4 right-4 z-10 text-pure-white hover:text-pale-gold transition-colors"
               onClick={closeModal}
-              aria-label={t.closeModal}
+              aria-label="Fermer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -678,7 +666,7 @@ const Gallery = () => {
               <button 
                 className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
                 onClick={handlePrev}
-                aria-label={t.prevImage}
+                aria-label="Image précédente"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -693,7 +681,7 @@ const Gallery = () => {
               <button 
                 className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
                 onClick={handleNext}
-                aria-label={t.nextImage}
+                aria-label="Image suivante"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -742,11 +730,6 @@ const Gallery = () => {
                 {currentIndex > 0 && <img src={images[currentIndex - 1].src} alt="Préchargement" />}
                 {currentIndex < images.length - 1 && <img src={images[currentIndex + 1].src} alt="Préchargement" />}
               </div>
-            </div>
-
-            {/* Compteur d'images */}
-            <div className="absolute top-4 left-4 text-white text-sm">
-              {t.imageCounter.replace('{current}', currentIndex + 1).replace('{total}', images.length)}
             </div>
           </div>
         )}

@@ -28,7 +28,7 @@ const Footer = ({ openModal }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
               {/* Suivez-nous section */}
               <div>
-                <h3 className="font-lora text-base text-gray-600 mb-2">{t.footer.followUs}</h3>
+                <h3 className="font-lora text-base text-gray-600 mb-2">Suivez-nous</h3>
                 <div className="flex flex-wrap gap-2">
                   <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
                     <img src={instagramLogo} alt="Instagram" className="h-4" />
@@ -41,7 +41,7 @@ const Footer = ({ openModal }) => {
               
               {/* Réservez section */}
               <div>
-                <h3 className="font-lora text-base text-gray-600 mb-2">{t.footer.bookOn}</h3>
+                <h3 className="font-lora text-base text-gray-600 mb-2">Réservez sur</h3>
                 <div className="flex flex-wrap gap-2">
                   <a href="https://airbnb.com" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
                     <img src={airbnbLogo} alt="Airbnb" className="h-4" />
@@ -65,7 +65,7 @@ const Footer = ({ openModal }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
               {/* Contact section */}
               <div>
-                <h3 className="font-lora text-base text-gray-600 mb-2">{t.footer.contact}</h3>
+                <h3 className="font-lora text-base text-gray-600 mb-2">Contact</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start space-x-2">
                     <svg className="w-4 h-4 text-emerald mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -84,7 +84,7 @@ const Footer = ({ openModal }) => {
               
               {/* Legal section */}
               <div>
-                <h3 className="font-lora text-base text-gray-600 mb-2">{t.footer.legal}</h3>
+                <h3 className="font-lora text-base text-gray-600 mb-2">Legal</h3>
                 <ul className="space-y-1">
                   <li><a href="#" className="text-gray-600 hover:text-emerald transition-colors duration-300 text-sm">{t.footer.privacyPolicy}</a></li>
                   <li><a href="#" className="text-gray-600 hover:text-emerald transition-colors duration-300 text-sm">{t.footer.terms}</a></li>
@@ -103,7 +103,7 @@ const Footer = ({ openModal }) => {
           </div>
           <div className="text-gray-500 text-xs">
             <span className="mr-2">
-              {t.footer.designedWith}
+              Designed with <span className="text-red-500">❤️</span> for luxury experiences
             </span>
           </div>
         </div>
