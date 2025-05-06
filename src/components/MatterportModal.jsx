@@ -91,7 +91,7 @@ const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscre
               )}
               
               <iframe
-                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1&brand=0&help=0&hl=0&mls=0&gt=0&vr=0&search=0&title=0&dh=0&tools=0"
+                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1&ui=0"
                 width="100%"
                 height="100%"
                 frameBorder="0"
