@@ -104,7 +104,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             
             <div className={`matterport-iframe ${is3DInteractive ? 'interactive' : ''}`} style={{ width: '100%', height: '100%', position: 'absolute' }}>
               <iframe
-                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
+                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1&brand=0&help=0&hl=0&mls=0&gt=0&vr=0&search=0&title=0&dh=0&tools=0"
                 className="w-full h-full transition-opacity duration-700"
                 style={{ 
                   opacity: isLoading ? 0 : 1,
