@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
+import translations from '../locales/translations';
 
 // Import des images de la villa
 import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
@@ -240,6 +242,10 @@ const Gallery = () => {
   const [touchEnd, setTouchEnd] = useState(0);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const galleryRef = useRef(null);
+  const { currentLanguage } = useLanguage();
+  
+  // Récupération des traductions en fonction de la langue actuelle
+  const t = translations[currentLanguage].gallery || translations.fr.gallery;
 
   // Assurer que la barre de défilement est toujours verte
   useEffect(() => {
@@ -540,9 +546,9 @@ const Gallery = () => {
     <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="mb-4">Galerie</h2>
+          <h2 className="mb-4">{t.title}</h2>
           <p className="font-lora text-lg max-w-2xl mx-auto mb-6">
-            Découvrez notre villa de luxe à travers ces magnifiques images.
+            {t.intro}
           </p>
         </div>
 
@@ -577,7 +583,7 @@ const Gallery = () => {
               className="btn btn-outline flex items-center mx-auto gap-2"
               onClick={loadMoreImages}
             >
-              <span>Voir plus de photos</span>
+              <span>{currentLanguage === 'fr' ? 'Voir plus de photos' : 'See more photos'}</span>
               <span className="bg-pale-gold/10 text-pale-gold px-2 py-0.5 rounded-full text-sm">
                 {visibleImages}/{images.length}
               </span>

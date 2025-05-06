@@ -1,29 +1,35 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
+import translations from '../locales/translations';
 
 const Testimonials = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const { currentLanguage } = useLanguage();
+  
+  // Récupération des traductions en fonction de la langue actuelle
+  const t = translations[currentLanguage].testimonials || translations.fr.testimonials;
 
-  // Témoignages fictifs
+  // Utiliser les témoignages des traductions
   const testimonials = [
     {
       id: 1,
-      name: 'Sophie et Pierre',
-      location: 'Paris, France',
-      text: 'Villa Orea a dépassé toutes nos attentes. Un havre de paix parfait après une journée d\'exploration de Bali. Le personnel était incroyablement attentionné et la villa est magnifiquement décorée.'
+      name: t.customer1.name,
+      location: t.customer1.location,
+      text: t.customer1.text
     },
     {
       id: 2,
-      name: 'James et Emma',
-      location: 'Londres, Royaume-Uni',
-      text: 'Séjour incroyable à Villa Orea. L\'emplacement est idéal, à quelques minutes des meilleures plages et restaurants de Seminyak. La piscine privée était notre refuge préféré après les journées chaudes.'
+      name: t.customer2.name,
+      location: t.customer2.location,
+      text: t.customer2.text
     },
     {
       id: 3,
-      name: 'Alessandro et Maria',
-      location: 'Rome, Italie',
-      text: 'Un petit paradis à Seminyak. La villa est aussi belle que sur les photos, très propre et l\'accueil a été parfait. Un séjour mémorable que nous recommandons sans hésitation!'
+      name: t.customer3.name,
+      location: t.customer3.location,
+      text: t.customer3.text
     }
   ];
 
@@ -70,9 +76,9 @@ const Testimonials = () => {
     <section id="testimonials" className="py-16 md:py-24 bg-gray-50 text-deep-black">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="mb-4 text-deep-black">Témoignages</h2>
+          <h2 className="mb-4 text-deep-black">{t.title}</h2>
           <p className="font-lora text-lg max-w-2xl mx-auto mb-6 text-gray-700">
-            Ce que nos clients disent de leur expérience.
+            {t.intro}
           </p>
         </div>
 
