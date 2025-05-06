@@ -20,8 +20,96 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
       setIsLoading(false);
     }, 1500);
 
-    return () => clearTimeout(timer);
-  }, []);
+    // Fonction pour injecter des styles CSS qui masquent les outils Matterport
+    const injectMatterportStyles = () => {
+      try {
+        // Attendre que l'iframe soit chargée
+        const iframe = document.querySelector(`iframe[title="Villa Orea - ${t.hero.tour3d}"]`);
+        if (!iframe) return;
+        
+        const iframeWindow = iframe.contentWindow;
+        if (!iframeWindow) return;
+        
+        // Attendre que le document de l'iframe soit complètement chargé
+        setTimeout(() => {
+          try {
+            const iframeDocument = iframeWindow.document;
+            if (!iframeDocument) return;
+            
+            // Créer un élément de style
+            const styleElement = iframeDocument.createElement('style');
+            
+            // Définir les styles pour masquer les éléments de l'interface Matterport
+            styleElement.textContent = `
+              /* Masquer tous les contrôles et outils */
+              .ControlPanel, 
+              .ViewModeMenu,
+              .MattertagList,
+              .TitleBanner,
+              .HelpCenter,
+              .BottomRightUI,
+              .Showcase__help,
+              .Showcase__brand,
+              .Showcase__toolbar,
+              .Mattertag,
+              .Showcase__floorplan-button,
+              .Showcase__highlight-reel-button,
+              .Showcase__dollhouse-button,
+              .Showcase__labels-button,
+              .Showcase__measurements-button {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+              }
+              
+              /* S'assurer que les pop-ups sont masqués */
+              .Popup, .Dialog, .Dialog__overlay {
+                display: none !important;
+              }
+              
+              /* Style personnalisé pour l'interface principale */
+              .Showcase__main {
+                background-color: transparent !important;
+              }
+            `;
+            
+            // Ajouter l'élément de style au head de l'iframe
+            iframeDocument.head.appendChild(styleElement);
+          } catch (error) {
+            console.error("Erreur pendant l'accès au document de l'iframe:", error);
+          }
+        }, 1000); // Délai pour s'assurer que l'iframe est complètement chargée
+      } catch (error) {
+        console.error("Erreur lors de l'injection des styles dans l'iframe Matterport:", error);
+      }
+    };
+
+    // Fonction pour répéter l'injection de styles plusieurs fois
+    const setupStyleInjection = () => {
+      // Essayer d'injecter les styles plusieurs fois pour s'assurer qu'ils sont appliqués
+      const injectionTimes = [1000, 2000, 3000, 5000];
+      injectionTimes.forEach(time => {
+        setTimeout(injectMatterportStyles, time);
+      });
+    };
+
+    // Configure l'injection de styles lorsque l'iframe est chargée
+    const iframe = document.querySelector(`iframe[title="Villa Orea - ${t.hero.tour3d}"]`);
+    if (iframe) {
+      iframe.addEventListener('load', setupStyleInjection);
+    }
+
+    return () => {
+      clearTimeout(timer);
+      
+      // Nettoyer les événements
+      const iframe = document.querySelector(`iframe[title="Villa Orea - ${t.hero.tour3d}"]`);
+      if (iframe) {
+        iframe.removeEventListener('load', setupStyleInjection);
+      }
+    };
+  }, [t.hero.tour3d]);
 
   const handleIframeClick = () => {
     if (onInteractiveChange) {
@@ -104,7 +192,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             
             <div className={`matterport-iframe ${is3DInteractive ? 'interactive' : ''}`} style={{ width: '100%', height: '100%', position: 'absolute' }}>
               <iframe
-                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1&ui=0"
+                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
                 className="w-full h-full transition-opacity duration-700"
                 style={{ 
                   opacity: isLoading ? 0 : 1,

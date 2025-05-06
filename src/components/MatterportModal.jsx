@@ -17,11 +17,91 @@ const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscre
       }
     };
 
+    // Fonction pour injecter des styles CSS qui masquent les outils Matterport
+    const injectMatterportStyles = () => {
+      try {
+        // Attendre que l'iframe soit chargée
+        const iframe = document.querySelector('iframe[title="Visite virtuelle 3D Villa Bali"]');
+        if (!iframe) return;
+        
+        const iframeDocument = iframe.contentWindow.document;
+        if (!iframeDocument) return;
+        
+        // Créer un élément de style
+        const styleElement = iframeDocument.createElement('style');
+        
+        // Définir les styles pour masquer les éléments de l'interface Matterport
+        styleElement.textContent = `
+          /* Masquer tous les contrôles et outils */
+          .ControlPanel, 
+          .ViewModeMenu,
+          .MattertagList,
+          .TitleBanner,
+          .HelpCenter,
+          .BottomRightUI,
+          .Showcase__help,
+          .Showcase__brand,
+          .Showcase__toolbar,
+          .Mattertag,
+          .Showcase__floorplan-button,
+          .Showcase__highlight-reel-button,
+          .Showcase__dollhouse-button,
+          .Showcase__labels-button,
+          .Showcase__measurements-button {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+          }
+          
+          /* S'assurer que les pop-ups sont masqués */
+          .Popup, .Dialog, .Dialog__overlay {
+            display: none !important;
+          }
+          
+          /* Style personnalisé pour l'interface principale */
+          .Showcase__main {
+            background-color: transparent !important;
+          }
+        `;
+        
+        // Ajouter l'élément de style au head de l'iframe
+        iframeDocument.head.appendChild(styleElement);
+      } catch (error) {
+        console.error("Erreur lors de l'injection des styles dans l'iframe Matterport:", error);
+      }
+    };
+
+    // Ajout d'un gestionnaire pour l'événement de chargement de l'iframe
+    const handleIframeLoad = () => {
+      // Essayer d'injecter les styles immédiatement après le chargement
+      injectMatterportStyles();
+      
+      // Puis réessayer plusieurs fois pour s'assurer que les styles sont bien appliqués
+      // (parfois le contenu de l'iframe peut changer dynamiquement)
+      const injectionAttempts = [500, 1000, 2000, 3000];
+      injectionAttempts.forEach(delay => {
+        setTimeout(injectMatterportStyles, delay);
+      });
+    };
+
     window.addEventListener('keydown', handleKeyDown);
+    
+    // Ajouter le gestionnaire d'événement pour le chargement de l'iframe
+    const iframe = document.querySelector('iframe[title="Visite virtuelle 3D Villa Bali"]');
+    if (iframe) {
+      iframe.addEventListener('load', handleIframeLoad);
+    }
 
     return () => {
       clearTimeout(timer);
       window.removeEventListener('keydown', handleKeyDown);
+      
+      // Nettoyer le gestionnaire d'événement
+      const iframe = document.querySelector('iframe[title="Visite virtuelle 3D Villa Bali"]');
+      if (iframe) {
+        iframe.removeEventListener('load', handleIframeLoad);
+      }
     };
   }, [onClose]);
 
@@ -91,7 +171,7 @@ const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscre
               )}
               
               <iframe
-                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1&ui=0"
+                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
                 width="100%"
                 height="100%"
                 frameBorder="0"
