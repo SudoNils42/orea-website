@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
@@ -246,6 +246,14 @@ const Gallery = () => {
   
   // Récupération des traductions en fonction de la langue actuelle
   const t = translations[currentLanguage].gallery || translations.fr.gallery;
+
+  // Créer une nouvelle liste d'images avec les descriptions traduites
+  const translatedImages = useMemo(() => {
+    return images.map(image => ({
+      ...image,
+      alt: t.imageDescriptions && t.imageDescriptions[image.id] ? t.imageDescriptions[image.id] : image.alt
+    }));
+  }, [images, t.imageDescriptions]);
 
   // Assurer que la barre de défilement est toujours verte
   useEffect(() => {
@@ -554,7 +562,7 @@ const Gallery = () => {
 
         {/* Grille d'images pour desktop */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {images.slice(0, visibleImages).map((image, index) => (
+          {translatedImages.slice(0, visibleImages).map((image, index) => (
             <div
               key={`image-${image.id}`}
               className="relative h-64 md:h-72 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
@@ -583,7 +591,7 @@ const Gallery = () => {
               className="btn btn-outline flex items-center mx-auto gap-2"
               onClick={loadMoreImages}
             >
-              <span>{currentLanguage === 'fr' ? 'Voir plus de photos' : 'See more photos'}</span>
+              <span>{t.seeMore || (currentLanguage === 'fr' ? 'Voir plus de photos' : 'See more photos')}</span>
               <span className="bg-pale-gold/10 text-pale-gold px-2 py-0.5 rounded-full text-sm">
                 {visibleImages}/{images.length}
               </span>
@@ -626,7 +634,7 @@ const Gallery = () => {
               WebkitOverflowScrolling: 'touch' // Améliorer le défilement sur iOS
             }}
           >
-            {images.map((image, index) => (
+            {translatedImages.map((image, index) => (
               <div
                 key={`mobile-image-${image.id}`}
                 className="snap-center shrink-0 w-[80vw] max-w-[280px] h-[260px] rounded-xl overflow-hidden shadow-lg"
@@ -715,8 +723,8 @@ const Gallery = () => {
                   <div className="relative w-full h-full flex items-center justify-center p-1 md:p-0">
                     <div className={`${isSmallScreen ? 'h-[60vh]' : 'h-[70vh]'} w-full flex items-center justify-center`}>
                       <img 
-                        src={images[currentIndex].src} 
-                        alt={images[currentIndex].alt} 
+                        src={translatedImages[currentIndex].src} 
+                        alt={translatedImages[currentIndex].alt} 
                         className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
                         style={{ 
                           objectFit: 'contain',
@@ -726,15 +734,15 @@ const Gallery = () => {
                     </div>
                   </div>
                   <div className="w-full p-2 md:p-3 mt-2 bg-deep-black bg-opacity-60 rounded-lg">
-                    <p className="text-pure-white text-center text-sm md:text-base">{images[currentIndex].alt}</p>
+                    <p className="text-pure-white text-center text-sm md:text-base">{translatedImages[currentIndex].alt}</p>
                   </div>
                 </motion.div>
               </AnimatePresence>
               
               {/* Préchargement des images adjacentes */}
               <div className="hidden">
-                {currentIndex > 0 && <img src={images[currentIndex - 1].src} alt="Préchargement" />}
-                {currentIndex < images.length - 1 && <img src={images[currentIndex + 1].src} alt="Préchargement" />}
+                {currentIndex > 0 && <img src={translatedImages[currentIndex - 1].src} alt="Préchargement" />}
+                {currentIndex < images.length - 1 && <img src={translatedImages[currentIndex + 1].src} alt="Préchargement" />}
               </div>
             </div>
           </div>
