@@ -173,7 +173,13 @@ const translations = {
       rights: "Tous droits réservés",
       privacyPolicy: "Politique de confidentialité",
       terms: "Conditions d'utilisation",
-      cookiePolicy: "Politique des cookies"
+      cookiePolicy: "Politique des cookies",
+      followUs: "Suivez-nous",
+      bookOn: "Réservez sur",
+      contactTitle: "Contact",
+      legalTitle: "Légal",
+      designedWith: "Conçu avec",
+      forLuxury: "pour des expériences de luxe"
     },
     // Témoignages
     testimonials: {
@@ -205,7 +211,8 @@ const translations = {
         exterior: "Extérieur",
         pool: "Piscine",
         bedrooms: "Chambres"
-      }
+      },
+      seeMore: "Voir plus de photos"
     }
   },
   
@@ -423,7 +430,13 @@ const translations = {
       rights: "All rights reserved",
       privacyPolicy: "Privacy Policy",
       terms: "Terms of Use",
-      cookiePolicy: "Cookie Policy"
+      cookiePolicy: "Cookie Policy",
+      followUs: "Follow us",
+      bookOn: "Book on",
+      contactTitle: "Contact",
+      legalTitle: "Legal",
+      designedWith: "Designed with",
+      forLuxury: "for luxury experiences"
     },
     // Testimonials
     testimonials: {
@@ -455,7 +468,8 @@ const translations = {
         exterior: "Exterior",
         pool: "Pool",
         bedrooms: "Bedrooms"
-      }
+      },
+      seeMore: "See more photos"
     }
   },
   
@@ -632,7 +646,13 @@ const translations = {
       rights: "版权所有",
       privacyPolicy: "隐私政策",
       terms: "使用条款",
-      cookiePolicy: "Cookie政策"
+      cookiePolicy: "Cookie政策",
+      followUs: "关注我们",
+      bookOn: "在这里预订",
+      contactTitle: "联系方式",
+      legalTitle: "法律信息",
+      designedWith: "精心设计",
+      forLuxury: "为奢华体验而生"
     },
     // Testimonials
     testimonials: {
@@ -664,7 +684,8 @@ const translations = {
         exterior: "室外",
         pool: "游泳池",
         bedrooms: "卧室"
-      }
+      },
+      seeMore: "查看更多照片"
     }
   },
   
@@ -841,7 +862,13 @@ const translations = {
       rights: "Todos los derechos reservados",
       privacyPolicy: "Política de privacidad",
       terms: "Términos de uso",
-      cookiePolicy: "Política de cookies"
+      cookiePolicy: "Política de cookies",
+      followUs: "Síguenos",
+      bookOn: "Reserva en",
+      contactTitle: "Contacto",
+      legalTitle: "Legal",
+      designedWith: "Diseñado con",
+      forLuxury: "para experiencias de lujo"
     },
     // Testimonials
     testimonials: {
@@ -873,7 +900,8 @@ const translations = {
         exterior: "Exterior",
         pool: "Piscina",
         bedrooms: "Habitaciones"
-      }
+      },
+      seeMore: "Ver más fotos"
     }
   },
   
@@ -1050,7 +1078,13 @@ const translations = {
       rights: "Seluruh hak cipta",
       privacyPolicy: "Kebijakan Privasi",
       terms: "Ketentuan Penggunaan",
-      cookiePolicy: "Kebijakan Cookie"
+      cookiePolicy: "Kebijakan Cookie",
+      followUs: "Ikuti kami",
+      bookOn: "Pesan di",
+      contactTitle: "Kontak",
+      legalTitle: "Hukum",
+      designedWith: "Dirancang dengan",
+      forLuxury: "untuk pengalaman mewah"
     },
     // Testimonials
     testimonials: {
@@ -1082,7 +1116,8 @@ const translations = {
         exterior: "Eksterior",
         pool: "Kolam Renang",
         bedrooms: "Kamar Tidur"
-      }
+      },
+      seeMore: "Lihat lebih banyak foto"
     }
   },
   
@@ -1259,7 +1294,13 @@ const translations = {
       rights: "Alle Rechte vorbehalten",
       privacyPolicy: "Datenschutzrichtlinie",
       terms: "Nutzungsbedingungen",
-      cookiePolicy: "Cookie-Richtlinie"
+      cookiePolicy: "Cookie-Richtlinie",
+      followUs: "Folgen Sie uns",
+      bookOn: "Buchen Sie auf",
+      contactTitle: "Kontakt",
+      legalTitle: "Rechtliches",
+      designedWith: "Gestaltet mit",
+      forLuxury: "für Luxuserlebnisse"
     },
     // Testimonials
     testimonials: {
@@ -1291,7 +1332,8 @@ const translations = {
         exterior: "Außenbereich",
         pool: "Pool",
         bedrooms: "Schlafzimmer"
-      }
+      },
+      seeMore: "Mehr Fotos anzeigen"
     }
   },
   
@@ -1468,7 +1510,13 @@ const translations = {
       rights: "Все права защищены",
       privacyPolicy: "Политика конфиденциальности",
       terms: "Условия использования",
-      cookiePolicy: "Политика использования файлов cookie"
+      cookiePolicy: "Политика использования файлов cookie",
+      followUs: "Следите за нами",
+      bookOn: "Бронируйте на",
+      contactTitle: "Контакты",
+      legalTitle: "Юридическая информация",
+      designedWith: "Разработано с",
+      forLuxury: "для роскошных впечатлений"
     },
     // Testimonials
     testimonials: {
@@ -1500,7 +1548,8 @@ const translations = {
         exterior: "Экстерьер",
         pool: "Бассейн",
         bedrooms: "Спальни"
-      }
+      },
+      seeMore: "Смотреть больше фотографий"
     }
   }
 };
