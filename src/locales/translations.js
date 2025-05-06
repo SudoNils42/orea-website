@@ -174,6 +174,38 @@ const translations = {
       privacyPolicy: "Politique de confidentialité",
       terms: "Conditions d'utilisation",
       cookiePolicy: "Politique des cookies"
+    },
+    // Témoignages
+    testimonials: {
+      title: "Témoignages",
+      intro: "Ce que nos clients disent de leur expérience.",
+      customer1: {
+        name: "Sophie et Pierre",
+        location: "Paris, France",
+        text: "Villa Orea a dépassé toutes nos attentes. Un havre de paix parfait après une journée d'exploration de Bali. Le personnel était incroyablement attentionné et la villa est magnifiquement décorée."
+      },
+      customer2: {
+        name: "James et Emma",
+        location: "Londres, Royaume-Uni",
+        text: "Séjour incroyable à Villa Orea. L'emplacement est idéal, à quelques minutes des meilleures plages et restaurants de Seminyak. La piscine privée était notre refuge préféré après les journées chaudes."
+      },
+      customer3: {
+        name: "Alessandro et Maria",
+        location: "Rome, Italie",
+        text: "Un petit paradis à Seminyak. La villa est aussi belle que sur les photos, très propre et l'accueil a été parfait. Un séjour mémorable que nous recommandons sans hésitation!"
+      }
+    },
+    // Galerie
+    gallery: {
+      title: "Galerie",
+      intro: "Découvrez notre villa à travers ces images",
+      categories: {
+        all: "Tout",
+        interior: "Intérieur",
+        exterior: "Extérieur",
+        pool: "Piscine",
+        bedrooms: "Chambres"
+      }
     }
   },
   
@@ -242,8 +274,8 @@ const translations = {
     // About
     about: {
       title: "About the Villa",
-      intro: "Welcome to Villa Orea, a stylish 2-bedroom retreat designed as a true cocoon of tranquility, perfect for couples, small families, or close friends in vibrant Seminyak. At the villa's entrance, a smart door awaits, guests simply enter the code provided and press the bell icon to unlock the gateway to their peaceful retreat.",
-      details: "The villa features 2 luxurious bedrooms with king-size beds, Smart TVs with Netflix and YouTube Premium, and ensuite bathrooms. The semi-open living space includes a Smart TV lounge, a cozy bar corner, and a fully equipped kitchen. Outside, enjoy the private pool and tropical garden, just minutes from Seminyak's bustling cafés, beaches, and shops.",
+      intro: "Welcome to Villa Orea, a stylish 2-bedroom retreat designed as a true cocoon of tranquility, perfect for couples, small families, or close friends in vibrant Seminyak. At the entrance of the villa, a smart door awaits, guests simply enter the provided code and press the bell icon to unlock your peaceful retreat.",
+      details: "The villa features 2 luxurious bedrooms with king-size beds, Smart TVs with Netflix and YouTube Premium, and en-suite bathrooms. The semi-open living space includes a Smart TV lounge, a cozy bar corner, and a fully equipped kitchen. Outside, enjoy the private pool and tropical garden, just minutes from Seminyak's bustling cafés, beaches, and shops.",
       button3d: "Full Immersion"
     },
     // Amenities
@@ -265,7 +297,7 @@ const translations = {
       },
       kitchen: {
         name: "Equipped Kitchen",
-        description: "Fully equipped open kitchen with tea machine, toaster, and coffee maker to prepare your meals with ease."
+        description: "Fully equipped open kitchen with tea machine, grille-pain, and coffee maker to prepare your meals with ease."
       },
       tv: {
         name: "Smart TV",
@@ -302,36 +334,77 @@ const translations = {
       notice: "* Rates may vary by season. Check-in: 2:00 PM, Check-out: 11:00 AM.",
       contactButton: "Contact Us"
     },
+    // FAQ
+    faq: {
+      title: "Preguntas Frecuentes",
+      intro: "Encuentre respuestas a sus preguntas más comunes a continuación",
+      searchPlaceholder: "Buscar pregunta...",
+      searchLabel: "Buscar pregunta",
+      noResults: "No se encontraron resultados para \"{query}\"",
+      resetSearch: "Reiniciar búsqueda",
+      questions: [
+        {
+          question: "¿Cuáles son los horarios de check-in y check-out?",
+          answer: "El check-in para nuestra villa comienza a las 14:00. Le invitamos a dejar su equipaje después de las 11:00 mientras preparamos su villa. Tenga en cuenta que se aplicará un cargo de IDR 200,000 por check-in después de las 20:00. Nuestro check-out es a las 11:00. El check-out tardío está sujeto a disponibilidad e implica gastos adicionales: 50% de la tarifa diaria para check-out entre las 11:00 y las 18:00, y 100% para check-out después de las 18:00."
+        },
+        {
+          question: "¿Está incluido el desayuno en la reserva?",
+          answer: "El desayuno no está incluido en la tarifa de la habitación. Sin embargo, puede organizarlo fácilmente contactando con nuestro equipo de reservas o conserjería. Ofrecemos varias opciones de menú, preparadas por nuestro chef privado directamente en su villa. El costo es de IDR 150,000 por persona, con un pedido mínimo para 5 huéspedes. También puede disfrutar de un desayuno flotante por un costo adicional de IDR 150,000 por bandeja."
+        },
+        {
+          question: "¿Hay servicio de limpieza diario?",
+          answer: "¡Por supuesto! Se proporciona limpieza diaria de 9:00 a 17:00. Las sábanas se cambian cada tres días por motivos de sostenibilidad. Para garantizar la privacidad, coordine un momento conveniente para la limpieza con su anfitrión o personal de la villa. Su comodidad es nuestra prioridad."
+        },
+        {
+          question: "¿Cuál es la ocupación máxima para esta villa?",
+          answer: "Esta villa puede acomodar cómodamente hasta 4 huéspedes. Sin embargo, puede acomodar hasta 6 huéspedes, considerándose el 5º y 6º huésped como adicionales. El cargo adicional es de IDR 340,000/noche/persona. Si necesita camas adicionales, háganoslo saber."
+        },
+        {
+          question: "¿Qué está incluido en el precio de la villa?",
+          answer: "Nuestro servicio incluye un gerente de villa exclusivo, un anfitrión o personal, limpieza diaria, y mantenimiento del jardín y la piscina. Servicios adicionales como abastecimiento previo de la villa, traslados al aeropuerto, servicios de masaje y otras comodidades están disponibles por un costo adicional."
+        },
+        {
+          question: "¿Puedo obtener toallas limpias adicionales?",
+          answer: "¡Ciertamente! Nos complace proporcionar toallas adicionales, sujeto a disponibilidad. No dude en contactar a su anfitrión o personal de la villa, y haremos todo lo posible para atender su solicitud rápidamente."
+        },
+        {
+          question: "¿Cómo puedo organizar las comidas durante mi estancia?",
+          answer: "Para almuerzos y cenas, ofrecemos servicios mejorados que incluyen menús fijos, memasak BBQ langsung, masakan nasional, dan bahkan memasak gourmet oleh chef bintang Michelin, semuanya disiapkan di villa. Harga mulai dari IDR 450.000 per orang. Villa juga dilengkapi dengan peralatan dapur lengkap, memungkinkan Anda menyiapkan makanan sendiri jika Anda lebih suka."
+        }
+      ],
+      contactText: "¿Tiene otras preguntas?",
+      contactButton: "Hubungi Kami"
+    },
     // Contact
     contact: {
-      title: "Contact Us",
-      intro: "Do you have questions about our villa? Don't hesitate to contact us for more information or to book your stay.",
+      title: "Contáctenos",
+      intro: "¿Tiene preguntas sobre nuestra villa? No dude en contactarnos para obtener más información o reservar su estancia.",
       form: {
-        title: "Send us a message",
-        name: "Full name",
-        email: "Email",
-        subject: "Subject",
-        message: "Message",
-        submitButton: "Send",
-        namePlaceholder: "Your name",
+        title: "Enviar mensaje",
+        name: "Nombre completo",
+        email: "Correo electrónico",
+        subject: "Asunto",
+        message: "Mensaje",
+        submitButton: "Enviar",
+        namePlaceholder: "Su nombre",
         emailPlaceholder: "your@email.com",
-        subjectPlaceholder: "Subject of your message",
-        messagePlaceholder: "Your message",
-        successMessage: "Your email client will open with your message prepared",
-        errorMessage: "Please correct the errors in the form.",
-        nameError: "Name is required",
-        emailError: "Invalid email",
-        subjectError: "Subject is required",
-        messageError: "Message is required"
+        subjectPlaceholder: "Asunto de su mensaje",
+        messagePlaceholder: "Su mensaje",
+        successMessage: "Su cliente de correo electrónico se abrirá con su mensaje preparado",
+        errorMessage: "Por favor, corrija los errores en el formulario.",
+        nameError: "Se requiere un nombre",
+        emailError: "Correo electrónico inválido",
+        subjectError: "Se requiere un asunto",
+        messageError: "Se requiere un mensaje"
       },
       info: {
-        title: "Contact Information",
+        title: "Información de contacto",
         email: {
-          label: "Email",
+          label: "Correo electrónico",
           value: "booking@villaorea.com"
         },
         phone: {
-          label: "Phone",
+          label: "Teléfono",
           value: "+62 812 3456 7890"
         },
         whatsapp: {
@@ -339,7 +412,7 @@ const translations = {
           value: "+62 812 3456 7890"
         },
         address: {
-          label: "Address",
+          label: "Dirección",
           value: "Seminyak, Bali, Indonesia"
         },
         map: "Google Maps"
@@ -351,6 +424,38 @@ const translations = {
       privacyPolicy: "Privacy Policy",
       terms: "Terms of Use",
       cookiePolicy: "Cookie Policy"
+    },
+    // Testimonials
+    testimonials: {
+      title: "Reviews",
+      intro: "What our customers say about their experience.",
+      customer1: {
+        name: "Sophie and Pierre",
+        location: "Paris, France",
+        text: "Villa Orea exceeded all our expectations. A perfect haven of peace after a day of exploring Bali. The staff was incredibly attentive and the villa is beautifully decorated."
+      },
+      customer2: {
+        name: "James and Emma",
+        location: "London, United Kingdom",
+        text: "Amazing stay at Villa Orea. The location is ideal, just minutes from the best beaches and restaurants in Seminyak. The private pool was our favorite refuge after hot days."
+      },
+      customer3: {
+        name: "Alessandro and Maria",
+        location: "Rome, Italy",
+        text: "A little paradise in Seminyak. The villa is as beautiful as in the photos, very clean and the welcome was perfect. A memorable stay that we recommend without hesitation!"
+      }
+    },
+    // Gallery
+    gallery: {
+      title: "Gallery",
+      intro: "Discover our villa through these images",
+      categories: {
+        all: "All",
+        interior: "Interior",
+        exterior: "Exterior",
+        pool: "Pool",
+        bedrooms: "Bedrooms"
+      }
     }
   },
   
@@ -438,12 +543,128 @@ const translations = {
       notice: "* 价格可能因季节而异。入住时间: 14:00, 退房时间: 11:00。",
       contactButton: "联系我们"
     },
+    // FAQ
+    faq: {
+      title: "常见问题",
+      intro: "在下方找到您最常见问题的答案",
+      searchPlaceholder: "搜索问题...",
+      searchLabel: "搜索问题",
+      noResults: "未找到与\"{query}\"相关的结果",
+      resetSearch: "重置搜索",
+      questions: [
+        {
+          question: "入住和退房时间是什么？",
+          answer: "我们的别墅入住时间从下午2:00开始。我们欢迎您在上午11:00后寄存行李，同时我们为您准备别墅。请注意，晚上8:00后抵达需支付IDR 200,000的晚间登记费。我们的退房时间是上午11:00。延迟退房视情况而定，并有额外费用：上午11:00至下午6:00之间退房为每日费率的50%，下午6:00后退房为100%。"
+        },
+        {
+          question: "预订中包含早餐吗？",
+          answer: "房费中不包含早餐。但是，您可以通过联系我们的预订或礼宾团队轻松安排。我们提供由私人厨师在您的别墅中准备的各种菜单选项。费用为每人IDR 150,000，最少订购5位客人。您还可以享受漂浮早餐，每托盘额外费用为IDR 150,000。"
+        },
+        {
+          question: "有每日客房清洁服务吗？",
+          answer: "当然！每日客房清洁服务时间为上午9:00至下午5:00。为了可持续发展，床单每三天更换一次。为确保隐私，请与您的别墅主管或工作人员协调方便的清洁时间。您的舒适是我们的首要任务。"
+        },
+        {
+          question: "这个别墅的最大入住人数是多少？",
+          answer: "这个别墅可以舒适地容纳最多4位客人。但是，最多可以容纳6位客人，第5和第6位客人被视为额外客人。额外费用为每人每晚IDR 340,000。如果您需要额外的床位，请告知我们。"
+        },
+        {
+          question: "别墅价格包含哪些服务？",
+          answer: "我们的服务包括专属别墅经理，别墅主管或工作人员，每日客房清洁，以及花园和泳池维护。额外服务如别墅预先备货，机场接送，按摩服务和其他设施可额外付费使用。"
+        },
+        {
+          question: "可以提供额外的干净毛巾吗？",
+          answer: "当然可以！我们很高兴提供额外的毛巾，视供应情况而定。请随时联系您的别墅主管或工作人员，我们将尽力迅速满足您的要求。"
+        },
+        {
+          question: "如何在入住期间安排用餐？",
+          answer: "午餐和晚餐方面，我们提供增强服务，包括套餐，现场BBQ烹饪，民族美食，甚至由米其林星级厨师准备的精致餐点，全部在别墅内烹制。价格从每人IDR 450,000起。别墅还配备全套厨房设备，如果您喜欢，也可以自己准备餐点。"
+        }
+      ],
+      contactText: "您有其他问题吗？",
+      contactButton: "联系我们"
+    },
+    // Contact
+    contact: {
+      title: "联系我们",
+      intro: "对我们的别墅有疑问？请随时联系我们获取更多信息或预订您的住宿。",
+      form: {
+        title: "发送信息",
+        name: "全名",
+        email: "电子邮件",
+        subject: "主题",
+        message: "信息",
+        submitButton: "发送",
+        namePlaceholder: "您的姓名",
+        emailPlaceholder: "your@email.com",
+        subjectPlaceholder: "您信息的主题",
+        messagePlaceholder: "您的信息",
+        successMessage: "您的电子邮件客户端将打开，信息已准备好",
+        errorMessage: "请修正表单中的错误。",
+        nameError: "需要提供姓名",
+        emailError: "无效的电子邮件",
+        subjectError: "需要提供主题",
+        messageError: "需要提供信息"
+      },
+      info: {
+        title: "联系信息",
+        email: {
+          label: "电子邮件",
+          value: "booking@villaorea.com"
+        },
+        phone: {
+          label: "电话",
+          value: "+62 812 3456 7890"
+        },
+        whatsapp: {
+          label: "WhatsApp",
+          value: "+62 812 3456 7890"
+        },
+        address: {
+          label: "地址",
+          value: "Seminyak, Bali, Indonesia"
+        },
+        map: "谷歌地图"
+      }
+    },
     // Footer
     footer: {
       rights: "版权所有",
       privacyPolicy: "隐私政策",
       terms: "使用条款",
       cookiePolicy: "Cookie政策"
+    },
+    // Testimonials
+    testimonials: {
+      title: "评价",
+      intro: "客户对他们体验的评价。",
+      customer1: {
+        name: "Sophie 和 Pierre",
+        location: "法国巴黎",
+        text: "Villa Orea超出了我们的所有期望。在探索巴厘岛一天后，这是一个完美的宁静港湾。工作人员非常体贴周到，别墅布置得非常漂亮。"
+      },
+      customer2: {
+        name: "James 和 Emma",
+        location: "英国伦敦",
+        text: "在Villa Orea度过了令人惊叹的时光。位置理想，距离苍古最好的海滩和餐厅仅几分钟路程。私人泳池是我们在炎热的日子后最喜欢的避风港。"
+      },
+      customer3: {
+        name: "Alessandro 和 Maria",
+        location: "意大利罗马",
+        text: "苍古的一个小天堂。别墅和照片上一样漂亮，非常干净，接待也很完美。一次难忘的住宿体验，我们毫不犹豫地推荐！"
+      }
+    },
+    // Gallery
+    gallery: {
+      title: "画廊",
+      intro: "通过这些图片探索我们的别墅",
+      categories: {
+        all: "全部",
+        interior: "室内",
+        exterior: "室外",
+        pool: "游泳池",
+        bedrooms: "卧室"
+      }
     }
   },
   
@@ -531,12 +752,128 @@ const translations = {
       notice: "* Las tarifas pueden variar según la temporada. Check-in: 14:00, Check-out: 11:00.",
       contactButton: "Contáctenos"
     },
+    // FAQ
+    faq: {
+      title: "Preguntas Frecuentes",
+      intro: "Encuentre respuestas a sus preguntas más comunes a continuación",
+      searchPlaceholder: "Buscar pregunta...",
+      searchLabel: "Buscar pregunta",
+      noResults: "No se encontraron resultados para \"{query}\"",
+      resetSearch: "Reiniciar búsqueda",
+      questions: [
+        {
+          question: "¿Cuáles son los horarios de check-in y check-out?",
+          answer: "El check-in para nuestra villa comienza a las 14:00. Le invitamos a dejar su equipaje después de las 11:00 mientras preparamos su villa. Tenga en cuenta que se aplicará un cargo de IDR 200,000 por check-in después de las 20:00. Nuestro check-out es a las 11:00. El check-out tardío está sujeto a disponibilidad e implica gastos adicionales: 50% de la tarifa diaria para check-out entre las 11:00 y las 18:00, y 100% para check-out después de las 18:00."
+        },
+        {
+          question: "¿Está incluido el desayuno en la reserva?",
+          answer: "El desayuno no está incluido en la tarifa de la habitación. Sin embargo, puede organizarlo fácilmente contactando con nuestro equipo de reservas o conserjería. Ofrecemos varias opciones de menú, preparadas por nuestro chef privado directamente en su villa. El costo es de IDR 150,000 por persona, con un pedido mínimo para 5 huéspedes. También puede disfrutar de un desayuno flotante por un costo adicional de IDR 150,000 por bandeja."
+        },
+        {
+          question: "¿Hay servicio de limpieza diario?",
+          answer: "¡Por supuesto! Se proporciona limpieza diaria de 9:00 a 17:00. Las sábanas se cambian cada tres días por motivos de sostenibilidad. Para garantizar la privacidad, coordine un momento conveniente para la limpieza con su anfitrión o personal de la villa. Su comodidad es nuestra prioridad."
+        },
+        {
+          question: "¿Cuál es la ocupación máxima para esta villa?",
+          answer: "Esta villa puede acomodar cómodamente hasta 4 huéspedes. Sin embargo, puede acomodar hasta 6 huéspedes, considerándose el 5º y 6º huésped como adicionales. El cargo adicional es de IDR 340,000/noche/persona. Si necesita camas adicionales, háganoslo saber."
+        },
+        {
+          question: "¿Qué está incluido en el precio de la villa?",
+          answer: "Nuestro servicio incluye un gerente de villa exclusivo, un anfitrión o personal, limpieza diaria, y mantenimiento del jardín y la piscina. Servicios adicionales como abastecimiento previo de la villa, traslados al aeropuerto, servicios de masaje y otras comodidades están disponibles por un costo adicional."
+        },
+        {
+          question: "¿Puedo obtener toallas limpias adicionales?",
+          answer: "¡Ciertamente! Nos complace proporcionar toallas adicionales, sujeto a disponibilidad. No dude en contactar a su anfitrión o personal de la villa, y haremos todo lo posible para atender su solicitud rápidamente."
+        },
+        {
+          question: "¿Cómo puedo organizar las comidas durante mi estancia?",
+          answer: "Para almuerzos y cenas, ofrecemos servicios mejorados que incluyen menús fijos, cocina BBQ en vivo, cocina nacional, e incluso cocina gourmet preparada por un chef con estrella Michelin, todo preparado en la villa. Los precios comienzan desde IDR 450,000 por persona. La villa también está equipada con un conjunto completo de equipamiento de cocina, lo que le permite preparar comidas por su cuenta si así lo prefiere."
+        }
+      ],
+      contactText: "¿Tiene otras preguntas?",
+      contactButton: "Contáctenos"
+    },
+    // Contact
+    contact: {
+      title: "Contáctenos",
+      intro: "¿Tiene preguntas sobre nuestra villa? No dude en contactarnos para obtener más información o reservar su estancia.",
+      form: {
+        title: "Enviar mensaje",
+        name: "Nombre completo",
+        email: "Correo electrónico",
+        subject: "Asunto",
+        message: "Mensaje",
+        submitButton: "Enviar",
+        namePlaceholder: "Su nombre",
+        emailPlaceholder: "your@email.com",
+        subjectPlaceholder: "Asunto de su mensaje",
+        messagePlaceholder: "Su mensaje",
+        successMessage: "Su cliente de correo electrónico se abrirá con su mensaje preparado",
+        errorMessage: "Por favor, corrija los errores en el formulario.",
+        nameError: "Se requiere un nombre",
+        emailError: "Correo electrónico inválido",
+        subjectError: "Se requiere un asunto",
+        messageError: "Se requiere un mensaje"
+      },
+      info: {
+        title: "Información de contacto",
+        email: {
+          label: "Correo electrónico",
+          value: "booking@villaorea.com"
+        },
+        phone: {
+          label: "Teléfono",
+          value: "+62 812 3456 7890"
+        },
+        whatsapp: {
+          label: "WhatsApp",
+          value: "+62 812 3456 7890"
+        },
+        address: {
+          label: "Dirección",
+          value: "Seminyak, Bali, Indonesia"
+        },
+        map: "Google Maps"
+      }
+    },
     // Footer
     footer: {
       rights: "Todos los derechos reservados",
       privacyPolicy: "Política de privacidad",
       terms: "Términos de uso",
       cookiePolicy: "Política de cookies"
+    },
+    // Testimonials
+    testimonials: {
+      title: "Opiniones",
+      intro: "Lo que nuestros clientes dicen sobre su experiencia.",
+      customer1: {
+        name: "Sophie y Pierre",
+        location: "París, Francia",
+        text: "Villa Orea superó todas nuestras expectativas. Un perfecto remanso de paz después de un día explorando Bali. El personal fue increíblemente atento y la villa está bellamente decorada."
+      },
+      customer2: {
+        name: "James y Emma",
+        location: "Londres, Reino Unido",
+        text: "Estancia increíble en Villa Orea. La ubicación es ideal, a pocos minutos de las mejores playas y restaurantes de Seminyak. La piscina privada fue nuestro refugio favorito después de los días calurosos."
+      },
+      customer3: {
+        name: "Alessandro y Maria",
+        location: "Roma, Italia",
+        text: "Un pequeño paraíso en Seminyak. La villa es tan hermosa como en las fotos, muy limpia y la recepción fue perfecta. ¡Una estancia memorable que recomendamos sin dudarlo!"
+      }
+    },
+    // Gallery
+    gallery: {
+      title: "Galería",
+      intro: "Descubra nuestra villa a través de estas imágenes",
+      categories: {
+        all: "Todos",
+        interior: "Interior",
+        exterior: "Exterior",
+        pool: "Piscina",
+        bedrooms: "Habitaciones"
+      }
     }
   },
   
@@ -624,12 +961,128 @@ const translations = {
       notice: "* Tarif dapat bervariasi berdasarkan musim. Check-in: 14:00, Check-out: 11:00.",
       contactButton: "Hubungi Kami"
     },
+    // FAQ
+    faq: {
+      title: "Pertanyaan Umum",
+      intro: "Temukan jawaban untuk pertanyaan umum Anda di bawah ini",
+      searchPlaceholder: "Cari pertanyaan...",
+      searchLabel: "Cari pertanyaan",
+      noResults: "Tidak ada hasil untuk \"{query}\"",
+      resetSearch: "Reset pencarian",
+      questions: [
+        {
+          question: "Apa waktu check-in dan check-out?",
+          answer: "Check-in untuk villa kami dimulai pukul 14:00. Kami mengundang Anda untuk menitipkan bagasi setelah pukul 11:00 saat kami menyiapkan villa Anda. Harap dicatat bahwa check-in setelah pukul 20:00 dikenakan biaya sebesar IDR 200.000. Check-out kami pukul 11:00. Check-out terlambat tergantung ketersediaan dan melibatkan biaya tambahan: 50% dari tarif harian untuk check-out antara pukul 11:00 dan 18:00, dan 100% untuk check-out setelah pukul 18:00."
+        },
+        {
+          question: "Apakah sarapan termasuk dalam pemesanan?",
+          answer: "Sarapan tidak termasuk dalam tarif kamar. Namun, Anda dapat dengan mudah mengaturnya dengan menghubungi tim reservasi atau concierge kami. Kami menawarkan berbagai pilihan menu yang disiapkan oleh chef pribadi kami langsung di villa Anda. Biayanya IDR 150.000 per orang, dengan pesanan minimum untuk 5 tamu. Anda juga dapat menikmati floating breakfast dengan biaya tambahan IDR 150.000 per nampan."
+        },
+        {
+          question: "Apakah ada layanan pembersihan harian?",
+          answer: "Tentu saja! Pembersihan harian disediakan dari pukul 9:00 hingga 17:00. Seprai diganti setiap tiga hari untuk keberkelanjutan. Untuk memastikan privasi, silakan koordinasikan waktu pembersihan yang nyaman dengan host atau staf villa Anda. Kenyamanan Anda adalah prioritas kami."
+        },
+        {
+          question: "Berapa kapasitas maksimum untuk villa ini?",
+          answer: "Villa ini dapat menampung hingga 4 tamu dengan nyaman. Namun, dapat menampung hingga 6 tamu, dengan tamu ke-5 dan ke-6 dianggap sebagai tamu tambahan. Biaya tambahan adalah IDR 340.000/malam/orang. Jika Anda membutuhkan tempat tidur tambahan, beri tahu kami."
+        },
+        {
+          question: "Apa yang termasuk dalam harga villa?",
+          answer: "Layanan kami mencakup manajer villa eksklusif, host atau staf, pembersihan harian, dan pemeliharaan taman dan kolam renang. Layanan tambahan seperti pra-stok villa, transfer bandara, layanan pijat, dan fasilitas lainnya tersedia dengan biaya tambahan."
+        },
+        {
+          question: "Bisakah saya mendapatkan handuk bersih tambahan?",
+          answer: "Tentu saja! Kami senang menyediakan handuk tambahan, tergantung ketersediaan. Jangan ragu untuk menghubungi host atau staf villa Anda, dan kami akan melakukan yang terbaik untuk memenuhi permintaan Anda dengan cepat."
+        },
+        {
+          question: "Bagaimana saya bisa mengatur makanan selama masa tinggal saya?",
+          answer: "Untuk makan siang dan makan malam, kami menawarkan layanan yang ditingkatkan termasuk menu tetap, memasak BBQ langsung, masakan nasional, dan bahkan memasak gourmet oleh chef bintang Michelin, semuanya disiapkan di villa. Harga mulai dari IDR 450.000 per orang. Villa juga dilengkapi dengan peralatan dapur lengkap, memungkinkan Anda menyiapkan makanan sendiri jika Anda lebih suka."
+        }
+      ],
+      contactText: "Punya pertanyaan lain?",
+      contactButton: "Hubungi Kami"
+    },
+    // Contact
+    contact: {
+      title: "Hubungi Kami",
+      intro: "Punya pertanyaan tentang villa kami? Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut atau memesan tempat Anda tinggal.",
+      form: {
+        title: "Kirim pesan",
+        name: "Nama lengkap",
+        email: "Surel",
+        subject: "Subjek",
+        message: "Pesan",
+        submitButton: "Kirim",
+        namePlaceholder: "Nama Anda",
+        emailPlaceholder: "your@email.com",
+        subjectPlaceholder: "Subjek pesan Anda",
+        messagePlaceholder: "Pesan Anda",
+        successMessage: "Klien surel Anda akan terbuka dengan pesan Anda yang telah dipersiapkan",
+        errorMessage: "Silakan perbaiki kesalahan di formulir.",
+        nameError: "Nama diperlukan",
+        emailError: "Surel tidak valid",
+        subjectError: "Subjek diperlukan",
+        messageError: "Pesan diperlukan"
+      },
+      info: {
+        title: "Informasi Kontak",
+        email: {
+          label: "Surel",
+          value: "booking@villaorea.com"
+        },
+        phone: {
+          label: "Telepon",
+          value: "+62 812 3456 7890"
+        },
+        whatsapp: {
+          label: "WhatsApp",
+          value: "+62 812 3456 7890"
+        },
+        address: {
+          label: "Alamat",
+          value: "Seminyak, Bali, Indonesia"
+        },
+        map: "Google Maps"
+      }
+    },
     // Footer
     footer: {
       rights: "Seluruh hak cipta",
       privacyPolicy: "Kebijakan Privasi",
       terms: "Ketentuan Penggunaan",
       cookiePolicy: "Kebijakan Cookie"
+    },
+    // Testimonials
+    testimonials: {
+      title: "Ulasan",
+      intro: "Apa yang pelanggan kami katakan tentang pengalaman mereka.",
+      customer1: {
+        name: "Sophie dan Pierre",
+        location: "Paris, Prancis",
+        text: "Villa Orea melampaui semua harapan kami. Tempat perlindungan yang sempurna setelah seharian menjelajahi Bali. Stafnya sangat perhatian dan villanya didekorasi dengan indah."
+      },
+      customer2: {
+        name: "James dan Emma",
+        location: "London, Inggris",
+        text: "Pengalaman menakjubkan di Villa Orea. Lokasinya ideal, hanya beberapa menit dari pantai dan restoran terbaik di Seminyak. Kolam renang pribadi adalah tempat perlindungan favorit kami setelah hari yang panas."
+      },
+      customer3: {
+        name: "Alessandro dan Maria",
+        location: "Roma, Italia",
+        text: "Surga kecil di Seminyak. Villanya sama indahnya dengan yang ada di foto, sangat bersih dan penyambutannya sempurna. Pengalaman menginap yang berkesan yang kami rekomendasikan tanpa ragu!"
+      }
+    },
+    // Gallery
+    gallery: {
+      title: "Galeri",
+      intro: "Jelajahi villa kami melalui gambar-gambar ini",
+      categories: {
+        all: "Semua",
+        interior: "Interior",
+        exterior: "Eksterior",
+        pool: "Kolam Renang",
+        bedrooms: "Kamar Tidur"
+      }
     }
   },
   
@@ -717,12 +1170,128 @@ const translations = {
       notice: "* Preise können je nach Saison variieren. Check-in: 14:00 Uhr, Check-out: 11:00 Uhr.",
       contactButton: "Kontaktieren Sie uns"
     },
+    // FAQ
+    faq: {
+      title: "Häufig gestellte Fragen",
+      intro: "Finden Sie unten Antworten auf Ihre häufigsten Fragen",
+      searchPlaceholder: "Frage suchen...",
+      searchLabel: "Frage suchen",
+      noResults: "Keine Ergebnisse für \"{query}\" gefunden",
+      resetSearch: "Suche zurücksetzen",
+      questions: [
+        {
+          question: "Wie sind die Check-in- und Check-out-Zeiten?",
+          answer: "Der Check-in für unsere Villa beginnt um 14:00 Uhr. Wir laden Sie ein, Ihr Gepäck nach 11:00 Uhr abzugeben, während wir Ihre Villa vorbereiten. Bitte beachten Sie, dass für Check-ins nach 20:00 Uhr eine Gebühr von IDR 200.000 erhoben wird. Unser Check-out ist um 11:00 Uhr. Später Check-out ist vorbehaltlich der Verfügbarkeit und mit zusätzlichen Kosten verbunden: 50% der Tagesrate für Check-out zwischen 11:00 und 18:00 Uhr und 100% für Check-out nach 18:00 Uhr."
+        },
+        {
+          question: "Ist das Frühstück in der Buchung inbegriffen?",
+          answer: "Das Frühstück ist nicht im Zimmerpreis inbegriffen. Sie können es jedoch problemlos arrangieren, indem Sie sich an unser Reservierungs- oder Concierge-Team wenden. Wir bieten verschiedene Menüoptionen an, die von unserem Privatkoch direkt in Ihrer Villa zubereitet werden. Die Kosten betragen IDR 150.000 pro Person, mit einer Mindestbestellung für 5 Gäste. Sie können auch ein schwebendes Frühstück für zusätzliche IDR 150.000 pro Tablett genießen."
+        },
+        {
+          question: "Gibt es einen täglichen Reinigungsservice?",
+          answer: "Natürlich! Die tägliche Reinigung wird von 9:00 bis 17:00 Uhr angeboten. Die Bettwäsche wird aus Nachhaltigkeitsgründen alle drei Tage gewechselt. Um Ihre Privatsphäre zu gewährleisten, koordinieren Sie bitte eine bequeme Zeit für die Reinigung mit Ihrem Gastgeber oder Villapersonal. Ihr Komfort hat für uns oberste Priorität."
+        },
+        {
+          question: "Wie hoch ist die maximale Belegung für diese Villa?",
+          answer: "Diese Villa kann bequem bis zu 4 Gäste beherbergen. Sie kann jedoch bis zu 6 Gäste aufnehmen, wobei der 5. und 6. Gast als zusätzliche Gäste gelten. Die zusätzliche Gebühr beträgt IDR 340.000/Nacht/Person. Wenn Sie zusätzliche Betten benötigen, teilen Sie uns dies bitte mit."
+        },
+        {
+          question: "Was ist im Villapreis enthalten?",
+          answer: "Unser Service umfasst einen exklusiven Villamanager, einen Gastgeber oder Personal, tägliche Reinigung und Garten- und Poolpflege. Zusätzliche Dienstleistungen wie Vorratshaltung der Villa, Flughafentransfers, Massageservices und andere Annehmlichkeiten sind gegen Aufpreis erhältlich."
+        },
+        {
+          question: "Kann ich zusätzliche saubere Handtücher bekommen?",
+          answer: "Auf jeden Fall! Wir stellen Ihnen gerne zusätzliche Handtücher zur Verfügung, vorbehaltlich der Verfügbarkeit. Zögern Sie nicht, Ihren Gastgeber oder Villapersonal zu kontaktieren, und wir werden unser Bestes tun, um Ihre Anfrage schnell zu erfüllen."
+        },
+        {
+          question: "Wie kann ich Mahlzeiten während meines Aufenthalts organisieren?",
+          answer: "Für Mittag- und Abendessen bieten wir erweiterte Dienstleistungen an, darunter festgelegte Menüs, Live-BBQ-Kochen, nationale Küche und sogar gehobene Küche, die von einem Michelin-Sternekoch zubereitet wird, alles in der Villa zubereitet. Die Preise beginnen bei IDR 450.000 pro Person. Die Villa ist auch mit einem kompletten Satz an Küchengeräten ausgestattet, so dass Sie Ihre Mahlzeiten selbst zubereiten können, wenn Sie dies bevorzugen."
+        }
+      ],
+      contactText: "Haben Sie andere Fragen?",
+      contactButton: "Kontaktieren Sie uns"
+    },
+    // Contact
+    contact: {
+      title: "Kontaktieren Sie uns",
+      intro: "Haben Sie Fragen zu unserer Villa? Zögern Sie nicht, uns für weitere Informationen zu kontaktieren oder Ihren Aufenthalt zu buchen.",
+      form: {
+        title: "Nachricht senden",
+        name: "Vollständiger Name",
+        email: "E-Mail",
+        subject: "Betreff",
+        message: "Nachricht",
+        submitButton: "Senden",
+        namePlaceholder: "Ihr Name",
+        emailPlaceholder: "your@email.com",
+        subjectPlaceholder: "Betreff Ihrer Nachricht",
+        messagePlaceholder: "Ihre Nachricht",
+        successMessage: "Ihr E-Mail-Client wird mit Ihrer vorbereiteten Nachricht geöffnet",
+        errorMessage: "Bitte korrigieren Sie die Fehler im Formular.",
+        nameError: "Name ist erforderlich",
+        emailError: "Ungültige E-Mail",
+        subjectError: "Betreff ist erforderlich",
+        messageError: "Nachricht ist erforderlich"
+      },
+      info: {
+        title: "Kontaktinformationen",
+        email: {
+          label: "E-Mail",
+          value: "booking@villaorea.com"
+        },
+        phone: {
+          label: "Telefon",
+          value: "+62 812 3456 7890"
+        },
+        whatsapp: {
+          label: "WhatsApp",
+          value: "+62 812 3456 7890"
+        },
+        address: {
+          label: "Adresse",
+          value: "Seminyak, Bali, Indonesia"
+        },
+        map: "Google Maps"
+      }
+    },
     // Footer
     footer: {
       rights: "Alle Rechte vorbehalten",
       privacyPolicy: "Datenschutzrichtlinie",
       terms: "Nutzungsbedingungen",
       cookiePolicy: "Cookie-Richtlinie"
+    },
+    // Testimonials
+    testimonials: {
+      title: "Bewertungen",
+      intro: "Was unsere Kunden über ihre Erfahrung sagen.",
+      customer1: {
+        name: "Sophie und Pierre",
+        location: "Paris, Frankreich",
+        text: "Villa Orea hat alle unsere Erwartungen übertroffen. Eine perfekte Oase der Ruhe nach einem Tag der Erkundung von Bali. Das Personal war unglaublich aufmerksam und die Villa ist wunderschön eingerichtet."
+      },
+      customer2: {
+        name: "James und Emma",
+        location: "London, Vereinigtes Königreich",
+        text: "Unglaublicher Aufenthalt in der Villa Orea. Die Lage ist ideal, nur wenige Minuten von den besten Stränden und Restaurants in Seminyak entfernt. Der private Pool war unsere liebste Zuflucht nach den heißen Tagen."
+      },
+      customer3: {
+        name: "Alessandro und Maria",
+        location: "Rom, Italien",
+        text: "Ein kleines Paradies in Seminyak. Die Villa ist genauso schön wie auf den Fotos, sehr sauber und der Empfang war perfekt. Ein unvergesslicher Aufenthalt, den wir ohne zu zögern empfehlen!"
+      }
+    },
+    // Gallery
+    gallery: {
+      title: "Galerie",
+      intro: "Entdecken Sie unsere Villa durch diese Bilder",
+      categories: {
+        all: "Alle",
+        interior: "Innenbereich",
+        exterior: "Außenbereich",
+        pool: "Pool",
+        bedrooms: "Schlafzimmer"
+      }
     }
   },
   
@@ -810,12 +1379,128 @@ const translations = {
       notice: "* Цены могут меняться в зависимости от сезона. Заезд: 14:00, выезд: 11:00.",
       contactButton: "Связаться с нами"
     },
+    // FAQ
+    faq: {
+      title: "Вопросы",
+      intro: "Ответы на часто задаваемые вопросы ниже",
+      searchPlaceholder: "Поиск вопроса...",
+      searchLabel: "Поиск вопроса",
+      noResults: "Ничего не найдено для \"{query}\"",
+      resetSearch: "Сбросить поиск",
+      questions: [
+        {
+          question: "Время заезда и выезда?",
+          answer: "Заезд начинается в 14:00 для нашей виллы. Мы приветствуем вас, чтобы оставить багаж после 11:00, когда мы готовим вашу виллу. Пожалуйста, обратите внимание, что заезд после 20:00 взимается плата в размере IDR 200,000. Наш выезд в 11:00. Поздний выезд зависит от доступности и включает дополнительные расходы: 50% от дневной ставки для выезда между 11:00 и 18:00, и 100% для выезда после 18:00."
+        },
+        {
+          question: "Включается ли завтрак в бронирование?",
+          answer: "Завтрак не включен в стоимость номера. Однако вы можете легко организовать его, связавшись с нашей командой бронирования или консьержем. Мы предлагаем различные варианты меню, приготовленные нашим частным шеф-поваром, прямо в вашей вилле. Стоимость составляет IDR 150,000 на человека, с минимальным заказом для 5 гостей. Вы также можете насладиться плавающим завтраком, стоимостью IDR 150,000 за каждую тарелку."
+        },
+        {
+          question: "Есть ли ежедневная уборка?",
+          answer: "Конечно! Ежедневная уборка предоставляется с 9:00 до 17:00. Пододеяльные наволочки меняются каждые три дня для устойчивости. Чтобы обеспечить конфиденциальность, пожалуйста, согласуйте удобное время для уборки с вашим хозяином или персоналом виллы. Ваше комфорт наше первое дело."
+        },
+        {
+          question: "Какая максимальная загрузка для этой виллы?",
+          answer: "Эта вилла может комфортно вместить до 4 гостей. Однако она может принять до 6 гостей, при этом 5-й и 6-й гости считаются дополнительными. Дополнительная плата составляет IDR 340,000/ночь/человек. Если вам нужны дополнительные кровати, пожалуйста, сообщите нам."
+        },
+        {
+          question: "Что включено в стоимость виллы?",
+          answer: "Наша услуга включает отдельного менеджера виллы, хозяина или персонала, ежедневную уборку, а также обслуживание сада и бассейна. Дополнительные услуги, такие как предварительное снабжение виллы, трансферы из аэропорта, массажные услуги и другие удобства доступны по дополнительной плате."
+        },
+        {
+          question: "Могу ли я получить дополнительные чистые полотенца?",
+          answer: "Конечно! Мы будем рады предоставить вам дополнительные полотенца, при условии доступности. Пожалуйста, не стесняйтесь обращаться к вашему хозяину или персоналу виллы, и мы сделаем все возможное, чтобы быстро удовлетворить ваши требования."
+        },
+        {
+          question: "Как я могу организовать питание во время моего пребывания?",
+          answer: "В обеденное и вечернее время мы предлагаем улучшенные услуги, включая наборы меню, приготовление на открытом огне BBQ, национальные блюда, а также высококлассное приготовление еды шеф-поваром Michelin, все приготовленное в вилле. Цены начинаются с IDR 450,000 на человека. Вилла также оснащена полным набором кухонного оборудования, что позволяет вам приготовить еду, если вам это нравится."
+        }
+      ],
+      contactText: "У вас есть другие вопросы?",
+      contactButton: "Связаться с нами"
+    },
+    // Contact
+    contact: {
+      title: "Связаться с нами",
+      intro: "Есть ли у вас вопросы по поводу нашей виллы? Пожалуйста, не стесняйтесь обращаться к нам для получения дополнительной информации или бронирования вашего номера.",
+      form: {
+        title: "Отправить сообщение",
+        name: "Полное имя",
+        email: "Электронная почта",
+        subject: "Тема",
+        message: "Сообщение",
+        submitButton: "Отправить",
+        namePlaceholder: "Ваше имя",
+        emailPlaceholder: "your@email.com",
+        subjectPlaceholder: "Тема вашего сообщения",
+        messagePlaceholder: "Ваше сообщение",
+        successMessage: "Ваш почтовый клиент откроется с вашим подготовленным сообщением",
+        errorMessage: "Пожалуйста, исправьте ошибки в форме.",
+        nameError: "Необходимо предоставить имя",
+        emailError: "Недействительный электронный адрес",
+        subjectError: "Необходимо предоставить тему",
+        messageError: "Необходимо предоставить сообщение"
+      },
+      info: {
+        title: "Контактная информация",
+        email: {
+          label: "Электронная почта",
+          value: "booking@villaorea.com"
+        },
+        phone: {
+          label: "Телефон",
+          value: "+62 812 3456 7890"
+        },
+        whatsapp: {
+          label: "WhatsApp",
+          value: "+62 812 3456 7890"
+        },
+        address: {
+          label: "Адрес",
+          value: "Seminyak, Bali, Indonesia"
+        },
+        map: "Google Maps"
+      }
+    },
     // Footer
     footer: {
       rights: "Все права защищены",
       privacyPolicy: "Политика конфиденциальности",
       terms: "Условия использования",
       cookiePolicy: "Политика использования файлов cookie"
+    },
+    // Testimonials
+    testimonials: {
+      title: "Отзывы",
+      intro: "Что наши клиенты говорят о своем опыте.",
+      customer1: {
+        name: "Софи и Пьер",
+        location: "Париж, Франция",
+        text: "Вилла Orea превзошла все наши ожидания. Идеальное убежище после дня исследования Бали. Персонал был невероятно внимательным, а вилла красиво оформлена."
+      },
+      customer2: {
+        name: "Джеймс и Эмма",
+        location: "Лондон, Великобритания",
+        text: "Потрясающее пребывание на вилле Orea. Расположение идеальное, всего в нескольких минутах от лучших пляжей и ресторанов Семиньяка. Частный бассейн был нашим любимым местом отдыха после жарких дней."
+      },
+      customer3: {
+        name: "Алессандро и Мария",
+        location: "Рим, Италия",
+        text: "Маленький рай в Семиньяке. Вилла такая же красивая, как на фотографиях, очень чистая, и прием был идеальным. Незабываемое пребывание, которое мы рекомендуем без колебаний!"
+      }
+    },
+    // Gallery
+    gallery: {
+      title: "Галерея",
+      intro: "Откройте для себя нашу виллу через эти изображения",
+      categories: {
+        all: "Все",
+        interior: "Интерьер",
+        exterior: "Экстерьер",
+        pool: "Бассейн",
+        bedrooms: "Спальни"
+      }
     }
   }
 };
