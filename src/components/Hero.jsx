@@ -2,6 +2,7 @@ import { useState, useEffect, forwardRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
+import logoSimple from '../assets/logo/icononly_transparent_nobuffer.png';
 
 const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, ref) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,96 +21,8 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
       setIsLoading(false);
     }, 1500);
 
-    // Fonction pour injecter des styles CSS qui masquent les outils Matterport
-    const injectMatterportStyles = () => {
-      try {
-        // Attendre que l'iframe soit chargée
-        const iframe = document.querySelector(`iframe[title="Villa Orea - ${t.hero.tour3d}"]`);
-        if (!iframe) return;
-        
-        const iframeWindow = iframe.contentWindow;
-        if (!iframeWindow) return;
-        
-        // Attendre que le document de l'iframe soit complètement chargé
-        setTimeout(() => {
-          try {
-            const iframeDocument = iframeWindow.document;
-            if (!iframeDocument) return;
-            
-            // Créer un élément de style
-            const styleElement = iframeDocument.createElement('style');
-            
-            // Définir les styles pour masquer les éléments de l'interface Matterport
-            styleElement.textContent = `
-              /* Masquer tous les contrôles et outils */
-              .ControlPanel, 
-              .ViewModeMenu,
-              .MattertagList,
-              .TitleBanner,
-              .HelpCenter,
-              .BottomRightUI,
-              .Showcase__help,
-              .Showcase__brand,
-              .Showcase__toolbar,
-              .Mattertag,
-              .Showcase__floorplan-button,
-              .Showcase__highlight-reel-button,
-              .Showcase__dollhouse-button,
-              .Showcase__labels-button,
-              .Showcase__measurements-button {
-                display: none !important;
-                opacity: 0 !important;
-                visibility: hidden !important;
-                pointer-events: none !important;
-              }
-              
-              /* S'assurer que les pop-ups sont masqués */
-              .Popup, .Dialog, .Dialog__overlay {
-                display: none !important;
-              }
-              
-              /* Style personnalisé pour l'interface principale */
-              .Showcase__main {
-                background-color: transparent !important;
-              }
-            `;
-            
-            // Ajouter l'élément de style au head de l'iframe
-            iframeDocument.head.appendChild(styleElement);
-          } catch (error) {
-            console.error("Erreur pendant l'accès au document de l'iframe:", error);
-          }
-        }, 1000); // Délai pour s'assurer que l'iframe est complètement chargée
-      } catch (error) {
-        console.error("Erreur lors de l'injection des styles dans l'iframe Matterport:", error);
-      }
-    };
-
-    // Fonction pour répéter l'injection de styles plusieurs fois
-    const setupStyleInjection = () => {
-      // Essayer d'injecter les styles plusieurs fois pour s'assurer qu'ils sont appliqués
-      const injectionTimes = [1000, 2000, 3000, 5000];
-      injectionTimes.forEach(time => {
-        setTimeout(injectMatterportStyles, time);
-      });
-    };
-
-    // Configure l'injection de styles lorsque l'iframe est chargée
-    const iframe = document.querySelector(`iframe[title="Villa Orea - ${t.hero.tour3d}"]`);
-    if (iframe) {
-      iframe.addEventListener('load', setupStyleInjection);
-    }
-
-    return () => {
-      clearTimeout(timer);
-      
-      // Nettoyer les événements
-      const iframe = document.querySelector(`iframe[title="Villa Orea - ${t.hero.tour3d}"]`);
-      if (iframe) {
-        iframe.removeEventListener('load', setupStyleInjection);
-      }
-    };
-  }, [t.hero.tour3d]);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleIframeClick = () => {
     if (onInteractiveChange) {
@@ -147,15 +60,11 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             </p>
             <button
               onClick={openModal}
-              className="font-lora text-sm border-b border-pale-gold hover:text-emerald transition-colors duration-300 flex items-center py-1 px-2 focus:outline-none"
+              className="font-lora text-sm flex items-center py-1 px-2 focus:outline-none hover:text-emerald transition-colors duration-300"
               aria-label={t.hero.tour3d}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-pale-gold" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />
-                <path d="M10 8a2 2 0 100 4 2 2 0 000-4z" />
-                <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM5.172 12.828a6 6 0 118.656 0 6 6 0 01-8.656 0z" clipRule="evenodd" />
-              </svg>
-              {t.hero.tour3d}
+              <img src={logoSimple} alt="Logo Villa Orea" className="h-5 w-5 object-contain mr-1" style={{minWidth: 20}} />
+              <span className="border-b border-pale-gold pb-0.5">{t.hero.tour3d}</span>
             </button>
           </motion.div>
 
@@ -192,7 +101,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             
             <div className={`matterport-iframe ${is3DInteractive ? 'interactive' : ''}`} style={{ width: '100%', height: '100%', position: 'absolute' }}>
               <iframe
-                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
+                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1&mls=1&help=0&ts=0&hr=0&brand=0&search=0&info=0&vr=0&tour=0"
                 className="w-full h-full transition-opacity duration-700"
                 style={{ 
                   opacity: isLoading ? 0 : 1,

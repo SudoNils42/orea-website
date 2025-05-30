@@ -2,25 +2,60 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/src/assets/logo/icononly_transparent_nobuffer.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Découvrez notre villa de luxe à Bali avec piscine, vue tropicale et toutes les commodités pour des vacances inoubliables. Visite virtuelle 3D disponible." />
-  <meta name="keywords" content="villa, Bali, luxe, visite virtuelle, location, piscine, vacances" />
+  <title>Villa Orea Bali - Villa de Luxe à Seminyak</title>
+  <meta name="description" content="Découvrez Villa Orea, une villa de luxe à Seminyak, Bali. Profitez d'une expérience unique avec piscine privée, vue tropicale et service personnalisé." />
+  
+  <!-- Préchargement des polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'pure-white': '#ffffff',
+            'deep-black': '#000000',
+            'emerald': '#04593F',
+            'pale-gold': '#E6C67A',
+          },
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif'],
+            'lora': ['Lora', 'serif'],
+          },
+          backdropBlur: {
+            'glass': '10px',
+          }
+        }
+      }
+    }
+  </script> -->
+  
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://villa-luxe-bali.com/" />
-  <meta property="og:title" content="Villa Luxe Bali Visite 3D" />
-  <meta property="og:description" content="Découvrez notre villa de luxe à Bali avec piscine, vue tropicale et toutes les commodités pour des vacances inoubliables." />
-  <meta property="og:image" content="/src/assets/og-image.jpg" />
-  
+  <meta property="og:url" content="https://www.villaoreabali.com/" />
+  <meta property="og:title" content="Villa Orea Bali - Villa de Luxe à Seminyak" />
+  <meta property="og:description" content="Découvrez Villa Orea, une villa de luxe à Seminyak, Bali. Profitez d'une expérience unique avec piscine privée, vue tropicale et service personnalisé." />
+  <meta property="og:image" content="/src/assets/villa-bali.jpg" />
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://villa-luxe-bali.com/" />
-  <meta property="twitter:title" content="Villa Luxe Bali Visite 3D" />
-  <meta property="twitter:description" content="Découvrez notre villa de luxe à Bali avec piscine, vue tropicale et toutes les commodités pour des vacances inoubliables." />
-  <meta property="twitter:image" content="/src/assets/og-image.jpg" />
-  
-  <!-- Schema.org for Google -->
+  <meta property="twitter:url" content="https://www.villaoreabali.com/" />
+  <meta property="twitter:title" content="Villa Orea Bali - Villa de Luxe à Seminyak" />
+  <meta property="twitter:description" content="Découvrez Villa Orea, une villa de luxe à Seminyak, Bali. Profitez d'une expérience unique avec piscine privée, vue tropicale et service personnalisé." />
+  <meta property="twitter:image" content="/src/assets/villa-bali.jpg" />
+
+  <!-- Schema.org markup -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -44,50 +79,9 @@
       ]
     }
   </script>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            'pure-white': '#ffffff',
-            'deep-black': '#000000',
-            'emerald': '#04593F',
-            'pale-gold': '#E6C67A',
-          },
-          fontFamily: {
-            'inter': ['Inter', 'sans-serif'],
-            'lora': ['Lora', 'serif'],
-          },
-          backdropBlur: {
-            'glass': '10px',
-          }
-        }
-      }
-    }
-  </script>
-  
-  <!-- AOS Animation Library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  
-  <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
-  <title>Villa Luxe Bali Visite 3D</title>
 </head>
 <body class="font-inter bg-pure-white dark:bg-deep-black text-deep-black dark:text-pure-white transition-colors duration-300">
   <div id="root"></div>
-  
-  <!-- AOS Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  
-  <!-- App Entry -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html> 

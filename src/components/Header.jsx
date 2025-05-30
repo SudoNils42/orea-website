@@ -4,6 +4,7 @@ import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
 import logoImage from '../assets/logo/fulllogo_transparent_nobuffer.png';
+import logoSimple from '../assets/logo/icononly_transparent_nobuffer.png';
 
 const Header = ({ scrollY, openModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -97,7 +98,7 @@ const Header = ({ scrollY, openModal }) => {
                   <motion.a 
                     href="#about" 
                     className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
-                    onClick={closeMenu}
+                    onClick={e => { closeMenu(); e.currentTarget.blur(); }}
                     variants={menuItemVariants}
                   >
                     {t.nav.about}
@@ -105,7 +106,7 @@ const Header = ({ scrollY, openModal }) => {
                   <motion.a 
                     href="#amenities" 
                     className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
-                    onClick={closeMenu}
+                    onClick={e => { closeMenu(); e.currentTarget.blur(); }}
                     variants={menuItemVariants}
                   >
                     {t.nav.amenities}
@@ -113,7 +114,7 @@ const Header = ({ scrollY, openModal }) => {
                   <motion.a 
                     href="#gallery" 
                     className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
-                    onClick={closeMenu}
+                    onClick={e => { closeMenu(); e.currentTarget.blur(); }}
                     variants={menuItemVariants}
                   >
                     {t.nav.gallery}
@@ -121,7 +122,7 @@ const Header = ({ scrollY, openModal }) => {
                   <motion.a 
                     href="#faq" 
                     className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
-                    onClick={closeMenu}
+                    onClick={e => { closeMenu(); e.currentTarget.blur(); }}
                     variants={menuItemVariants}
                   >
                     {t.nav.faq}
@@ -129,7 +130,7 @@ const Header = ({ scrollY, openModal }) => {
                   <motion.a 
                     href="#testimonials" 
                     className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
-                    onClick={closeMenu}
+                    onClick={e => { closeMenu(); e.currentTarget.blur(); }}
                     variants={menuItemVariants}
                   >
                     {t.nav.testimonials}
@@ -137,7 +138,7 @@ const Header = ({ scrollY, openModal }) => {
                   <motion.a 
                     href="#pricing" 
                     className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
-                    onClick={closeMenu}
+                    onClick={e => { closeMenu(); e.currentTarget.blur(); }}
                     variants={menuItemVariants}
                   >
                     {t.nav.pricing}
@@ -145,7 +146,7 @@ const Header = ({ scrollY, openModal }) => {
                   <motion.a 
                     href="#contact" 
                     className="font-inter font-medium text-lg hover:text-emerald transition-colors duration-300"
-                    onClick={closeMenu}
+                    onClick={e => { closeMenu(); e.currentTarget.blur(); }}
                     variants={menuItemVariants}
                   >
                     {t.nav.contact}
@@ -157,11 +158,7 @@ const Header = ({ scrollY, openModal }) => {
                     className="btn btn-primary w-full flex items-center justify-center"
                     aria-label={t.nav.tour3d}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm1 0v12h12V4H4z" clipRule="evenodd" />
-                      <path d="M10 8a2 2 0 100 4 2 2 0 000-4z" />
-                      <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM5.172 12.828a6 6 0 118.656 0 6 6 0 01-8.656 0z" clipRule="evenodd" />
-                    </svg>
+                    <img src={logoSimple} alt="Logo Villa Orea" className="h-5 w-5 object-contain mr-2" style={{minWidth: 20}} />
                     {t.nav.tour3d}
                   </button>
                 </motion.div>

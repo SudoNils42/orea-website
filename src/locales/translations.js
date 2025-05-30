@@ -153,10 +153,6 @@ const translations = {
           label: "Email",
           value: "contact@villaorea.com"
         },
-        phone: {
-          label: "Téléphone",
-          value: "+62 812 3456 7890"
-        },
         whatsapp: {
           label: "WhatsApp",
           value: "+62 812 3456 7890"
@@ -380,85 +376,40 @@ const translations = {
       notice: "* Rates may vary by season. Check-in: 2:00 PM, Check-out: 11:00 AM.",
       contactButton: "Contact Us"
     },
-    // FAQ
-    faq: {
-      title: "Preguntas Frecuentes",
-      intro: "Encuentre respuestas a sus preguntas más comunes a continuación",
-      searchPlaceholder: "Buscar pregunta...",
-      searchLabel: "Buscar pregunta",
-      noResults: "No se encontraron resultados para \"{query}\"",
-      resetSearch: "Reiniciar búsqueda",
-      questions: [
-        {
-          question: "¿Cuáles son los horarios de check-in y check-out?",
-          answer: "El check-in para nuestra villa comienza a las 14:00. Le invitamos a dejar su equipaje después de las 11:00 mientras preparamos su villa. Tenga en cuenta que se aplicará un cargo de IDR 200,000 por check-in después de las 20:00. Nuestro check-out es a las 11:00. El check-out tardío está sujeto a disponibilidad e implica gastos adicionales: 50% de la tarifa diaria para check-out entre las 11:00 y las 18:00, y 100% para check-out después de las 18:00."
-        },
-        {
-          question: "¿Está incluido el desayuno en la reserva?",
-          answer: "El desayuno no está incluido en la tarifa de la habitación. Sin embargo, puede organizarlo fácilmente contactando con nuestro equipo de reservas o conserjería. Ofrecemos varias opciones de menú, preparadas por nuestro chef privado directamente en su villa. El costo es de IDR 150,000 por persona, con un pedido mínimo para 5 huéspedes. También puede disfrutar de un desayuno flotante por un costo adicional de IDR 150,000 por bandeja."
-        },
-        {
-          question: "¿Hay servicio de limpieza diario?",
-          answer: "¡Por supuesto! Se proporciona limpieza diaria de 9:00 a 17:00. Las sábanas se cambian cada tres días por motivos de sostenibilidad. Para garantizar la privacidad, coordine un momento conveniente para la limpieza con su anfitrión o personal de la villa. Su comodidad es nuestra prioridad."
-        },
-        {
-          question: "¿Cuál es la ocupación máxima para esta villa?",
-          answer: "Esta villa puede acomodar cómodamente hasta 4 huéspedes. Sin embargo, puede acomodar hasta 6 huéspedes, considerándose el 5º y 6º huésped como adicionales. El cargo adicional es de IDR 340,000/noche/persona. Si necesita camas adicionales, háganoslo saber."
-        },
-        {
-          question: "¿Qué está incluido en el precio de la villa?",
-          answer: "Nuestro servicio incluye un gerente de villa exclusivo, un anfitrión o personal, limpieza diaria, y mantenimiento del jardín y la piscina. Servicios adicionales como abastecimiento previo de la villa, traslados al aeropuerto, servicios de masaje y otras comodidades están disponibles por un costo adicional."
-        },
-        {
-          question: "¿Puedo obtener toallas limpias adicionales?",
-          answer: "¡Ciertamente! Nos complace proporcionar toallas adicionales, sujeto a disponibilidad. No dude en contactar a su anfitrión o personal de la villa, y haremos todo lo posible para atender su solicitud rápidamente."
-        },
-        {
-          question: "¿Cómo puedo organizar las comidas durante mi estancia?",
-          answer: "Para almuerzos y cenas, ofrecemos servicios mejorados que incluyen menús fijos, memasak BBQ langsung, masakan nasional, dan bahkan memasak gourmet oleh chef bintang Michelin, semuanya disiapkan di villa. Harga mulai dari IDR 450.000 per orang. Villa juga dilengkapi dengan peralatan dapur lengkap, memungkinkan Anda menyiapkan makanan sendiri jika Anda lebih suka."
-        }
-      ],
-      contactText: "¿Tiene otras preguntas?",
-      contactButton: "Hubungi Kami"
-    },
     // Contact
     contact: {
-      title: "Contáctenos",
-      intro: "¿Tiene preguntas sobre nuestra villa? No dude en contactarnos para obtener más información o reservar su estancia.",
+      title: "Contact Us",
+      intro: "We'd love to hear from you! If you have any questions or need assistance with your booking, please don't hesitate to contact us.",
       form: {
-        title: "Enviar mensaje",
-        name: "Nombre completo",
-        email: "Correo electrónico",
-        subject: "Asunto",
-        message: "Mensaje",
-        submitButton: "Enviar",
-        namePlaceholder: "Su nombre",
+        title: "Send us a message",
+        name: "Full Name",
+        email: "Email",
+        subject: "Subject",
+        message: "Message",
+        submitButton: "Send",
+        namePlaceholder: "Your Name",
         emailPlaceholder: "your@email.com",
-        subjectPlaceholder: "Asunto de su mensaje",
-        messagePlaceholder: "Su mensaje",
-        successMessage: "Su cliente de correo electrónico se abrirá con su mensaje preparado",
-        errorMessage: "Por favor, corrija los errores en el formulario.",
-        nameError: "Se requiere un nombre",
-        emailError: "Correo electrónico inválido",
-        subjectError: "Se requiere un asunto",
-        messageError: "Se requiere un mensaje"
+        subjectPlaceholder: "Subject of your message",
+        messagePlaceholder: "Your message",
+        successMessage: "Your email client will open with your pre-prepared message",
+        errorMessage: "Please correct any errors in the form.",
+        nameError: "Name is required",
+        emailError: "Invalid email",
+        subjectError: "Subject is required",
+        messageError: "Message is required"
       },
       info: {
-        title: "Información de contacto",
+        title: "Contact Information",
         email: {
-          label: "Correo electrónico",
+          label: "Email",
           value: "booking@villaorea.com"
-        },
-        phone: {
-          label: "Teléfono",
-          value: "+62 812 3456 7890"
         },
         whatsapp: {
           label: "WhatsApp",
           value: "+62 812 3456 7890"
         },
         address: {
-          label: "Dirección",
+          label: "Address",
           value: "Seminyak, Bali, Indonesia"
         },
         map: "Google Maps"
@@ -703,10 +654,6 @@ const translations = {
         email: {
           label: "电子邮件",
           value: "booking@villaorea.com"
-        },
-        phone: {
-          label: "电话",
-          value: "+62 812 3456 7890"
         },
         whatsapp: {
           label: "WhatsApp",
@@ -959,10 +906,6 @@ const translations = {
           label: "Correo electrónico",
           value: "booking@villaorea.com"
         },
-        phone: {
-          label: "Teléfono",
-          value: "+62 812 3456 7890"
-        },
         whatsapp: {
           label: "WhatsApp",
           value: "+62 812 3456 7890"
@@ -1053,10 +996,10 @@ const translations = {
         31: "Detalles arquitectónicos",
         32: "Área de comedor exterior sombreada",
         33: "Terraza sombreada",
-        34: "Espacio exterior con vista a la naturaleza",
-        35: "Iluminación nocturna de la piscina",
-        36: "Jardín tropical paisajístico",
-        37: "Vista de la terraza y la piscina"
+        34: "Außenbereich mit Naturblick",
+        35: "Nachtbeleuchtung des Pools",
+        36: "Gestalteter tropischer Garten",
+        37: "Blick auf Terrasse und Pool"
       }
     }
   },
@@ -1213,10 +1156,6 @@ const translations = {
         email: {
           label: "Surel",
           value: "booking@villaorea.com"
-        },
-        phone: {
-          label: "Telepon",
-          value: "+62 812 3456 7890"
         },
         whatsapp: {
           label: "WhatsApp",
@@ -1469,10 +1408,6 @@ const translations = {
           label: "E-Mail",
           value: "booking@villaorea.com"
         },
-        phone: {
-          label: "Telefon",
-          value: "+62 812 3456 7890"
-        },
         whatsapp: {
           label: "WhatsApp",
           value: "+62 812 3456 7890"
@@ -1723,10 +1658,6 @@ const translations = {
         email: {
           label: "Электронная почта",
           value: "booking@villaorea.com"
-        },
-        phone: {
-          label: "Телефон",
-          value: "+62 812 3456 7890"
         },
         whatsapp: {
           label: "WhatsApp",
