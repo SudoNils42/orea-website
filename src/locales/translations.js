@@ -623,7 +623,7 @@ const translations = {
         },
         {
           question: "预订中包含早餐吗？",
-          answer: "房费中不包含早餐。但是，您可以通过联系我们的预订或礼宾团队轻松安排。我们提供由私人厨师在您的别墅中准备的各种菜单选项。费用为每人IDR 150,000，最少订购5位客人。您还可以享受漂浮早餐，每托盘额外费用为IDR 150,000。"
+          answer: "房费中不包含早餐。但是，您可以通过联系我们的预订或礼宾团队轻松安排。我们提供由私人厨师在您的别墅中准备的各种菜单选项。费用为每人IDR 150,000。您还可以享受漂浮早餐，每托盘额外费用为IDR 150,000。"
         },
         {
           question: "有每日客房清洁服务吗？",
@@ -631,7 +631,7 @@ const translations = {
         },
         {
           question: "这个别墅的最大入住人数是多少？",
-          answer: "这个别墅可以舒适地容纳最多4位客人。但是，最多可以容纳6位客人，第5和第6位客人被视为额外客人。额外费用为每人每晚IDR 340,000。如果您需要额外的床位，请告知我们。"
+          answer: "凭借其两间非常宽敞的卧室，这座别墅可以舒适地容纳4位客人。"
         },
         {
           question: "别墅价格包含哪些服务？",
@@ -643,7 +643,7 @@ const translations = {
         },
         {
           question: "如何在入住期间安排用餐？",
-          answer: "午餐和晚餐方面，我们提供增强服务，包括套餐，现场BBQ烹饪，民族美食，甚至由米其林星级厨师准备的精致餐点，全部在别墅内烹制。价格从每人IDR 450,000起。别墅还配备全套厨房设备，如果您喜欢，也可以自己准备餐点。"
+          answer: "午餐和晚餐方面，我们提供多种服务，包括套餐，现场BBQ烹饪，民族美食，甚至由厨师准备的精致餐点，全部在别墅内烹制。价格从每人IDR 450,000起。别墅还配备全套厨房设备，如果您喜欢，也可以自己准备餐点。"
         }
       ],
       contactText: "您有其他问题吗？",
@@ -708,21 +708,31 @@ const translations = {
     // Testimonials
     testimonials: {
       title: "评价",
-      intro: "客户对他们体验的评价。",
+      intro: "客人对他们体验的评价。",
       customer1: {
-        name: "Sophie 和 Pierre",
-        location: "法国巴黎",
-        text: "Villa Orea超出了我们的所有期望。在探索巴厘岛一天后，这是一个完美的宁静港湾。工作人员非常体贴周到，别墅布置得非常漂亮。"
+        name: "Shawn",
+        location: "★★★★★ 2025年8月",
+        text: "我们在这座别墅度过了一段美妙的时光！🌴✨ 这个地方和照片一样美丽——宽敞、干净、维护得很好。私人泳池非常适合探索巴厘岛后放松身心。位置超级方便，靠近咖啡馆、餐厅和海滩，但又足够安静，可以享受和平与隐私。房东热情、反应迅速，确保我们在整个住宿期间感到宾至如归。强烈推荐这座别墅给任何在巴厘岛寻找舒适难忘体验的人！🌺🏝️"
       },
       customer2: {
-        name: "James 和 Emma",
-        location: "英国伦敦",
-        text: "在Villa Orea度过了令人惊叹的时光。位置理想，距离苍古最好的海滩和餐厅仅几分钟路程。私人泳池是我们在炎热的日子后最喜欢的避风港。"
+        name: "Craig",
+        location: "★★★★★ 2025年6月",
+        text: "太棒了"
       },
       customer3: {
-        name: "Alessandro 和 Maria",
-        location: "意大利罗马",
-        text: "苍古的一个小天堂。别墅和照片上一样漂亮，非常干净，接待也很完美。一次难忘的住宿体验，我们毫不犹豫地推荐！"
+        name: "Abdullah",
+        location: "★★★★★ 2025年9月",
+        text: "一切都很棒，房东真的很好，谢谢 ❤️❤️❤️❤️"
+      },
+      customer4: {
+        name: "Ashna",
+        location: "★★★★★ 2025年6月",
+        text: "这个地方太棒了，非常干净，房东很友好。离市中心有点远，但别墅很棒。"
+      },
+      customer5: {
+        name: "Khalid",
+        location: "★★★★★ 2025年8月",
+        text: "住宿舒适愉快"
       }
     },
     // Gallery
@@ -878,7 +888,7 @@ const translations = {
         },
         {
           question: "¿Está incluido el desayuno en la reserva?",
-          answer: "El desayuno no está incluido en la tarifa de la habitación. Sin embargo, puede organizarlo fácilmente contactando con nuestro equipo de reservas o conserjería. Ofrecemos varias opciones de menú, preparadas por nuestro chef privado directamente en su villa. El costo es de IDR 150,000 por persona, con un pedido mínimo para 5 huéspedes. También puede disfrutar de un desayuno flotante por un costo adicional de IDR 150,000 por bandeja."
+          answer: "El desayuno no está incluido en la tarifa de la habitación. Sin embargo, puede organizarlo fácilmente contactando con nuestro equipo de reservas o conserjería. Ofrecemos varias opciones de menú, preparadas por nuestro chef privado directamente en su villa. El costo es de IDR 150,000 por persona. También puede disfrutar de un desayuno flotante por un costo adicional de IDR 150,000 por bandeja."
         },
         {
           question: "¿Hay servicio de limpieza diario?",
@@ -886,7 +896,7 @@ const translations = {
         },
         {
           question: "¿Cuál es la ocupación máxima para esta villa?",
-          answer: "Esta villa puede acomodar cómodamente hasta 4 huéspedes. Sin embargo, puede acomodar hasta 6 huéspedes, considerándose el 5º y 6º huésped como adicionales. El cargo adicional es de IDR 340,000/noche/persona. Si necesita camas adicionales, háganoslo saber."
+          answer: "Con sus dos habitaciones muy espaciosas, esta villa puede acomodar cómodamente a 4 huéspedes."
         },
         {
           question: "¿Qué está incluido en el precio de la villa?",
@@ -898,7 +908,7 @@ const translations = {
         },
         {
           question: "¿Cómo puedo organizar las comidas durante mi estancia?",
-          answer: "Para almuerzos y cenas, ofrecemos servicios mejorados que incluyen menús fijos, cocina BBQ en vivo, cocina nacional, e incluso cocina gourmet preparada por un chef con estrella Michelin, todo preparado en la villa. Los precios comienzan desde IDR 450,000 por persona. La villa también está equipada con un conjunto completo de equipamiento de cocina, lo que le permite preparar comidas por su cuenta si así lo prefiere."
+          answer: "Para almuerzos y cenas, ofrecemos servicios variados que incluyen menús fijos, cocina BBQ en vivo, cocinas étnicas, e incluso comidas gourmet preparadas por un chef, todo preparado en la villa. Los precios comienzan desde IDR 450,000 por persona. La villa también está equipada con una cocina totalmente equipada, lo que le permite preparar sus propias comidas si lo prefiere."
         }
       ],
       contactText: "¿Tiene otras preguntas?",
@@ -963,21 +973,31 @@ const translations = {
     // Testimonials
     testimonials: {
       title: "Opiniones",
-      intro: "Lo que nuestros clientes dicen sobre su experiencia.",
+      intro: "Lo que nuestros huéspedes dicen sobre su experiencia.",
       customer1: {
-        name: "Sophie y Pierre",
-        location: "París, Francia",
-        text: "Villa Orea superó todas nuestras expectativas. Un perfecto remanso de paz después de un día explorando Bali. El personal fue increíblemente atento y la villa está bellamente decorada."
+        name: "Shawn",
+        location: "★★★★★ Agosto 2025",
+        text: "¡Tuvimos una estancia increíble en esta villa! 🌴✨ El lugar era tan hermoso como en las fotos: espacioso, limpio y muy bien mantenido. La piscina privada fue perfecta para relajarse después de explorar Bali. La ubicación era súper conveniente, cerca de cafés, restaurantes y playas, pero lo suficientemente tranquila para disfrutar de paz y privacidad. El anfitrión fue cálido, receptivo y se aseguró de que nos sintiéramos como en casa durante toda nuestra estancia. ¡Recomiendo encarecidamente esta villa para cualquiera que busque una experiencia cómoda y memorable en Bali! 🌺🏝️"
       },
       customer2: {
-        name: "James y Emma",
-        location: "Londres, Reino Unido",
-        text: "Estancia increíble en Villa Orea. La ubicación es ideal, a pocos minutos de las mejores playas y restaurantes de Seminyak. La piscina privada fue nuestro refugio favorito después de los días calurosos."
+        name: "Craig",
+        location: "★★★★★ Junio 2025",
+        text: "Fue increíble"
       },
       customer3: {
-        name: "Alessandro y Maria",
-        location: "Roma, Italia",
-        text: "Un pequeño paraíso en Seminyak. La villa es tan hermosa como en las fotos, muy limpia y la recepción fue perfecta. ¡Una estancia memorable que recomendamos sin dudarlo!"
+        name: "Abdullah",
+        location: "★★★★★ Septiembre 2025",
+        text: "Todo fue maravilloso, el anfitrión fue realmente bueno, gracias ❤️❤️❤️❤️"
+      },
+      customer4: {
+        name: "Ashna",
+        location: "★★★★★ Junio 2025",
+        text: "El lugar era increíble, extremadamente limpio con un anfitrión amable. Está un poco lejos del centro pero la villa es increíble."
+      },
+      customer5: {
+        name: "Khalid",
+        location: "★★★★★ Agosto 2025",
+        text: "El alojamiento es cómodo y agradable"
       }
     },
     // Gallery
@@ -1050,7 +1070,7 @@ const translations = {
     // Hero
     hero: {
       title: "Villa Orea",
-      subtitle: "Tempat Peristirahatan Mewah di Seminyak",
+      subtitle: "Menginap Mewah di Seminyak",
       description: "Temukan surga ketenangan di jantung Bali",
       cta: "Pesan Sekarang",
       tour3d: "Tur 3D"
@@ -1058,7 +1078,7 @@ const translations = {
     // About
     about: {
       title: "Tentang Villa",
-      intro: "Selamat datang di Villa Orea, vila bergaya dengan 2 kamar tidur, dirancang sebagai oase ketenangan sejati, sempurna untuk pasangan, keluarga kecil, atau sahabat dekat di kawasan Seminyak yang penuh energi. Di pintu masuk vila, terdapat pintu pintar cukup masukkan kode yang diberikan dan tekan ikon bel untuk membuka gerbang menuju tempat peristirahatan damai Anda.",
+      intro: "Selamat datang di Villa Orea, vila elegan dengan 2 kamar tidur, dirancang sebagai oase ketenangan sejati, sempurna untuk pasangan dan sahabat dekat di area tenang dekat kehidupan Seminyak yang semarak. Di pintu masuk, pintu pintar menanti Anda: cukup masukkan kode yang diberikan dan tekan ikon bel untuk membuka tempat perlindungan damai Anda.",
       details: "Vila ini memiliki 2 kamar tidur mewah dengan tempat tidur king-size, Smart TV dengan Netflix dan YouTube Premium, dan kamar mandi dalam. Ruang tamu semi-terbuka termasuk lounge Smart TV, sudut bar yang nyaman, dan dapur lengkap. Di luar, nikmati kolam renang pribadi dan taman tropis, hanya beberapa menit dari kafe, pantai, dan toko ramai Seminyak.",
       button3d: "Tur 3D"
     },
@@ -1093,7 +1113,7 @@ const translations = {
       },
       garden: {
         name: "Taman Tropis",
-        description: "Taman tropis yang rimbun dengan pohon kelapa dan ayunan, menciptakan suasana damai dan menenangkan."
+        description: "Taman tropis yang rimbun dengan ayunan, menciptakan suasana damai dan menenangkan."
       },
       beds: {
         name: "Tempat Tidur King-Size",
@@ -1101,7 +1121,7 @@ const translations = {
       },
       location: {
         name: "Lokasi Ideal",
-        description: "Terletak hanya beberapa menit dari kafe ramai, pantai, dan toko Seminyak, untuk menikmati sepenuhnya pengalaman Anda di Bali."
+        description: "Terletak di area yang sangat tenang dan hanya beberapa menit dari kafe ramai, pantai, dan toko Seminyak, untuk menikmati sepenuhnya pengalaman Anda di Bali."
       }
     },
     // Pricing
@@ -1133,7 +1153,7 @@ const translations = {
         },
         {
           question: "Apakah sarapan termasuk dalam pemesanan?",
-          answer: "Sarapan tidak termasuk dalam tarif kamar. Namun, Anda dapat dengan mudah mengaturnya dengan menghubungi tim reservasi atau concierge kami. Kami menawarkan berbagai pilihan menu yang disiapkan oleh chef pribadi kami langsung di villa Anda. Biayanya IDR 150.000 per orang, dengan pesanan minimum untuk 5 tamu. Anda juga dapat menikmati floating breakfast dengan biaya tambahan IDR 150.000 per nampan."
+          answer: "Sarapan tidak termasuk dalam tarif kamar. Namun, Anda dapat dengan mudah mengaturnya dengan menghubungi tim reservasi atau concierge kami. Kami menawarkan berbagai pilihan menu yang disiapkan oleh chef pribadi kami langsung di villa Anda. Biayanya IDR 150.000 per orang. Anda juga dapat menikmati floating breakfast dengan biaya tambahan IDR 150.000 per nampan."
         },
         {
           question: "Apakah ada layanan pembersihan harian?",
@@ -1141,7 +1161,7 @@ const translations = {
         },
         {
           question: "Berapa kapasitas maksimum untuk villa ini?",
-          answer: "Villa ini dapat menampung hingga 4 tamu dengan nyaman. Namun, dapat menampung hingga 6 tamu, dengan tamu ke-5 dan ke-6 dianggap sebagai tamu tambahan. Biaya tambahan adalah IDR 340.000/malam/orang. Jika Anda membutuhkan tempat tidur tambahan, beri tahu kami."
+          answer: "Dengan dua kamar tidur yang sangat luas, villa ini dapat menampung 4 tamu dengan nyaman."
         },
         {
           question: "Apa yang termasuk dalam harga villa?",
@@ -1153,7 +1173,7 @@ const translations = {
         },
         {
           question: "Bagaimana saya bisa mengatur makanan selama masa tinggal saya?",
-          answer: "Untuk makan siang dan makan malam, kami menawarkan layanan yang ditingkatkan termasuk menu tetap, memasak BBQ langsung, masakan nasional, dan bahkan memasak gourmet oleh chef bintang Michelin, semuanya disiapkan di villa. Harga mulai dari IDR 450.000 per orang. Villa juga dilengkapi dengan peralatan dapur lengkap, memungkinkan Anda menyiapkan makanan sendiri jika Anda lebih suka."
+          answer: "Untuk makan siang dan makan malam, kami menawarkan layanan yang bervariasi termasuk menu tetap, memasak BBQ langsung, masakan etnis, dan bahkan makanan mewah yang disiapkan oleh seorang chef, semuanya disiapkan di villa. Harga mulai dari IDR 450.000 per orang. Villa juga dilengkapi dengan dapur yang lengkap, memungkinkan Anda menyiapkan makanan sendiri jika Anda lebih suka."
         }
       ],
       contactText: "Punya pertanyaan lain?",
@@ -1218,21 +1238,31 @@ const translations = {
     // Testimonials
     testimonials: {
       title: "Ulasan",
-      intro: "Apa yang pelanggan kami katakan tentang pengalaman mereka.",
+      intro: "Apa yang tamu kami katakan tentang pengalaman mereka.",
       customer1: {
-        name: "Sophie dan Pierre",
-        location: "Paris, Prancis",
-        text: "Villa Orea melampaui semua harapan kami. Tempat perlindungan yang sempurna setelah seharian menjelajahi Bali. Stafnya sangat perhatian dan villanya didekorasi dengan indah."
+        name: "Shawn",
+        location: "★★★★★ Agustus 2025",
+        text: "Kami memiliki pengalaman menginap yang luar biasa di villa ini! 🌴✨ Tempatnya sama cantiknya dengan foto—luas, bersih, dan sangat terawat. Kolam renang pribadi sangat sempurna untuk bersantai setelah menjelajahi Bali. Lokasinya sangat nyaman, dekat dengan kafe, restoran, dan pantai, namun cukup tenang untuk menikmati kedamaian dan privasi. Tuan rumah ramah, responsif, dan memastikan kami merasa seperti di rumah sendiri selama menginap. Sangat merekomendasikan villa ini untuk siapa saja yang mencari pengalaman yang nyaman dan berkesan di Bali! 🌺🏝️"
       },
       customer2: {
-        name: "James dan Emma",
-        location: "London, Inggris",
-        text: "Pengalaman menakjubkan di Villa Orea. Lokasinya ideal, hanya beberapa menit dari pantai dan restoran terbaik di Seminyak. Kolam renang pribadi adalah tempat perlindungan favorit kami setelah hari yang panas."
+        name: "Craig",
+        location: "★★★★★ Juni 2025",
+        text: "Luar biasa"
       },
       customer3: {
-        name: "Alessandro dan Maria",
-        location: "Roma, Italia",
-        text: "Surga kecil di Seminyak. Villanya sama indahnya dengan yang ada di foto, sangat bersih dan penyambutannya sempurna. Pengalaman menginap yang berkesan yang kami rekomendasikan tanpa ragu!"
+        name: "Abdullah",
+        location: "★★★★★ September 2025",
+        text: "Semuanya luar biasa, tuan rumahnya sangat baik, terima kasih ❤️❤️❤️❤️"
+      },
+      customer4: {
+        name: "Ashna",
+        location: "★★★★★ Juni 2025",
+        text: "Tempatnya luar biasa, sangat bersih dengan tuan rumah yang ramah. Agak jauh dari pusat tapi villanya luar biasa."
+      },
+      customer5: {
+        name: "Khalid",
+        location: "★★★★★ Agustus 2025",
+        text: "Akomodasinya nyaman dan menyenangkan"
       }
     },
     // Gallery
@@ -1305,7 +1335,7 @@ const translations = {
     // Hero
     hero: {
       title: "Villa Orea",
-      subtitle: "Ein luxuriöser Rückzugsort in Seminyak",
+      subtitle: "Ein luxuriöser Aufenthalt in Seminyak",
       description: "Entdecken Sie eine friedliche Oase im Herzen von Bali",
       cta: "Jetzt buchen",
       tour3d: "3D-Tour"
@@ -1313,7 +1343,7 @@ const translations = {
     // About
     about: {
       title: "Über die Villa",
-      intro: "Willkommen in der Villa Orea, einem stilvollen Rückzugsort mit 2 Schlafzimmern, der als wahre Ruheoase konzipiert wurde – perfekt für Paare, kleine Familien oder enge Freunde im lebhaften Seminyak. Am Eingang der Villa erwartet Sie eine intelligente Tür; Gäste geben einfach den bereitgestellten Code ein und drücken das Glockensymbol, um den Zugang zu ihrem friedlichen Refugium zu öffnen.",
+      intro: "Willkommen in der Villa Orea, einer eleganten Villa mit 2 Schlafzimmern, die als wahre Ruheoase konzipiert wurde – perfekt für Paare und enge Freunde in einer ruhigen Gegend nahe dem lebhaften Leben von Seminyak. Am Eingang erwartet Sie eine intelligente Tür: geben Sie einfach den bereitgestellten Code ein und drücken Sie das Glockensymbol, um Ihr friedliches Refugium zu öffnen.",
       details: "Die Villa verfügt über 2 luxuriöse Schlafzimmer mit Kingsize-Betten, Smart-TVs mit Netflix und YouTube Premium sowie eigene Badezimmer. Der halboffen gestaltete Wohnbereich umfasst eine Smart-TV-Lounge, eine gemütliche Barecke und eine voll ausgestattete Küche. Draußen genießen Sie den privaten Pool und den tropischen Garten, nur wenige Minuten von den belebten Cafés, Stränden und Geschäften von Seminyak entfernt.",
       button3d: "3D-Tour"
     },
@@ -1348,7 +1378,7 @@ const translations = {
       },
       garden: {
         name: "Tropischer Garten",
-        description: "Ein üppiger tropischer Garten mit einer Palme und einer Hängeschaukel, der eine friedliche und entspannende Atmosphäre schafft."
+        description: "Ein üppiger tropischer Garten mit einer Schaukel, der eine friedliche und entspannende Atmosphäre schafft."
       },
       beds: {
         name: "Kingsize-Betten",
@@ -1356,7 +1386,7 @@ const translations = {
       },
       location: {
         name: "Ideale Lage",
-        description: "Nur wenige Minuten von den belebten Cafés, Stränden und Geschäften von Seminyak entfernt, um Ihren Aufenthalt auf Bali in vollen Zügen zu genießen."
+        description: "In einer sehr ruhigen Gegend gelegen und nur wenige Minuten von den belebten Cafés, Stränden und Geschäften von Seminyak entfernt, um Ihren Aufenthalt auf Bali in vollen Zügen zu genießen."
       }
     },
     // Pricing
@@ -1388,7 +1418,7 @@ const translations = {
         },
         {
           question: "Ist das Frühstück in der Buchung inbegriffen?",
-          answer: "Das Frühstück ist nicht im Zimmerpreis inbegriffen. Sie können es jedoch problemlos arrangieren, indem Sie sich an unser Reservierungs- oder Concierge-Team wenden. Wir bieten verschiedene Menüoptionen an, die von unserem Privatkoch direkt in Ihrer Villa zubereitet werden. Die Kosten betragen IDR 150.000 pro Person, mit einer Mindestbestellung für 5 Gäste. Sie können auch ein schwebendes Frühstück für zusätzliche IDR 150.000 pro Tablett genießen."
+          answer: "Das Frühstück ist nicht im Zimmerpreis inbegriffen. Sie können es jedoch problemlos arrangieren, indem Sie sich an unser Reservierungs- oder Concierge-Team wenden. Wir bieten verschiedene Menüoptionen an, die von unserem Privatkoch direkt in Ihrer Villa zubereitet werden. Die Kosten betragen IDR 150.000 pro Person. Sie können auch ein schwebendes Frühstück für zusätzliche IDR 150.000 pro Tablett genießen."
         },
         {
           question: "Gibt es einen täglichen Reinigungsservice?",
@@ -1396,7 +1426,7 @@ const translations = {
         },
         {
           question: "Wie hoch ist die maximale Belegung für diese Villa?",
-          answer: "Diese Villa kann bequem bis zu 4 Gäste beherbergen. Sie kann jedoch bis zu 6 Gäste aufnehmen, wobei der 5. und 6. Gast als zusätzliche Gäste gelten. Die zusätzliche Gebühr beträgt IDR 340.000/Nacht/Person. Wenn Sie zusätzliche Betten benötigen, teilen Sie uns dies bitte mit."
+          answer: "Mit ihren zwei sehr geräumigen Schlafzimmern kann diese Villa bequem 4 Gäste beherbergen."
         },
         {
           question: "Was ist im Villapreis enthalten?",
@@ -1408,7 +1438,7 @@ const translations = {
         },
         {
           question: "Wie kann ich Mahlzeiten während meines Aufenthalts organisieren?",
-          answer: "Für Mittag- und Abendessen bieten wir erweiterte Dienstleistungen an, darunter festgelegte Menüs, Live-BBQ-Kochen, nationale Küche und sogar gehobene Küche, die von einem Michelin-Sternekoch zubereitet wird, alles in der Villa zubereitet. Die Preise beginnen bei IDR 450.000 pro Person. Die Villa ist auch mit einem kompletten Satz an Küchengeräten ausgestattet, so dass Sie Ihre Mahlzeiten selbst zubereiten können, wenn Sie dies bevorzugen."
+          answer: "Für Mittag- und Abendessen bieten wir verschiedene Dienstleistungen an, darunter festgelegte Menüs, Live-BBQ-Kochen, ethnische Küche und sogar gehobene Küche, die von einem Chefkoch zubereitet wird, alles in der Villa. Die Preise beginnen bei IDR 450.000 pro Person. Die Villa verfügt auch über eine voll ausgestattete Küche, so dass Sie Ihre Mahlzeiten selbst zubereiten können, wenn Sie dies bevorzugen."
         }
       ],
       contactText: "Haben Sie andere Fragen?",
@@ -1473,21 +1503,31 @@ const translations = {
     // Testimonials
     testimonials: {
       title: "Bewertungen",
-      intro: "Was unsere Kunden über ihre Erfahrung sagen.",
+      intro: "Was unsere Gäste über ihre Erfahrung sagen.",
       customer1: {
-        name: "Sophie und Pierre",
-        location: "Paris, Frankreich",
-        text: "Villa Orea hat alle unsere Erwartungen übertroffen. Eine perfekte Oase der Ruhe nach einem Tag der Erkundung von Bali. Das Personal war unglaublich aufmerksam und die Villa ist wunderschön eingerichtet."
+        name: "Shawn",
+        location: "★★★★★ August 2025",
+        text: "Wir hatten einen fantastischen Aufenthalt in dieser Villa! 🌴✨ Der Ort war genauso schön wie auf den Fotos – geräumig, sauber und sehr gut gepflegt. Der private Pool war perfekt zum Entspannen nach der Erkundung Balis. Die Lage war super praktisch, nah an Cafés, Restaurants und Stränden, aber ruhig genug, um Frieden und Privatsphäre zu genießen. Der Gastgeber war herzlich, aufmerksam und sorgte dafür, dass wir uns während unseres gesamten Aufenthalts wie zu Hause fühlten. Ich kann diese Villa jedem empfehlen, der ein komfortables und unvergessliches Erlebnis auf Bali sucht! 🌺🏝️"
       },
       customer2: {
-        name: "James und Emma",
-        location: "London, Vereinigtes Königreich",
-        text: "Unglaublicher Aufenthalt in der Villa Orea. Die Lage ist ideal, nur wenige Minuten von den besten Stränden und Restaurants in Seminyak entfernt. Der private Pool war unsere liebste Zuflucht nach den heißen Tagen."
+        name: "Craig",
+        location: "★★★★★ Juni 2025",
+        text: "War fantastisch"
       },
       customer3: {
-        name: "Alessandro und Maria",
-        location: "Rom, Italien",
-        text: "Ein kleines Paradies in Seminyak. Die Villa ist genauso schön wie auf den Fotos, sehr sauber und der Empfang war perfekt. Ein unvergesslicher Aufenthalt, den wir ohne zu zögern empfehlen!"
+        name: "Abdullah",
+        location: "★★★★★ September 2025",
+        text: "Alles war wunderbar, der Gastgeber war wirklich gut, danke ❤️❤️❤️❤️"
+      },
+      customer4: {
+        name: "Ashna",
+        location: "★★★★★ Juni 2025",
+        text: "Der Ort war fantastisch, extrem sauber mit einem freundlichen Gastgeber. Es ist etwas weit vom Zentrum entfernt, aber die Villa ist fantastisch."
+      },
+      customer5: {
+        name: "Khalid",
+        location: "★★★★★ August 2025",
+        text: "Die Unterkunft ist komfortabel und angenehm"
       }
     },
     // Gallery
@@ -1560,7 +1600,7 @@ const translations = {
     // Hero
     hero: {
       title: "Вилла Orea",
-      subtitle: "Роскошный отдых в Семиньяке",
+      subtitle: "Роскошное проживание в Семиньяке",
       description: "Откройте для себя мирную гавань в сердце Бали",
       cta: "Забронировать",
       tour3d: "3D-тур"
@@ -1568,7 +1608,7 @@ const translations = {
     // About
     about: {
       title: "О вилле",
-      intro: "Добро пожаловать на виллу Orea – стильное убежище с 2 спальнями, созданное как настоящий кокон спокойствия, идеально подходящее для пар, небольших семей или близких друзей в оживленном районе Семиньяк. У входа на виллу вас встречает умная дверь: гостям достаточно ввести предоставленный код и нажать на иконку звонка, чтобы открыть ворота в свое мирное убежище.",
+      intro: "Добро пожаловать на виллу Orea – элегантную виллу с 2 спальнями, созданную как настоящий кокон спокойствия, идеально подходящую для пар и близких друзей в тихом районе рядом с оживленной жизнью Семиньяка. У входа вас ждет умная дверь: просто введите предоставленный код и нажмите на иконку звонка, чтобы открыть свое мирное убежище.",
       details: "Вилла включает 2 роскошные спальни с кроватями размера кинг-сайз, смарт-телевизорами с доступом к Netflix и YouTube Premium, а также собственными ванными комнатами. Полуоткрытое жилое пространство включает зону отдыха со смарт-телевизором, уютный бар и полностью оборудованную кухню. Снаружи вы можете наслаждаться частным бассейном и тропическим садом, находясь всего в нескольких минутах от оживленных кафе, пляжей и магазинов Семиньяка.",
       button3d: "3D-тур"
     },
@@ -1603,7 +1643,7 @@ const translations = {
       },
       garden: {
         name: "Тропический сад",
-        description: "Пышный тропический сад с пальмой и подвесными качелями, создающий мирную и расслабляющую атмосферу."
+        description: "Пышный тропический сад с качелями, создающий мирную и расслабляющую атмосферу."
       },
       beds: {
         name: "Кровати кинг-сайз",
@@ -1611,7 +1651,7 @@ const translations = {
       },
       location: {
         name: "Идеальное расположение",
-        description: "Расположена всего в нескольких минутах от оживленных кафе, пляжей и магазинов Семиньяка, чтобы вы могли полностью насладиться своим пребыванием на Бали."
+        description: "Расположена в очень тихом районе и всего в нескольких минутах от оживленных кафе, пляжей и магазинов Семиньяка, чтобы вы могли полностью насладиться своим пребыванием на Бали."
       }
     },
     // Pricing
@@ -1643,7 +1683,7 @@ const translations = {
         },
         {
           question: "Включается ли завтрак в бронирование?",
-          answer: "Завтрак не включен в стоимость номера. Однако вы можете легко организовать его, связавшись с нашей командой бронирования или консьержем. Мы предлагаем различные варианты меню, приготовленные нашим частным шеф-поваром, прямо в вашей вилле. Стоимость составляет IDR 150,000 на человека, с минимальным заказом для 5 гостей. Вы также можете насладиться плавающим завтраком, стоимостью IDR 150,000 за каждую тарелку."
+          answer: "Завтрак не включен в стоимость номера. Однако вы можете легко организовать его, связавшись с нашей командой бронирования или консьержем. Мы предлагаем различные варианты меню, приготовленные нашим частным шеф-поваром, прямо в вашей вилле. Стоимость составляет IDR 150,000 на человека. Вы также можете насладиться плавающим завтраком, стоимостью IDR 150,000 за каждую тарелку."
         },
         {
           question: "Есть ли ежедневная уборка?",
@@ -1651,7 +1691,7 @@ const translations = {
         },
         {
           question: "Какая максимальная загрузка для этой виллы?",
-          answer: "Эта вилла может комфортно вместить до 4 гостей. Однако она может принять до 6 гостей, при этом 5-й и 6-й гости считаются дополнительными. Дополнительная плата составляет IDR 340,000/ночь/человек. Если вам нужны дополнительные кровати, пожалуйста, сообщите нам."
+          answer: "Благодаря двум очень просторным спальням, эта вилла комфортно вмещает 4 гостей."
         },
         {
           question: "Что включено в стоимость виллы?",
@@ -1663,7 +1703,7 @@ const translations = {
         },
         {
           question: "Как я могу организовать питание во время моего пребывания?",
-          answer: "В обеденное и вечернее время мы предлагаем улучшенные услуги, включая наборы меню, приготовление на открытом огне BBQ, национальные блюда, а также высококлассное приготовление еды шеф-поваром Michelin, все приготовленное в вилле. Цены начинаются с IDR 450,000 на человека. Вилла также оснащена полным набором кухонного оборудования, что позволяет вам приготовить еду, если вам это нравится."
+          answer: "На обед и ужин мы предлагаем разнообразные услуги, включая фиксированное меню, приготовление BBQ, этническую кухню, а также изысканные блюда, приготовленные шеф-поваром, всё готовится на вилле. Цены начинаются с IDR 450,000 на человека. Вилла также оснащена полностью оборудованной кухней, что позволяет вам приготовить еду самостоятельно, если хотите."
         }
       ],
       contactText: "У вас есть другие вопросы?",
@@ -1728,21 +1768,31 @@ const translations = {
     // Testimonials
     testimonials: {
       title: "Отзывы",
-      intro: "Что наши клиенты говорят о своем опыте.",
+      intro: "Что наши гости говорят о своем опыте.",
       customer1: {
-        name: "Софи и Пьер",
-        location: "Париж, Франция",
-        text: "Вилла Orea превзошла все наши ожидания. Идеальное убежище после дня исследования Бали. Персонал был невероятно внимательным, а вилла красиво оформлена."
+        name: "Shawn",
+        location: "★★★★★ Август 2025",
+        text: "У нас было потрясающее пребывание на этой вилле! 🌴✨ Место было таким же красивым, как на фотографиях — просторное, чистое и очень ухоженное. Частный бассейн был идеален для отдыха после исследования Бали. Расположение было очень удобным, рядом с кафе, ресторанами и пляжами, но достаточно тихим, чтобы наслаждаться спокойствием и уединением. Хозяин был приветливым, отзывчивым и позаботился о том, чтобы мы чувствовали себя как дома на протяжении всего пребывания. Очень рекомендую эту виллу всем, кто ищет комфортное и незабываемое времяпрепровождение на Бали! 🌺🏝️"
       },
       customer2: {
-        name: "Джеймс и Эмма",
-        location: "Лондон, Великобритания",
-        text: "Потрясающее пребывание на вилле Orea. Расположение идеальное, всего в нескольких минутах от лучших пляжей и ресторанов Семиньяка. Частный бассейн был нашим любимым местом отдыха после жарких дней."
+        name: "Craig",
+        location: "★★★★★ Июнь 2025",
+        text: "Было потрясающе"
       },
       customer3: {
-        name: "Алессандро и Мария",
-        location: "Рим, Италия",
-        text: "Маленький рай в Семиньяке. Вилла такая же красивая, как на фотографиях, очень чистая, и прием был идеальным. Незабываемое пребывание, которое мы рекомендуем без колебаний!"
+        name: "Abdullah",
+        location: "★★★★★ Сентябрь 2025",
+        text: "Всё было замечательно, хозяин был действительно хорош, спасибо ❤️❤️❤️❤️"
+      },
+      customer4: {
+        name: "Ashna",
+        location: "★★★★★ Июнь 2025",
+        text: "Место было потрясающим, чрезвычайно чистым с дружелюбным хозяином. Немного далеко от центра, но вилла потрясающая."
+      },
+      customer5: {
+        name: "Khalid",
+        location: "★★★★★ Август 2025",
+        text: "Жилье комфортное и приятное"
       }
     },
     // Gallery
@@ -1795,6 +1845,273 @@ const translations = {
         35: "Ночное освещение бассейна",
         36: "Благоустроенный тропический сад",
         37: "Вид на террасу и бассейн"
+      }
+    }
+  },
+  
+  // Arabe
+  ar: {
+    // Header
+    nav: {
+      about: "نبذة",
+      amenities: "المرافق",
+      gallery: "المعرض",
+      faq: "الأسئلة الشائعة",
+      testimonials: "التقييمات",
+      pricing: "الأسعار",
+      contact: "اتصل",
+      tour3d: "جولة ثلاثية الأبعاد"
+    },
+    // Hero
+    hero: {
+      title: "Villa Orea",
+      subtitle: "إقامة فاخرة في سيمينياك",
+      description: "اكتشف ملاذًا هادئًا في قلب بالي",
+      cta: "احجز الآن",
+      tour3d: "جولة ثلاثية الأبعاد"
+    },
+    // FAQ
+    faq: {
+      title: "الأسئلة الشائعة",
+      intro: "اعثر على إجابات لأسئلتك الأكثر شيوعًا أدناه",
+      searchPlaceholder: "ابحث عن سؤال...",
+      searchLabel: "ابحث عن سؤال",
+      noResults: "لم يتم العثور على نتائج لـ \"{query}\"",
+      resetSearch: "إعادة تعيين البحث",
+      questions: [
+        {
+          question: "ما هي مواعيد تسجيل الوصول والمغادرة؟",
+          answer: "يبدأ تسجيل الوصول في الساعة 14:00 لفيلتنا. يمكن إيداع الأمتعة من الساعة 11:00 بينما نقوم بإعداد الفيلا. يرجى ملاحظة أن رسوم تسجيل الوصول المتأخر قدرها 200,000 روبية إندونيسية تنطبق على الوصول بعد الساعة 20:00. وقت المغادرة هو 11:00. المغادرة المتأخرة تخضع للتوافر مع رسوم إضافية 50٪ من السعر اليومي للمغادرة بين 11:00 و 18:00، و 100٪ للمغادرة بعد 18:00."
+        },
+        {
+          question: "هل تشمل الحجز وجبة الإفطار؟",
+          answer: "وجبة الإفطار غير مشمولة في سعر الغرفة. ومع ذلك، يمكنك ترتيبها بسهولة عن طريق الاتصال بفريق الحجز أو الكونسيرج. نقدم مجموعة متنوعة من القوائم التي يعدها طاهينا الخاص مباشرة في فيلتك. التكلفة هي 150,000 روبية إندونيسية للشخص الواحد. يتوفر أيضًا إفطار عائم برسوم إضافية قدرها 150,000 روبية إندونيسية للصينية."
+        },
+        {
+          question: "هل يوجد خدمة تنظيف يومية؟",
+          answer: "بالتأكيد! يتم توفير خدمة التنظيف يوميًا من الساعة 9:00 إلى 17:00. يتم تغيير الملاءات كل ثلاثة أيام من أجل الاستدامة. لضمان خصوصيتك، يرجى الاتفاق مع مضيف الفيلا أو الموظفين على الوقت المناسب للتنظيف. راحتك هي أولويتنا."
+        },
+        {
+          question: "ما هي السعة القصوى لهذه الفيلا؟",
+          answer: "مع غرفتي نوم واسعتين للغاية، يمكن لهذه الفيلا استيعاب 4 ضيوف بشكل مريح."
+        },
+        {
+          question: "ما الخدمات المشمولة في سعر الفيلا؟",
+          answer: "تشمل خدمتنا مدير فيلا مخصص، ومضيف أو موظفي فيلا، والتنظيف اليومي، وصيانة الحديقة والمسبح. الخدمات الإضافية مثل توفير الفيلا مسبقًا، والنقل من المطار، والتدليك وغيرها من الخدمات متاحة مقابل رسوم إضافية."
+        },
+        {
+          question: "هل يمكنني الحصول على مناشف نظيفة إضافية؟",
+          answer: "بالتأكيد! يسعدنا توفير مناشف إضافية، حسب التوافر. لا تتردد في الاتصال بمضيف الفيلا أو الموظفين وسنبذل قصارى جهدنا لتلبية طلبك في أسرع وقت ممكن."
+        },
+        {
+          question: "كيف يمكنني ترتيب الوجبات أثناء إقامتي؟",
+          answer: "للغداء والعشاء، نقدم خدمات متنوعة، بما في ذلك قوائم ثابتة، وطهي الشواء المباشر، والمأكولات العرقية، وحتى الوجبات الفاخرة التي يعدها طاهٍ، كل ذلك في الفيلا. تبدأ الأسعار من 450,000 روبية إندونيسية للشخص الواحد. تحتوي الفيلا أيضًا على مطبخ مجهز بالكامل لإعداد وجباتك الخاصة إذا كنت ترغب."
+        }
+      ],
+      contactText: "هل لديك أسئلة أخرى؟",
+      contactButton: "اتصل بنا"
+    },
+    // About
+    about: {
+      title: "عن الفيلا",
+      intro: "مرحبًا بك في Villa Orea، فيلا أنيقة بغرفتي نوم، مصممة كشرنقة حقيقية من الهدوء، مثالية للأزواج والأصدقاء المقربين في منطقة هادئة بالقرب من الحياة النابضة في سيمينياك. عند المدخل، ينتظرك باب ذكي: ما عليك سوى إدخال الرمز المقدم والضغط على أيقونة الجرس لفتح ملاذك الهادئ.",
+      details: "تتميز الفيلا بغرفتي نوم فاخرتين مع أسرة كينج سايز، وتلفزيونات ذكية مع Netflix و YouTube Premium، وحمامات داخلية. تشمل مساحة المعيشة شبه المفتوحة صالة بتلفزيون ذكي، وزاوية بار مريحة، ومطبخ مجهز بالكامل. في الخارج، استمتع بالمسبح الخاص والحديقة الاستوائية، على بعد دقائق فقط من المقاهي والشواطئ والمحلات النابضة بالحياة في سيمينياك.",
+      button3d: "جولة ثلاثية الأبعاد"
+    },
+    // Amenities
+    amenities: {
+      title: "المرافق",
+      intro: "تم التفكير في كل شيء لجعل إقامتك في Villa Orea تجربة فاخرة لا تُنسى.",
+      clickForDetails: "انقر للمزيد من التفاصيل",
+      wifi: {
+        name: "واي فاي عالي السرعة",
+        description: "اتصال إنترنت سريع متاح في جميع غرف الفيلا للبقاء على اتصال أثناء إقامتك."
+      },
+      ac: {
+        name: "تكييف الهواء",
+        description: "كل غرفة نوم مجهزة بنظام تكييف لراحتك حتى في أكثر الأيام حرارة."
+      },
+      pool: {
+        name: "مسبح خاص",
+        description: "مسبح متلألئ محاط بمنطقة تشمس مريحة، مثالي للانتعاش بعد يوم من الاستكشاف."
+      },
+      kitchen: {
+        name: "مطبخ مجهز",
+        description: "مطبخ مفتوح مجهز بالكامل مع آلة شاي ومحمصة وآلة قهوة لإعداد وجباتك بكل بساطة."
+      },
+      tv: {
+        name: "تلفزيون ذكي",
+        description: "كل غرفة نوم والصالة مجهزة بتلفزيونات ذكية مع الوصول إلى Netflix و YouTube Premium للحظات الاسترخاء."
+      },
+      cleaning: {
+        name: "تنظيف يومي",
+        description: "خدمة تنظيف يومية مشمولة من 9:00 إلى 17:00 لضمان بيئة نظيفة ومريحة دائمًا."
+      },
+      garden: {
+        name: "حديقة استوائية",
+        description: "حديقة استوائية خصبة مع أرجوحة، تخلق أجواء هادئة ومريحة."
+      },
+      beds: {
+        name: "أسرة كينج سايز",
+        description: "غرفتا نوم واسعتان مع أسرة كينج سايز مريحة لضمان ليالٍ مريحة أثناء إقامتك."
+      },
+      location: {
+        name: "موقع مثالي",
+        description: "تقع في منطقة هادئة جدًا وعلى بعد دقائق فقط من المقاهي والشواطئ والمحلات النابضة بالحياة في سيمينياك، للاستمتاع الكامل بإقامتك في بالي."
+      }
+    },
+    // Pricing
+    pricing: {
+      title: "الأسعار والحجز",
+      intro: "اكتشف فيلتنا الفاخرة في سيمينياك، التي تقدم مزيجًا مثاليًا من الراحة الحديثة والأجواء الاستوائية، مع قيمة ممتازة لإقامتك في بالي.",
+      priceFrom: "ابتداءً من 350 يورو/الليلة",
+      bookOnline: "احجز عبر الإنترنت",
+      minStay: "إقامة لا تقل عن 3 ليالٍ",
+      capacity: "سعة 4 أشخاص (بحد أقصى 6 برسوم إضافية)",
+      cleaning: "التنظيف اليومي مشمول",
+      breakfast: "الإفطار والطاهي متوفران (رسوم إضافية)",
+      airport: "النقل من المطار متاح (رسوم إضافية)",
+      notice: "* قد تختلف الأسعار حسب الموسم. تسجيل الوصول: 14:00، المغادرة: 11:00.",
+      contactButton: "اتصل بنا"
+    },
+    // Contact
+    contact: {
+      title: "اتصل بنا",
+      intro: "هل لديك أسئلة حول فيلتنا؟ لا تتردد في الاتصال بنا للحصول على مزيد من المعلومات أو لحجز إقامتك.",
+      form: {
+        title: "أرسل لنا رسالة",
+        name: "الاسم الكامل",
+        email: "البريد الإلكتروني",
+        subject: "الموضوع",
+        message: "الرسالة",
+        submitButton: "إرسال",
+        namePlaceholder: "اسمك",
+        emailPlaceholder: "your@email.com",
+        subjectPlaceholder: "موضوع رسالتك",
+        messagePlaceholder: "رسالتك",
+        successMessage: "سيتم فتح عميل البريد الإلكتروني الخاص بك مع رسالتك المعدة",
+        errorMessage: "يرجى تصحيح الأخطاء في النموذج.",
+        nameError: "الاسم مطلوب",
+        emailError: "بريد إلكتروني غير صالح",
+        subjectError: "الموضوع مطلوب",
+        messageError: "الرسالة مطلوبة"
+      },
+      info: {
+        title: "معلومات الاتصال",
+        email: {
+          label: "البريد الإلكتروني",
+          value: "villaoreabali@gmail.com"
+        },
+        whatsapp: {
+          label: "واتساب",
+          value: "+41 79 458 35 41"
+        },
+        address: {
+          label: "العنوان",
+          value: "سيمينياك، بالي، إندونيسيا"
+        },
+        map: "خرائط جوجل"
+      }
+    },
+    // Footer
+    footer: {
+      rights: "جميع الحقوق محفوظة",
+      privacy: "سياسة الخصوصية",
+      cookies: "سياسة ملفات تعريف الارتباط",
+      designedWith: "مصمم بـ",
+      forLuxury: "لتجارب فاخرة",
+      followUs: "تابعنا",
+      bookOn: "احجز على",
+      contactTitle: "اتصل",
+      legalTitle: "قانوني",
+      privacyPolicy: "سياسة الخصوصية",
+      terms: "شروط الاستخدام",
+      cookiePolicy: "سياسة ملفات تعريف الارتباط"
+    },
+    floatingButton: {
+      bookNow: "احجز الآن",
+      book: "احجز"
+    },
+    // Testimonials
+    testimonials: {
+      title: "التقييمات",
+      intro: "ما يقوله ضيوفنا عن تجربتهم.",
+      customer1: {
+        name: "Shawn",
+        location: "★★★★★ أغسطس 2025",
+        text: "لقد كانت إقامتنا رائعة في هذه الفيلا! 🌴✨ كان المكان جميلًا كما في الصور - واسع ونظيف ومُعتنى به جيدًا. كان المسبح الخاص مثاليًا للاسترخاء بعد استكشاف بالي. كان الموقع مريحًا للغاية، قريب من المقاهي والمطاعم والشواطئ، ولكنه هادئ بما يكفي للاستمتاع بالسلام والخصوصية. كان المضيف دافئًا ومستجيبًا وحرص على أن نشعر وكأننا في المنزل طوال إقامتنا. أوصي بشدة بهذه الفيلا لأي شخص يبحث عن تجربة مريحة لا تُنسى في بالي! 🌺🏝️"
+      },
+      customer2: {
+        name: "Craig",
+        location: "★★★★★ يونيو 2025",
+        text: "كان رائعًا"
+      },
+      customer3: {
+        name: "Abdullah",
+        location: "★★★★★ سبتمبر 2025",
+        text: "كل شيء كان رائعًا، المضيف كان جيدًا حقًا، شكرًا ❤️❤️❤️❤️"
+      },
+      customer4: {
+        name: "Ashna",
+        location: "★★★★★ يونيو 2025",
+        text: "المكان كان رائعًا، نظيف جدًا مع مضيف ودود. إنه بعيد قليلاً عن المركز ولكن الفيلا رائعة."
+      },
+      customer5: {
+        name: "Khalid",
+        location: "★★★★★ أغسطس 2025",
+        text: "السكن مريح ولطيف"
+      }
+    },
+    // Gallery
+    gallery: {
+      title: "المعرض",
+      intro: "اكتشف فيلتنا من خلال هذه الصور",
+      categories: {
+        all: "الكل",
+        interior: "الداخل",
+        exterior: "الخارج",
+        pool: "المسبح",
+        bedrooms: "غرف النوم"
+      },
+      seeMore: "شاهد المزيد من الصور",
+      imageDescriptions: {
+        1: "منظر خارجي للفيلا",
+        2: "مسبح لا متناهي",
+        3: "منطقة جلوس خارجية",
+        4: "شرفة مع إطلالة",
+        5: "غرفة النوم الرئيسية",
+        6: "حمام فاخر",
+        7: "ركن الاسترخاء",
+        8: "مطبخ مجهز",
+        9: "غرفة الطعام",
+        10: "صالة مع إطلالة بانورامية",
+        11: "غرفة الضيوف",
+        12: "مساحة العمل",
+        13: "مدخل الفيلا",
+        14: "حديقة استوائية",
+        15: "منطقة تناول طعام خارجية",
+        16: "إطلالة على المسبح",
+        17: "حمام حجري",
+        18: "ركن القراءة",
+        19: "منظر جوي",
+        20: "الوصول إلى الشاطئ",
+        21: "مساحة اليوغا",
+        22: "بار الكوكتيل",
+        23: "مدخل السيارة",
+        24: "دش خارجي",
+        25: "حفرة نار خارجية",
+        26: "إطلالة على المسبح من الشرفة",
+        27: "المدخل الرئيسي للفيلا",
+        28: "مساحة عمل مع إطلالة",
+        29: "منطقة استرخاء بجانب المسبح",
+        30: "صالة خارجية مع إطلالة بانورامية",
+        31: "تفاصيل معمارية",
+        32: "منطقة تناول طعام خارجية مظللة",
+        33: "شرفة مظللة",
+        34: "مساحة خارجية مع إطلالة على الطبيعة",
+        35: "إضاءة ليلية للمسبح",
+        36: "حديقة استوائية مُنسقة",
+        37: "إطلالة على الشرفة والمسبح"
       }
     }
   }

@@ -3,8 +3,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
 import airbnbLogo from '../assets/booking-platforms/png/Airbnb_Logo_Bélo.svg.png';
 import bookingLogo from '../assets/booking-platforms/png/Booking.com_logo2.png';
-import agodaLogo from '../assets/booking-platforms/png/Agoda_transparent_logo.png';
+import marriottLogo from '../assets/booking-platforms/png/HomesAndVillas.svg';
 import tripLogo from '../assets/booking-platforms/png/Trip.com_logo.svg.png';
+import baliSuperHostLogo from '../assets/booking-platforms/png/BalisSuperHost.png';
 
 const Pricing = () => {
   const { currentLanguage } = useLanguage();
@@ -22,26 +23,32 @@ const Pricing = () => {
     {
       name: 'Airbnb',
       logo: airbnbLogo,
-      url: 'https://www.airbnb.com/l/7icncLgD', // À remplacer par votre vrai lien Airbnb
+      url: 'https://fr.airbnb.ch/rooms/1429323064798460748?_set_bev_on_new_domain=1764757889_EAYmQ3NWViMGQ1ZD&set_everest_cookie_on_new_domain=1764757889.EAOGQ5MTk4MDhlN2ZlNz.8qTjOo8pz-oYO-l98N1KrbQO504EhKDOQEoQ7Z8BSrE&source_impression_id=p3_1768755396_P3u2qSKHnYEjJWUO',
       alt: 'Airbnb Logo'
     },
     {
       name: 'Booking.com',
       logo: bookingLogo,
-      url: 'https://www.booking.com/hotel/id/villa-orea-seminyak.html', // À remplacer par votre vrai lien Booking
+      url: 'https://www.booking.com/hotel/id/villa-orea-by-balisuperhost.fr.html?label=gen173nr-10CAsoaEIbdmlsbGEtb3JlYS1ieS1iYWxpc3VwZXJob3N0SAlYBGgsiAEBmAEzuAEHyAEP2AED6AEB-AEBiAIBqAIBuALUobTLBsACAdICJGZiZGMxMWQ0LWIxOGEtNGJhMC04NjRhLTVmOTUzZWFhOTVkZdgCAeACAQ&sid=d3f57571c168e6a193ae1d6875e65d47&dist=0&keep_landing=1&sb_price_type=total&type=total&',
       alt: 'Booking.com Logo'
-    },
-    {
-      name: 'Agoda',
-      logo: agodaLogo,
-      url: 'https://www.agoda.com/villa-orea/hotel/bali-id.html', // À remplacer par votre vrai lien Agoda
-      alt: 'Agoda Logo'
     },
     {
       name: 'Trip.com',
       logo: tripLogo,
-      url: 'https://www.trip.com/hotels/detail/?hotelid=12345678', // À remplacer par votre vrai lien Trip.com
+      url: 'https://us.trip.com/hotels/cityname-hotel-detail-128944828/hotelname/',
       alt: 'Trip.com Logo'
+    },
+    {
+      name: 'Marriott',
+      logo: marriottLogo,
+      url: 'https://homes-and-villas.marriott.com/en/properties/40527181-seminyak-brand-new-villa-br-with-private-pool-in-seminyak?gallery_view_enabled=false',
+      alt: 'Marriott Homes & Villas Logo'
+    },
+    {
+      name: 'BaliSuperHost',
+      logo: baliSuperHostLogo,
+      url: 'https://balisuperhost.guestybookings.com/en/properties/6833ee6140f34500124c6011',
+      alt: 'BaliSuperHost Logo'
     }
   ];
 
@@ -77,8 +84,8 @@ const Pricing = () => {
                       src={platform.logo} 
                       alt={platform.alt} 
                       className={`h-auto w-auto object-contain 
-                        ${platform.name === 'Agoda' ? 'max-h-16 scale-[1.3]' : 'max-h-12'} 
-                        ${platform.name === 'Airbnb' ? 'max-w-[160px]' : 'max-w-[200px]'}
+                        ${platform.name === 'Marriott' ? 'max-h-10' : platform.name === 'BaliSuperHost' ? 'max-h-14' : 'max-h-12'} 
+                        ${platform.name === 'Airbnb' ? 'max-w-[160px]' : platform.name === 'BaliSuperHost' ? 'max-w-[180px]' : 'max-w-[200px]'}
                       `}
                     />
                   </a>

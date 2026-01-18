@@ -8,7 +8,8 @@ export const FLAGS = {
   es: "🇪🇸",
   id: "🇮🇩",
   de: "🇩🇪",
-  ru: "🇷🇺"
+  ru: "🇷🇺",
+  ar: "🇸🇦"
 };
 
 // Noms des langues
@@ -19,7 +20,8 @@ export const LANGUAGE_NAMES = {
   es: "Español",
   id: "Bahasa Indonesia",
   de: "Deutsch",
-  ru: "Русский"
+  ru: "Русский",
+  ar: "العربية"
 };
 
 // Création du contexte

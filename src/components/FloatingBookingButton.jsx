@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
 
 const FloatingBookingButton = () => {
   const { currentLanguage } = useLanguage();
   const t = translations[currentLanguage];
+  const [buttonStyle, setButtonStyle] = useState({ position: 'fixed', bottom: '1.5rem' });
 
   const handleClick = () => {
     const pricingSection = document.getElementById('pricing');
@@ -13,10 +15,43 @@ const FloatingBookingButton = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.querySelector('footer');
+      if (footer) {
+        const footerTop = footer.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        const buttonHeight = 60;
+        const margin = 20;
+        
+        if (footerTop < windowHeight - buttonHeight - margin) {
+          const scrollY = window.scrollY;
+          const footerOffsetTop = footer.offsetTop;
+          setButtonStyle({
+            position: 'absolute',
+            bottom: 'auto',
+            top: `${footerOffsetTop - buttonHeight - margin}px`
+          });
+        } else {
+          setButtonStyle({
+            position: 'fixed',
+            bottom: '1.5rem'
+          });
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <motion.button
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-40 bg-white hover:bg-gray-50 text-emerald border-2 border-emerald px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 font-inter font-medium text-sm backdrop-blur-sm"
+      className="right-6 z-40 bg-white hover:bg-gray-50 text-emerald border-2 border-emerald px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 font-inter font-medium text-sm backdrop-blur-sm"
+      style={buttonStyle}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, duration: 0.5, type: "spring", stiffness: 200 }}

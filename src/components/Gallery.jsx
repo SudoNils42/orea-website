@@ -41,6 +41,18 @@ import image34 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC059
 import image35 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05950.jpg';
 import image36 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05945.jpg';
 import image37 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05932.jpg';
+import image38 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/DSCF1793 (1).jpg';
+import image39 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_3947-HDR.jpg';
+import image40 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_3949-HDR-2.jpg';
+import image41 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_3970.jpg';
+import image42 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4031-HDR.jpg';
+import image43 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4044-HDR.jpg';
+import image44 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4048-HDRE.jpg';
+import image45 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4050-HDR-Edit.jpg';
+import image46 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_5858-HDR (1).jpg';
+import image47 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_5866 (1).jpg';
+import image48 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_5873-HDR (1).jpg';
+import image49 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_5878-HDR (1).jpg';
 
 // Toutes les images de la villa
 const VILLA_IMAGES = [
@@ -228,6 +240,66 @@ const VILLA_IMAGES = [
     id: 37,
     src: image37,
     alt: 'Vue sur la terrasse et la piscine'
+  },
+  {
+    id: 38,
+    src: image38,
+    alt: 'Salle de bain'
+  },
+  {
+    id: 39,
+    src: image39,
+    alt: 'Salle de bain avec douche'
+  },
+  {
+    id: 40,
+    src: image40,
+    alt: 'Baignoire'
+  },
+  {
+    id: 41,
+    src: image41,
+    alt: 'Baignoire spa'
+  },
+  {
+    id: 42,
+    src: image42,
+    alt: 'Salon avec piscine'
+  },
+  {
+    id: 43,
+    src: image43,
+    alt: 'Espace de vie avec piscine'
+  },
+  {
+    id: 44,
+    src: image44,
+    alt: 'Salon et piscine'
+  },
+  {
+    id: 45,
+    src: image45,
+    alt: 'Villa avec piscine'
+  },
+  {
+    id: 46,
+    src: image46,
+    alt: 'Chambre principale'
+  },
+  {
+    id: 47,
+    src: image47,
+    alt: 'Chambre'
+  },
+  {
+    id: 48,
+    src: image48,
+    alt: 'Chambre'
+  },
+  {
+    id: 49,
+    src: image49,
+    alt: 'Chambre'
   }
 ];
 
