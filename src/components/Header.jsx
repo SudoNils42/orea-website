@@ -14,8 +14,6 @@ const Header = ({ scrollY, openModal }) => {
 
   useEffect(() => {
     setIsSticky(scrollY > 50);
-    // Log la position lors du défilement pour debug
-    console.log("Scroll Y:", scrollY, "isSticky:", scrollY > 50);
   }, [scrollY]);
 
   const toggleMenu = () => {
