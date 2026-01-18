@@ -85,8 +85,8 @@ const Footer = ({ openModal }) => {
             &copy; 2025{currentYear > 2025 ? `–${currentYear}` : ''} Villa Orea. {t.footer.rights}.
           </div>
           <div className="text-gray-500 text-xs">
-            <span className="mr-2">
-              {t.footer.designedWith || "Designed with"} <span className="text-red-500">❤️</span> {t.footer.forLuxury || "for luxury experiences"}
+            <span>
+              {t.footer.designedWith || "Conçu avec"} <span className="text-red-500">❤️</span>
             </span>
           </div>
         </div>
