@@ -16,7 +16,7 @@ const translations = {
     // Hero
     hero: {
       title: "Villa Orea",
-      subtitle: "Une retraite luxueuse à Seminyak",
+      subtitle: "Un séjour de luxe a Seminyak",
       description: "Découvrez un havre de paix au cœur de Bali",
       cta: "Réserver maintenant",
       tour3d: "Immersion Totale"
@@ -36,7 +36,7 @@ const translations = {
         },
         {
           question: "Le petit-déjeuner est-il inclus dans la réservation ?",
-          answer: "Le petit-déjeuner n'est pas inclus dans le prix de la chambre. Vous pouvez cependant l'organiser facilement en contactant notre équipe de réservation ou de conciergerie. Nous proposons une variété de menus préparés par notre chef privé, directement dans votre villa. Le coût est de 150 000 IDR par personne, avec une commande minimum de 5 personnes. Un petit-déjeuner flottant est également disponible pour un supplément de 150 000 IDR par plateau."
+          answer: "Le petit-déjeuner n'est pas inclus dans le prix de la chambre. Vous pouvez cependant l'organiser facilement en contactant notre équipe de réservation ou de conciergerie. Nous proposons une variété de menus préparés par notre chef privé, directement dans votre villa. Le coût est de 150 000 IDR par personne. Un petit-déjeuner flottant est également disponible pour un supplément de 150 000 IDR par plateau."
         },
         {
           question: "Y a-t-il un service de ménage quotidien ?",
@@ -44,7 +44,7 @@ const translations = {
         },
         {
           question: "Quelle est l'occupation maximale pour cette villa ?",
-          answer: "Cette villa peut accueillir confortablement jusqu'à 4 personnes. Cependant, elle peut accueillir un maximum de 6 personnes, les 5ème et 6ème personnes étant considérées comme supplémentaires. Un supplément de 340 000 IDR/nuit/personne s'applique. Si vous avez besoin de lits supplémentaires, n'hésitez pas à nous le faire savoir."
+          answer: "Avec ses deux chambres très spacieuses, cette villa peut accueillir confortablement 4 personnes."
         },
         {
           question: "Quels services sont inclus dans le prix de la villa ?",
@@ -56,7 +56,7 @@ const translations = {
         },
         {
           question: "Comment puis-je réserver des repas pendant mon séjour ?",
-          answer: "Pour le déjeuner et le dîner, nous proposons des services variés, notamment des menus fixes, un service de barbecue en direct, des cuisines ethniques et même des repas raffinés préparés par un chef étoilé Michelin, le tout dans la villa. Les prix commencent à 450 000 IDR par personne. La villa dispose également d'une cuisine entièrement équipée pour préparer vos propres repas si vous le souhaitez."
+          answer: "Pour le déjeuner et le dîner, nous proposons des services variés, notamment des menus fixes, un service de barbecue en direct, des cuisines ethniques et même des repas raffinés préparés par un chef, le tout dans la villa. Les prix commencent à 450 000 IDR par personne. La villa dispose également d'une cuisine entièrement équipée pour préparer vos propres repas si vous le souhaitez."
         }
       ],
       contactText: "Vous avez d'autres questions ?",
@@ -65,7 +65,7 @@ const translations = {
     // À propos
     about: {
       title: "À Propos de la Villa",
-      intro: "Bienvenue à Villa Orea, une élégante retraite de 2 chambres, conçue comme un véritable cocon de tranquillité, parfaite pour couples, petite famille et amis proches dans le quartier animé de Seminyak. À l'entrée, une porte intelligente vous accueille : il suffit d'entrer le code fourni et d'appuyer sur l'icône de la cloche pour déverrouiller votre havre de paix.",
+      intro: "Bienvenue à Villa Orea, une élégante villa de 2 chambres, conçue comme un véritable cocon de tranquillité, parfaite pour couples et amis proches dans un quartier calme et proche de la vie animée de Seminyak. À l'entrée, une porte intelligente vous accueille : il suffit d'entrer le code fourni et d'appuyer sur l'icône de la cloche pour déverrouiller votre havre de paix.",
       details: "La villa dispose de 2 chambres luxueuses avec lits king-size, Smart TV avec Netflix et YouTube Premium, et salles de bains attenantes. L'espace de vie semi-ouvert comprend un salon avec Smart TV, un coin bar, et une cuisine entièrement équipée. À l'extérieur, profitez de la piscine privée et du jardin tropical, à seulement quelques minutes des cafés, plages et boutiques de Seminyak.",
       button3d: "Immersion Totale"
     },
@@ -100,7 +100,7 @@ const translations = {
       },
       garden: {
         name: "Jardin Tropical",
-        description: "Un jardin tropical luxuriant avec une balançoire suspendue à un palmier, créant une atmosphère paisible et relaxante."
+        description: "Un jardin tropical luxuriant avec une balançoire, créant une atmosphère paisible et relaxante."
       },
       beds: {
         name: "Lits King-Size",
@@ -108,7 +108,7 @@ const translations = {
       },
       location: {
         name: "Emplacement Idéal",
-        description: "Située à seulement quelques minutes des cafés animés, plages et boutiques de Seminyak, pour profiter pleinement de votre séjour à Bali."
+        description: "Située dans un quartier très calme et à seulement quelques minutes des cafés animés, plages et boutiques de Seminyak, pour profiter pleinement de votre séjour à Bali."
       }
     },
     // Tarifs
@@ -151,11 +151,11 @@ const translations = {
         title: "Coordonnées",
         email: {
           label: "Email",
-          value: "contact@villaorea.com"
+          value: "villaoreabali@gmail.com"
         },
         whatsapp: {
           label: "WhatsApp",
-          value: "+62 812 3456 7890"
+          value: "+41 79 458 53 41"
         },
         address: {
           label: "Adresse",
@@ -167,34 +167,43 @@ const translations = {
     // Pied de page
     footer: {
       rights: "Tous droits réservés",
-      privacyPolicy: "Politique de confidentialité",
-      terms: "Conditions d'utilisation",
-      cookiePolicy: "Politique des cookies",
-      followUs: "Suivez-nous",
-      bookOn: "Réservez sur",
-      contactTitle: "Contact",
-      legalTitle: "Légal",
+      privacy: "Politique de confidentialité",
+      cookies: "Politique des cookies",
       designedWith: "Conçu avec",
       forLuxury: "pour des expériences de luxe"
+    },
+    floatingButton: {
+      bookNow: "Réserver dès maintenant",
+      book: "Réserver"
     },
     // Témoignages
     testimonials: {
       title: "Témoignages",
       intro: "Ce que nos clients disent de leur expérience.",
       customer1: {
-        name: "Sophie et Pierre",
-        location: "Paris, France",
-        text: "Villa Orea a dépassé toutes nos attentes. Un havre de paix parfait après une journée d'exploration de Bali. Le personnel était incroyablement attentionné et la villa est magnifiquement décorée."
+        name: "Shawn",
+        location: "★★★★★ Août 2025",
+        text: "Nous avons passé un incroyable séjour dans cette villa ! 🌴✨ L'endroit était tout aussi beau que les photos – spacieux, propre et très bien entretenu. La piscine privée était parfaite pour se détendre après avoir exploré Bali. L'emplacement était super pratique, à proximité des cafés, des restaurants et des plages, mais assez calme pour profiter de la paix et de l'intimité. L'hôte était chaleureux, réactif et a veillé à ce que nous nous sentions chez nous tout au long de notre séjour. Je recommande vivement cette villa à tous ceux qui recherchent une expérience confortable et mémorable à Bali ! 🌺🏝️"
       },
       customer2: {
-        name: "James et Emma",
-        location: "Londres, Royaume-Uni",
-        text: "Séjour incroyable à Villa Orea. L'emplacement est idéal, à quelques minutes des meilleures plages et restaurants de Seminyak. La piscine privée était notre refuge préféré après les journées chaudes."
+        name: "Craig",
+        location: "★★★★★ Juin 2025",
+        text: "C'était incroyable"
       },
       customer3: {
-        name: "Alessandro et Maria",
-        location: "Rome, Italie",
-        text: "Un petit paradis à Seminyak. La villa est aussi belle que sur les photos, très propre et l'accueil a été parfait. Un séjour mémorable que nous recommandons sans hésitation!"
+        name: "Abdullah",
+        location: "★★★★★ Septembre 2025",
+        text: "Tout était merveilleux, l'hôte était vraiment bien, merci ❤️❤️❤️❤️"
+      },
+      customer4: {
+        name: "Ashna",
+        location: "★★★★★ Juin 2025",
+        text: "L'endroit était incroyable, extrêmement propre avec un hôte sympathique. C'est un peu loin du centre, mais la villa est incroyable."
+      },
+      customer5: {
+        name: "Khalid",
+        location: "★★★★★ Août 2025",
+        text: "Le logement est confortable et agréable"
       }
     },
     // Galerie
@@ -267,7 +276,7 @@ const translations = {
     // Hero
     hero: {
       title: "Villa Orea",
-      subtitle: "A Luxurious Retreat in Seminyak",
+      subtitle: "A Luxury Stay in Seminyak",
       description: "Discover a peaceful haven in the heart of Bali",
       cta: "Book Now",
       tour3d: "Full Immersion"
@@ -287,7 +296,7 @@ const translations = {
         },
         {
           question: "Is breakfast included in the booking?",
-          answer: "Breakfast is not included in the room rate. However, you can easily arrange it by contacting our reservation or concierge team. We offer various menu options prepared by our private chef, right in your villa. The cost is IDR 150,000 per person, with a minimum order for 5 guests. You can also enjoy a floating breakfast for an additional fee of IDR 150,000 per tray."
+          answer: "Breakfast is not included in the room rate. However, you can easily arrange it by contacting our reservation or concierge team. We offer various menu options prepared by our private chef, right in your villa. The cost is IDR 150,000 per person. A floating breakfast is also available for an additional fee of IDR 150,000 per tray."
         },
         {
           question: "Is there a daily housekeeping service?",
@@ -295,7 +304,7 @@ const translations = {
         },
         {
           question: "What is the maximum occupancy for this villa?",
-          answer: "This villa comfortably accommodates up to 4 guests. However, it can host a maximum of 6 guests, with the 5th and 6th guests considered as extra. An additional fee of IDR 340,000/night/person applies. If you need extra beds, please let us know."
+          answer: "With its two very spacious bedrooms, this villa comfortably accommodates 4 guests."
         },
         {
           question: "What services are included in the villa price?",
@@ -307,7 +316,7 @@ const translations = {
         },
         {
           question: "How can I arrange meals during my stay?",
-          answer: "For lunch and dinner, we offer enhanced services, including set menus, live BBQ cooking, ethnic cuisines, and even fine dining prepared by a Michelin-star chef, all cooked in the villa. Prices start at IDR 450,000 per person. The villa also features a fully equipped kitchen, allowing you to prepare your own meals if you prefer."
+          answer: "For lunch and dinner, we offer various services, including set menus, live BBQ cooking, ethnic cuisines, and even fine dining prepared by a chef, all in the villa. Prices start at IDR 450,000 per person. The villa also features a fully equipped kitchen, allowing you to prepare your own meals if you prefer."
         }
       ],
       contactText: "Do you have other questions?",
@@ -316,7 +325,7 @@ const translations = {
     // About
     about: {
       title: "About the Villa",
-      intro: "Welcome to Villa Orea, a stylish 2-bedroom retreat designed as a true cocoon of tranquility, perfect for couples, small families, or close friends in vibrant Seminyak. At the entrance of the villa, a smart door awaits, guests simply enter the provided code and press the bell icon to unlock your peaceful retreat.",
+      intro: "Welcome to Villa Orea, an elegant 2-bedroom villa designed as a true cocoon of tranquility, perfect for couples and close friends in a quiet area close to the vibrant life of Seminyak. At the entrance, a smart door awaits: simply enter the provided code and press the bell icon to unlock your haven of peace.",
       details: "The villa features 2 luxurious bedrooms with king-size beds, Smart TVs with Netflix and YouTube Premium, and en-suite bathrooms. The semi-open living space includes a Smart TV lounge, a cozy bar corner, and a fully equipped kitchen. Outside, enjoy the private pool and tropical garden, just minutes from Seminyak's bustling cafés, beaches, and shops.",
       button3d: "Full Immersion"
     },
@@ -351,7 +360,7 @@ const translations = {
       },
       garden: {
         name: "Tropical Garden",
-        description: "A lush tropical garden with a palm tree and hanging swing, creating a peaceful and relaxing atmosphere."
+        description: "A lush tropical garden with a swing, creating a peaceful and relaxing atmosphere."
       },
       beds: {
         name: "King-Size Beds",
@@ -359,7 +368,7 @@ const translations = {
       },
       location: {
         name: "Ideal Location",
-        description: "Located just minutes from Seminyak's bustling cafés, beaches, and shops, to fully enjoy your stay in Bali."
+        description: "Located in a very quiet area and just minutes from Seminyak's bustling cafés, beaches, and shops, to fully enjoy your stay in Bali."
       }
     },
     // Pricing
@@ -402,11 +411,11 @@ const translations = {
         title: "Contact Information",
         email: {
           label: "Email",
-          value: "booking@villaorea.com"
+          value: "villaoreabali@gmail.com"
         },
         whatsapp: {
           label: "WhatsApp",
-          value: "+62 812 3456 7890"
+          value: "+41 79 458 35 41"
         },
         address: {
           label: "Address",
@@ -424,28 +433,41 @@ const translations = {
       followUs: "Follow us",
       bookOn: "Book on",
       contactTitle: "Contact",
-      legalTitle: "Legal",
       designedWith: "Designed with",
       forLuxury: "for luxury experiences"
+    },
+    floatingButton: {
+      bookNow: "Book Now",
+      book: "Book"
     },
     // Testimonials
     testimonials: {
       title: "Reviews",
-      intro: "What our customers say about their experience.",
+      intro: "What our guests say about their experience.",
       customer1: {
-        name: "Sophie and Pierre",
-        location: "Paris, France",
-        text: "Villa Orea exceeded all our expectations. A perfect haven of peace after a day of exploring Bali. The staff was incredibly attentive and the villa is beautifully decorated."
+        name: "Shawn",
+        location: "★★★★★ August 2025",
+        text: "We had an amazing stay at this villa! 🌴✨ The place was just as beautiful as the photos—spacious, clean, and very well-maintained. The private pool was perfect for unwinding after exploring Bali. The location was super convenient, close to cafes, restaurants, and beaches, yet quiet enough to enjoy peace and privacy. The host was warm, responsive, and made sure we felt at home throughout our stay. Highly recommend this villa for anyone looking for a comfortable and memorable experience in Bali! 🌺🏝️"
       },
       customer2: {
-        name: "James and Emma",
-        location: "London, United Kingdom",
-        text: "Amazing stay at Villa Orea. The location is ideal, just minutes from the best beaches and restaurants in Seminyak. The private pool was our favorite refuge after hot days."
+        name: "Craig",
+        location: "★★★★★ June 2025",
+        text: "Was amazing"
       },
       customer3: {
-        name: "Alessandro and Maria",
-        location: "Rome, Italy",
-        text: "A little paradise in Seminyak. The villa is as beautiful as in the photos, very clean and the welcome was perfect. A memorable stay that we recommend without hesitation!"
+        name: "Abdullah",
+        location: "★★★★★ September 2025",
+        text: "Everything was wonderful, the host was really good, thank you ❤️❤️❤️❤️"
+      },
+      customer4: {
+        name: "Ashna",
+        location: "★★★★★ June 2025",
+        text: "Place was amazing, extremely clean with a friendly host. It is a bit far from the center but the villa is amazing."
+      },
+      customer5: {
+        name: "Khalid",
+        location: "★★★★★ August 2025",
+        text: "The accommodation is comfortable and pleasant"
       }
     },
     // Gallery
@@ -518,7 +540,7 @@ const translations = {
     // Hero
     hero: {
       title: "Villa Orea",
-      subtitle: "苍古宁静的豪华度假屋",
+      subtitle: "苍古的豪华住宿",
       description: "在巴厘岛中心发现宁静的避风港",
       cta: "立即预订",
       tour3d: "完全沉浸"
@@ -526,8 +548,8 @@ const translations = {
     // About
     about: {
       title: "关于别墅",
-      intro: "欢迎来到 Villa Orea，这是一栋时尚的两卧室别墅，专为打造宁静舒适的私密空间而设计，非常适合情侣、小家庭或亲密朋友，坐落于活力四射的苍古（Seminyak）。进入别墅，您将通过一扇智能门，只需输入提供的密码并点击铃铛图标即可开启通往静谧假期的旅程。",
-      details: "别墅内的两间卧室以简约舒适为设计理念，配备特大床、智能电视（支持Netflix与YouTube Premium）、空调及宽敞的储物空间。半开放式起居空间设有一个智能电视区、一个温馨吧台，以及一个设备齐全的厨房。在外面，您可以享受私人泳池和热带花园，距离苍古热闹的咖啡馆、海滩和商店仅几分钟路程。",
+      intro: "欢迎来到 Villa Orea，这是一栋优雅的两卧室别墅，专为打造宁静舒适的私密空间而设计，非常适合情侣和亲密朋友，坐落于宁静的区域，靠近苍古（Seminyak）的繁华生活。进入别墅时，一扇智能门等待着您：只需输入提供的密码并点击铃铛图标即可解锁您的宁静港湾。",
+      details: "别墅内的两间卧室以简约舒适为设计理念，配备特大床、智能电视（支持Netflix与YouTube Premium）和套间浴室。半开放式起居空间设有一个智能电视区、一个温馨吧台，以及一个设备齐全的厨房。在外面，您可以享受私人泳池和热带花园，距离苍古热闹的咖啡馆、海滩和商店仅几分钟路程。",
       button3d: "完全沉浸"
     },
     // Amenities
@@ -561,7 +583,7 @@ const translations = {
       },
       garden: {
         name: "热带花园",
-        description: "郁郁葱葱的热带花园，配有棕榈树和悬挂秋千，营造宁静放松的氛围。"
+        description: "郁郁葱葱的热带花园，配有秋千，营造宁静放松的氛围。"
       },
       beds: {
         name: "特大床",
@@ -569,7 +591,7 @@ const translations = {
       },
       location: {
         name: "理想位置",
-        description: "位于距离苍古热闹的咖啡馆、海滩和商店仅几分钟路程，充分享受您的巴厘岛之旅。"
+        description: "位于非常安静的区域，距离苍古热闹的咖啡馆、海滩和商店仅几分钟路程，充分享受您的巴厘岛之旅。"
       }
     },
     // Pricing
@@ -653,11 +675,11 @@ const translations = {
         title: "联系信息",
         email: {
           label: "电子邮件",
-          value: "booking@villaorea.com"
+          value: "villaoreabali@gmail.com"
         },
         whatsapp: {
           label: "WhatsApp",
-          value: "+62 812 3456 7890"
+          value: "+41 79 458 35 41"
         },
         address: {
           label: "地址",
@@ -678,6 +700,10 @@ const translations = {
       legalTitle: "法律信息",
       designedWith: "精心设计",
       forLuxury: "为奢华体验而生"
+    },
+    floatingButton: {
+      bookNow: "立即预订",
+      book: "预订"
     },
     // Testimonials
     testimonials: {
@@ -769,7 +795,7 @@ const translations = {
     // Hero
     hero: {
       title: "Villa Orea",
-      subtitle: "Un retiro lujoso en Seminyak",
+      subtitle: "Una estancia de lujo en Seminyak",
       description: "Descubre un refugio pacífico en el corazón de Bali",
       cta: "Reservar ahora",
       tour3d: "Tour 3D"
@@ -777,7 +803,7 @@ const translations = {
     // About
     about: {
       title: "Acerca de la Villa",
-      intro: "Bienvenido a Villa Orea, un elegante retiro de 2 habitaciones diseñado como un verdadero capullo de tranquilidad, perfecto para parejas, pequeñas familias o amigos cercanos en el vibrante Seminyak. En la entrada de la villa, una puerta inteligente espera, los huéspedes simplemente ingresan el código proporcionado y presionan el ícono de campana para desbloquear la entrada a su retiro pacífico.",
+      intro: "Bienvenido a Villa Orea, una elegante villa de 2 habitaciones diseñada como un verdadero capullo de tranquilidad, perfecta para parejas y amigos cercanos en una zona tranquila cerca de la vibrante vida de Seminyak. En la entrada, una puerta inteligente le espera: simplemente ingrese el código proporcionado y presione el ícono de campana para desbloquear su refugio de paz.",
       details: "La villa cuenta con 2 lujosas habitaciones con camas king-size, Smart TVs con Netflix y YouTube Premium, y baños en suite. El espacio de estar semi-abierto incluye una sala con Smart TV, un acogedor rincón de bar y una cocina totalmente equipada. Afuera, disfruta de la piscina privada y el jardín tropical, a solo minutos de los bulliciosos cafés, playas y tiendas de Seminyak.",
       button3d: "Tour 3D"
     },
@@ -812,7 +838,7 @@ const translations = {
       },
       garden: {
         name: "Jardín tropical",
-        description: "Un exuberante jardín tropical con una palmera y un columpio colgante, creando una atmósfera pacífica y relajante."
+        description: "Un exuberante jardín tropical con un columpio, creando una atmósfera pacífica y relajante."
       },
       beds: {
         name: "Camas King-Size",
@@ -820,7 +846,7 @@ const translations = {
       },
       location: {
         name: "Ubicación ideal",
-        description: "Ubicada a solo minutos de los bulliciosos cafés, playas y tiendas de Seminyak, para disfrutar plenamente de su estancia en Bali."
+        description: "Ubicada en una zona muy tranquila y a solo minutos de los bulliciosos cafés, playas y tiendas de Seminyak, para disfrutar plenamente de su estancia en Bali."
       }
     },
     // Pricing
@@ -904,11 +930,11 @@ const translations = {
         title: "Información de contacto",
         email: {
           label: "Correo electrónico",
-          value: "booking@villaorea.com"
+          value: "villaoreabali@gmail.com"
         },
         whatsapp: {
           label: "WhatsApp",
-          value: "+62 812 3456 7890"
+          value: "+41 79 458 35 41"
         },
         address: {
           label: "Dirección",
@@ -929,6 +955,10 @@ const translations = {
       legalTitle: "Legal",
       designedWith: "Diseñado con",
       forLuxury: "para experiencias de lujo"
+    },
+    floatingButton: {
+      bookNow: "Reservar ahora",
+      book: "Reservar"
     },
     // Testimonials
     testimonials: {
@@ -1155,11 +1185,11 @@ const translations = {
         title: "Informasi Kontak",
         email: {
           label: "Surel",
-          value: "booking@villaorea.com"
+          value: "villaoreabali@gmail.com"
         },
         whatsapp: {
           label: "WhatsApp",
-          value: "+62 812 3456 7890"
+          value: "+41 79 458 35 41"
         },
         address: {
           label: "Alamat",
@@ -1180,6 +1210,10 @@ const translations = {
       legalTitle: "Hukum",
       designedWith: "Dirancang dengan",
       forLuxury: "untuk pengalaman mewah"
+    },
+    floatingButton: {
+      bookNow: "Pesan Sekarang",
+      book: "Pesan"
     },
     // Testimonials
     testimonials: {
@@ -1406,11 +1440,11 @@ const translations = {
         title: "Kontaktinformationen",
         email: {
           label: "E-Mail",
-          value: "booking@villaorea.com"
+          value: "villaoreabali@gmail.com"
         },
         whatsapp: {
           label: "WhatsApp",
-          value: "+62 812 3456 7890"
+          value: "+41 79 458 35 41"
         },
         address: {
           label: "Adresse",
@@ -1431,6 +1465,10 @@ const translations = {
       legalTitle: "Rechtliches",
       designedWith: "Gestaltet mit",
       forLuxury: "für Luxuserlebnisse"
+    },
+    floatingButton: {
+      bookNow: "Jetzt buchen",
+      book: "Buchen"
     },
     // Testimonials
     testimonials: {
@@ -1657,11 +1695,11 @@ const translations = {
         title: "Контактная информация",
         email: {
           label: "Электронная почта",
-          value: "booking@villaorea.com"
+          value: "villaoreabali@gmail.com"
         },
         whatsapp: {
           label: "WhatsApp",
-          value: "+62 812 3456 7890"
+          value: "+41 79 458 35 41"
         },
         address: {
           label: "Адрес",
@@ -1682,6 +1720,10 @@ const translations = {
       legalTitle: "Юридическая информация",
       designedWith: "Разработано с",
       forLuxury: "для роскошных впечатлений"
+    },
+    floatingButton: {
+      bookNow: "Забронировать",
+      book: "Бронировать"
     },
     // Testimonials
     testimonials: {

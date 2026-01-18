@@ -22,7 +22,7 @@ const Pricing = () => {
     {
       name: 'Airbnb',
       logo: airbnbLogo,
-      url: 'https://www.airbnb.com/rooms/1234567', // À remplacer par votre vrai lien Airbnb
+      url: 'https://www.airbnb.com/l/7icncLgD', // À remplacer par votre vrai lien Airbnb
       alt: 'Airbnb Logo'
     },
     {

@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import MatterportModal from './components/MatterportModal';
+import FloatingBookingButton from './components/FloatingBookingButton';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 const App = () => {
@@ -96,10 +97,13 @@ const App = () => {
         </main>
 
         <Footer />
+        <FloatingBookingButton />
         
-        {modalOpen && (
-          <MatterportModal isOpen={modalOpen} onClose={closeModal} />
-        )}
+        <MatterportModal 
+          isOpen={modalOpen} 
+          onClose={closeModal} 
+          onFullscreenChange={handleFullscreenChange}
+        />
       </div>
     </LanguageProvider>
   );

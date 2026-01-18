@@ -241,7 +241,9 @@ const Gallery = () => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [preloadedImages, setPreloadedImages] = useState(new Set());
   const galleryRef = useRef(null);
+  const preloadCacheRef = useRef(new Map());
   const { currentLanguage } = useLanguage();
   
   // Récupération des traductions en fonction de la langue actuelle
@@ -249,103 +251,82 @@ const Gallery = () => {
 
   // Créer une nouvelle liste d'images avec les descriptions traduites
   const translatedImages = useMemo(() => {
-    return images.map(image => ({
+    return images.map((image, index) => ({
       ...image,
-      alt: t.imageDescriptions && t.imageDescriptions[image.id] ? t.imageDescriptions[image.id] : image.alt
+      alt: t.imageDescriptions?.[index] || image.alt
     }));
-  }, [images, t.imageDescriptions]);
+  }, [images, t]);
 
-  // Assurer que la barre de défilement est toujours verte
+  // Gestion de l'affichage et du redimensionnement
   useEffect(() => {
-    const container = document.getElementById('mobile-gallery-container');
-    if (container) {
-      // Appliquer les styles directement
-      container.style.scrollbarWidth = 'thin';
-      container.style.scrollbarColor = '#04593F rgba(230, 198, 122, 0.1)';
-      
-      // Ajouter un style spécifique pour webkit (Chrome, Safari)
-      const styleElement = document.createElement('style');
-      styleElement.textContent = `
-        #mobile-gallery-container::-webkit-scrollbar {
-          height: 6px !important;
-        }
-        #mobile-gallery-container::-webkit-scrollbar-thumb {
-          background: #04593F !important;
-          border-radius: 4px;
-        }
-        #mobile-gallery-container::-webkit-scrollbar-track {
-          background: rgba(230, 198, 122, 0.1);
-        }
-      `;
-      document.head.appendChild(styleElement);
-      
-      return () => {
-        document.head.removeChild(styleElement);
-      };
-    }
-  }, []);
-
-  // Écouter les événements de défilement pour les points de navigation
-  useEffect(() => {
-    const container = document.getElementById('mobile-gallery-container');
-    
-    if (!container) return;
-
     const handleScroll = () => {
-      const scrollPosition = container.scrollLeft;
-      // Calculer la largeur réelle d'un élément (image + espacement)
-      const items = container.querySelectorAll('[class*="snap-center"]');
-      if (items.length === 0) return;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
       
-      const itemWidth = items[0].offsetWidth + 12; // 12px est l'espacement entre les images
-      const currentIndex = Math.round(scrollPosition / itemWidth);
-      
-      // S'assurer que l'index est valide
-      if (currentIndex >= 0 && currentIndex < images.length) {
-        setActiveSlideIndex(currentIndex);
+      // Ne charger plus d'images que si on est proche du bas de la section visible
+      if (galleryRef.current) {
+        const galleryTop = galleryRef.current.offsetTop;
+        const galleryHeight = galleryRef.current.offsetHeight;
+        
+        if (scrollTop + windowHeight > galleryTop + galleryHeight - 200) {
+          if (visibleImages < images.length) {
+            setVisibleImages(prev => Math.min(prev + 4, images.length));
+          }
+        }
       }
     };
 
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, [images.length]);
-
-  // Vérifier la taille de l'écran
-  useEffect(() => {
     const checkScreenSize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
+      const isSmall = window.innerWidth < 768;
+      setIsSmallScreen(isSmall);
     };
 
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('resize', checkScreenSize);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [visibleImages, images.length]);
 
   const loadMoreImages = () => {
-    setVisibleImages((prev) => Math.min(prev + 8, images.length));
+    setVisibleImages(prev => Math.min(prev + 8, images.length));
   };
 
   const openModal = (index) => {
     setCurrentIndex(index);
     setIsModalOpen(true);
+    setDirection(0);
     document.body.style.overflow = 'hidden';
-    
-    // Précharger les images adjacentes
-    preloadAdjacentImages(index);
+    // Précharger agressivement les images adjacentes
+    preloadAdjacentImages(index, 5);
   };
 
-  // Fonction pour précharger les images adjacentes
-  const preloadAdjacentImages = (index) => {
-    // Précharger jusqu'à 2 images avant et après
-    for (let i = Math.max(0, index - 2); i <= Math.min(images.length - 1, index + 2); i++) {
-      if (i !== index) { // Ne pas précharger l'image actuelle
-        const img = new Image();
-        img.src = images[i].src;
+  // Fonction optimisée pour précharger les images adjacentes avec cache
+  const preloadAdjacentImages = (index, range = 3) => {
+    const imagesToPreload = [];
+    
+    // Calculer la plage d'images à précharger
+    for (let i = Math.max(0, index - range); i <= Math.min(images.length - 1, index + range); i++) {
+      if (!preloadedImages.has(i) && !preloadCacheRef.current.has(i)) {
+        imagesToPreload.push(i);
       }
     }
+
+    // Précharger les images en parallèle
+    imagesToPreload.forEach(i => {
+      if (!preloadCacheRef.current.has(i)) {
+        const img = new Image();
+        img.onload = () => {
+          setPreloadedImages(prev => new Set([...prev, i]));
+          preloadCacheRef.current.set(i, true);
+        };
+        img.src = images[i].src;
+        preloadCacheRef.current.set(i, 'loading');
+      }
+    });
   };
 
   const closeModal = () => {
@@ -357,14 +338,16 @@ const Gallery = () => {
     setDirection(-1);
     const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-    preloadAdjacentImages(newIndex);
+    // Précharger immédiatement les images adjacentes
+    preloadAdjacentImages(newIndex, 3);
   };
 
   const handleNext = () => {
     setDirection(1);
     const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-    preloadAdjacentImages(newIndex);
+    // Précharger immédiatement les images adjacentes
+    preloadAdjacentImages(newIndex, 3);
   };
 
   const handleTouchStart = (e) => {
@@ -450,46 +433,34 @@ const Gallery = () => {
     };
   }, [isModalOpen]);
 
-  // Animation pour les slides avec timing amélioré
+  // Animations optimisées pour une transition plus rapide
   const slideVariants = {
     enter: (direction) => ({
       x: direction > 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 1, // Conserver l'échelle pendant la transition
     }),
     center: {
       x: 0,
       opacity: 1,
-      scale: 1,
     },
     exit: (direction) => ({
       x: direction > 0 ? '-100%' : '100%',
       opacity: 0,
-      scale: 1, // Conserver l'échelle pendant la transition
     }),
   };
 
-  // Timing de transition amélioré
+  // Timing de transition ultra-rapide
   const slideTransition = {
-    x: { type: "spring", stiffness: 300, damping: 30, bounce: 0 },
-    opacity: { duration: 0.2 },
-    scale: { duration: 0 } // Pas de transition sur l'échelle
+    type: "tween",
+    ease: "easeInOut",
+    duration: 0.15, // Réduit de 0.3 à 0.15 secondes
   };
 
-  // Précharger les images adjacentes lors de l'ouverture de la modale
+  // Précharger toutes les images lors de l'ouverture de la modale
   useEffect(() => {
     if (isModalOpen) {
-      // Précharger l'image précédente
-      if (currentIndex > 0) {
-        const prevImg = new Image();
-        prevImg.src = images[currentIndex - 1].src;
-      }
-      
-      // Précharger l'image suivante
-      if (currentIndex < images.length - 1) {
-        const nextImg = new Image();
-        nextImg.src = images[currentIndex + 1].src;
-      }
+      // Précharger une large gamme d'images pour une navigation fluide
+      preloadAdjacentImages(currentIndex, 8);
     }
   }, [isModalOpen, currentIndex, images]);
 
@@ -537,15 +508,14 @@ const Gallery = () => {
         e.preventDefault();
         return false;
       }
-      
-      return true;
     };
-    
-    container.addEventListener('scroll', handleScrollEnd);
+
+    // Ajouter les écouteurs d'événements
+    container.addEventListener('scrollend', handleScrollEnd);
     container.addEventListener('wheel', preventOverscroll, { passive: false });
-    
+
     return () => {
-      container.removeEventListener('scroll', handleScrollEnd);
+      container.removeEventListener('scrollend', handleScrollEnd);
       container.removeEventListener('wheel', preventOverscroll);
     };
   }, []);
@@ -709,7 +679,7 @@ const Gallery = () => {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <AnimatePresence initial={false} custom={direction} mode="wait">
+              <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                   key={currentIndex}
                   custom={direction}
@@ -718,7 +688,7 @@ const Gallery = () => {
                   animate="center"
                   exit="exit"
                   transition={slideTransition}
-                  className="w-full h-full flex flex-col items-center justify-center"
+                  className="w-full h-full flex flex-col items-center justify-center absolute"
                 >
                   <div className="relative w-full h-full flex items-center justify-center p-1 md:p-0">
                     <div className={`${isSmallScreen ? 'h-[60vh]' : 'h-[70vh]'} w-full flex items-center justify-center`}>
@@ -739,10 +709,22 @@ const Gallery = () => {
                 </motion.div>
               </AnimatePresence>
               
-              {/* Préchargement des images adjacentes */}
+              {/* Préchargement agressif des images adjacentes */}
               <div className="hidden">
-                {currentIndex > 0 && <img src={translatedImages[currentIndex - 1].src} alt="Préchargement" />}
-                {currentIndex < images.length - 1 && <img src={translatedImages[currentIndex + 1].src} alt="Préchargement" />}
+                {/* Précharger 3 images avant et après l'image actuelle */}
+                {Array.from({ length: 7 }, (_, i) => {
+                  const imageIndex = currentIndex - 3 + i;
+                  if (imageIndex >= 0 && imageIndex < images.length && imageIndex !== currentIndex) {
+                    return (
+                      <img 
+                        key={`preload-${imageIndex}`}
+                        src={translatedImages[imageIndex].src} 
+                        alt="Préchargement" 
+                      />
+                    );
+                  }
+                  return null;
+                })}
               </div>
             </div>
           </div>
