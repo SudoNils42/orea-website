@@ -32,8 +32,8 @@ export const useLanguage = () => useContext(LanguageContext);
 
 // Fournisseur du contexte de langue
 export const LanguageProvider = ({ children }) => {
-  // État pour la langue actuelle (par défaut: français)
-  const [currentLanguage, setCurrentLanguage] = useState('fr');
+  // État pour la langue actuelle (par défaut: anglais)
+  const [currentLanguage, setCurrentLanguage] = useState('en');
 
   // Charger la langue enregistrée dans localStorage au chargement
   useEffect(() => {

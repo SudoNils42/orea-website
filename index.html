@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="/src/assets/logo/icononly_transparent_nobuffer.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Réserver Villa Orea Bali - Villa de Luxe à Seminyak</title>
-  <meta name="description" content="Découvrez Villa Orea, une villa de luxe à Seminyak, Bali. Profitez d'une expérience unique avec deux chambres spacieuses, piscine privée, cuisine ouverte, magnifique salon et équipements premium." />
+  
+  <!-- SEO Meta Tags -->
+  <title>Book Villa Orea Bali - Luxury Villa in Seminyak</title>
+  <meta name="description" content="Discover Villa Orea, a luxury villa in Seminyak, Bali. Enjoy a unique experience with two spacious bedrooms, private pool, open kitchen, beautiful living room and premium amenities." />
+  <meta name="keywords" content="villa bali, luxury villa seminyak, villa rental bali, private pool villa, vacation rental bali, luxury accommodation seminyak, villa orea bali, seminyak villa, bali holiday villa, indonesia villa rental" />
+  <meta name="author" content="Villa Orea" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.villaoreabali.com/" />
+  
+  <!-- Hreflang for multilingual -->
+  <link rel="alternate" hreflang="en" href="https://www.villaoreabali.com/" />
+  <link rel="alternate" hreflang="fr" href="https://www.villaoreabali.com/?lang=fr" />
+  <link rel="alternate" hreflang="es" href="https://www.villaoreabali.com/?lang=es" />
+  <link rel="alternate" hreflang="zh" href="https://www.villaoreabali.com/?lang=zh" />
+  <link rel="alternate" hreflang="id" href="https://www.villaoreabali.com/?lang=id" />
+  <link rel="alternate" hreflang="de" href="https://www.villaoreabali.com/?lang=de" />
+  <link rel="alternate" hreflang="ru" href="https://www.villaoreabali.com/?lang=ru" />
+  <link rel="alternate" hreflang="ar" href="https://www.villaoreabali.com/?lang=ar" />
+  <link rel="alternate" hreflang="x-default" href="https://www.villaoreabali.com/" />
   
   <!-- Préchargement des polices -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-  <!-- <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            'pure-white': '#ffffff',
-            'deep-black': '#000000',
-            'emerald': '#04593F',
-            'pale-gold': '#E6C67A',
-          },
-          fontFamily: {
-            'inter': ['Inter', 'sans-serif'],
-            'lora': ['Lora', 'serif'],
-          },
-          backdropBlur: {
-            'glass': '10px',
-          }
-        }
-      }
-    }
-  </script> -->
   
   <!-- AOS Animation Library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
@@ -44,39 +36,53 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.villaoreabali.com/" />
-  <meta property="og:title" content="Réserver Villa Orea Bali - Villa de Luxe à Seminyak" />
-  <meta property="og:description" content="Découvrez Villa Orea, une villa de luxe à Seminyak, Bali. Profitez d'une expérience unique avec deux chambres spacieuses, piscine privée, cuisine ouverte, magnifique salon et équipements premium." />
-  <meta property="og:image" content="/src/assets/villa-bali.jpg" />
+  <meta property="og:title" content="Book Villa Orea Bali - Luxury Villa in Seminyak" />
+  <meta property="og:description" content="Discover Villa Orea, a luxury villa in Seminyak, Bali. Enjoy a unique experience with two spacious bedrooms, private pool, open kitchen, beautiful living room and premium amenities." />
+  <meta property="og:image" content="https://www.villaoreabali.com/src/assets/villa-bali.jpg" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://www.villaoreabali.com/" />
-  <meta property="twitter:title" content="Réserver Villa Orea Bali - Villa de Luxe à Seminyak" />
-  <meta property="twitter:description" content="Découvrez Villa Orea, une villa de luxe à Seminyak, Bali. Profitez d'une expérience unique avec deux chambres spacieuses, piscine privée, cuisine ouverte, magnifique salon et équipements premium." />
-  <meta property="twitter:image" content="/src/assets/villa-bali.jpg" />
+  <meta property="twitter:title" content="Book Villa Orea Bali - Luxury Villa in Seminyak" />
+  <meta property="twitter:description" content="Discover Villa Orea, a luxury villa in Seminyak, Bali. Enjoy a unique experience with two spacious bedrooms, private pool, open kitchen, beautiful living room and premium amenities." />
+  <meta property="twitter:image" content="https://www.villaoreabali.com/src/assets/villa-bali.jpg" />
 
-  <!-- Schema.org markup -->
+  <!-- Schema.org markup for SEO -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LodgingBusiness",
-      "name": "Villa de Luxe à Bali",
-      "description": "Villa de luxe à Bali avec 3 chambres, piscine privée et vue tropicale.",
+      "@type": "Hotel",
+      "name": "Villa Orea Bali",
+      "description": "Luxury villa in Seminyak, Bali with two spacious bedrooms, private pool, open kitchen, beautiful living room and premium amenities.",
+      "image": ["https://www.villaoreabali.com/src/assets/villa-bali.jpg"],
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Bali",
-        "addressCountry": "ID"
+        "addressLocality": "Seminyak",
+        "addressRegion": "Bali",
+        "addressCountry": "Indonesia
       },
-      "image": "/src/assets/villa-bali.jpg",
-      "priceRange": "$$$",
+      "email": "villaoreabali@gmail.com",
+      "url": "https://www.villaoreabali.com",
+      "priceRange": "$$",
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "numberOfRooms": "2",
       "amenityFeature": [
-        { "@type": "LocationFeatureSpecification", "name": "Wi-Fi" },
-        { "@type": "LocationFeatureSpecification", "name": "Piscine privée" },
-        { "@type": "LocationFeatureSpecification", "name": "Climatisation" },
-        { "@type": "LocationFeatureSpecification", "name": "Cuisine équipée" },
-        { "@type": "LocationFeatureSpecification", "name": "Service de ménage" },
-        { "@type": "LocationFeatureSpecification", "name": "Vue tropicale" }
-      ]
+        { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Private Pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Fully Equipped Kitchen", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Daily Housekeeping", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Tropical Garden View", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Smart TV Netflix", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Washing Machine", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Outdoor Dining Area", "value": true }
+      ],
+      "checkinTime": "14:00",
+      "checkoutTime": "11:00"
     }
   </script>
 </head>
@@ -84,4 +90,4 @@
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
-</html> 
+</html>

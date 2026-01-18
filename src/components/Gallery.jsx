@@ -3,305 +3,62 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
 
-// Import des images de la villa
-import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
-import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06270.jpg';
-import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06266.jpg';
-import image4 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06256.jpg';
-import image5 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06251.jpg';
-import image6 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06244.jpg';
-import image7 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06240.jpg';
-import image8 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06225.jpg';
-import image9 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06219.jpg';
-import image10 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06206.jpg';
-import image11 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06191.jpg';
-import image12 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06168.jpg';
-import image13 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06164.jpg';
-import image14 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06156.jpg';
-import image15 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06150.jpg';
-import image16 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06146.jpg';
-import image17 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06138.jpg';
-import image18 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06132.jpg';
-import image19 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06127.jpg';
-import image20 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06120.jpg';
-import image21 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06114.jpg';
-import image22 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06104.jpg';
-import image23 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06087.jpg';
-import image24 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06076.jpg';
-import image25 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06070.jpg';
-import image26 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06066.jpg';
-import image27 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06045.jpg';
-import image28 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06035.jpg';
-import image29 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06029.jpg';
-import image30 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06021.jpg';
-import image31 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05989.jpg';
-import image32 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05984.jpg';
-import image33 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05958.jpg';
-import image34 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05955.jpg';
-import image35 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05950.jpg';
-import image36 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05945.jpg';
-import image37 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC05932.jpg';
-import image38 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/DSCF1793 (1).jpg';
-import image39 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_3947-HDR.jpg';
-import image40 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_3949-HDR-2.jpg';
-import image41 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_3970.jpg';
-import image42 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4031-HDR.jpg';
-import image43 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4044-HDR.jpg';
-import image44 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4048-HDRE.jpg';
-import image45 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4050-HDR-Edit.jpg';
-import image46 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_5858-HDR (1).jpg';
-import image47 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_5866 (1).jpg';
-import image48 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_5873-HDR (1).jpg';
-import image49 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_5878-HDR (1).jpg';
-
-// Toutes les images de la villa
-const VILLA_IMAGES = [
-  {
-    id: 1,
-    src: image1,
-    alt: 'Vue extérieure de la villa'
-  },
-  {
-    id: 2,
-    src: image2,
-    alt: 'Piscine à débordement'
-  },
-  {
-    id: 3,
-    src: image3,
-    alt: 'Espace salon extérieur'
-  },
-  {
-    id: 4,
-    src: image4,
-    alt: 'Terrasse avec vue'
-  },
-  {
-    id: 5,
-    src: image5,
-    alt: 'Chambre principale'
-  },
-  {
-    id: 6,
-    src: image6,
-    alt: 'Salle de bain luxueuse'
-  },
-  {
-    id: 7,
-    src: image7,
-    alt: 'Coin détente'
-  },
-  {
-    id: 8,
-    src: image8,
-    alt: 'Cuisine équipée'
-  },
-  {
-    id: 9,
-    src: image9,
-    alt: 'Salle à manger'
-  },
-  {
-    id: 10,
-    src: image10,
-    alt: 'Salon avec vue panoramique'
-  },
-  {
-    id: 11,
-    src: image11,
-    alt: 'Chambre d\'amis'
-  },
-  {
-    id: 12,
-    src: image12,
-    alt: 'Espace de travail'
-  },
-  {
-    id: 13,
-    src: image13,
-    alt: 'Entrée de la villa'
-  },
-  {
-    id: 14,
-    src: image14,
-    alt: 'Jardin tropical'
-  },
-  {
-    id: 15,
-    src: image15,
-    alt: 'Coin repas extérieur'
-  },
-  {
-    id: 16,
-    src: image16,
-    alt: 'Vue sur la piscine'
-  },
-  {
-    id: 17,
-    src: image17,
-    alt: 'Salle de bain en pierre'
-  },
-  {
-    id: 18,
-    src: image18,
-    alt: 'Coin lecture'
-  },
-  {
-    id: 19,
-    src: image19,
-    alt: 'Vue aérienne'
-  },
-  {
-    id: 20,
-    src: image20,
-    alt: 'Accès à la plage'
-  },
-  {
-    id: 21,
-    src: image21,
-    alt: 'Espace yoga'
-  },
-  {
-    id: 22,
-    src: image22,
-    alt: 'Bar à cocktails'
-  },
-  {
-    id: 23,
-    src: image23,
-    alt: 'Allée d\'entrée'
-  },
-  {
-    id: 24,
-    src: image24,
-    alt: 'Douche extérieure'
-  },
-  {
-    id: 25,
-    src: image25,
-    alt: 'Coin feu extérieur'
-  },
-  {
-    id: 26,
-    src: image26,
-    alt: 'Vue sur la piscine depuis la terrasse'
-  },
-  {
-    id: 27,
-    src: image27,
-    alt: 'Entrée principale de la villa'
-  },
-  {
-    id: 28,
-    src: image28,
-    alt: 'Espace de travail avec vue'
-  },
-  {
-    id: 29,
-    src: image29,
-    alt: 'Espace détente au bord de la piscine'
-  },
-  {
-    id: 30,
-    src: image30,
-    alt: 'Salon extérieur avec vue panoramique'
-  },
-  {
-    id: 31,
-    src: image31,
-    alt: 'Détails architecturaux'
-  },
-  {
-    id: 32,
-    src: image32,
-    alt: 'Coin repas extérieur ombragé'
-  },
-  {
-    id: 33,
-    src: image33,
-    alt: 'Terrasse ombragée'
-  },
-  {
-    id: 34,
-    src: image34,
-    alt: 'Espace extérieur avec vue sur la nature'
-  },
-  {
-    id: 35,
-    src: image35,
-    alt: 'Éclairage nocturne de la piscine'
-  },
-  {
-    id: 36,
-    src: image36,
-    alt: 'Jardin tropical aménagé'
-  },
-  {
-    id: 37,
-    src: image37,
-    alt: 'Vue sur la terrasse et la piscine'
-  },
-  {
-    id: 38,
-    src: image38,
-    alt: 'Salle de bain'
-  },
-  {
-    id: 39,
-    src: image39,
-    alt: 'Salle de bain avec douche'
-  },
-  {
-    id: 40,
-    src: image40,
-    alt: 'Baignoire'
-  },
-  {
-    id: 41,
-    src: image41,
-    alt: 'Baignoire spa'
-  },
-  {
-    id: 42,
-    src: image42,
-    alt: 'Salon avec piscine'
-  },
-  {
-    id: 43,
-    src: image43,
-    alt: 'Espace de vie avec piscine'
-  },
-  {
-    id: 44,
-    src: image44,
-    alt: 'Salon et piscine'
-  },
-  {
-    id: 45,
-    src: image45,
-    alt: 'Villa avec piscine'
-  },
-  {
-    id: 46,
-    src: image46,
-    alt: 'Chambre principale'
-  },
-  {
-    id: 47,
-    src: image47,
-    alt: 'Chambre'
-  },
-  {
-    id: 48,
-    src: image48,
-    alt: 'Chambre'
-  },
-  {
-    id: 49,
-    src: image49,
-    alt: 'Chambre'
-  }
+const imageData = [
+  { id: 1, path: 'DSC06273.jpg', folder: '2. RESIZE', alt: 'Vue extérieure de la villa' },
+  { id: 2, path: 'DSC06270.jpg', folder: '2. RESIZE', alt: 'Piscine à débordement' },
+  { id: 3, path: 'DSC06266.jpg', folder: '2. RESIZE', alt: 'Espace salon extérieur' },
+  { id: 4, path: 'DSC06256.jpg', folder: '2. RESIZE', alt: 'Terrasse avec vue' },
+  { id: 5, path: 'DSC06251.jpg', folder: '2. RESIZE', alt: 'Chambre principale' },
+  { id: 6, path: 'DSC06244.jpg', folder: '2. RESIZE', alt: 'Salle de bain luxueuse' },
+  { id: 7, path: 'DSC06240.jpg', folder: '2. RESIZE', alt: 'Coin détente' },
+  { id: 8, path: 'DSC06225.jpg', folder: '2. RESIZE', alt: 'Cuisine équipée' },
+  { id: 9, path: 'DSC06219.jpg', folder: '2. RESIZE', alt: 'Salle à manger' },
+  { id: 10, path: 'DSC06206.jpg', folder: '2. RESIZE', alt: 'Salon avec vue panoramique' },
+  { id: 11, path: 'DSC06191.jpg', folder: '2. RESIZE', alt: 'Chambre d\'amis' },
+  { id: 12, path: 'DSC06168.jpg', folder: '2. RESIZE', alt: 'Espace de travail' },
+  { id: 13, path: 'DSC06164.jpg', folder: '2. RESIZE', alt: 'Entrée de la villa' },
+  { id: 14, path: 'DSC06156.jpg', folder: '2. RESIZE', alt: 'Jardin tropical' },
+  { id: 15, path: 'DSC06150.jpg', folder: '2. RESIZE', alt: 'Coin repas extérieur' },
+  { id: 16, path: 'DSC06146.jpg', folder: '2. RESIZE', alt: 'Vue sur la piscine' },
+  { id: 17, path: 'DSC06138.jpg', folder: '2. RESIZE', alt: 'Salle de bain en pierre' },
+  { id: 18, path: 'DSC06132.jpg', folder: '2. RESIZE', alt: 'Coin lecture' },
+  { id: 19, path: 'DSC06127.jpg', folder: '2. RESIZE', alt: 'Vue aérienne' },
+  { id: 20, path: 'DSC06120.jpg', folder: '2. RESIZE', alt: 'Accès à la plage' },
+  { id: 21, path: 'DSC06114.jpg', folder: '2. RESIZE', alt: 'Espace yoga' },
+  { id: 22, path: 'DSC06104.jpg', folder: '2. RESIZE', alt: 'Bar à cocktails' },
+  { id: 23, path: 'DSC06087.jpg', folder: '2. RESIZE', alt: 'Allée d\'entrée' },
+  { id: 24, path: 'DSC06076.jpg', folder: '2. RESIZE', alt: 'Douche extérieure' },
+  { id: 25, path: 'DSC06070.jpg', folder: '2. RESIZE', alt: 'Coin feu extérieur' },
+  { id: 26, path: 'DSC06066.jpg', folder: '2. RESIZE', alt: 'Vue sur la piscine depuis la terrasse' },
+  { id: 27, path: 'DSC06045.jpg', folder: '2. RESIZE', alt: 'Entrée principale de la villa' },
+  { id: 28, path: 'DSC06035.jpg', folder: '2. RESIZE', alt: 'Espace de travail avec vue' },
+  { id: 29, path: 'DSC06029.jpg', folder: '2. RESIZE', alt: 'Espace détente au bord de la piscine' },
+  { id: 30, path: 'DSC06021.jpg', folder: '2. RESIZE', alt: 'Salon extérieur avec vue panoramique' },
+  { id: 31, path: 'DSC05989.jpg', folder: '2. RESIZE', alt: 'Détails architecturaux' },
+  { id: 32, path: 'DSC05984.jpg', folder: '2. RESIZE', alt: 'Coin repas extérieur ombragé' },
+  { id: 33, path: 'DSC05958.jpg', folder: '2. RESIZE', alt: 'Terrasse ombragée' },
+  { id: 34, path: 'DSC05955.jpg', folder: '2. RESIZE', alt: 'Espace extérieur avec vue sur la nature' },
+  { id: 35, path: 'DSC05950.jpg', folder: '2. RESIZE', alt: 'Éclairage nocturne de la piscine' },
+  { id: 36, path: 'DSC05945.jpg', folder: '2. RESIZE', alt: 'Jardin tropical aménagé' },
+  { id: 37, path: 'DSC05932.jpg', folder: '2. RESIZE', alt: 'Vue sur la terrasse et la piscine' },
+  { id: 38, path: 'DSCF1793 (1).jpg', folder: '3. NEW', alt: 'Salle de bain' },
+  { id: 39, path: 'IMG_3947-HDR.jpg', folder: '3. NEW', alt: 'Salle de bain avec douche' },
+  { id: 40, path: 'IMG_3949-HDR-2.jpg', folder: '3. NEW', alt: 'Baignoire' },
+  { id: 41, path: 'IMG_3970.jpg', folder: '3. NEW', alt: 'Baignoire spa' },
+  { id: 42, path: 'IMG_4031-HDR.jpg', folder: '3. NEW', alt: 'Salon avec piscine' },
+  { id: 43, path: 'IMG_4044-HDR.jpg', folder: '3. NEW', alt: 'Espace de vie avec piscine' },
+  { id: 44, path: 'IMG_4048-HDRE.jpg', folder: '3. NEW', alt: 'Salon et piscine' },
+  { id: 45, path: 'IMG_4050-HDR-Edit.jpg', folder: '3. NEW', alt: 'Villa avec piscine' },
+  { id: 46, path: 'IMG_5858-HDR (1).jpg', folder: '3. NEW', alt: 'Chambre principale' },
+  { id: 47, path: 'IMG_5866 (1).jpg', folder: '3. NEW', alt: 'Chambre' },
+  { id: 48, path: 'IMG_5873-HDR (1).jpg', folder: '3. NEW', alt: 'Chambre' },
+  { id: 49, path: 'IMG_5878-HDR (1).jpg', folder: '3. NEW', alt: 'Chambre' }
 ];
+
+const VILLA_IMAGES = imageData.map(img => ({
+  ...img,
+  src: new URL(`../assets/gallery-assets/250428 Villa Orea/${img.folder}/${img.path}`, import.meta.url).href
+}));
 
 const Gallery = () => {
   const [images] = useState(VILLA_IMAGES);
@@ -312,312 +69,172 @@ const Gallery = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const [preloadedImages, setPreloadedImages] = useState(new Set());
-  const galleryRef = useRef(null);
-  const preloadCacheRef = useRef(new Map());
+  const [loadedImages, setLoadedImages] = useState(new Set([0, 1, 2, 3, 4, 5, 6, 7]));
   const { currentLanguage } = useLanguage();
-  
-  // Récupération des traductions en fonction de la langue actuelle
-  const t = translations[currentLanguage].gallery || translations.fr.gallery;
+  const t = translations[currentLanguage];
+  const galleryRef = useRef(null);
+  const observerRef = useRef(null);
 
-  // Créer une nouvelle liste d'images avec les descriptions traduites
-  const translatedImages = useMemo(() => {
-    return images.map((image, index) => ({
-      ...image,
-      alt: t.imageDescriptions?.[index] || image.alt
-    }));
-  }, [images, t]);
-
-  // Gestion de l'affichage et du redimensionnement
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
-      
-      // Ne charger plus d'images que si on est proche du bas de la section visible
-      if (galleryRef.current) {
-        const galleryTop = galleryRef.current.offsetTop;
-        const galleryHeight = galleryRef.current.offsetHeight;
-        
-        if (scrollTop + windowHeight > galleryTop + galleryHeight - 200) {
-          if (visibleImages < images.length) {
-            setVisibleImages(prev => Math.min(prev + 4, images.length));
-          }
-        }
-      }
-    };
-
     const checkScreenSize = () => {
-      const isSmall = window.innerWidth < 768;
-      setIsSmallScreen(isSmall);
+      setIsSmallScreen(window.innerWidth < 768);
     };
 
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
-    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
 
     return () => {
-      window.removeEventListener('resize', checkScreenSize);
-      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = 'auto';
     };
-  }, [visibleImages, images.length]);
+  }, [isModalOpen]);
 
-  const loadMoreImages = () => {
-    setVisibleImages(prev => Math.min(prev + 8, images.length));
-  };
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const imgIndex = parseInt(entry.target.dataset.index);
+            setLoadedImages(prev => new Set([...prev, imgIndex]));
+          }
+        });
+      },
+      { rootMargin: '50px' }
+    );
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  const displayedImages = useMemo(
+    () => images.slice(0, visibleImages),
+    [images, visibleImages]
+  );
 
   const openModal = (index) => {
     setCurrentIndex(index);
     setIsModalOpen(true);
-    setDirection(0);
-    document.body.style.overflow = 'hidden';
-    // Précharger agressivement les images adjacentes
-    preloadAdjacentImages(index, 5);
-  };
-
-  // Fonction optimisée pour précharger les images adjacentes avec cache
-  const preloadAdjacentImages = (index, range = 3) => {
-    const imagesToPreload = [];
-    
-    // Calculer la plage d'images à précharger
-    for (let i = Math.max(0, index - range); i <= Math.min(images.length - 1, index + range); i++) {
-      if (!preloadedImages.has(i) && !preloadCacheRef.current.has(i)) {
-        imagesToPreload.push(i);
-      }
-    }
-
-    // Précharger les images en parallèle
-    imagesToPreload.forEach(i => {
-      if (!preloadCacheRef.current.has(i)) {
-        const img = new Image();
-        img.onload = () => {
-          setPreloadedImages(prev => new Set([...prev, i]));
-          preloadCacheRef.current.set(i, true);
-        };
-        img.src = images[i].src;
-        preloadCacheRef.current.set(i, 'loading');
-      }
-    });
+    setLoadedImages(prev => new Set([...prev, index, index + 1, index - 1]));
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    document.body.style.overflow = 'auto';
   };
 
-  const handlePrev = () => {
-    setDirection(-1);
+  const goToPrevious = () => {
     const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    setDirection(-1);
     setCurrentIndex(newIndex);
-    // Précharger immédiatement les images adjacentes
-    preloadAdjacentImages(newIndex, 3);
+    setLoadedImages(prev => new Set([...prev, newIndex, newIndex - 1]));
   };
 
-  const handleNext = () => {
-    setDirection(1);
+  const goToNext = () => {
     const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    setDirection(1);
     setCurrentIndex(newIndex);
-    // Précharger immédiatement les images adjacentes
-    preloadAdjacentImages(newIndex, 3);
+    setLoadedImages(prev => new Set([...prev, newIndex, newIndex + 1]));
   };
+
+  const handleKeyDown = (e) => {
+    if (isModalOpen) {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') goToPrevious();
+      if (e.key === 'ArrowRight') goToNext();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isModalOpen, currentIndex]);
 
   const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
+    setTouchStart(e.touches[0].clientX);
   };
 
   const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    setTouchEnd(e.touches[0].clientX);
   };
 
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > 50) {
-      // Swipe gauche
-      handleNext();
+      goToNext();
     }
-
     if (touchStart - touchEnd < -50) {
-      // Swipe droite
-      handlePrev();
+      goToPrevious();
     }
   };
 
-  // Fonction pour faire défiler le carousel mobile
-  const scrollMobileGallery = (direction) => {
-    const container = document.getElementById('mobile-gallery-container');
-    if (container) {
-      // Récupérer la largeur d'une image avec son espace
-      const items = container.querySelectorAll('[class*="snap-center"]');
-      if (items.length === 0) return;
-      
-      // Calculer le décalage exact pour une seule image
-      const itemWidth = items[0].offsetWidth + 12; // 12px est l'espacement entre les images (space-x-3)
-      
-      // Calculer le nouvel index en fonction de la direction
-      const currentScrollPosition = container.scrollLeft;
-      const currentIndex = Math.round(currentScrollPosition / itemWidth);
-      const newIndex = Math.max(0, Math.min(images.length - 1, currentIndex + direction));
-      
-      // Vérifier si nous sommes déjà à la limite et empêcher le défilement au-delà
-      if ((direction > 0 && newIndex >= images.length - 1) || (direction < 0 && newIndex <= 0)) {
-        // Assurer que nous sommes exactement à la bonne position limite pour éviter les décalages
-        container.scrollTo({ 
-          left: direction > 0 ? (images.length - 1) * itemWidth : 0, 
-          behavior: 'smooth' 
-        });
-      } else {
-        // Faire défiler vers la position exacte de la nouvelle image
-        container.scrollTo({ 
-          left: newIndex * itemWidth, 
-          behavior: 'smooth' 
-        });
-      }
-      
-      // Mettre à jour l'index actif
-      setActiveSlideIndex(newIndex);
-    }
+  const loadMoreImages = () => {
+    const newVisible = Math.min(visibleImages + 8, images.length);
+    setVisibleImages(newVisible);
+    const newIndices = Array.from({ length: 8 }, (_, i) => visibleImages + i).filter(i => i < images.length);
+    setLoadedImages(prev => new Set([...prev, ...newIndices]));
   };
 
-  // Gestion des touches du clavier dans la modale
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!isModalOpen) return;
-
-      switch (e.key) {
-        case 'ArrowLeft':
-          handlePrev();
-          break;
-        case 'ArrowRight':
-          handleNext();
-          break;
-        case 'Escape':
-          closeModal();
-          break;
-        default:
-          break;
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isModalOpen]);
-
-  // Animations optimisées pour une transition plus rapide
   const slideVariants = {
     enter: (direction) => ({
       x: direction > 0 ? '100%' : '-100%',
-      opacity: 0,
+      opacity: 0
     }),
     center: {
       x: 0,
-      opacity: 1,
+      opacity: 1
     },
     exit: (direction) => ({
       x: direction > 0 ? '-100%' : '100%',
-      opacity: 0,
-    }),
+      opacity: 0
+    })
   };
-
-  // Timing de transition ultra-rapide
-  const slideTransition = {
-    type: "tween",
-    ease: "easeInOut",
-    duration: 0.15, // Réduit de 0.3 à 0.15 secondes
-  };
-
-  // Précharger toutes les images lors de l'ouverture de la modale
-  useEffect(() => {
-    if (isModalOpen) {
-      // Précharger une large gamme d'images pour une navigation fluide
-      preloadAdjacentImages(currentIndex, 8);
-    }
-  }, [isModalOpen, currentIndex, images]);
-
-  // Ajout d'un contrôle pour empêcher le défilement excessif
-  useEffect(() => {
-    const container = document.getElementById('mobile-gallery-container');
-    if (!container) return;
-    
-    // Fonction pour corriger le défilement lorsqu'on atteint les limites
-    const handleScrollEnd = () => {
-      // Obtenir la largeur réelle du contenu scrollable
-      const scrollWidth = container.scrollWidth;
-      const clientWidth = container.clientWidth;
-      const maxScrollLeft = scrollWidth - clientWidth;
-      
-      // Petite temporisation pour laisser le scroll se stabiliser
-      setTimeout(() => {
-        // Si on a dépassé la limite droite, corriger la position
-        if (container.scrollLeft > maxScrollLeft) {
-          container.scrollTo({
-            left: maxScrollLeft,
-            behavior: 'auto'
-          });
-        }
-        
-        // Si on a dépassé la limite gauche, corriger la position
-        if (container.scrollLeft < 0) {
-          container.scrollTo({
-            left: 0,
-            behavior: 'auto'
-          });
-        }
-      }, 150);
-    };
-    
-    // Empêcher le défilement de la page lorsqu'on atteint la fin du carousel
-    const preventOverscroll = (e) => {
-      // Détecter si on est à la limite droite ou gauche
-      const scrollLeft = container.scrollLeft;
-      const maxScrollLeft = container.scrollWidth - container.clientWidth;
-      
-      // Empêcher le défilement au-delà des limites
-      if ((scrollLeft <= 0 && e.deltaX < 0) || 
-          (scrollLeft >= maxScrollLeft && e.deltaX > 0)) {
-        e.preventDefault();
-        return false;
-      }
-    };
-
-    // Ajouter les écouteurs d'événements
-    container.addEventListener('scrollend', handleScrollEnd);
-    container.addEventListener('wheel', preventOverscroll, { passive: false });
-
-    return () => {
-      container.removeEventListener('scrollend', handleScrollEnd);
-      container.removeEventListener('wheel', preventOverscroll);
-    };
-  }, []);
 
   return (
-    <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black">
+    <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black" ref={galleryRef}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="mb-4">{t.title}</h2>
-          <p className="font-lora text-lg max-w-2xl mx-auto mb-6">
-            {t.intro}
+          <h2 className="mb-4">{t.gallery.title}</h2>
+          <p className="font-lora text-lg max-w-2xl mx-auto">
+            {t.gallery.description}
           </p>
         </div>
 
         {/* Grille d'images pour desktop */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {translatedImages.slice(0, visibleImages).map((image, index) => (
+          {displayedImages.map((image, index) => (
             <div
-              key={`image-${image.id}`}
+              key={image.id}
               className="relative h-64 md:h-72 rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
               data-aos="fade-up"
               data-aos-delay={(index % 8) * 100}
               onClick={() => openModal(index)}
+              data-index={index}
+              ref={(el) => {
+                if (el && observerRef.current && !loadedImages.has(index)) {
+                  observerRef.current.observe(el);
+                }
+              }}
             >
-              <img 
-                src={image.src} 
-                alt={image.alt} 
-                className="w-full h-full object-cover"
-                loading={index > 3 ? "lazy" : "eager"}
-              />
+              {loadedImages.has(index) ? (
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  className="w-full h-full object-cover"
+                  loading={index > 3 ? "lazy" : "eager"}
+                />
+              ) : (
+                <div className="w-full h-full bg-gray-200 animate-pulse"></div>
+              )}
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
                 <p className="text-pure-white text-sm">{image.alt}</p>
@@ -626,59 +243,12 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Bouton "Voir plus" - seulement pour desktop */}
-        {visibleImages < images.length && (
-          <div className="hidden md:block text-center mt-8">
-            <button 
-              className="btn btn-outline flex items-center mx-auto gap-2"
-              onClick={loadMoreImages}
-            >
-              <span>{t.seeMore || (currentLanguage === 'fr' ? 'Voir plus de photos' : 'See more photos')}</span>
-              <span className="bg-pale-gold/10 text-pale-gold px-2 py-0.5 rounded-full text-sm">
-                {visibleImages}/{images.length}
-              </span>
-            </button>
-          </div>
-        )}
-      </div>
-      {/* Slider amélioré pour mobile */}
-      <div className="md:hidden mb-3" ref={galleryRef}>
-        <div className="relative">
-          {/* Contrôles de navigation */}
-          <button 
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-emerald/80 text-pure-white hover:bg-emerald rounded-full p-2 shadow-md"
-            onClick={() => scrollMobileGallery(-1)}
-            aria-label="Image précédente"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <button 
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-emerald/80 text-pure-white hover:bg-emerald rounded-full p-2 shadow-md"
-            onClick={() => scrollMobileGallery(1)}
-            aria-label="Image suivante"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-          
-          {/* Container du slider */}
-          <div 
-            id="mobile-gallery-container"
-            className="overflow-x-auto flex space-x-3 pb-6 pt-1 px-2 snap-x snap-mandatory scrollbar-visible"
-            style={{ 
-              scrollbarWidth: 'thin',
-              scrollbarColor: '#04593F rgba(230, 198, 122, 0.1)',
-              overscrollBehavior: 'contain', // Empêcher le défilement excessif
-              WebkitOverflowScrolling: 'touch' // Améliorer le défilement sur iOS
-            }}
-          >
-            {translatedImages.map((image, index) => (
+        {/* Slider pour mobile */}
+        <div className="md:hidden">
+          <div className="overflow-x-auto flex space-x-3 pb-6 pt-1 px-2 snap-x snap-mandatory">
+            {images.map((image, index) => (
               <div
-                key={`mobile-image-${image.id}`}
+                key={image.id}
                 className="snap-center shrink-0 w-[80vw] max-w-[280px] h-[260px] rounded-xl overflow-hidden shadow-lg"
                 onClick={() => openModal(index)}
               >
@@ -689,121 +259,129 @@ const Gallery = () => {
                     className="w-full h-full object-cover"
                     loading={index > 1 ? "lazy" : "eager"}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep-black/70 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-3">
-                    <p className="text-pure-white text-sm font-medium">{image.alt}</p>
+                  <div className="absolute inset-0 bg-deep-black bg-opacity-20"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-deep-black/80 to-transparent">
+                    <p className="text-pure-white text-xs">{image.alt}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-      {/* Modal pour agrandir les images */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-deep-black bg-opacity-90">
-            <div className="absolute inset-0" onClick={closeModal}></div>
-            
-            <button 
-              className="absolute top-4 right-4 z-10 text-pure-white hover:text-pale-gold transition-colors"
-              onClick={closeModal}
-              aria-label="Fermer"
+
+        {/* Bouton "Voir plus" - seulement pour desktop */}
+        {visibleImages < images.length && (
+          <div className="hidden md:block text-center mt-8" data-aos="fade-up">
+            <button
+              onClick={loadMoreImages}
+              className="px-8 py-3 bg-emerald hover:bg-emerald/90 text-pure-white rounded-full font-inter font-medium transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center gap-3"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span>{t.gallery.seeMore || 'Voir plus de photos'}</span>
+              <span className="bg-pale-gold/10 text-pale-gold px-2 py-0.5 rounded-full text-sm">
+                {visibleImages}/{images.length}
+              </span>
+            </button>
+          </div>
+        )}
+      </div>
+
+      <AnimatePresence mode="wait">
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-deep-black bg-opacity-95 flex items-center justify-center p-4"
+            onClick={closeModal}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-pure-white hover:text-gray-300 transition-colors z-50"
+              aria-label="Close"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            <div 
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button 
-                className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
-                onClick={handlePrev}
-                aria-label="Image précédente"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-            </div>
+            {!isSmallScreen && (
+              <>
+                <button
+                  onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pure-white hover:text-gray-300 transition-colors z-50 bg-deep-black bg-opacity-50 rounded-full p-3"
+                  aria-label="Previous"
+                >
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
 
-            <div 
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button 
-                className="bg-pure-white/10 hover:bg-pure-white/20 p-2 rounded-full text-pure-white transition-colors"
-                onClick={handleNext}
-                aria-label="Image suivante"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+                <button
+                  onClick={(e) => { e.stopPropagation(); goToNext(); }}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-pure-white hover:text-gray-300 transition-colors z-50 bg-deep-black bg-opacity-50 rounded-full p-3"
+                  aria-label="Next"
+                >
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
 
-            <div 
-              className={`relative ${isSmallScreen ? 'w-[95%] h-[80%]' : 'w-full h-full max-w-5xl max-h-[85vh]'} flex items-center justify-center p-2 md:p-4`}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              <AnimatePresence initial={false} custom={direction}>
-                <motion.div
+            <div className="relative w-full max-w-6xl max-h-[90vh] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.img
                   key={currentIndex}
+                  src={images[currentIndex].src}
+                  alt={images[currentIndex].alt}
                   custom={direction}
                   variants={slideVariants}
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  transition={slideTransition}
-                  className="w-full h-full flex flex-col items-center justify-center absolute"
-                >
-                  <div className="relative w-full h-full flex items-center justify-center p-1 md:p-0">
-                    <div className={`${isSmallScreen ? 'h-[60vh]' : 'h-[70vh]'} w-full flex items-center justify-center`}>
-                      <img 
-                        src={translatedImages[currentIndex].src} 
-                        alt={translatedImages[currentIndex].alt} 
-                        className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
-                        style={{ 
-                          objectFit: 'contain',
-                          transition: 'none'
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full p-2 md:p-3 mt-2 bg-deep-black bg-opacity-60 rounded-lg">
-                    <p className="text-pure-white text-center text-sm md:text-base">{translatedImages[currentIndex].alt}</p>
-                  </div>
-                </motion.div>
+                  transition={{ duration: 0.3 }}
+                  className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                  loading="eager"
+                />
               </AnimatePresence>
-              
-              {/* Préchargement agressif des images adjacentes */}
-              <div className="hidden">
-                {/* Précharger 3 images avant et après l'image actuelle */}
-                {Array.from({ length: 7 }, (_, i) => {
-                  const imageIndex = currentIndex - 3 + i;
-                  if (imageIndex >= 0 && imageIndex < images.length && imageIndex !== currentIndex) {
-                    return (
-                      <img 
-                        key={`preload-${imageIndex}`}
-                        src={translatedImages[imageIndex].src} 
-                        alt="Préchargement" 
-                      />
-                    );
-                  }
-                  return null;
-                })}
+
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-deep-black bg-opacity-70 px-4 py-2 rounded-full">
+                <p className="text-pure-white text-sm font-inter">
+                  {currentIndex + 1} / {images.length}
+                </p>
               </div>
             </div>
-          </div>
+
+            {isSmallScreen && (
+              <div className="absolute bottom-20 left-0 right-0 flex justify-center gap-4">
+                <button
+                  onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
+                  className="bg-pure-white text-deep-black p-3 rounded-full shadow-lg"
+                  aria-label="Previous"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); goToNext(); }}
+                  className="bg-pure-white text-deep-black p-3 rounded-full shadow-lg"
+                  aria-label="Next"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </motion.div>
         )}
       </AnimatePresence>
     </section>
   );
 };
 
-export default Gallery; 
+export default Gallery;
