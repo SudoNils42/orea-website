@@ -4,7 +4,7 @@ import translations from '../locales/translations';
 import logoImage from '../assets/logo/fulllogo_transparent_nobuffer.png';
 import iconOnly from '../assets/logo/icononly_transparent_nobuffer.png';
 import instagramLogo from '../assets/logo/Instagram_icon.png.webp';
-import facebookLogo from '../assets/logo/Facebook_logo_(square).png';
+import facebookLogo from '../assets/logo/Facebook_logo_square.png';
 
 // Import des logos de plateformes de réservation
 import airbnbLogo from '../assets/booking-platforms/png/Airbnb_Logo_Bélo.svg.png';

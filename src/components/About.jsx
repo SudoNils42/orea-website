@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
-import image1 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06273.jpg';
-import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06168.jpg';
-import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06146.jpg';
+import image1 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4044-HDR.jpg';
+import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06219.jpg';
+import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06206.jpg';
 import image4 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06045.jpg';
 
 const About = ({ openModal }) => {
