@@ -18,7 +18,14 @@ const imageData = [
   { id: 12, path: 'IMG_5858-HDR-1.jpg', folder: '3. NEW', alt: 'Chambre principale' },
   { id: 13, path: 'IMG_5866-1.jpg', folder: '3. NEW', alt: 'Chambre' },
   { id: 14, path: 'IMG_5873-HDR-1.jpg', folder: '3. NEW', alt: 'Chambre' },
-  { id: 15, path: 'IMG_5878-HDR-1.jpg', folder: '3. NEW', alt: 'Chambre' }
+  { id: 15, path: 'IMG_5878-HDR-1.jpg', folder: '3. NEW', alt: 'Chambre' },
+  { id: 16, path: 'DSC05950.jpg', folder: '3. NEW', alt: 'Piscine' },
+  { id: 17, path: 'DSC06021.jpg', folder: '3. NEW', alt: 'Salle de bain' },
+  { id: 18, path: 'DSC06029.jpg', folder: '3. NEW', alt: 'Cuisine' },
+  { id: 19, path: 'DSC06146.jpg', folder: '3. NEW', alt: 'Espace extérieur' },
+  { id: 20, path: 'DSC06156.jpg', folder: '3. NEW', alt: 'Salon extérieur' },
+  { id: 21, path: 'IMG_4018.jpeg', folder: '3. NEW', alt: 'Vue extérieure' },
+  { id: 22, path: 'IMG_4032-HDR.jpeg', folder: '3. NEW', alt: 'Villa' }
 ];
 
 const VILLA_IMAGES = imageData.map(img => ({
