@@ -19,50 +19,10 @@ const About = ({ openModal }) => {
 
   // Images pour les encadrés avec leurs détails
   const placeholders = [
-    {
-      id: 1,
-      image: image1,
-      alt: currentLanguage === 'fr' ? "Suite principale avec lit king-size" :
-           currentLanguage === 'en' ? "Master suite with king-size bed" :
-           currentLanguage === 'zh' ? "带特大床的主套房" :
-           currentLanguage === 'es' ? "Suite principal con cama king-size" :
-           currentLanguage === 'de' ? "Hauptsuite mit Kingsize-Bett" :
-           currentLanguage === 'ru' ? "Главный люкс с кроватью размера кинг-сайз" :
-           "Kamar utama dengan tempat tidur king-size",
-    },
-    {
-      id: 2,
-      image: image2,
-      alt: currentLanguage === 'fr' ? "Vue panoramique depuis la terrasse" :
-           currentLanguage === 'en' ? "Panoramic view from the terrace" :
-           currentLanguage === 'zh' ? "从露台看到的全景" :
-           currentLanguage === 'es' ? "Vista panorámica desde la terraza" :
-           currentLanguage === 'de' ? "Panoramablick von der Terrasse" :
-           currentLanguage === 'ru' ? "Панорамный вид с террасы" :
-           "Pemandangan panorama dari teras",
-    },
-    {
-      id: 3,
-      image: image3,
-      alt: currentLanguage === 'fr' ? "Salon extérieur avec piscine" :
-           currentLanguage === 'en' ? "Outdoor lounge with pool" :
-           currentLanguage === 'zh' ? "带游泳池的户外休息区" :
-           currentLanguage === 'es' ? "Salón al aire libre con piscina" :
-           currentLanguage === 'de' ? "Außenlounge mit Pool" :
-           currentLanguage === 'ru' ? "Зона отдыха у бассейна" :
-           "Ruang tamu luar dengan kolam renang",
-    },
-    {
-      id: 4,
-      image: image4,
-      alt: currentLanguage === 'fr' ? "Salle de massage avec vue sur jardin" :
-           currentLanguage === 'en' ? "Massage room with garden view" :
-           currentLanguage === 'zh' ? "带花园景观的按摩室" :
-           currentLanguage === 'es' ? "Sala de masajes con vista al jardín" :
-           currentLanguage === 'de' ? "Massageraum mit Gartenblick" :
-           currentLanguage === 'ru' ? "Массажная комната с видом на сад" :
-           "Ruang pijat dengan pemandangan taman",
-    }
+    { id: 1, image: image1 },
+    { id: 2, image: image2 },
+    { id: 3, image: image3 },
+    { id: 4, image: image4 }
   ];
 
   return (
@@ -85,14 +45,14 @@ const About = ({ openModal }) => {
             >
               <img 
                 src={item.image} 
-                alt={item.alt} 
+                alt={t.about.images[item.id]} 
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="eager"
               />
               <div className="absolute inset-0 bg-deep-black bg-opacity-40 hover:bg-opacity-30 transition-all duration-300"></div>
               <div className="absolute inset-0 flex items-end justify-start p-4">
                 <p className="text-pure-white font-inter font-medium text-sm">
-                  {item.alt}
+                  {t.about.images[item.id]}
                 </p>
               </div>
             </div>

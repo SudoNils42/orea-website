@@ -4,28 +4,28 @@ import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
 
 const imageData = [
-  { id: 1, path: 'DSC06240.jpg', folder: '2. RESIZE', alt: 'Coin détente' },
-  { id: 2, path: 'DSC06219.jpg', folder: '2. RESIZE', alt: 'Salle à manger' },
-  { id: 3, path: 'DSC06206.jpg', folder: '2. RESIZE', alt: 'Salon avec vue panoramique' },
-  { id: 4, path: 'DSC06104.jpg', folder: '2. RESIZE', alt: 'Bar à cocktails' },
-  { id: 5, path: 'DSC06045.jpg', folder: '2. RESIZE', alt: 'Entrée principale de la villa' },
-  { id: 6, path: 'IMG_3947-HDR.jpg', folder: '3. NEW', alt: 'Salle de bain avec douche' },
-  { id: 7, path: 'IMG_3949-HDR-2.jpg', folder: '3. NEW', alt: 'Baignoire' },
-  { id: 8, path: 'IMG_4031-HDR.jpg', folder: '3. NEW', alt: 'Salon avec piscine' },
-  { id: 9, path: 'IMG_4044-HDR.jpg', folder: '3. NEW', alt: 'Espace de vie avec piscine' },
-  { id: 10, path: 'IMG_4048-HDRE.jpg', folder: '3. NEW', alt: 'Salon et piscine' },
-  { id: 11, path: 'IMG_4050-HDR-Edit.jpg', folder: '3. NEW', alt: 'Villa avec piscine' },
-  { id: 12, path: 'IMG_5858-HDR-1.jpg', folder: '3. NEW', alt: 'Chambre principale' },
-  { id: 13, path: 'IMG_5866-1.jpg', folder: '3. NEW', alt: 'Chambre' },
-  { id: 14, path: 'IMG_5873-HDR-1.jpg', folder: '3. NEW', alt: 'Chambre' },
-  { id: 15, path: 'IMG_5878-HDR-1.jpg', folder: '3. NEW', alt: 'Chambre' },
-  { id: 16, path: 'DSC05950.jpg', folder: '3. NEW', alt: 'Piscine' },
-  { id: 17, path: 'DSC06021.jpg', folder: '3. NEW', alt: 'Salle de bain' },
-  { id: 18, path: 'DSC06029.jpg', folder: '3. NEW', alt: 'Cuisine' },
-  { id: 19, path: 'DSC06146.jpg', folder: '3. NEW', alt: 'Espace extérieur' },
-  { id: 20, path: 'DSC06156.jpg', folder: '3. NEW', alt: 'Salon extérieur' },
-  { id: 21, path: 'IMG_4018.jpeg', folder: '3. NEW', alt: 'Vue extérieure' },
-  { id: 22, path: 'IMG_4032-HDR.jpeg', folder: '3. NEW', alt: 'Villa' }
+  { id: 1, path: 'DSC06240.jpg', folder: '2. RESIZE' },
+  { id: 2, path: 'DSC06219.jpg', folder: '2. RESIZE' },
+  { id: 3, path: 'DSC06206.jpg', folder: '2. RESIZE' },
+  { id: 4, path: 'DSC06104.jpg', folder: '2. RESIZE' },
+  { id: 5, path: 'DSC06045.jpg', folder: '2. RESIZE' },
+  { id: 6, path: 'IMG_3947-HDR.jpg', folder: '3. NEW' },
+  { id: 7, path: 'IMG_3949-HDR-2.jpg', folder: '3. NEW' },
+  { id: 8, path: 'IMG_4031-HDR.jpg', folder: '3. NEW' },
+  { id: 9, path: 'IMG_4044-HDR.jpg', folder: '3. NEW' },
+  { id: 10, path: 'IMG_4048-HDRE.jpg', folder: '3. NEW' },
+  { id: 11, path: 'IMG_4050-HDR-Edit.jpg', folder: '3. NEW' },
+  { id: 12, path: 'IMG_5858-HDR-1.jpg', folder: '3. NEW' },
+  { id: 13, path: 'IMG_5866-1.jpg', folder: '3. NEW' },
+  { id: 14, path: 'IMG_5873-HDR-1.jpg', folder: '3. NEW' },
+  { id: 15, path: 'IMG_5878-HDR-1.jpg', folder: '3. NEW' },
+  { id: 16, path: 'DSC05950.jpg', folder: '3. NEW' },
+  { id: 17, path: 'DSC06021.jpg', folder: '3. NEW' },
+  { id: 18, path: 'DSC06029.jpg', folder: '3. NEW' },
+  { id: 19, path: 'DSC06146.jpg', folder: '3. NEW' },
+  { id: 20, path: 'DSC06156.jpg', folder: '3. NEW' },
+  { id: 21, path: 'IMG_4018.jpeg', folder: '3. NEW' },
+  { id: 22, path: 'IMG_4032-HDR.jpeg', folder: '3. NEW' }
 ];
 
 const VILLA_IMAGES = imageData.map(img => ({
@@ -155,7 +155,7 @@ const Gallery = () => {
     setVisibleImages(newVisible);
     const newIndices = Array.from({ length: 8 }, (_, i) => visibleImages + i).filter(i => i < images.length);
     setLoadedImages(prev => new Set([...prev, ...newIndices]));
-  };
+    };
 
   const slideVariants = {
     enter: (direction) => ({
@@ -199,18 +199,18 @@ const Gallery = () => {
               }}
             >
               {loadedImages.has(index) ? (
-                <img 
-                  src={image.src} 
-                  alt={image.alt} 
-                  className="w-full h-full object-cover"
-                  loading={index > 3 ? "lazy" : "eager"}
-                />
+              <img 
+                src={image.src} 
+                  alt={t.gallery.images[image.id]} 
+                className="w-full h-full object-cover"
+                loading={index > 3 ? "lazy" : "eager"}
+              />
               ) : (
                 <div className="w-full h-full bg-gray-200 animate-pulse"></div>
               )}
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
-                <p className="text-pure-white text-sm">{image.alt}</p>
+                <p className="text-pure-white text-sm">{t.gallery.images[image.id]}</p>
               </div>
             </div>
           ))}
@@ -228,13 +228,13 @@ const Gallery = () => {
                 <div className="relative w-full h-full">
                   <img 
                     src={image.src} 
-                    alt={image.alt} 
+                    alt={t.gallery.images[image.id]} 
                     className="w-full h-full object-cover"
                     loading={index > 1 ? "lazy" : "eager"}
                   />
                   <div className="absolute inset-0 bg-deep-black bg-opacity-20"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-deep-black/80 to-transparent">
-                    <p className="text-pure-white text-xs">{image.alt}</p>
+                    <p className="text-pure-white text-xs">{t.gallery.images[image.id]}</p>
                   </div>
                 </div>
               </div>
@@ -270,7 +270,7 @@ const Gallery = () => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <button
+            <button 
               onClick={closeModal}
               className="absolute top-4 right-4 text-pure-white hover:text-gray-300 transition-colors z-50"
               aria-label="Close"
@@ -282,25 +282,25 @@ const Gallery = () => {
 
             {!isSmallScreen && (
               <>
-                <button
+              <button 
                   onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pure-white hover:text-gray-300 transition-colors z-50 bg-deep-black bg-opacity-50 rounded-full p-3"
                   aria-label="Previous"
-                >
+              >
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
 
-                <button
+              <button 
                   onClick={(e) => { e.stopPropagation(); goToNext(); }}
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 text-pure-white hover:text-gray-300 transition-colors z-50 bg-deep-black bg-opacity-50 rounded-full p-3"
                   aria-label="Next"
-                >
+              >
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
               </>
             )}
 
@@ -309,7 +309,7 @@ const Gallery = () => {
                 <motion.img
                   key={currentIndex}
                   src={images[currentIndex].src}
-                  alt={images[currentIndex].alt}
+                  alt={t.gallery.images[images[currentIndex].id]}
                   custom={direction}
                   variants={slideVariants}
                   initial="enter"
@@ -320,7 +320,7 @@ const Gallery = () => {
                   loading="eager"
                 />
               </AnimatePresence>
-
+              
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-deep-black bg-opacity-70 px-4 py-2 rounded-full">
                 <p className="text-pure-white text-sm font-inter">
                   {currentIndex + 1} / {images.length}
@@ -348,7 +348,7 @@ const Gallery = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
-              </div>
+          </div>
             )}
           </motion.div>
         )}
@@ -357,4 +357,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default Gallery; 

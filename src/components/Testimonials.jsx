@@ -135,14 +135,14 @@ const Testimonials = () => {
                 style={{ minHeight: '550px' }}
               >
                 <div className="bg-white shadow-lg border border-gray-200 p-5 md:p-10 rounded-lg text-center w-full">
-                  <div className="mb-3 md:mb-6">
-                    <svg className="mx-auto h-7 w-7 md:h-10 md:w-10 text-pale-gold" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                    </svg>
-                  </div>
+                    <div className="mb-3 md:mb-6">
+                      <svg className="mx-auto h-7 w-7 md:h-10 md:w-10 text-pale-gold" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                      </svg>
+                    </div>
                   <blockquote className="font-lora text-sm md:text-base lg:text-lg italic text-gray-700 mb-5 md:mb-8 leading-relaxed max-h-[380px] overflow-y-auto">
-                    {testimonials[current].text}
-                  </blockquote>
+                      {testimonials[current].text}
+                    </blockquote>
                   <div className="mt-4">
                     <p className="font-inter font-bold text-emerald">{testimonials[current].name}</p>
                     <p className="text-xs md:text-sm text-gray-500">{testimonials[current].location}</p>
