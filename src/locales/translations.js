@@ -161,7 +161,7 @@ const translations = {
         },
         whatsapp: {
           label: "WhatsApp",
-          value: "+41 79 458 53 41"
+          value: "+41 79 458 35 41"
         },
         address: {
           label: "Adresse",
