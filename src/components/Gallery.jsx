@@ -3,35 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
 
-const imageData = [
-  { id: 1, path: 'DSC06240.jpg', folder: '2. RESIZE' },
-  { id: 2, path: 'DSC06219.jpg', folder: '2. RESIZE' },
-  { id: 3, path: 'DSC06206.jpg', folder: '2. RESIZE' },
-  { id: 4, path: 'DSC06104.jpg', folder: '2. RESIZE' },
-  { id: 5, path: 'DSC06045.jpg', folder: '2. RESIZE' },
-  { id: 6, path: 'IMG_3947-HDR.jpg', folder: '3. NEW' },
-  { id: 7, path: 'IMG_3949-HDR-2.jpg', folder: '3. NEW' },
-  { id: 8, path: 'IMG_4031-HDR.jpg', folder: '3. NEW' },
-  { id: 9, path: 'IMG_4044-HDR.jpg', folder: '3. NEW' },
-  { id: 10, path: 'IMG_4048-HDRE.jpg', folder: '3. NEW' },
-  { id: 11, path: 'IMG_4050-HDR-Edit.jpg', folder: '3. NEW' },
-  { id: 12, path: 'IMG_5858-HDR-1.jpg', folder: '3. NEW' },
-  { id: 13, path: 'IMG_5866-1.jpg', folder: '3. NEW' },
-  { id: 14, path: 'IMG_5873-HDR-1.jpg', folder: '3. NEW' },
-  { id: 15, path: 'IMG_5878-HDR-1.jpg', folder: '3. NEW' },
-  { id: 16, path: 'DSC05950.jpg', folder: '3. NEW' },
-  { id: 17, path: 'DSC06021.jpg', folder: '3. NEW' },
-  { id: 18, path: 'DSC06029.jpg', folder: '3. NEW' },
-  { id: 19, path: 'DSC06146.jpg', folder: '3. NEW' },
-  { id: 20, path: 'DSC06156.jpg', folder: '3. NEW' },
-  { id: 21, path: 'IMG_4018.jpeg', folder: '3. NEW' },
-  { id: 22, path: 'IMG_4032-HDR.jpeg', folder: '3. NEW' }
-];
-
-const VILLA_IMAGES = imageData.map(img => ({
-  ...img,
-  src: new URL(`../assets/gallery-assets/250428 Villa Orea/${img.folder}/${img.path}`, import.meta.url).href
-}));
+const VILLA_IMAGES = Array.from({ length: 22 }, (_, i) => ({ id: i + 1 }));
 
 const Gallery = () => {
   const [images] = useState(VILLA_IMAGES);
@@ -199,12 +171,7 @@ const Gallery = () => {
               }}
             >
               {loadedImages.has(index) ? (
-              <img 
-                src={image.src} 
-                  alt={t.gallery.images[image.id]} 
-                className="w-full h-full object-cover"
-                loading={index > 3 ? "lazy" : "eager"}
-              />
+                <div className="w-full h-full bg-gradient-to-br from-emerald/25 to-pale-gold/25"></div>
               ) : (
                 <div className="w-full h-full bg-gray-200 animate-pulse"></div>
               )}
@@ -226,12 +193,7 @@ const Gallery = () => {
                 onClick={() => openModal(index)}
               >
                 <div className="relative w-full h-full">
-                  <img 
-                    src={image.src} 
-                    alt={t.gallery.images[image.id]} 
-                    className="w-full h-full object-cover"
-                    loading={index > 1 ? "lazy" : "eager"}
-                  />
+                  <div className="w-full h-full bg-gradient-to-br from-emerald/25 to-pale-gold/25"></div>
                   <div className="absolute inset-0 bg-deep-black bg-opacity-20"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-deep-black/80 to-transparent">
                     <p className="text-pure-white text-xs">{t.gallery.images[image.id]}</p>
@@ -306,18 +268,15 @@ const Gallery = () => {
 
             <div className="relative w-full max-w-6xl max-h-[90vh] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
               <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.img
+                <motion.div
                   key={currentIndex}
-                  src={images[currentIndex].src}
-                  alt={t.gallery.images[images[currentIndex].id]}
                   custom={direction}
                   variants={slideVariants}
                   initial="enter"
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.3 }}
-                  className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
-                  loading="eager"
+                  className="w-[90vw] max-w-6xl h-[70vh] rounded-lg shadow-2xl bg-gradient-to-br from-emerald/25 to-pale-gold/25"
                 />
               </AnimatePresence>
               

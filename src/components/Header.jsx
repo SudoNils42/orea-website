@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
-import logoImage from '../assets/logo/fulllogo_transparent_nobuffer.png';
-import logoSimple from '../assets/logo/icononly_transparent_nobuffer.png';
 
 const Header = ({ scrollY, openModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,7 +58,7 @@ const Header = ({ scrollY, openModal }) => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between max-w-full">
         <a href="#" className="z-20">
-          <img src={logoImage} alt="Villa Orea Logo" className="h-12" />
+          <span className="font-lora text-xl md:text-2xl text-emerald">Villa Orea</span>
         </a>
 
         {/* Navigation Desktop - supprimée pour tous les formats */}
@@ -156,7 +154,7 @@ const Header = ({ scrollY, openModal }) => {
                     className="btn btn-primary w-full flex items-center justify-center"
                     aria-label={t.nav.tour3d}
                   >
-                    <img src={logoSimple} alt="Logo Villa Orea" className="h-5 w-5 object-contain mr-2" style={{minWidth: 20}} />
+                    <span className="mr-2">3D</span>
                     {t.nav.tour3d}
                   </button>
                 </motion.div>

@@ -1,17 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
-import logoImage from '../assets/logo/fulllogo_transparent_nobuffer.png';
-import iconOnly from '../assets/logo/icononly_transparent_nobuffer.png';
-import instagramLogo from '../assets/logo/Instagram_icon.png.webp';
-import facebookLogo from '../assets/logo/Facebook_logo_square.png';
-
-// Import des logos de plateformes de réservation
-import airbnbLogo from '../assets/booking-platforms/png/Airbnb_Logo_Bélo.svg.png';
-import bookingLogo from '../assets/booking-platforms/png/Booking.com_logo2.png';
-import marriottLogo from '../assets/booking-platforms/png/HomesAndVillas.svg';
-import tripLogo from '../assets/booking-platforms/png/Trip.com_logo.svg.png';
-import baliSuperHostLogo from '../assets/booking-platforms/png/BalisSuperHost.png';
 
 const Footer = ({ openModal }) => {
   const { currentLanguage } = useLanguage();
@@ -47,19 +36,19 @@ const Footer = ({ openModal }) => {
             <h3 className="font-lora text-base text-gray-600 mb-2">{t.footer.bookOn || "Réservez sur"}</h3>
             <div className="flex flex-wrap gap-2 md:justify-center">
               <a href="https://fr.airbnb.ch/rooms/1429323064798460748" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src={airbnbLogo} alt="Airbnb" className="h-4" />
+                <span className="text-xs font-medium">Airbnb</span>
               </a>
               <a href="https://www.booking.com/hotel/id/villa-orea-by-balisuperhost.fr.html" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src={bookingLogo} alt="Booking.com" className="h-4" />
+                <span className="text-xs font-medium">Booking</span>
               </a>
               <a href="https://us.trip.com/hotels/cityname-hotel-detail-128944828/hotelname/" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src={tripLogo} alt="Trip.com" className="h-4" />
+                <span className="text-xs font-medium">Trip.com</span>
               </a>
               <a href="https://homes-and-villas.marriott.com/en/properties/40527181-seminyak-brand-new-villa-br-with-private-pool-in-seminyak" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src={marriottLogo} alt="Marriott Homes & Villas" className="h-4" />
+                <span className="text-xs font-medium">Marriott</span>
               </a>
               <a href="https://balisuperhost.guestybookings.com/en/properties/6833ee6140f34500124c6011" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src={baliSuperHostLogo} alt="BaliSuperHost" className="h-4" />
+                <span className="text-xs font-medium">BaliSuperHost</span>
               </a>
             </div>
               </div>
@@ -69,10 +58,10 @@ const Footer = ({ openModal }) => {
             <h3 className="font-lora text-base text-gray-600 mb-2">{t.footer.followUs || "Suivez-nous"}</h3>
             <div className="flex flex-wrap gap-2 md:justify-end">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src={instagramLogo} alt="Instagram" className="h-4" />
+                <span className="text-xs font-medium">Instagram</span>
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img src={facebookLogo} alt="Facebook" className="h-4" />
+                <span className="text-xs font-medium">Facebook</span>
               </a>
             </div>
           </div>
@@ -81,7 +70,7 @@ const Footer = ({ openModal }) => {
         {/* Barre de séparation et copyright */}
         <div className="border-t border-gray-300 pt-4 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-500 text-sm mb-4 md:mb-0 flex items-center">
-            <img src={iconOnly} alt="Villa Orea Icon" className="h-5 mr-2" />
+            <span className="mr-2">VO</span>
             &copy; 2025{currentYear > 2025 ? `–${currentYear}` : ''} Villa Orea. {t.footer.rights}.
           </div>
           <div className="text-gray-500 text-xs">

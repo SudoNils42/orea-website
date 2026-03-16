@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscreenChange }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(defaultFullscreen);
+  const matterportModelId = import.meta.env.VITE_MATTERPORT_MODEL_ID || 'MODEL_ID';
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -91,7 +92,7 @@ const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscre
               )}
               
               <iframe
-                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1"
+                src={`https://my.matterport.com/show/?m=${matterportModelId}&play=1&qs=1`}
                 width="100%"
                 height="100%"
                 frameBorder="0"

@@ -1,10 +1,6 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
-import image1 from '../assets/gallery-assets/250428 Villa Orea/3. NEW/IMG_4044-HDR.jpg';
-import image2 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06219.jpg';
-import image3 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06206.jpg';
-import image4 from '../assets/gallery-assets/250428 Villa Orea/2. RESIZE/DSC06045.jpg';
 
 const About = ({ openModal }) => {
   const { currentLanguage } = useLanguage();
@@ -19,10 +15,10 @@ const About = ({ openModal }) => {
 
   // Images pour les encadrés avec leurs détails
   const placeholders = [
-    { id: 1, image: image1 },
-    { id: 2, image: image2 },
-    { id: 3, image: image3 },
-    { id: 4, image: image4 }
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 }
   ];
 
   return (
@@ -43,13 +39,8 @@ const About = ({ openModal }) => {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <img 
-                src={item.image} 
-                alt={t.about.images[item.id]} 
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-deep-black bg-opacity-40 hover:bg-opacity-30 transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald/20 to-pale-gold/20"></div>
+              <div className="absolute inset-0 bg-deep-black bg-opacity-30 hover:bg-opacity-20 transition-all duration-300"></div>
               <div className="absolute inset-0 flex items-end justify-start p-4">
                 <p className="text-pure-white font-inter font-medium text-sm">
                   {t.about.images[item.id]}

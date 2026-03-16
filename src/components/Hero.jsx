@@ -2,7 +2,6 @@ import { useState, useEffect, forwardRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
-import logoSimple from '../assets/logo/icononly_transparent_nobuffer.png';
 
 const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, ref) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -10,6 +9,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
   const { scrollY } = useScroll();
   const { currentLanguage } = useLanguage();
   const t = translations[currentLanguage];
+  const matterportModelId = import.meta.env.VITE_MATTERPORT_MODEL_ID || 'MODEL_ID';
   
   // Effet parallax
   const yBg = useTransform(scrollY, [0, 500], [0, 150]);
@@ -63,7 +63,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
               className="font-lora text-sm flex items-center py-1 px-2 focus:outline-none hover:text-emerald transition-colors duration-300"
               aria-label={t.hero.tour3d}
             >
-              <img src={logoSimple} alt="Logo Villa Orea" className="h-5 w-5 object-contain mr-1" style={{minWidth: 20}} />
+              <span className="mr-1">3D</span>
               <span className="border-b border-pale-gold pb-0.5">{t.hero.tour3d}</span>
             </button>
           </motion.div>
@@ -101,7 +101,7 @@ const Hero = forwardRef(({ openModal, is3DInteractive, onInteractiveChange }, re
             
             <div className={`matterport-iframe ${is3DInteractive ? 'interactive' : ''}`} style={{ width: '100%', height: '100%', position: 'absolute' }}>
               <iframe
-                src="https://my.matterport.com/show/?m=MODEL_ID&play=1&qs=1&mls=1&help=0&ts=0&hr=0&brand=0&search=0&info=0&vr=0&tour=0"
+                src={`https://my.matterport.com/show/?m=${matterportModelId}&play=1&qs=1&mls=1&help=0&ts=0&hr=0&brand=0&search=0&info=0&vr=0&tour=0`}
                 className="w-full h-full transition-opacity duration-700"
                 style={{ 
                   opacity: isLoading ? 0 : 1,

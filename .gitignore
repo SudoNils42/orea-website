@@ -30,13 +30,12 @@ yarn-error.log*
 *.swo 
 
 # Médias privés (ne pas publier)
-gallery-assets/
-src/assets/gallery-assets/
+*Villa Orea-*/
 public/assets/villa-preview.jpg
 src/assets/
 
 # Déploiement privé
-upload-private.sh
+upload-*.sh
 
 # Outils internes non essentiels
 check-images.js
