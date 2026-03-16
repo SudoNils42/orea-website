@@ -28,3 +28,22 @@ yarn-error.log*
 .vscode/
 *.swp
 *.swo 
+
+# Médias privés (ne pas publier)
+gallery-assets/
+src/assets/gallery-assets/
+public/assets/villa-preview.jpg
+src/assets/
+
+# Déploiement privé
+upload-private.sh
+
+# Outils internes non essentiels
+check-images.js
+check-quality.html
+compress-quick.js
+optimize-images.js
+scripts/optimize-images.js
+
+# Logs génériques
+*.log
