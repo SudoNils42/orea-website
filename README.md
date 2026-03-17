@@ -1,82 +1,26 @@
-# Villa Luxe Bali - Site Web Vitrine
+<img width="640" height="120" alt="image" src="https://github.com/user-attachments/assets/8150d87f-1956-401a-8807-82e99287d9af" />
 
-Un site web élégant et minimaliste pour présenter une villa de luxe à Bali, avec une visite virtuelle 3D Matterport intégrée comme élément central.
+> Logo and visual identity made by myself 
 
-## Caractéristiques
+A clean and immersive showcase website for a luxury villa rental in Bali.
 
-- Design inspiré du style Apple, épuré et sophistiqué
-- Parfaitement responsive (mobile, tablette, desktop)
-- Visite virtuelle 3D Matterport intégrée (iframe)
-- Mode sombre/clair automatique
-- Animations fluides et micro-interactions
-- Optimisé pour les performances et l'accessibilité
-- SEO-friendly avec Schema.org et Open Graph
+**Live at:** https://www.villaoreabali.com
 
-## Technologies utilisées
+My site includes:
+- 3D virtual tour
+- Gallery, amenities, FAQ, pricing, reviews and contact sections
+- direct booking links
 
-- React.js avec Vite
-- Tailwind CSS via CDN
-- Framer Motion pour les animations
-- AOS (Animate On Scroll) pour les effets de défilement
-- Google Fonts (Inter et Lora)
-- Heroicons pour les icônes
+Experience:
+- designed for mobile, tablet and desktop
+- smooth and simple navigation
+- clear content focused on conversion
 
-## Structure du projet
+Available languages:
+- English, French, Spanish, Chinese, Indonesian, German, Russian, Arabic
 
-```
-/
-├── index.html           # Point d'entrée HTML
-├── src/
-│   ├── assets/          # Images et ressources statiques
-│   ├── components/      # Composants React réutilisables
-│   │   ├── Header.jsx   # En-tête avec navigation
-│   │   ├── Hero.jsx     # Section principale avec Matterport
-│   │   ├── About.jsx    # Section À propos
-│   │   ├── Amenities.jsx # Section Commodités
-│   │   ├── Pricing.jsx  # Section Tarifs et réservation
-│   │   ├── FAQ.jsx      # Section Questions fréquentes
-│   │   ├── Gallery.jsx  # Galerie d'images
-│   │   ├── Testimonials.jsx # Témoignages
-│   │   ├── Contact.jsx  # Formulaire de contact
-│   │   ├── Footer.jsx   # Pied de page
-│   │   └── MatterportModal.jsx # Modale pour la visite 3D
-│   ├── styles/          # Styles CSS
-│   │   └── index.css    # Styles principaux et utilitaires
-│   ├── App.jsx          # Composant racine
-│   └── main.jsx         # Point d'entrée JavaScript
-└── README.md            # Documentation du projet
-```
 
-## Installation et utilisation
 
-1. Clonez ce dépôt
-2. Ouvrez le projet dans votre éditeur de code
-3. Pour un développement local, vous pouvez utiliser une extension comme Live Server (VSCode) pour servir les fichiers
-
-Alternativement, si vous souhaitez l'intégrer à un projet Vite complet :
-
-```bash
-# Installer les dépendances
-npm install
-# ou
-yarn
-
-# Démarrer le serveur de développement
-npm run dev
-# ou
-yarn dev
-```
-
-## Personnalisation
-
-- La palette de couleurs peut être modifiée dans la configuration Tailwind (dans `index.html`)
-- Les textes peuvent être modifiés directement dans les composants React
-- L'URL de la visite Matterport est configurable dans les composants `Hero.jsx` et `MatterportModal.jsx`
-
-## Licence
-
-Ce projet est disponible sous licence MIT.
-
----
-
-Projet créé avec ❤️ pour présenter des villas de luxe de manière élégante et immersive. 
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
