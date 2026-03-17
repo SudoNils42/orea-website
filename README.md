@@ -4,7 +4,7 @@
 
 A clean and immersive showcase website for a luxury villa rental in Bali.
 
-**Live at:** https://www.villaoreabali.com
+**Live at:** https://villaoreabali.com
 
 My site includes:
 - 3D virtual tour
