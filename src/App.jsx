@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
 import About from './components/About';
 import Amenities from './components/Amenities';
+import VirtualTour from './components/VirtualTour';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Gallery from './components/Gallery';
@@ -17,17 +17,26 @@ const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [is3DInteractive, setIs3DInteractive] = useState(false);
-  const heroRef = useRef(null);
-  
-  // Gestionnaire de scroll
-  const handleScroll = () => {
-    setScrollY(window.scrollY);
+  const tourRef = useRef(null);
+  const scheduledScrollUpdate = useRef(false);
+
+  const updateHeaderScroll = () => {
+    const nextScrollY = window.scrollY > 50 ? 100 : 0;
+    setScrollY((currentScrollY) => currentScrollY === nextScrollY ? currentScrollY : nextScrollY);
+    scheduledScrollUpdate.current = false;
   };
 
-  // Gestionnaire de clic en dehors
+  const handleScroll = () => {
+    if (scheduledScrollUpdate.current) {
+      return;
+    }
+
+    scheduledScrollUpdate.current = true;
+    window.requestAnimationFrame(updateHeaderScroll);
+  };
+
   const handleClickOutside = (event) => {
-    // Si un clic est fait en dehors de la section Hero, on désactive le mode interactif
-    if (heroRef.current && !heroRef.current.contains(event.target)) {
+    if (tourRef.current && !tourRef.current.contains(event.target)) {
       setIs3DInteractive(false);
     }
   };
@@ -44,19 +53,15 @@ const App = () => {
 
   const openModal = () => {
     setModalOpen(true);
-    // Désactiver le scroll du body
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setModalOpen(false);
-    // Réactiver le scroll du body
     document.body.style.overflow = 'auto';
   };
 
-  // Gestionnaire pour le changement de mode plein écran
   const handleFullscreenChange = () => {
-    // Si on sort du mode plein écran, on ferme la modal
     if (!document.fullscreenElement) {
       closeModal();
     }
@@ -70,7 +75,6 @@ const App = () => {
     };
   }, []);
 
-  // Gestionnaire pour le changement de mode interactif
   const handle3DInteractiveChange = (value) => {
     setIs3DInteractive(value);
   };
@@ -81,15 +85,15 @@ const App = () => {
         <Header scrollY={scrollY} openModal={openModal} />
         
         <main className="flex-grow">
-          <Hero 
-            ref={heroRef}
-            openModal={openModal} 
-            is3DInteractive={is3DInteractive} 
-            onInteractiveChange={handle3DInteractiveChange}
-          />
           <About />
           <Amenities />
           <Gallery />
+          <VirtualTour
+            ref={tourRef}
+            openModal={openModal}
+            is3DInteractive={is3DInteractive}
+            onInteractiveChange={handle3DInteractiveChange}
+          />
           <FAQ />
           <Testimonials />
           <Pricing />

@@ -3,55 +3,33 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
 
+const customerKeyPattern = /^customer\d+$/;
+
+const getCustomerNumber = (key) => Number(key.replace('customer', ''));
+
+const getTestimonials = (content) => Object.entries(content)
+  .filter(([key]) => customerKeyPattern.test(key))
+  .sort(([leftKey], [rightKey]) => getCustomerNumber(leftKey) - getCustomerNumber(rightKey))
+  .map(([key, testimonial]) => ({
+    id: getCustomerNumber(key),
+    name: testimonial.name,
+    location: testimonial.location,
+    text: testimonial.text
+  }));
+
 const Testimonials = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const { currentLanguage } = useLanguage();
-  
-  // Récupération des traductions en fonction de la langue actuelle
-  const t = translations[currentLanguage].testimonials || translations.fr.testimonials;
 
-  // Utiliser les témoignages des traductions
-  const testimonials = [
-    {
-      id: 1,
-      name: t.customer1.name,
-      location: t.customer1.location,
-      text: t.customer1.text
-    },
-    {
-      id: 2,
-      name: t.customer2.name,
-      location: t.customer2.location,
-      text: t.customer2.text
-    },
-    {
-      id: 3,
-      name: t.customer3.name,
-      location: t.customer3.location,
-      text: t.customer3.text
-    },
-    {
-      id: 4,
-      name: t.customer4.name,
-      location: t.customer4.location,
-      text: t.customer4.text
-    },
-    {
-      id: 5,
-      name: t.customer5.name,
-      location: t.customer5.location,
-      text: t.customer5.text
-    }
-  ];
+  const t = translations[currentLanguage].testimonials || translations.fr.testimonials;
+  const testimonials = getTestimonials(t);
 
   useEffect(() => {
-    // Initialiser AOS si nécessaire
     if (typeof AOS !== 'undefined') {
       AOS.refresh();
     }
 
-    // Rotation automatique des témoignages
     const interval = setInterval(() => {
       nextTestimonial();
     }, 5000);
@@ -71,7 +49,7 @@ const Testimonials = () => {
 
   const variants = {
     enter: (direction) => ({
-      x: direction > 0 ? 300 : -300,
+      x: direction > 0 ? 120 : -120,
       opacity: 0
     }),
     center: {
@@ -79,17 +57,17 @@ const Testimonials = () => {
       opacity: 1
     },
     exit: (direction) => ({
-      x: direction < 0 ? 300 : -300,
+      x: direction < 0 ? 120 : -120,
       opacity: 0
     })
   };
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-gray-50 text-deep-black">
+    <section id="testimonials" className="py-10 md:py-14 bg-gray-50 text-deep-black">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12" data-aos="fade-up">
+        <div className="text-center mb-5 md:mb-7" data-aos="fade-up">
           <h2 className="mb-4 text-deep-black">{t.title}</h2>
-          <p className="font-lora text-lg max-w-2xl mx-auto mb-6 text-gray-700">
+          <p className="font-lora text-lg max-w-2xl mx-auto text-gray-700">
             {t.intro}
           </p>
         </div>
@@ -118,8 +96,8 @@ const Testimonials = () => {
           </div>
 
           {/* Carrousel de témoignages */}
-          <div className="overflow-hidden relative flex items-center" style={{ minHeight: '550px' }}>
-            <AnimatePresence initial={false} custom={direction}>
+          <div className="overflow-hidden relative">
+            <AnimatePresence initial={false} mode="wait" custom={direction}>
               <motion.div
                 key={current}
                 custom={direction}
@@ -128,11 +106,10 @@ const Testimonials = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 }
+                  x: { type: 'tween', duration: 0.14, ease: 'easeOut' },
+                  opacity: { duration: 0.1 }
                 }}
-                className="absolute w-full flex items-center justify-center"
-                style={{ minHeight: '550px' }}
+                className="w-full flex items-center justify-center"
               >
                 <div className="bg-white shadow-lg border border-gray-200 p-5 md:p-10 rounded-lg text-center w-full">
                     <div className="mb-3 md:mb-6">
@@ -153,7 +130,7 @@ const Testimonials = () => {
           </div>
 
           {/* Indicateurs + flèches (mobile, alignés sur la même ligne) */}
-          <div className="md:hidden flex items-center justify-center mt-0 space-x-12">
+          <div className="md:hidden flex items-center justify-center mt-4 space-x-12">
             <button
               onClick={prevTestimonial}
               className="bg-emerald bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 text-emerald transition-colors duration-300"
@@ -191,7 +168,7 @@ const Testimonials = () => {
           </div>
 
           {/* Indicateurs (desktop) */}
-          <div className="hidden md:flex justify-center mt-8 space-x-3">
+          <div className="hidden md:flex justify-center mt-5 space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}

@@ -2,15 +2,13 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
-
-const VILLA_IMAGES = Array.from({ length: 22 }, (_, i) => ({ id: i + 1 }));
+import galleryImages from '../config/galleryImages';
 
 const Gallery = () => {
-  const [images] = useState(VILLA_IMAGES);
+  const [images] = useState(galleryImages);
   const [visibleImages, setVisibleImages] = useState(8);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -80,14 +78,12 @@ const Gallery = () => {
 
   const goToPrevious = () => {
     const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-    setDirection(-1);
     setCurrentIndex(newIndex);
     setLoadedImages(prev => new Set([...prev, newIndex, newIndex - 1]));
   };
 
   const goToNext = () => {
     const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-    setDirection(1);
     setCurrentIndex(newIndex);
     setLoadedImages(prev => new Set([...prev, newIndex, newIndex + 1]));
   };
@@ -129,32 +125,16 @@ const Gallery = () => {
     setLoadedImages(prev => new Set([...prev, ...newIndices]));
     };
 
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? '100%' : '-100%',
-      opacity: 0
-    }),
-    center: {
-      x: 0,
-      opacity: 1
-    },
-    exit: (direction) => ({
-      x: direction > 0 ? '-100%' : '100%',
-      opacity: 0
-    })
-  };
-
   return (
-    <section id="gallery" className="py-16 md:py-24 bg-pure-white dark:bg-deep-black" ref={galleryRef}>
+    <section id="gallery" className="py-10 md:py-14 bg-pure-white dark:bg-deep-black" ref={galleryRef}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12" data-aos="fade-up">
+        <div className="text-center mb-8 md:mb-10" data-aos="fade-up">
           <h2 className="mb-4">{t.gallery.title}</h2>
           <p className="font-lora text-lg max-w-2xl mx-auto">
             {t.gallery.description}
           </p>
         </div>
 
-        {/* Grille d'images pour desktop */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {displayedImages.map((image, index) => (
             <div
@@ -171,19 +151,21 @@ const Gallery = () => {
               }}
             >
               {loadedImages.has(index) ? (
-                <div className="w-full h-full bg-gradient-to-br from-emerald/25 to-pale-gold/25"></div>
+                <img 
+                  src={image.thumbnailSrc || image.src}
+                  alt={t.gallery.images[image.id]}
+                  className="w-full h-full object-cover"
+                  loading={index > 3 ? 'lazy' : 'eager'}
+                  decoding="async"
+                />
               ) : (
                 <div className="w-full h-full bg-gray-200 animate-pulse"></div>
               )}
               <div className="absolute inset-0 bg-deep-black bg-opacity-20 hover:bg-opacity-10 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-deep-black/80 to-transparent">
-                <p className="text-pure-white text-sm">{t.gallery.images[image.id]}</p>
-              </div>
             </div>
           ))}
         </div>
 
-        {/* Slider pour mobile */}
         <div className="md:hidden">
           <div className="overflow-x-auto flex space-x-3 pb-6 pt-1 px-2 snap-x snap-mandatory">
             {images.map((image, index) => (
@@ -193,18 +175,20 @@ const Gallery = () => {
                 onClick={() => openModal(index)}
               >
                 <div className="relative w-full h-full">
-                  <div className="w-full h-full bg-gradient-to-br from-emerald/25 to-pale-gold/25"></div>
+                  <img 
+                    src={image.thumbnailSrc || image.src}
+                    alt={t.gallery.images[image.id]}
+                    className="w-full h-full object-cover"
+                    loading={index > 1 ? 'lazy' : 'eager'}
+                    decoding="async"
+                  />
                   <div className="absolute inset-0 bg-deep-black bg-opacity-20"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-deep-black/80 to-transparent">
-                    <p className="text-pure-white text-xs">{t.gallery.images[image.id]}</p>
-                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Bouton "Voir plus" - seulement pour desktop */}
         {visibleImages < images.length && (
           <div className="hidden md:block text-center mt-8" data-aos="fade-up">
             <button
@@ -267,18 +251,14 @@ const Gallery = () => {
             )}
 
             <div className="relative w-full max-w-6xl max-h-[90vh] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
-              <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={currentIndex}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.3 }}
-                  className="w-[90vw] max-w-6xl h-[70vh] rounded-lg shadow-2xl bg-gradient-to-br from-emerald/25 to-pale-gold/25"
-                />
-              </AnimatePresence>
+              <img
+                src={images[currentIndex].src}
+                alt={t.gallery.images[images[currentIndex].id]}
+                key={currentIndex}
+                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                loading="eager"
+                decoding="async"
+              />
               
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-deep-black bg-opacity-70 px-4 py-2 rounded-full">
                 <p className="text-pure-white text-sm font-inter">

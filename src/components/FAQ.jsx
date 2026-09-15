@@ -29,10 +29,10 @@ const FAQ = () => {
   }, []);
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-gradient-to-b from-pure-white to-gray-50 dark:from-deep-black dark:to-gray-900">
+    <section id="faq" className="py-10 md:py-14 bg-gradient-to-b from-pure-white to-gray-50 dark:from-deep-black dark:to-gray-900">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12" data-aos="fade-up">
+          <div className="text-center mb-8 md:mb-10" data-aos="fade-up">
             <h2 className="mb-4">{t.title}</h2>
             <p className="font-lora text-lg max-w-2xl mx-auto mb-8">
               {t.intro}
@@ -111,7 +111,7 @@ const FAQ = () => {
             )}
           </div>
 
-          <div className="text-center mt-12" data-aos="fade-up">
+          <div className="text-center mt-8 md:mt-10" data-aos="fade-up">
             <p className="font-lora text-lg mb-4">
               {t.contactText}
             </p>

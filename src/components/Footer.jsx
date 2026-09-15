@@ -1,6 +1,6 @@
-import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../locales/translations';
+import { bookingPlatforms, socialLinks, villaIcon } from '../config/site';
 
 const Footer = ({ openModal }) => {
   const { currentLanguage } = useLanguage();
@@ -35,21 +35,17 @@ const Footer = ({ openModal }) => {
           <div className="md:text-center">
             <h3 className="font-lora text-base text-gray-600 mb-2">{t.footer.bookOn || "Réservez sur"}</h3>
             <div className="flex flex-wrap gap-2 md:justify-center">
-              <a href="https://fr.airbnb.ch/rooms/1429323064798460748" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="text-xs font-medium">Airbnb</span>
-              </a>
-              <a href="https://www.booking.com/hotel/id/villa-orea-by-balisuperhost.fr.html" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="text-xs font-medium">Booking</span>
-              </a>
-              <a href="https://us.trip.com/hotels/cityname-hotel-detail-128944828/hotelname/" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="text-xs font-medium">Trip.com</span>
-              </a>
-              <a href="https://homes-and-villas.marriott.com/en/properties/40527181-seminyak-brand-new-villa-br-with-private-pool-in-seminyak" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="text-xs font-medium">Marriott</span>
-              </a>
-              <a href="https://balisuperhost.guestybookings.com/en/properties/6833ee6140f34500124c6011" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="text-xs font-medium">BaliSuperHost</span>
-              </a>
+              {bookingPlatforms.map((platform) => (
+                <a 
+                  key={platform.name}
+                  href={platform.footerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <img src={platform.logo} alt={platform.footerAlt} className="h-4" />
+                </a>
+              ))}
             </div>
               </div>
 
@@ -57,12 +53,17 @@ const Footer = ({ openModal }) => {
           <div className="md:text-right">
             <h3 className="font-lora text-base text-gray-600 mb-2">{t.footer.followUs || "Suivez-nous"}</h3>
             <div className="flex flex-wrap gap-2 md:justify-end">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="text-xs font-medium">Instagram</span>
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="text-xs font-medium">Facebook</span>
-              </a>
+              {socialLinks.map((link) => (
+                <a 
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white p-1 rounded-md shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <img src={link.logo} alt={link.name} className="h-4" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -70,7 +71,7 @@ const Footer = ({ openModal }) => {
         {/* Barre de séparation et copyright */}
         <div className="border-t border-gray-300 pt-4 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-500 text-sm mb-4 md:mb-0 flex items-center">
-            <span className="mr-2">VO</span>
+            <img src={villaIcon} alt="Villa Orea Icon" className="h-5 mr-2" />
             &copy; 2025{currentYear > 2025 ? `–${currentYear}` : ''} Villa Orea. {t.footer.rights}.
           </div>
           <div className="text-gray-500 text-xs">

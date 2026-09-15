@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { matterportModelId } from '../config/site';
 
 const MatterportModal = ({ isOpen, onClose, defaultFullscreen = true, onFullscreenChange }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(defaultFullscreen);
-  const matterportModelId = import.meta.env.VITE_MATTERPORT_MODEL_ID || 'MODEL_ID';
 
   useEffect(() => {
     const timer = setTimeout(() => {

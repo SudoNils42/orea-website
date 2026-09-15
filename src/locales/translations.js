@@ -9,7 +9,7 @@ const translations = {
       gallery: "Galerie",
       faq: "FAQ",
       testimonials: "Avis",
-      pricing: "Tarifs",
+      pricing: "Réservation",
       contact: "Contact",
       tour3d: "Immersion Totale"
     },
@@ -119,7 +119,7 @@ const translations = {
     },
     // Tarifs
     pricing: {
-      title: "Tarifs et Réservation",
+      title: "Réservation",
       intro: "Découvrez notre villa de luxe à Seminyak, offrant un mélange parfait de confort moderne et d'ambiance tropicale, avec un excellent rapport qualité-prix pour votre séjour à Bali.",
       priceFrom: "À partir de 350€/nuit",
       bookOnline: "Réservez en ligne",
@@ -210,6 +210,26 @@ const translations = {
         name: "Khalid",
         location: "★★★★★ Août 2025",
         text: "Le logement est confortable et agréable"
+      },
+      customer6: {
+        name: "Islam",
+        location: "★★★★★ Juin 2026 - Soudan",
+        text: "Exceptionnel : c'est très propre, moderne et confortable. Identique aux photos. Très sûr et sécurisé. Les lits sont moelleux et confortables, chaque chambre dispose d'une télévision et la piscine est superbe. Honnêtement, il n'y a rien de négatif à dire, sauf que c'est un peu loin du centre-ville, mais l'avantage est que c'est très calme."
+      },
+      customer7: {
+        name: "Jeniffer",
+        location: "★★★★★ Avril 2026 - États-Unis",
+        text: "Sérénité : sérénité et beau design..."
+      },
+      customer8: {
+        name: "Jafar",
+        location: "★★★★★ Mai 2026 - Arabie Saoudite",
+        text: "Exceptionnel : la villa est très propre et confortable ; je recommande d'y séjourner"
+      },
+      customer9: {
+        name: "Rushan",
+        location: "★★★★★ Juin 2026",
+        text: "Belle villa située dans un quartier calme, ce qui est agréable. Elle est un peu en dehors de Seminyak, mais il est relativement facile de s'y rendre. Dans l'ensemble, une villa vraiment incroyable, absolument magnifique, les salles de bains sont incroyables, les chambres sont si belles et la sécurité est vraiment solide avec des serrures électroniques. L'hôte Yogi était si gentil et si serviable, ce fut vraiment un plaisir de le rencontrer."
       }
     },
     // Galerie
@@ -268,7 +288,7 @@ const translations = {
       gallery: "Gallery",
       faq: "FAQ",
       testimonials: "Reviews",
-      pricing: "Pricing",
+      pricing: "Booking",
       contact: "Contact",
       tour3d: "Full Immersion"
     },
@@ -378,7 +398,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      title: "Pricing and Booking",
+      title: "Booking",
       intro: "Discover our luxury villa in Seminyak, offering the perfect blend of modern comfort and tropical ambiance, with excellent value for your Bali stay.",
       priceFrom: "From €350/night",
       bookOnline: "Book Online",
@@ -473,6 +493,26 @@ const translations = {
         name: "Khalid",
         location: "★★★★★ August 2025",
         text: "The accommodation is comfortable and pleasant"
+      },
+      customer6: {
+        name: "Islam",
+        location: "★★★★★ June 2026 - Sudan",
+        text: "Exceptional: It's very clean, modern, and comfortable. Same as the pictures. Very safe and secure. The beds are soft and comfortable, each room has a TV, and the pool is great. Honestly, there is nothing negative to say except that it is a little far from the city center, but the advantage is that it is very quiet."
+      },
+      customer7: {
+        name: "Jeniffer",
+        location: "★★★★★ April 2026 - United States",
+        text: "Serenity: Serenity and beautiful design..."
+      },
+      customer8: {
+        name: "Jafar",
+        location: "★★★★★ May 2026 - Saudi Arabia",
+        text: "Exceptional: The villa is very clean and comfortable; I recommend staying there"
+      },
+      customer9: {
+        name: "Rushan",
+        location: "★★★★★ June 2026",
+        text: "Beautiful villa located in a quiet area, which is nice. It is a little outside Seminyak, but it is relatively easy to get there. Overall, a truly incredible villa, absolutely stunning, the bathrooms are amazing, the rooms are so beautiful, and security is really solid with electronic locks. The host Yogi was so kind and helpful; it was truly a pleasure to meet him."
       }
     },
     // Gallery
@@ -531,7 +571,7 @@ const translations = {
       gallery: "画廊",
       faq: "常见问题",
       testimonials: "评价",
-      pricing: "价格",
+      pricing: "预订",
       contact: "联系",
       tour3d: "完全沉浸"
     },
@@ -600,7 +640,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      title: "价格与预订",
+      title: "预订",
       intro: "探索我们在苍古的豪华别墅，提供现代舒适与热带氛围的完美融合，为您在巴厘岛的住宿带来极高的性价比。",
       priceFrom: "起价€350/晚",
       bookOnline: "在线预订",
@@ -737,6 +777,26 @@ const translations = {
         name: "Khalid",
         location: "★★★★★ 2025年8月",
         text: "住宿舒适愉快"
+      },
+      customer6: {
+        name: "Islam",
+        location: "★★★★★ 2026年6月 - 苏丹",
+        text: "非常出色：这里非常干净、现代且舒适，和照片一样。非常安全可靠。床柔软舒适，每个房间都有电视，泳池也很棒。老实说，除了离市中心有点远之外，没有什么负面的地方，但优点是这里非常安静。"
+      },
+      customer7: {
+        name: "Jeniffer",
+        location: "★★★★★ 2026年4月 - 美国",
+        text: "宁静：宁静且设计精美..."
+      },
+      customer8: {
+        name: "Jafar",
+        location: "★★★★★ 2026年5月 - 沙特阿拉伯",
+        text: "非常出色：这栋别墅非常干净舒适；我推荐入住这里"
+      },
+      customer9: {
+        name: "Rushan",
+        location: "★★★★★ 2026年6月",
+        text: "这是一栋漂亮的别墅，位于安静的街区，这点很让人舒服。它离水明漾稍微有点远，但前往那里相对容易。总体来说，这栋别墅真的令人惊艳，绝对漂亮，浴室很棒，房间非常美，配有电子门锁，安全性也非常可靠。房东 Yogi 非常友善、乐于助人，见到他真的很愉快。"
       }
     },
     // Gallery
@@ -795,7 +855,7 @@ const translations = {
       gallery: "Galería",
       faq: "Preguntas frecuentes",
       testimonials: "Opiniones",
-      pricing: "Precios",
+      pricing: "Reservas",
       contact: "Contacto",
       tour3d: "Tour 3D"
     },
@@ -864,7 +924,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      title: "Precios y Reservas",
+      title: "Reservas",
       intro: "Descubra nuestra lujosa villa en Seminyak, que ofrece la perfecta combinación de confort moderno y ambiente tropical, con excelente valor para su estancia en Bali.",
       priceFrom: "Desde €350/noche",
       bookOnline: "Reservar en línea",
@@ -1001,6 +1061,26 @@ const translations = {
         name: "Khalid",
         location: "★★★★★ Agosto 2025",
         text: "El alojamiento es cómodo y agradable"
+      },
+      customer6: {
+        name: "Islam",
+        location: "★★★★★ Junio 2026 - Sudán",
+        text: "Excepcional: es muy limpio, moderno y cómodo. Igual que en las fotos. Muy seguro. Las camas son suaves y cómodas, cada habitación tiene televisión y la piscina es excelente. Honestamente, no hay nada negativo que decir, excepto que está un poco lejos del centro de la ciudad, pero la ventaja es que es muy tranquilo."
+      },
+      customer7: {
+        name: "Jeniffer",
+        location: "★★★★★ Abril 2026 - Estados Unidos",
+        text: "Serenidad: serenidad y hermoso diseño..."
+      },
+      customer8: {
+        name: "Jafar",
+        location: "★★★★★ Mayo 2026 - Arabia Saudita",
+        text: "Excepcional: la villa es muy limpia y cómoda; recomiendo alojarse allí"
+      },
+      customer9: {
+        name: "Rushan",
+        location: "★★★★★ Junio 2026",
+        text: "Hermosa villa ubicada en una zona tranquila, lo cual es agradable. Está un poco fuera de Seminyak, pero es relativamente fácil llegar. En general, una villa realmente increíble, absolutamente preciosa, los baños son increíbles, las habitaciones son muy bonitas y la seguridad es realmente sólida con cerraduras electrónicas. El anfitrión Yogi fue muy amable y servicial; fue un verdadero placer conocerlo."
       }
     },
     // Gallery
@@ -1059,7 +1139,7 @@ const translations = {
       gallery: "Galeri",
       faq: "FAQ",
       testimonials: "Ulasan",
-      pricing: "Harga",
+      pricing: "Pemesanan",
       contact: "Kontak",
       tour3d: "Tur 3D"
     },
@@ -1128,7 +1208,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      title: "Harga dan Pemesanan",
+      title: "Pemesanan",
       intro: "Temukan villa mewah kami di Seminyak, yang menawarkan perpaduan sempurna antara kenyamanan modern dan suasana tropis, dengan nilai luar biasa untuk pengalaman Anda di Bali.",
       priceFrom: "Mulai dari €350/malam",
       bookOnline: "Online Booking",
@@ -1265,6 +1345,26 @@ const translations = {
         name: "Khalid",
         location: "★★★★★ Agustus 2025",
         text: "Akomodasinya nyaman dan menyenangkan"
+      },
+      customer6: {
+        name: "Islam",
+        location: "★★★★★ Juni 2026 - Sudan",
+        text: "Luar biasa: sangat bersih, modern, dan nyaman. Sama seperti di foto. Sangat aman dan terlindungi. Tempat tidurnya empuk dan nyaman, setiap kamar memiliki TV, dan kolam renangnya bagus. Sejujurnya, tidak ada hal negatif untuk dikatakan kecuali lokasinya sedikit jauh dari pusat kota, tetapi keuntungannya adalah tempat ini sangat tenang."
+      },
+      customer7: {
+        name: "Jeniffer",
+        location: "★★★★★ April 2026 - Amerika Serikat",
+        text: "Ketenangan: ketenangan dan desain yang indah..."
+      },
+      customer8: {
+        name: "Jafar",
+        location: "★★★★★ Mei 2026 - Arab Saudi",
+        text: "Luar biasa: villa ini sangat bersih dan nyaman; saya merekomendasikan untuk menginap di sini"
+      },
+      customer9: {
+        name: "Rushan",
+        location: "★★★★★ Juni 2026",
+        text: "Villa indah yang terletak di kawasan yang tenang, dan itu menyenangkan. Lokasinya sedikit di luar Seminyak, tetapi relatif mudah untuk menuju ke sana. Secara keseluruhan, villa yang benar-benar luar biasa, sangat indah, kamar mandinya luar biasa, kamar-kamarnya sangat cantik, dan keamanannya benar-benar kuat dengan kunci elektronik. Tuan rumah Yogi sangat baik dan sangat membantu; benar-benar menyenangkan bertemu dengannya."
       }
     },
     // Gallery
@@ -1323,7 +1423,7 @@ const translations = {
       gallery: "Galerie",
       faq: "FAQ",
       testimonials: "Bewertungen",
-      pricing: "Preise",
+      pricing: "Buchung",
       contact: "Kontakt",
       tour3d: "3D-Tour"
     },
@@ -1392,7 +1492,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      title: "Preise und Buchung",
+      title: "Buchung",
       intro: "Entdecken Sie unsere Luxusvilla in Seminyak, die die perfekte Mischung aus modernem Komfort und tropischem Ambiente bietet, mit ausgezeichnetem Preis-Leistungs-Verhältnis für Ihren Bali-Aufenthalt.",
       priceFrom: "Ab €350/Nacht",
       bookOnline: "Online Buchung",
@@ -1529,6 +1629,26 @@ const translations = {
         name: "Khalid",
         location: "★★★★★ August 2025",
         text: "Die Unterkunft ist komfortabel und angenehm"
+      },
+      customer6: {
+        name: "Islam",
+        location: "★★★★★ Juni 2026 - Sudan",
+        text: "Außergewöhnlich: Es ist sehr sauber, modern und komfortabel. Genau wie auf den Fotos. Sehr sicher und geschützt. Die Betten sind weich und bequem, jedes Zimmer hat einen Fernseher und der Pool ist großartig. Ehrlich gesagt gibt es nichts Negatives zu sagen, außer dass es etwas weit vom Stadtzentrum entfernt ist, aber der Vorteil ist, dass es sehr ruhig ist."
+      },
+      customer7: {
+        name: "Jeniffer",
+        location: "★★★★★ April 2026 - Vereinigte Staaten",
+        text: "Ruhe: Ruhe und schönes Design..."
+      },
+      customer8: {
+        name: "Jafar",
+        location: "★★★★★ Mai 2026 - Saudi-Arabien",
+        text: "Außergewöhnlich: Die Villa ist sehr sauber und komfortabel; ich empfehle, dort zu übernachten"
+      },
+      customer9: {
+        name: "Rushan",
+        location: "★★★★★ Juni 2026",
+        text: "Schöne Villa in einer ruhigen Gegend, was angenehm ist. Sie liegt etwas außerhalb von Seminyak, ist aber relativ leicht zu erreichen. Insgesamt eine wirklich unglaubliche Villa, absolut wunderschön, die Badezimmer sind großartig, die Zimmer sind so schön und die Sicherheit ist mit elektronischen Schlössern wirklich solide. Der Gastgeber Yogi war so freundlich und hilfsbereit; es war wirklich eine Freude, ihn kennenzulernen."
       }
     },
     // Gallery
@@ -1587,7 +1707,7 @@ const translations = {
       gallery: "Галерея",
       faq: "Вопросы",
       testimonials: "Отзывы",
-      pricing: "Цены",
+      pricing: "Бронирование",
       contact: "Контакты",
       tour3d: "3D-тур"
     },
@@ -1656,7 +1776,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      title: "Цены и бронирование",
+      title: "Бронирование",
       intro: "Откройте для себя нашу роскошную виллу в Семиньяке, предлагающую идеальное сочетание современного комфорта и тропической атмосферы, с отличным соотношением цены и качества для вашего пребывания на Бали.",
       priceFrom: "От €350/ночь",
       bookOnline: "Online Booking",
@@ -1793,6 +1913,26 @@ const translations = {
         name: "Khalid",
         location: "★★★★★ Август 2025",
         text: "Жилье комфортное и приятное"
+      },
+      customer6: {
+        name: "Islam",
+        location: "★★★★★ Июнь 2026 - Судан",
+        text: "Исключительно: здесь очень чисто, современно и комфортно. Всё как на фотографиях. Очень безопасно и надежно. Кровати мягкие и удобные, в каждой комнате есть телевизор, а бассейн отличный. Честно говоря, нечего сказать негативного, кроме того, что это немного далеко от центра города, но преимущество в том, что здесь очень тихо."
+      },
+      customer7: {
+        name: "Jeniffer",
+        location: "★★★★★ Апрель 2026 - США",
+        text: "Безмятежность: безмятежность и красивый дизайн..."
+      },
+      customer8: {
+        name: "Jafar",
+        location: "★★★★★ Май 2026 - Саудовская Аравия",
+        text: "Исключительно: вилла очень чистая и комфортная; рекомендую здесь остановиться"
+      },
+      customer9: {
+        name: "Rushan",
+        location: "★★★★★ Июнь 2026",
+        text: "Красивая вилла, расположенная в тихом районе, что очень приятно. Она находится немного за пределами Семиньяка, но добраться туда относительно легко. В целом это действительно потрясающая вилла, абсолютно великолепная, ванные комнаты невероятные, комнаты очень красивые, а безопасность действительно надежная благодаря электронным замкам. Хозяин Yogi был очень добрым и отзывчивым; было действительно приятно с ним познакомиться."
       }
     },
     // Gallery
@@ -1854,7 +1994,7 @@ const translations = {
       gallery: "المعرض",
       faq: "الأسئلة الشائعة",
       testimonials: "التقييمات",
-      pricing: "الأسعار",
+      pricing: "الحجز",
       contact: "اتصل",
       tour3d: "جولة ثلاثية الأبعاد"
     },
@@ -1964,7 +2104,7 @@ const translations = {
     },
     // Pricing
     pricing: {
-      title: "الأسعار والحجز",
+      title: "الحجز",
       intro: "اكتشف فيلتنا الفاخرة في سيمينياك، التي تقدم مزيجًا مثاليًا من الراحة الحديثة والأجواء الاستوائية، مع قيمة ممتازة لإقامتك في بالي.",
       priceFrom: "ابتداءً من 350 يورو/الليلة",
       bookOnline: "احجز عبر الإنترنت",
@@ -2062,6 +2202,26 @@ const translations = {
         name: "Khalid",
         location: "★★★★★ أغسطس 2025",
         text: "السكن مريح ولطيف"
+      },
+      customer6: {
+        name: "Islam",
+        location: "★★★★★ يونيو 2026 - السودان",
+        text: "استثنائي: المكان نظيف جدًا وحديث ومريح، تمامًا كما في الصور. آمن جدًا ومحمي. الأسرّة ناعمة ومريحة، وكل غرفة تحتوي على تلفزيون، والمسبح رائع. بصراحة، لا يوجد شيء سلبي يُذكر باستثناء أنه بعيد قليلاً عن وسط المدينة، لكن الميزة أنه هادئ جدًا."
+      },
+      customer7: {
+        name: "Jeniffer",
+        location: "★★★★★ أبريل 2026 - الولايات المتحدة",
+        text: "السكينة: سكينة وتصميم جميل..."
+      },
+      customer8: {
+        name: "Jafar",
+        location: "★★★★★ مايو 2026 - المملكة العربية السعودية",
+        text: "استثنائي: الفيلا نظيفة جدًا ومريحة؛ أوصي بالإقامة فيها"
+      },
+      customer9: {
+        name: "Rushan",
+        location: "★★★★★ يونيو 2026",
+        text: "فيلا جميلة تقع في حي هادئ، وهذا أمر لطيف. تقع خارج سيمينياك قليلًا، لكن الوصول إليها سهل نسبيًا. بشكل عام، إنها فيلا رائعة حقًا وجميلة للغاية، والحمامات مذهلة، والغرف جميلة جدًا، والأمان قوي جدًا بفضل الأقفال الإلكترونية. كان المضيف Yogi لطيفًا ومتعاونًا جدًا؛ وكان من دواعي السرور حقًا مقابلته."
       }
     },
     // Gallery

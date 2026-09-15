@@ -229,11 +229,10 @@ h3 {
   @apply bg-red-500 text-white;
 }
 
-/* Styles pour l'iframe 3D interactive */
 .matterport-iframe {
   position: relative;
-  transition: all 0.3s ease;
-  pointer-events: auto; /* Permettre l'interaction par défaut */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  pointer-events: auto;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 

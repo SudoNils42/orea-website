@@ -149,9 +149,9 @@ const Amenities = () => {
   ];
 
   return (
-    <section id="amenities" className="pt-16 pb-20 md:pt-20 md:pb-24 bg-white text-deep-black">
+    <section id="amenities" className="pt-10 pb-12 md:pt-12 md:pb-14 bg-white text-deep-black">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16" data-aos="fade-up">
+        <div className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-deep-black mb-4">{t.amenities.title}</h2>
           <p className="font-lora text-lg max-w-2xl mx-auto text-gray-700">
             {t.amenities.intro}
